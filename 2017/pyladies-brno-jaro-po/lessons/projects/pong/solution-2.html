@@ -1,0 +1,11 @@
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vykresli</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="c1"># prerusovana pulici cara - slozena ze spousty malych obdelnicku</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">DELKA_PULICI_CARKY</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">VYSKA</span><span class="p">,</span> <span class="n">DELKA_PULICI_CARKY</span> <span class="o">*</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">nakresli_obdelnik</span><span class="p">(</span>
+            <span class="n">SIRKA</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">,</span>
+            <span class="n">SIRKA</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">y</span> <span class="o">+</span> <span class="n">DELKA_PULICI_CARKY</span>
+        <span class="p">)</span>
+</pre></div>

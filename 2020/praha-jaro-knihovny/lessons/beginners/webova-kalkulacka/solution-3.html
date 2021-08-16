@@ -1,0 +1,28 @@
+<div class="highlight"><pre><span></span><span class="c1"># kalk.py</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+        <span class="n">vsechny_operace</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;plus&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">),</span>
+            <span class="s2">&quot;minus&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">),</span>
+            <span class="s2">&quot;krat&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;×&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">),</span>
+            <span class="s2">&quot;deleno&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;÷&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="n">prvni</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;prvni&quot;</span><span class="p">])</span>
+        <span class="n">druhe</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;druhe&quot;</span><span class="p">])</span>
+        <span class="n">operace</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;operace&quot;</span><span class="p">]</span>
+        <span class="n">op</span><span class="p">,</span> <span class="n">fce</span> <span class="o">=</span> <span class="n">vsechny_operace</span><span class="p">[</span><span class="n">operace</span><span class="p">]</span>
+        <span class="n">vysledek</span> <span class="o">=</span> <span class="n">fce</span><span class="p">(</span><span class="n">prvni</span><span class="p">,</span> <span class="n">druhe</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">vysledek</span><span class="p">)</span>
+</pre></div><div class="highlight"><pre><span></span># templates/vysledek.html
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Kalkulačka<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Kalkulačka<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="cp">{{</span> <span class="nv">prvni</span> <span class="cp">}}</span> <span class="cp">{{</span> <span class="nv">symbol</span> <span class="cp">}}</span> <span class="cp">{{</span> <span class="nv">druhe</span> <span class="cp">}}</span> = <span class="cp">{{</span> <span class="nv">vysledek</span> <span class="cp">}}</span>
+        <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>

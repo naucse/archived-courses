@@ -1,0 +1,10 @@
+<div class="highlight"><pre><span></span><span class="n">slovo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Slovo: &#39;</span><span class="p">)</span>
+<span class="n">pozice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Které písmeno zaměnit (od nuly)? &#39;</span><span class="p">))</span>
+<span class="n">novy_znak</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Nové písmeno: &#39;</span><span class="p">)</span>
+
+<span class="n">zacatek_slova</span> <span class="o">=</span> <span class="n">slovo</span><span class="p">[:</span><span class="n">pozice</span><span class="p">]</span>
+<span class="n">konec_slova</span> <span class="o">=</span> <span class="n">slovo</span><span class="p">[</span><span class="n">pozice</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">nove_slovo</span> <span class="o">=</span> <span class="n">zacatek_slova</span> <span class="o">+</span> <span class="n">novy_znak</span> <span class="o">+</span> <span class="n">konec_slova</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nove_slovo</span><span class="p">)</span>
+</pre></div>

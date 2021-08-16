@@ -1,0 +1,59 @@
+<h1>Import a náhoda</h1>
+<p>V Pythonu je spousta funkčnosti k dispozici přímo – funkce jako <code>print</code>, <code>len</code>
+nebo <code>int</code> můžeš rovnou použít.
+Ještě víc věcí je v Pythonu sice k dispozici, ale jen když si „o ně řekneš“.
+Jsou sdružené do <em>modulů</em> – souborů funkcí (a dalších věcí), které spolu nějak
+souvisí.</p>
+<p>Například když chceme pracovat s náhodnými hodnotami, můžeš využít modul
+<code>random</code>.
+Naimportuj z něj funkci <code>randrange</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+</pre></div><p>Jakmile to uděláš, funkce <code>randrange</code> ti bude k dispozici.
+Můžeš ji zavolat, a dostat tak náhodné číslo:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div><p>Argument funkce <code>randrange</code> udává, kolik možných výsledků může vrátit.
+Funkce pak vrací čísla od nuly, takže <code>randrange(6)</code> může vrátit od 0, 1, 2,
+3, 4 nebo 5. Šestku už ne.</p>
+<h2>Náhoda a seznamy</h2>
+<p>Naimportuj si ještě dvě funkce:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span><span class="p">,</span> <span class="n">shuffle</span>
+</pre></div><p>První z nich, <code>choice</code>, umí vybrat náhodný prvek ze seznamu:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">59</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">choice</span><span class="p">(</span><span class="n">loterie</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">choice</span><span class="p">(</span><span class="n">loterie</span><span class="p">)</span>
+<span class="go">30</span>
+</pre></div><p>Druhá, <code>shuffle</code>, umožní seznam náhodně zamíchat.
+Podobně jako metoda <code>sort</code>, <code>shuffle</code> nic nevrací – jen potichu změní pořadí:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">59</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shuffle</span><span class="p">(</span><span class="n">loterie</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span>
+<span class="go">[12, 59, 19, 42, 3, 30]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shuffle</span><span class="p">(</span><span class="n">loterie</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span>
+<span class="go">[59, 3, 30, 19, 12, 42]</span>
+</pre></div><h2>Shrnutí</h2>
+<p>Tohle byla docela krátká sekce – ale důležitá!</p>
+<ul>
+<li><strong>Import</strong> nám může zpřístupnit funkce z <strong>modulů</strong>,
+které nejsou k dispozici přímo v Pythonu.</li>
+<li>Modul <code>random</code> obsahuje funkce na výběr náhodných čísel nebo náhodných
+prvků ze seznamu.</li>
+</ul>

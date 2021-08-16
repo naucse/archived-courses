@@ -1,0 +1,206 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Feedback k domácím projektům</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Problém s proměnnými - lokální vs. globální, mutable vs. immutable</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyglet</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">sirka</span> <span class="o">=</span> <span class="mi">1280</span>
+<span class="n">vyska</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">rychlost_x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rychlost_y</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">window</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">sirka</span><span class="p">,</span> <span class="n">vyska</span><span class="p">)</span>
+
+<span class="n">obrazek</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;ball.png&quot;</span><span class="p">)</span>
+<span class="n">sprite</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">obrazek</span><span class="p">)</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
+<span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
+
+<span class="k">def</span> <span class="nf">tik</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">rychlost_x</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">rychlost_y</span>
+    <span class="k">if</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">width</span> <span class="o">&gt;</span> <span class="n">sirka</span> <span class="ow">or</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rychlost_x</span> <span class="o">=</span> <span class="o">-</span><span class="n">rychlost_x</span>
+    <span class="k">if</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">height</span> <span class="o">&gt;</span> <span class="n">vyska</span> <span class="ow">or</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rychlost_y</span> <span class="o">=</span> <span class="o">-</span><span class="n">rychlost_y</span>
+
+<span class="k">def</span> <span class="nf">klik</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tlacitko</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">rychlost_x</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">rychlost_y</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">vykresli</span><span class="p">():</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">schedule_interval</span><span class="p">(</span><span class="n">tik</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">push_handlers</span><span class="p">(</span><span class="n">on_draw</span><span class="o">=</span><span class="n">vykresli</span><span class="p">,</span> <span class="n">on_mouse_press</span><span class="o">=</span><span class="n">klik</span><span class="p">)</span>
+
+<span class="n">pyglet</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tento kód nefunguje, protože se uvnitř funkcí snažíme měnit obsah proměnných a zároveň přistupovat k jejich globálnímu stavu.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Řešení 1 - kouzelný příkaz <code>global</code></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tik</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">rychlost_x</span><span class="p">,</span> <span class="n">rychlost_y</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">rychlost_x</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">rychlost_y</span>
+    <span class="k">if</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">width</span> <span class="o">&gt;</span> <span class="n">sirka</span> <span class="ow">or</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rychlost_x</span> <span class="o">=</span> <span class="o">-</span><span class="n">rychlost_x</span>
+    <span class="k">if</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">height</span> <span class="o">&gt;</span> <span class="n">vyska</span> <span class="ow">or</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rychlost_y</span> <span class="o">=</span> <span class="o">-</span><span class="n">rychlost_y</span>
+
+<span class="k">def</span> <span class="nf">klik</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tlacitko</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">rychlost_x</span><span class="p">,</span> <span class="n">rychlost_y</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">rychlost_x</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">rychlost_y</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Řešení 2 - slovníky a seznamy</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rychlost</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">tik</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">width</span> <span class="o">&gt;</span> <span class="n">sirka</span> <span class="ow">or</span> <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">height</span> <span class="o">&gt;</span> <span class="n">vyska</span> <span class="ow">or</span> <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">klik</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tlacitko</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">rychlost</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Řešení 3 - třída a objekty</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyglet</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">sirka</span> <span class="o">=</span> <span class="mi">1280</span>
+<span class="n">vyska</span> <span class="o">=</span> <span class="mi">800</span>
+
+<span class="n">window</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="n">sirka</span><span class="p">,</span> <span class="n">vyska</span><span class="p">)</span>
+
+<span class="n">obrazek</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;ball.png&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Kulicka</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Sprite</span><span class="p">(</span><span class="n">obrazek</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rychlost_x</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rychlost_y</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">vykresli</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">tik</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rychlost_x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rychlost_y</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">width</span> <span class="o">&gt;</span> <span class="n">sirka</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rychlost_x</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">rychlost_x</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">obrazek</span><span class="o">.</span><span class="n">height</span> <span class="o">&gt;</span> <span class="n">vyska</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rychlost_y</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">rychlost_y</span>
+
+<span class="n">kulicky</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">tik</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">kulicka</span> <span class="ow">in</span> <span class="n">kulicky</span><span class="p">:</span>
+        <span class="n">kulicka</span><span class="o">.</span><span class="n">tik</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">klik</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tlacitko</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="n">kulicky</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Kulicka</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">vykresli</span><span class="p">():</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">kulicka</span> <span class="ow">in</span> <span class="n">kulicky</span><span class="p">:</span>
+        <span class="n">kulicka</span><span class="o">.</span><span class="n">vykresli</span><span class="p">()</span>
+
+<span class="n">pyglet</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">schedule_interval</span><span class="p">(</span><span class="n">tik</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">window</span><span class="o">.</span><span class="n">push_handlers</span><span class="p">(</span><span class="n">on_draw</span><span class="o">=</span><span class="n">vykresli</span><span class="p">,</span> <span class="n">on_mouse_press</span><span class="o">=</span><span class="n">klik</span><span class="p">)</span>
+
+<span class="n">pyglet</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+ 
+

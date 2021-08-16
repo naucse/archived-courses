@@ -1,0 +1,59 @@
+<h1>Webové API</h1>
+<p>Jak už bylo řečeno v <a href="naucse:page?lesson=intro/json">lekci o JSON</a>,
+hlavní výhoda formátu JSON je, že se na Internetu rozšířil nejvíc.
+Pojďme toho využít!</p>
+<p>Spousta webových služeb poskytuje takzvané
+<em>API</em> (z <em>application programming interface</em>,
+programátorské rozhraní), přes které je možné s danou
+službou komunikovat programově.
+Místo klikání na tlačítka a čtení stránek „očima”
+dostaneme data ve formátu, kterým rozumí počítače –
+a v dnešní době to bude většinou formát JSON.</p>
+<h2>Requests</h2>
+<p>K práci s internetovými stránkami použijeme knihovnu Requests.
+V aktivovaném virtuálním prostředí si ji nainstaluj příkazem:</p>
+<div class="highlight"><pre><span></span><span class="gp">(env)$ </span>python -m pip install requests
+</pre></div><p>A potom v Pythonu zkus stáhnout nějakou stránku:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># stažení stránky</span>
+<span class="n">stranka</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://cs.wikipedia.org&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># ověření, že dotaz proběhl v pořádku</span>
+<span class="n">stranka</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="c1"># vypsání obsahu</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stranka</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div><p>Měl by se vypsat obsah stránky
+<a href="https://cs.wikipedia.org">https://cs.wikipedia.org</a> –
+HTML kód, který se objeví když v prohlížeči dáš
+„Ukázat zdroj” (<em>View Page Source</em>, většinou <kbd>Ctrl</kbd>+<kbd>U</kbd>)
+a ze kterého prohlížeč umí vykreslit stránku.</p>
+<p>Ale my nechceme obsah pro lidi.
+Podívejme se, co Wikipedia zpřístupňuje počítačům.</p>
+<h2>Data pro strojové zpracování</h2>
+<p>Nyní si načteme stránku, která nám vrátí výsledek v JSON:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># klíčové slovo, podle kterého budeme vyhledávat</span>
+<span class="n">klic</span> <span class="o">=</span> <span class="s1">&#39;Vánoce&#39;</span>
+
+<span class="c1"># stažení stránky</span>
+<span class="n">stranka</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://cs.wikipedia.org/w/api.php?action=query&amp;prop=extracts&amp;explaintext&amp;exintro&amp;format=json&amp;titles={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">klic</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># ověření, že dotaz proběhl v pořádku</span>
+<span class="n">stranka</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="c1"># vypsání obsahu</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stranka</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div><p>Na náš dotaz Wikipedia vrátí základní informace o zadaném vyhledávacím klíči v JSONU.</p>
+<p>Zkus řetězec <code>stranka.text</code> převést z JSON na slovník
+a vypsat trochu srozumitelněji:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Převedeme do Pythoních struktur</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">stranka</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># vypíšeme s odsazením </span>
+<span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>

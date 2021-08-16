@@ -1,0 +1,11 @@
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zamen</span><span class="p">(</span><span class="n">retezec</span><span class="p">,</span> <span class="n">pozice</span><span class="p">,</span> <span class="n">znak</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Zamění znak na dané pozici</span>
+
+<span class="sd">    Vrátí řetězec, který má na dané pozici daný znak;</span>
+<span class="sd">    jinak je stejný jako vstupní retezec</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">zacatek</span> <span class="o">=</span> <span class="n">retezec</span><span class="p">[:</span><span class="n">pozice</span><span class="p">]</span>
+    <span class="n">konec</span> <span class="o">=</span> <span class="n">retezec</span><span class="p">[</span><span class="n">pozice</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">zacatek</span> <span class="o">+</span> <span class="n">znak</span> <span class="o">+</span> <span class="n">konec</span>
+</pre></div>

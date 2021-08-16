@@ -1,0 +1,101 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "15:00",
+   "start": "9:00"
+  },
+  "description": "Programov\u00e1n\u00ed mal\u00fdch desti\u010dek s pomoc\u00ed Pythonu",
+  "edit_info": {
+   "branch": "archive/2018-micropython-workshop-ostrava",
+   "url": "https://github.com/pyvec/naucse.python.cz/"
+  },
+  "etag": "a409f32e1e8ec44d83a89953e81ded951d4f87c7",
+  "lessons": {
+   "micropython/workshop-ostrava": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2016-2017.",
+       "Diagramy s LED vytvo\u0159eny pomoc\u00ed <a href=\"http://fritzing.org\">Fritzing</a>."
+      ],
+      "content": {
+       "path": "lessons/micropython/workshop-ostrava/index.html"
+      },
+      "css": ".part-green  { outline: 2px solid hsla(113, 100%, 50%, 1);\n                background-color:  hsla(113, 100%, 50%, 0.25); }\n.part-cyan   { outline: 2px solid hsla(180, 100%, 50%, 1);\n                background-color:  hsla(180, 100%, 50%, 0.25); }\n.part-blue   { outline: 2px solid hsla(236, 100%, 50%, 1);\n                background-color:  hsla(236, 100%, 50%, 0.25); }\n.part-yellow { outline: 2px solid hsla( 60, 100%, 50%, 1);\n                background-color:  hsla( 60, 100%, 50%, 0.25); }\n.part-orange { outline: 2px solid hsla( 42, 100%, 50%, 1);\n                background-color:  hsla( 42, 100%, 50%, 0.25); }\n.part-red    { outline: 2px solid hsla(  0, 100%, 50%, 1);\n                background-color:  hsla(  0, 100%, 50%, 0.25); }\n.pull-right, .pull-left { margin: 1em; }\n.highlight   { background-color:  hsla(  0, 100%, 50%, 0.1); }\n.img-fluid   { max-width: 100%; }\n.highlight-nocolor{ background-color:  hsla( 60, 100%, 50%, 0.75); }\n.highlight-red    { background-color:  hsla(  0, 100%, 50%, 0.25); }\n.highlight-green  { background-color:  hsla(113, 100%, 50%, 0.25); }\n.highlight-blue   { background-color:  hsla(236, 100%, 50%, 0.25); }\n",
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/micropython/workshop-ostrava/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/micropython/workshop-ostrava/index.md",
+      "title": "MicroPython",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/micropython/workshop-ostrava/info.yml",
+    "static_files": {
+     "circuits/led.fzz": {
+      "path": "lessons/micropython/workshop-ostrava/static/circuits/led.fzz"
+     },
+     "circuits/led_bb.svg": {
+      "path": "lessons/micropython/workshop-ostrava/static/circuits/led_bb.svg"
+     },
+     "circuits/led_bb_off.svg": {
+      "path": "lessons/micropython/workshop-ostrava/static/circuits/led_bb_off.svg"
+     },
+     "nodemcu-devkit.jpg": {
+      "path": "lessons/micropython/workshop-ostrava/static/nodemcu-devkit.jpg"
+     },
+     "nodemcu-popisky.svg": {
+      "path": "lessons/micropython/workshop-ostrava/static/nodemcu-popisky.svg"
+     },
+     "noty.py": {
+      "path": "lessons/micropython/workshop-ostrava/static/noty.py"
+     },
+     "putty-config.jpg": {
+      "path": "lessons/micropython/workshop-ostrava/static/putty-config.jpg"
+     }
+    },
+    "title": "MicroPython"
+   }
+  },
+  "long_description": "<p>Programov\u00e1n\u00ed mal\u00fdch desti\u010dek s pomoc\u00ed Pythonu</p>",
+  "place": "Ostrava",
+  "sessions": [
+   {
+    "date": "2018-04-21",
+    "materials": [
+     {
+      "title": "\u00davod",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "micropython/workshop-ostrava",
+      "title": "Pr\u00e1ce s MicroPythonem",
+      "type": "lesson"
+     }
+    ],
+    "slug": "workshop",
+    "source_file": "runs/2018/micropython-workshop-ostrava/info.yml",
+    "title": "Workshop"
+   }
+  ],
+  "source_file": "runs/2018/micropython-workshop-ostrava/info.yml",
+  "subtitle": "Ostrava",
+  "timezone": "Europe/Prague",
+  "title": "MicroPython workshop",
+  "vars": {
+   "coach-present": true
+  }
+ }
+}

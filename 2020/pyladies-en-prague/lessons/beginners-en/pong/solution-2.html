@@ -1,0 +1,10 @@
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">render</span><span class="p">():</span>
+    <span class="o">...</span>
+    <span class="c1"># midfield line (as net) - composed from couple of small rectangles</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NET_LENGTH</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">NET_LENGTH</span> <span class="o">*</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">draw_rectangle</span><span class="p">(</span>
+            <span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">y</span><span class="p">,</span>
+            <span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">y</span> <span class="o">+</span> <span class="n">NET_LENGTH</span><span class="p">)</span>
+</pre></div>

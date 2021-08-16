@@ -1,0 +1,56 @@
+<h2>První příkazy v Pythonu</h2>
+<p>Pojďme si vyzkoušet, že nainstalovaný Python funguje!</p>
+<p>Zkontroluj si, že máš aktivované virtuální prostředí (na začátku příkazové
+řádky ti svítí <code>(venv)</code>).</p>
+<p>Je-li tomu tak, nezbývá než – konečně – pustit Python.
+K tomu použij příkaz <code>python</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">(venv)$ </span>python
+<span class="go">Python 3.6.0 (default, Jan 26 2014, 18:15:05)</span>
+<span class="go">[GCC 4.8.2 20131212 (Red Hat 4.8.2-7)] on linux</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+</pre></div><p>Příkaz vypíše několik informací.
+Z prvního řádku se můžeš ujistit, že používáš Python 3.</p>
+<p>Python pak třemi „zobáčky“ <code>&gt;&gt;&gt;</code> poprosí o instrukce.
+Je to jako v příkazové řádce, ale místo příkazů jako
+<code>cd</code> a <code>mkdir</code> sem budeš psát příkazy Pythonu.</p>
+<p>Nejjednodušší příkaz Pythonu je prosté číslo. Zkus to:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">42</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mf">8.3</span>    <span class="c1"># (Python používá desetinnou tečku)</span>
+<span class="go">-8.3</span>
+</pre></div><div class="admonition note"><p>Zobáčky <code>&gt;&gt;&gt;</code> i odpověď vypisuje sám Python!
+sám/sama zadej jen číslo a Enter.</p>
+</div><p>Čísla umí Python i sečítat. Třeba takhle:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">10</span>
+</pre></div><p>Všimni si, že příkazy z příkazové řádky v Pythonu nefungují,
+ačkoli okýnko vypadá skoro stejně:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">whoami</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;whoami&#39; is not defined</span>
+</pre></div><p>Tohle je <em>chybová hláška</em>, která se objeví vždycky,
+když uděláš něco špatně.
+V průběhu kurzu jich uvidíš ještě spoustu,
+takže si ji dobře prohlédni, ať ji příště poznáš.</p>
+<p>Pokud ses dostal/a až sem, gratuluji!
+Python máš nejen nainstalovaný, ale taky ti funguje.
+Stačí ho už jen zavřít a pak opustit i samotnou příkazovou řádku.
+V Pythonu se to dělá pomocí <code>quit()</code>, s prázdnými závorkami na konci.</p>
+<div class="highlight"><pre>
+<span class="gp">&gt;&gt;&gt;</span> quit()
+<span class="gp">(venv)$</span>
+</pre></div><p>Zobáčky <code>&gt;&gt;&gt;</code> se změnily na výzvu
+příkazové řádky (která začíná <code>(venv)</code> a končí <code>$</code> nebo <code>&gt;</code>).
+Teď fungují příkazy jako <code>whoami</code> a <code>cd</code>, ale příkazy Pythonu
+jako <code>1 + 2</code> fungovat nebudou, dokud Python opět nepustíš pomocí
+příkazu <code>python</code>.</p>
+<p>Ukončit virtuální prostředí můžeš příkazem <code>deactivate</code> –
+tentokrát bez závorek.</p>
+<div class="highlight"><pre><span></span><span class="gp">(venv)$ </span>deactivate
+</pre></div><p>Příkazovou řádku můžeš nakonec zavřít příkazem <code>exit</code>.</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">exit</span>
+</pre></div><p>Pro cvik si zkus Python znovu spustit – nejdřív otevři příkazovou řádku,
+pak aktivuj virtuální prostředí, potom spusť Python samotný.</p>

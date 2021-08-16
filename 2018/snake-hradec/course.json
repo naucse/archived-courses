@@ -1,0 +1,513 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "18:00",
+   "start": "8:00"
+  },
+  "description": "Hra v\u00a0Pythonu pro naprost\u00e9 za\u010d\u00e1te\u010dn\u00edky",
+  "edit_info": {
+   "branch": "archive/2018-snake-hradec",
+   "url": "https://github.com/pyvec/naucse.python.cz/"
+  },
+  "etag": "108becbe87fa783c750147c2f65c78aa84fd20b0",
+  "lessons": {
+   "beginners/cmdline": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+       "Zalo\u017eeno na tutori\u00e1lu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+      ],
+      "content": {
+       "path": "lessons/beginners/cmdline/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/cmdline/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/cmdline/index.md",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/cmdline/info.yml",
+    "static_files": {
+     "windows-cmd-properties.png": {
+      "path": "lessons/beginners/cmdline/static/windows-cmd-properties.png"
+     }
+    },
+    "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky"
+   },
+   "beginners/functions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/functions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/functions/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/functions/index.md",
+      "title": "Funkce",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/functions/info.yml",
+    "static_files": {},
+    "title": "Funkce"
+   },
+   "intro/pyglet": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017.",
+       "Ikonku hada vytvo\u0159il Martin Berube."
+      ],
+      "content": {
+       "path": "lessons/intro/pyglet/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/pyglet/index.md",
+      "title": "Grafika",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/pyglet/info.yml",
+    "static_files": {
+     "had.gif": {
+      "path": "lessons/intro/pyglet/static/had.gif"
+     },
+     "had.png": {
+      "path": "lessons/intro/pyglet/static/had.png"
+     },
+     "had2.png": {
+      "path": "lessons/intro/pyglet/static/had2.png"
+     },
+     "pong.py": {
+      "path": "lessons/intro/pyglet/static/pong.py"
+     }
+    },
+    "title": "Grafika"
+   },
+   "projects/pong": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Praha napsal Oskar Hollmann s pou\u017eit\u00edm k\u00f3du Petra Viktorina, 2016."
+      ],
+      "content": {
+       "path": "lessons/projects/pong/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-1.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-2.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-3.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-4.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-5.html"
+        }
+       }
+      ],
+      "source_file": "lessons/projects/pong/index.md",
+      "title": "Praktick\u00e9 cvi\u010den\u00ed: Pong",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/projects/pong/info.yml",
+    "static_files": {
+     "pong.png": {
+      "path": "lessons/projects/pong/static/pong.png"
+     }
+    },
+    "title": "Praktick\u00e9 cvi\u010den\u00ed: Pong"
+   },
+   "snake/drawing": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies CZ napsal Petr Viktorin, 2018."
+      ],
+      "content": {
+       "path": "lessons/snake/drawing/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/snake/drawing/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/drawing/solution-1.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/drawing/solution-2.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/drawing/solution-3.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/drawing/solution-4.html"
+        }
+       }
+      ],
+      "source_file": "lessons/snake/drawing/index.md",
+      "title": "Kreslen\u00ed hada",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/snake/drawing/info.yml",
+    "static_files": {
+     "apple.png": {
+      "path": "lessons/snake/drawing/static/apple.png"
+     },
+     "caterpillar.png": {
+      "path": "lessons/snake/drawing/static/caterpillar.png"
+     },
+     "coords-blocks.svg": {
+      "path": "lessons/snake/drawing/static/coords-blocks.svg"
+     },
+     "coords-px.svg": {
+      "path": "lessons/snake/drawing/static/coords-px.svg"
+     },
+     "coords.svg": {
+      "path": "lessons/snake/drawing/static/coords.svg"
+     },
+     "green.png": {
+      "path": "lessons/snake/drawing/static/green.png"
+     },
+     "red.png": {
+      "path": "lessons/snake/drawing/static/red.png"
+     },
+     "screenshot-dir.png": {
+      "path": "lessons/snake/drawing/static/screenshot-dir.png"
+     },
+     "screenshot-finished.png": {
+      "path": "lessons/snake/drawing/static/screenshot-finished.png"
+     },
+     "screenshot-initial.png": {
+      "path": "lessons/snake/drawing/static/screenshot-initial.png"
+     },
+     "snake-tiles.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles.png"
+     },
+     "snake-tiles.zip": {
+      "path": "lessons/snake/drawing/static/snake-tiles.zip"
+     },
+     "snake-tiles/bottom-bottom.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/bottom-bottom.png"
+     },
+     "snake-tiles/bottom-dead.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/bottom-dead.png"
+     },
+     "snake-tiles/bottom-head.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/bottom-head.png"
+     },
+     "snake-tiles/bottom-left.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/bottom-left.png"
+     },
+     "snake-tiles/bottom-right.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/bottom-right.png"
+     },
+     "snake-tiles/bottom-tongue.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/bottom-tongue.png"
+     },
+     "snake-tiles/bottom-top.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/bottom-top.png"
+     },
+     "snake-tiles/left-bottom.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/left-bottom.png"
+     },
+     "snake-tiles/left-dead.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/left-dead.png"
+     },
+     "snake-tiles/left-head.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/left-head.png"
+     },
+     "snake-tiles/left-left.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/left-left.png"
+     },
+     "snake-tiles/left-right.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/left-right.png"
+     },
+     "snake-tiles/left-tongue.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/left-tongue.png"
+     },
+     "snake-tiles/left-top.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/left-top.png"
+     },
+     "snake-tiles/right-bottom.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/right-bottom.png"
+     },
+     "snake-tiles/right-dead.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/right-dead.png"
+     },
+     "snake-tiles/right-head.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/right-head.png"
+     },
+     "snake-tiles/right-left.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/right-left.png"
+     },
+     "snake-tiles/right-right.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/right-right.png"
+     },
+     "snake-tiles/right-tongue.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/right-tongue.png"
+     },
+     "snake-tiles/right-top.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/right-top.png"
+     },
+     "snake-tiles/tail-bottom.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/tail-bottom.png"
+     },
+     "snake-tiles/tail-dead.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/tail-dead.png"
+     },
+     "snake-tiles/tail-head.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/tail-head.png"
+     },
+     "snake-tiles/tail-left.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/tail-left.png"
+     },
+     "snake-tiles/tail-right.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/tail-right.png"
+     },
+     "snake-tiles/tail-tongue.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/tail-tongue.png"
+     },
+     "snake-tiles/tail-top.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/tail-top.png"
+     },
+     "snake-tiles/top-bottom.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/top-bottom.png"
+     },
+     "snake-tiles/top-dead.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/top-dead.png"
+     },
+     "snake-tiles/top-head.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/top-head.png"
+     },
+     "snake-tiles/top-left.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/top-left.png"
+     },
+     "snake-tiles/top-right.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/top-right.png"
+     },
+     "snake-tiles/top-tongue.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/top-tongue.png"
+     },
+     "snake-tiles/top-top.png": {
+      "path": "lessons/snake/drawing/static/snake-tiles/top-top.png"
+     }
+    },
+    "title": "Kreslen\u00ed hada"
+   },
+   "snake/logic": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies CZ napsal Petr Viktorin, 2018."
+      ],
+      "content": {
+       "path": "lessons/snake/logic/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-1.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-2.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-3.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-4.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-5.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-6.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-7.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-8.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-9.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-10.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/snake/logic/solution-11.html"
+        }
+       }
+      ],
+      "source_file": "lessons/snake/logic/index.md",
+      "title": "Had \u2013 Logika hry",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/snake/logic/info.yml",
+    "static_files": {},
+    "title": "Had \u2013 Logika hry"
+   }
+  },
+  "long_description": "<p>Na tomto workshopu pod veden\u00edm lektora vytvo\u0159\u00edte variantu ark\u00e1dov\u00e9 hry\nHad, kter\u00e1 poprv\u00e9 vy\u0161la na konci sedmdes\u00e1t\u00fdch let, a m\u016f\u017eete ji\nzn\u00e1t ze star\u0161\u00edch mobil\u016f Nokia.\nVyu\u017eijeme k\u00a0tomu programovac\u00ed jazyk Python a framework Pyglet.</p>\n<p>Workshop je stav\u011bn\u00fd pro lidi, kte\u0159\u00ed nikdy neprogramovali;\nprvn\u00ed \u010d\u00e1st je v\u011bnov\u00e1na z\u00e1kladn\u00edm koncept\u016fm.</p>\n<p>Materi\u00e1ly pro lekce ozna\u010den\u00e9 (*) jsou pro psan\u00e9 pro pokro\u010dilej\u0161\u00ed\nstudenty.\nNa workshopu budou pod\u00e1ny ve zjednodu\u0161en\u00e9 podob\u011b.</p>",
+  "place": "Hradec Kr\u00e1lov\u00e9",
+  "sessions": [
+   {
+    "date": "2018-03-25",
+    "materials": [
+     {
+      "title": "\u00davod",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "beginners/cmdline",
+      "title": "P\u0159\u00edkazov\u00e1 \u0159\u00e1dka (*)",
+      "type": "lesson"
+     },
+     {
+      "title": "Instalalce Pygletu",
+      "type": "special"
+     },
+     {
+      "external_url": "https://tutorial.djangogirls.org/cs/python_introduction/",
+      "title": "Z\u00e1klady Pythonu (podle Django Girls)",
+      "type": "none-link"
+     },
+     {
+      "title": "Dopln\u011bn\u00ed: list slicing, del, n-tice, zip()",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "intro/pyglet",
+      "title": "\u00davod do Pygletu (*)",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "snake/drawing",
+      "title": "Kreslen\u00ed hada",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "snake/logic",
+      "title": "Had \u2013 Logika hry",
+      "type": "lesson"
+     },
+     {
+      "title": "Zabalen\u00ed spustiteln\u00e9ho souboru (bonus)",
+      "type": "special"
+     }
+    ],
+    "slug": "workshop",
+    "source_file": "runs/2018/snake-hradec/info.yml",
+    "title": "Workshop"
+   }
+  ],
+  "source_file": "runs/2018/snake-hradec/info.yml",
+  "subtitle": "Hradec Kr\u00e1lov\u00e9",
+  "timezone": "Europe/Prague",
+  "title": "Had\u00ed workshop",
+  "vars": {
+   "coach-present": true
+  }
+ }
+}

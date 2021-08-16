@@ -1,0 +1,17 @@
+<div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;kalkulacka.html&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">prvni</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;prvni&quot;</span><span class="p">])</span>
+        <span class="n">druhe</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;druhe&quot;</span><span class="p">])</span>
+        <span class="n">operace</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;operace&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">operace</span> <span class="o">==</span> <span class="s2">&quot;plus&quot;</span><span class="p">:</span>
+            <span class="n">vysledek</span> <span class="o">=</span> <span class="n">prvni</span> <span class="o">+</span> <span class="n">druhe</span>
+        <span class="k">elif</span> <span class="n">operace</span> <span class="o">==</span> <span class="s2">&quot;minus&quot;</span><span class="p">:</span>
+            <span class="n">vysledek</span> <span class="o">=</span> <span class="n">prvni</span> <span class="o">-</span> <span class="n">druhe</span>
+        <span class="o">...</span>
+
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">vysledek</span><span class="p">)</span>
+</pre></div>

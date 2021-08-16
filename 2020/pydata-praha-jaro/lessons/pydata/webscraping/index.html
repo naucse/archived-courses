@@ -1,0 +1,2641 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Web scraping</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Co je web scraping?</h2>
+<ul>
+<li>Strojové čtení nestrukturovaných dat z webových stránek</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Co není web scraping?</h2>
+<ul>
+<li>Stahování dat přes API</li>
+<li>Stahování strukturovaných dat (JSON, CSV,...)</li>
+<li>Crawling - procházení a indexování celé webové stránky pomocí jejích vnitřních hypertextových odkazů</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Příklady web scrapingu</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Jak hodnotila filmy Mirka Spáčilová</h3>
+<blockquote><p>Když umíráš a proběhne ti celý život před očima, 
+přijde Mirka Spáčilová a dá tomu 60 %</p>
+</blockquote>
+<p>Opravdu hodnotí Mirka Spáčilová všechny filmy 60 %? Jde to nějak ověřit?</p>
+<p>Michal Bláha stáhnul z iDnes celkem 1333 článků Mirky Spáčilové s hodnocením filmů a vytvořil tabulku filmů a jejich hodnocení. Šedesát procent dostal každý třetí film :-)</p>
+<div>
+<img src="static/spacilova.png"/>
+</div><p><a href="https://www.michalblaha.cz/2017/10/filmova-kriticka-mirka-spacilova-v-cislech/">https://www.michalblaha.cz/2017/10/filmova-kriticka-mirka-spacilova-v-cislech/</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Analýza cen na českých e-shopech</h3>
+<p>Co myslíte, můžeme věřit 80% slevám, které většina českých e-shopů nabízí během akcí typu Black Friday?</p>
+<p>V roce 2017 začali v Apify měsíc před Black Friday denně monitorovat ceny všech produktů v největších českých e-shopech. Během Black Friday navíc 4x denně monitorovali ceny produktů v kategorii Black Friday.</p>
+<p>Co zjistili? Průměrná uváděná sleva byla kolem 30 %, reálná kolem 20. 
+Stačí zvýšit „původní cenu“ před slevou. Našly se i případy, kdy jste si mohli koupit zboží sice dráž, ale zato s větší slevou.</p>
+<p>Projekt se v dalších letech rozrostl, takže dnes si můžeme stáhnout rozšíření do prohlížeče a přesvědčit se sami.</p>
+<p><div>
+    <img src="static/hlidacshopu.png"/>
+</div>
+<br />
+<a href="https://blog.apify.com/black-friday-po-%C4%8Desku-kouzla-se-slevami-c7c0d2e7eeaa">https://blog.apify.com/black-friday-po-%C4%8Desku-kouzla-se-slevami-c7c0d2e7eeaa</a></p>
+<p><a href="https://medium.com/@jakubbalada/black-friday-2019-s-hl%C3%ADda%C4%8Dem-shop%C5%AF-9a3ddd352a8c">https://medium.com/@jakubbalada/black-friday-2019-s-hl%C3%ADda%C4%8Dem-shop%C5%AF-9a3ddd352a8c</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Etika web scrapingu</h2>
+<ul>
+<li>Než začneš s web scrapingem, podívej se, jestli stránka nenabízí strukturovaná data ke stažení nebo neposkytuje API.<ul>
+<li><strong>Příklady:</strong> </li>
+<li><a href="https://data.gov.cz/datov%C3%A9-sady?poskytovatel=%C4%8Cesk%C3%BD%20statistick%C3%BD%20%C3%BA%C5%99ad">https://data.gov.cz/datov%C3%A9-sady?poskytovatel=%C4%8Cesk%C3%BD%20statistick%C3%BD%20%C3%BA%C5%99ad</a></li>
+<li><a href="https://www.ncdc.noaa.gov/data-access">https://www.ncdc.noaa.gov/data-access</a></li>
+<li><a href="https://www.mapakriminality.cz/data/">https://www.mapakriminality.cz/data/</a></li>
+<li><a href="http://opendata.praha.eu/dataset/meteostanice-chmi-api">http://opendata.praha.eu/dataset/meteostanice-chmi-api</a></li>
+</ul>
+</li>
+<li>Zjisti si, jaká máš práva k datům, nepublikuj získaná data nelegálně</li>
+<li>Přistupuj ke stránce k rozumné míře, nesnažíš se stránku shodit, ale získat data :-) </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Z čeho se skládá webová stránka</h2>
+<ul>
+<li><strong>HTML</strong> (HyperText Markup Language): strukturovaný obsah stránky (text a obrázky)</li>
+<li><strong>CSS</strong> (Cascading Style Sheets): úprava vzhledu stránky</li>
+<li><strong>JavaScript</strong>: interaktivita obsahu a vzhledu stránky</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>HTML</h3>
+<div>
+    <img src="static/html.png"/>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Je tvořen HTML značkami / tagy, např.  <code>&lt;img&gt;</code></li>
+<li>Většina HTML tagů je párová, např. <code>&lt;h2&gt;</code> a <code>&lt;/h2&gt;</code></li>
+<li>Tagy mohou mít atributy, které dále specifikují, co a jak bude tag zobrazovat</li>
+<li>Atribut class se obvykle používá k stylování stránky a často podle něj můžeme při webscrapingu odlišit různé části stránky</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>CSS</h3>
+<ul>
+<li>Popisuje způsob zobrazení html elementů</li>
+<li>Obsahuje 2 části: selektor elementu a blok deklarace:</li>
+</ul>
+<div class="highlight"><pre><code>p.error {
+  color: red;
+}</code></pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Instalace</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#%pip install lxml beautifulsoup4 selenium</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Pandas: read_html()</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pokud nám stačí stáhnout tabulky z webu, můžeme použít knihovnu <a href="https://pandas.pydata.org/pandas-docs/version/0.25/reference/api/pandas.read_html.html">Pandas</a>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Převedeme tabulky ze stránky Wikipedie <a href="https://cs.wikipedia.org/wiki/Seznam_st%C3%A1t%C5%AF_sv%C4%9Bta_podle_spot%C5%99eby_alkoholu">Seznam států světa podle spotřeby alkoholu</a> do dataframů pomocí funce <code>read_html()</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">&#39;https://cs.wikipedia.org/wiki/Seznam_st%C3%A1t%C5%AF_sv%C4%9Bta_podle_spot%C5</span><span class="si">%99e</span><span class="s1">by_alkoholu&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Výsledkem je seznam dataframů:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>list</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>stát</th>
+      <th>evidováno</th>
+      <th>neevidováno</th>
+      <th>celkem</th>
+      <th>pivo</th>
+      <th>víno</th>
+      <th>destiláty</th>
+      <th>ostatní</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Česko</td>
+      <td>14.97</td>
+      <td>1.48</td>
+      <td>16.45</td>
+      <td>8.51</td>
+      <td>2.33</td>
+      <td>3.59</td>
+      <td>0.39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Maďarsko</td>
+      <td>12.27</td>
+      <td>4.00</td>
+      <td>16.27</td>
+      <td>4.42</td>
+      <td>4.94</td>
+      <td>3.02</td>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Rusko</td>
+      <td>11.03</td>
+      <td>4.73</td>
+      <td>15.76</td>
+      <td>3.65</td>
+      <td>0.10</td>
+      <td>6.88</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ukrajina</td>
+      <td>8.10</td>
+      <td>7.50</td>
+      <td>15.60</td>
+      <td>2.69</td>
+      <td>0.58</td>
+      <td>5.21</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Estonsko</td>
+      <td>13.77</td>
+      <td>1.80</td>
+      <td>15.57</td>
+      <td>5.53</td>
+      <td>1.09</td>
+      <td>9.19</td>
+      <td>0.43</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Podle WHO je Česko první! Aspoň v průměrné spotřebě alkoholu v letech 2003-2005.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pořadí</th>
+      <th>Stát</th>
+      <th>Spotřeba v litrech</th>
+      <th>Rok</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Francie</td>
+      <td>12.6</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Rakousko</td>
+      <td>12.2</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Estonsko</td>
+      <td>12.0</td>
+      <td>2011</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Německo</td>
+      <td>11.7</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Irsko</td>
+      <td>11.6</td>
+      <td>2011</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Podle OECD to vypadá trochu jinak 🧐</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Varování:</strong> Svět není ideální (proto se v něm taky tolik pije) a ne vždy se podaří tabulky pomocí <code>read_html()</code> získat. Příkaz nemusí tabulku vůbec „vidět“, nebo si nedokáže poradit s její strukturou.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Cvičení</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Získejte tabulku aktuálních ekonomických údajů ze stránek <a href="https://www.czso.cz/csu/czso/aktualniinformace">Českého statistického úřadu</a>, <code>https://www.czso.cz/csu/czso/aktualniinformace</code>.</p>
+<p><strong>Nápověda</strong>: Pokud uvidíš v dataframu ošklivé znaky, zkus specifikovat <code>encoding='utf-8'</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pokud data, která hledáme, nejsou na webu ve formě tabulky, musíme přikročit k „drastičtějším“ nástrojům :-)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>BeautifulSoup</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Knihovna <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> se používá k získávání dat z HTML a XML souborů. Pracuje s různými parsery, které analyzují HTML soubory, a umožnuje vybrat požadované HTML elementy a pracovat s nimi.</p>
+<p>Pod čarou: Kdybys měl/a větší projekt a potřeboval/a projít třeba několik desítek e-shopů, podívej se na knihovnu <a href="http://docs.scrapy.org/en/latest/intro/overview.html">Scrapy</a>, která je pro podobné úkoly vhodnější.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nejprve si načteme vzorový html dokument ze souboru:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/html_doc.html&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html_doc</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Vytvoříme objekt typu <code>BeautifulSoup</code>. První argument jsou HTML data, druhý slouží k specifikaci parseru.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_doc</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pomocí metody <code>prettify()</code> můžeme vytisknout hezky zformátované html:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#print(soup.prettify())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Po objektu typu <code>BeautifulSoup</code> se můžeme pohybovat pomocí tagů.<br>
+První element typu title:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;title&gt;PyData Prague | pydata.cz&lt;/title&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>První element typu <code>h1</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;h1&gt;&lt;a href=&#34;https://pydata.cz/&#34;&gt;pydata.cz&lt;/a&gt;&lt;/h1&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jméno elementu typu <code>h1</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;h1&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jméno nadřazeného elementu (atributy <code>parent</code> a <code>name</code>):</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;div&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data uvnitř elementu <code>h1</code> (atribut <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#string"><code>string</code></a>)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">string</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;pydata.cz&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>První element typu <code>h2</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;h2 id=&#34;code-of-conduct&#34;&gt;Code of Conduct&lt;/h2&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Id elementu <code>h2</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">h2</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;code-of-conduct&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Můžeme najít i všechny tagy daného typu, např <code>find_all('a')</code> najde všechny odkazy:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">links</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">links</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;a href=&#34;https://pydata.cz/&#34;&gt;pydata.cz&lt;/a&gt;,
+ &lt;a class=&#34;pydata&#34; href=&#34;https://pydata.org/&#34;&gt;PyData&lt;/a&gt;,
+ &lt;a href=&#34;https://numfocus.org/&#34;&gt;NumFOCUS&lt;/a&gt;,
+ &lt;a class=&#34;pydata&#34; href=&#34;https://pydata.org/code-of-conduct/&#34;&gt;pydata.org/code-of-conduct/&lt;/a&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Výsledky hledání můžeme procházet:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;https://pydata.cz/&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;pydata.cz&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nemusíme hledat jen podle jména tagu, ale i podle jejich atributů:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;pydata-prague&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[21]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;h1 id=&#34;pydata-prague&#34;&gt;PyData Prague&lt;/h1&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pokud hledáme podle třídy, memůžeme použít <code>soup.find(class="pydata")</code>, protože <code>class</code> je v Pythonu klíčové slovo. Musíme použít <code>class_</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;pydata&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;a class=&#34;pydata&#34; href=&#34;https://pydata.org/&#34;&gt;PyData&lt;/a&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>class</code> můžeme taky napsat jako klíč v parametru <code>attrs</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span><span class="s1">&#39;pydata&#39;</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;a class=&#34;pydata&#34; href=&#34;https://pydata.org/&#34;&gt;PyData&lt;/a&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Cvičení</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Vyberte odstavec s id <code>description</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Vyberte všechny odkazy s třídou <code>pydata</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Requests</h2>
+<p>Knihovna <a href="https://requests.readthedocs.io/en/master/">requests</a> je určená pro HTTP dotazy. V našem případě ji budeme používat pro získání textu webové stránky.</p>
+<p>HTTP požadavky lze vytvářet i pomocí standardní knihovny Pythonu, ale <code>requests</code> mají mnohem lidštější rozhraní.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://pydata.cz/&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Můžeme zkontrolovat návratový stav:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>200</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://cs.wikipedia.org/wiki/Stavov%C3%A9_k%C3%B3dy_HTTP">Stavové kódy</a> se dělí do 5 skupin:</p>
+<ul>
+<li>1xx – informační odpověď</li>
+<li>2xx – úspěch</li>
+<li>3xx – přesměrování</li>
+<li>4xx – chyba klienta</li>
+<li>5xx – chyba serveru</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Metoda text ukáže zdrojový kód stránky:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#print(r.text)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>BeautifulSoup podruhé: CSS selektory</h2>
+<p>S knihovnou BeautifulSoup můžeme <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors">vyhledávat CSS selektory</a> pomocí funkcí <code>select</code> (ukáže všechny prvky) a <code>select_one</code> (najde první prvek).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Otevřeme si html dokument s programem kin. Je stažený z <a href="https://dokina.tiscali.cz/program-kin">https://dokina.tiscali.cz/program-kin</a>, ale protože by se mohlo stát, že dnes na programu nic není, použijeme radši staženou verzi. Pokud na stránkách něco je, můžeš samozřejmě použít <code>requests</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/kina.html&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">html_doc</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_doc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Zkusíme najít všechny tagu s třídou <code>title</code> a několik z nich si vypíšeme:<br>
+(Kvůli přehlednosti nevypisujeme úplně všechny)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">titles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.title&#39;</span><span class="p">)</span> 
+<span class="n">titles</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;h4 class=&#34;title mb-0&#34;&gt;3Bobule&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Tiché místo: Část II&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;V síti&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Princezna zakletá v čase&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Bloodshot&lt;/h4&gt;,
+ &lt;h3 class=&#34;title mb-0&#34;&gt;
+ &lt;a data-ga-action=&#34;cinema-detail&#34; data-ga-category=&#34;program-kin&#34; href=&#34;https://dokina.tiscali.cz/evropsky-dum-7435&#34; title=&#34;Profil kina&#34;&gt;Evropský dům&lt;/a&gt;
+ &lt;a class=&#34;favourite-toggler&#34; data-ga-action=&#34;toggle-favorite-cinema&#34; data-ga-category=&#34;program-kin&#34; data-id=&#34;7435&#34; href=&#34;https://dokina.tiscali.cz/program-kin?movie_id=&amp;amp;place_id=&amp;amp;cinema_type=&amp;amp;town_id=&amp;amp;start=25-03-2020#&#34; title=&#34;Přidat do oblíbených&#34;&gt;&lt;/a&gt;
+ &lt;/h3&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Najdeme všechny tagy typu  <code>&lt;h3 class="title mb-0"&gt;</code> a podíváme se na první z nich:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mb0_titles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;h3.title.mb-0&#39;</span><span class="p">)</span>
+<span class="n">mb0_titles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;h3 class=&#34;title mb-0&#34;&gt;
+&lt;a data-ga-action=&#34;cinema-detail&#34; data-ga-category=&#34;program-kin&#34; href=&#34;https://dokina.tiscali.cz/evropsky-dum-7435&#34; title=&#34;Profil kina&#34;&gt;Evropský dům&lt;/a&gt;
+&lt;a class=&#34;favourite-toggler&#34; data-ga-action=&#34;toggle-favorite-cinema&#34; data-ga-category=&#34;program-kin&#34; data-id=&#34;7435&#34; href=&#34;https://dokina.tiscali.cz/program-kin?movie_id=&amp;amp;place_id=&amp;amp;cinema_type=&amp;amp;town_id=&amp;amp;start=25-03-2020#&#34; title=&#34;Přidat do oblíbených&#34;&gt;&lt;/a&gt;
+&lt;/h3&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Najdeme všechny tagy s třídou <code>title</code> uvnitř tagů s třídou <code>movie-item</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.movie-item .title &#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;h4 class=&#34;title mb-0&#34;&gt;3Bobule&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Tiché místo: Část II&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;V síti&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Princezna zakletá v čase&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Bloodshot&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;A dýchejte klidně&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Sviňa&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Králíček Jojo&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;La belle saison&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Výjimeční&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;La Llorona&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Morgiana&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Noční ostraha&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Vita and Virginia&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Volej mámu&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Čas beznaděje&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Šarlatán&lt;/h4&gt;,
+ &lt;h4 class=&#34;title mb-0&#34;&gt;Žaluji!&lt;/h4&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Nástroje v prohlížeči</h2>
+<p>Než začneme procházet stránku pomocí Pythonu, je dobré podívat se na její strukturu přímo v prohlížeči.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Zdrojový kód stránky</h3>
+<p><br /></p>
+<div>
+<img src="static/FF_pagesource.png" />
+<img src="static/chrome_pagesource.png" /> 
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Prozkoumat prvek / Inspect</h3>
+<p><br /></p>
+<p><div>
+<img src="static/FF_inspect.png" />
+<br />
+<img src="static/Inspect.png" /> 
+</div>
+<br />
+<strong>Pozor:</strong> Zrojový kód vybraného prvku nemusí odpovídat kódu, který stáhneš pomocí Pythonu. Během zobrazení v prohlížeči mohl být změněn JavaScriptem.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Nástroje pro vývojáře</h3>
+<p><br /></p>
+<div>
+<img src="static/FF_dev.png" />
+<br />
+<img src="static/chrome_dev.png" /> 
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Poznámka:</strong> Pokud v záložce Network nic nevidíš, zkus obnovit stránku.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Příklad z (ne)života</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Extrakce dat o 20 nejlepších filmech podle ČSFD</strong></p>
+<p>Chceme vytvořit tabulku s následujícími sloupci:</p>
+<ul>
+<li>Název filmu</li>
+<li>Průměrné hodnocení</li>
+<li>Země původu</li>
+<li>Rok uvedení</li>
+<li>Délka filmu</li>
+<li>Režisér</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Na scraping není univerzální návod. Obvykle metodou pokus-omyl zkoušíme, co bude fungovat. Pak přijde aktualizace stránek a můžeme začít znovu...</em></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.csfd.cz/zebricky/nejlepsi-filmy/&#39;</span>
+<span class="c1"># stránka odmítá GET requesty bez identifikace User-Agenta:</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36&#39;</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Úkol:</h3>
+<p>Podívej se do zdrojového kódu stránky. Jaké prvky budeme na stránce hledat? A kde najdeme informace o režisérovi?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Podíváme se, jak vypadají prvky třídy <code>film</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.film&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[33]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;td class=&#34;film&#34; id=&#34;chart-2294&#34;&gt;&lt;a href=&#34;/film/2294-vykoupeni-z-veznice-shawshank/&#34;&gt;Vykoupení z věznice Shawshank&lt;/a&gt; &lt;span class=&#34;film-year&#34; dir=&#34;ltr&#34;&gt;(1994)&lt;/span&gt;&lt;/td&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Abychom získali další informace o filmech, musíme se dostat na stránku filmu. K tomu budeme potřebovat odkazy:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">film_odkazy</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.film a&#39;</span><span class="p">)</span>
+<span class="n">film_odkazy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;a href=&#34;/film/2294-vykoupeni-z-veznice-shawshank/&#34;&gt;Vykoupení z věznice Shawshank&lt;/a&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">odkazy</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://www.csfd.cz&#39;</span> <span class="o">+</span> <span class="n">film</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">film</span> <span class="ow">in</span> <span class="n">film_odkazy</span><span class="p">]</span>
+<span class="n">odkazy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[35]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;https://www.csfd.cz/film/2294-vykoupeni-z-veznice-shawshank/&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Rovnou si uložíme i názvy filmů:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nazvy</span> <span class="o">=</span> <span class="p">[</span><span class="n">film</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">film</span> <span class="ow">in</span> <span class="n">film_odkazy</span><span class="p">]</span>
+<span class="n">nazvy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Vykoupení z věznice Shawshank&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Průměrné hodnocení najdeme v prvcích s třídou <code>average</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.average&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;td class=&#34;average&#34;&gt;95,3%&lt;/td&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hodnoceni</span> <span class="o">=</span> <span class="p">[</span><span class="n">aver</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">aver</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.average&#39;</span><span class="p">)]</span>
+<span class="n">hodnoceni</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;95,3%&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Informace o jednotlivých filmech</h3>
+<p>Nejdřív si zkusíme najít informace o prvním filmu:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">odkazy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">film_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">film_soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;.origin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[40]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;USA, 1994, 142 min&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">film_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;itemprop&#39;</span><span class="p">:</span> <span class="s1">&#39;director&#39;</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[41]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;span data-truncate=&#34;60&#34; itemprop=&#34;director&#34;&gt;
+&lt;a href=&#34;/tvurce/2869-frank-darabont/&#34;&gt;Frank Darabont&lt;/a&gt;
+&lt;/span&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">film_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;itemprop&#39;</span><span class="p">:</span> <span class="s1">&#39;director&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[42]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Frank Darabont&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hurá! Funguje to. Můžeme to udělat se všemi filmy.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Poznámka pod čarou: <code>re</code> je modul standardní knihovny pro práci s řetězci pomocí regulárních výrazů. V následujícím kódu ji použijeme pro rozdělení řetězce podle dvou různých znaků.</p>
+<p>Potřebujeme vyřešit případy typu  <code>166 min (Director's cut: 175 min, Alternativní: 152 min)</code>, proto dělíme text podle znaků "," a "("</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zeme</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">roky</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">delky</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">reziseri</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">odkaz</span> <span class="ow">in</span> <span class="n">odkazy</span><span class="p">:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">odkaz</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">film_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">film_soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;.origin&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">puvod</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="n">cas</span><span class="p">,</span> <span class="o">*</span><span class="n">zbytek</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,|\(&#39;</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span> 
+    <span class="n">reziser</span> <span class="o">=</span> <span class="n">film_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;itemprop&#39;</span><span class="p">:</span> <span class="s1">&#39;director&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">zeme</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">puvod</span><span class="p">)</span>
+    <span class="n">roky</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rok</span><span class="p">)</span>
+    <span class="n">delky</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cas</span><span class="p">)</span>
+    <span class="n">reziseri</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reziser</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># chováme se lidsky :-)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filmy_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">nazvy</span><span class="p">,</span> <span class="n">zeme</span><span class="p">,</span> <span class="n">roky</span><span class="p">,</span> <span class="n">reziseri</span><span class="p">,</span> <span class="n">delky</span><span class="p">,</span> <span class="n">hodnoceni</span><span class="p">),</span> 
+                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Název&#39;</span><span class="p">,</span> 
+                                 <span class="s1">&#39;Původ&#39;</span><span class="p">,</span> 
+                                 <span class="s1">&#39;Rok&#39;</span><span class="p">,</span> 
+                                 <span class="s1">&#39;Režie&#39;</span><span class="p">,</span> 
+                                 <span class="s1">&#39;Délka&#39;</span><span class="p">,</span> 
+                                 <span class="s1">&#39;ČSFD&#39;</span><span class="p">])</span>
+<span class="n">filmy_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[45]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Název</th>
+      <th>Původ</th>
+      <th>Rok</th>
+      <th>Režie</th>
+      <th>Délka</th>
+      <th>ČSFD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Vykoupení z věznice Shawshank</td>
+      <td>USA</td>
+      <td>1994</td>
+      <td>Frank Darabont</td>
+      <td>142 min</td>
+      <td>95,3%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Forrest Gump</td>
+      <td>USA</td>
+      <td>1994</td>
+      <td>Robert Zemeckis</td>
+      <td>142 min</td>
+      <td>94,5%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Zelená míle</td>
+      <td>USA</td>
+      <td>1999</td>
+      <td>Frank Darabont</td>
+      <td>188 min</td>
+      <td>92,8%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Přelet nad kukaččím hnízdem</td>
+      <td>USA</td>
+      <td>1975</td>
+      <td>Miloš Forman</td>
+      <td>133 min</td>
+      <td>92,5%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sedm</td>
+      <td>USA</td>
+      <td>1995</td>
+      <td>David Fincher</td>
+      <td>127 min</td>
+      <td>92,4%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Jak na JavaScript</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pokud webová stránka používá JavaScript k generování obsahu, máme dvě možnosti:</p>
+<ol>
+<li>Pochopit, co JavaScript dělá, a zařídit se podle toho</li>
+<li>Chovat se jako browser</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Příklad</h3>
+<p>Výsledky závodu Big's Backyard Ultra, <a href="https://my.raceresult.com/139372/#0_2C3B48"><code>https://my.raceresult.com/139372/#0_2C3B48</code></a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+  <img src="static/bigdog.png" >
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://my.raceresult.com/139372/#0_2C3B48&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Zkusíme najít v textu stránky slovo Gavin.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Gavin&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[47]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nic. Kde se stala chyba? Vytiskneme si zdrojový kód stránky... a tabulka nikde!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#print(r.text)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Možnost 1: Developer tools - Network</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pokud nám jde o data jen z jedné webové stránky, můžeme pomocí nástrojů pro vývojáře zjistit, co javascript na stránce dělá. Zajímá nás, kde bere stránka data.</p>
+<p>Otevřeme si nástroje pro vývojáře a rozklikneme záložku Network. Pokud na ní nic není, stránku refreshujeme. Typicky nás zajímají dotazy typu <code>XMLHttpRequest</code> (XHR), které stránce umožňují získávat data z nějaké URL.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+  <img src="static/bigdog2.png">
+<br />
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>V našem případě vidíme dva dotazy typu XHR, podíváme se na ně blíž, abychom zjistili, který z nich obsahuje hledaná data. Zkopírujeme si adresu odkazu.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+  <img src="static/bigdog4.png">
+<br />
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+  <img src="static/bigdog5.png">
+<br />
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://my2.raceresult.com/RRPublish/data/list.php?eventid=139372&amp;key=3a52cf488ad3dfe5c994f6b203e7c2e8&amp;listname=Result+Lists%7CLap+Details&amp;page=results&amp;contest=0&amp;r=all&amp;l=0&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#r.text</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#r.json()[&#39;data&#39;]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;#1_1///Gavin Woody///40Laps&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[52]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[[&#39;1&#39;, &#39;1&#39;, &#39;7:35:18&#39;, &#39;55:19&#39;, &#39;04:40&#39;],
+ [&#39;1&#39;, &#39;2&#39;, &#39;8:35:23&#39;, &#39;55:24&#39;, &#39;04:35&#39;],
+ [&#39;1&#39;, &#39;3&#39;, &#39;9:34:25&#39;, &#39;54:26&#39;, &#39;05:33&#39;],
+ [&#39;1&#39;, &#39;4&#39;, &#39;10:35:09&#39;, &#39;55:10&#39;, &#39;04:49&#39;],
+ [&#39;1&#39;, &#39;5&#39;, &#39;11:33:55&#39;, &#39;53:56&#39;, &#39;06:03&#39;],
+ [&#39;1&#39;, &#39;6&#39;, &#39;12:34:23&#39;, &#39;54:24&#39;, &#39;05:35&#39;],
+ [&#39;1&#39;, &#39;7&#39;, &#39;13:33:35&#39;, &#39;53:36&#39;, &#39;06:23&#39;],
+ [&#39;1&#39;, &#39;8&#39;, &#39;14:33:57&#39;, &#39;53:58&#39;, &#39;06:01&#39;],
+ [&#39;1&#39;, &#39;9&#39;, &#39;15:34:07&#39;, &#39;54:08&#39;, &#39;05:51&#39;],
+ [&#39;1&#39;, &#39;10&#39;, &#39;16:34:39&#39;, &#39;54:40&#39;, &#39;05:19&#39;],
+ [&#39;1&#39;, &#39;11&#39;, &#39;17:35:17&#39;, &#39;55:18&#39;, &#39;04:41&#39;],
+ [&#39;1&#39;, &#39;12&#39;, &#39;18:34:22&#39;, &#39;54:23&#39;, &#39;05:36&#39;],
+ [&#39;1&#39;, &#39;13&#39;, &#39;19:25:29&#39;, &#39;45:30&#39;, &#39;14:29&#39;],
+ [&#39;1&#39;, &#39;14&#39;, &#39;20:28:55&#39;, &#39;48:56&#39;, &#39;11:03&#39;],
+ [&#39;1&#39;, &#39;15&#39;, &#39;21:30:22&#39;, &#39;50:23&#39;, &#39;09:36&#39;],
+ [&#39;1&#39;, &#39;16&#39;, &#39;22:27:05&#39;, &#39;47:06&#39;, &#39;12:53&#39;],
+ [&#39;1&#39;, &#39;17&#39;, &#39;23:28:05&#39;, &#39;48:06&#39;, &#39;11:53&#39;],
+ [&#39;1&#39;, &#39;18&#39;, &#39;24:28:35&#39;, &#39;48:36&#39;, &#39;11:23&#39;],
+ [&#39;1&#39;, &#39;19&#39;, &#39;25:27:17&#39;, &#39;47:18&#39;, &#39;12:41&#39;],
+ [&#39;1&#39;, &#39;20&#39;, &#39;26:28:12&#39;, &#39;48:13&#39;, &#39;11:46&#39;],
+ [&#39;1&#39;, &#39;21&#39;, &#39;27:28:15&#39;, &#39;48:16&#39;, &#39;11:43&#39;],
+ [&#39;1&#39;, &#39;22&#39;, &#39;28:26:35&#39;, &#39;46:36&#39;, &#39;13:23&#39;],
+ [&#39;1&#39;, &#39;23&#39;, &#39;29:26:29&#39;, &#39;46:30&#39;, &#39;13:29&#39;],
+ [&#39;1&#39;, &#39;24&#39;, &#39;30:27:35&#39;, &#39;47:36&#39;, &#39;12:23&#39;],
+ [&#39;1&#39;, &#39;25&#39;, &#39;31:34:26&#39;, &#39;54:27&#39;, &#39;05:32&#39;],
+ [&#39;1&#39;, &#39;26&#39;, &#39;32:32:42&#39;, &#39;52:43&#39;, &#39;07:16&#39;],
+ [&#39;1&#39;, &#39;27&#39;, &#39;33:32:27&#39;, &#39;52:28&#39;, &#39;07:31&#39;],
+ [&#39;1&#39;, &#39;28&#39;, &#39;34:34:26&#39;, &#39;54:27&#39;, &#39;05:32&#39;],
+ [&#39;1&#39;, &#39;29&#39;, &#39;35:33:34&#39;, &#39;53:35&#39;, &#39;06:24&#39;],
+ [&#39;1&#39;, &#39;30&#39;, &#39;36:33:37&#39;, &#39;53:38&#39;, &#39;06:21&#39;],
+ [&#39;1&#39;, &#39;31&#39;, &#39;37:33:08&#39;, &#39;53:09&#39;, &#39;06:50&#39;],
+ [&#39;1&#39;, &#39;32&#39;, &#39;38:34:02&#39;, &#39;54:03&#39;, &#39;05:56&#39;],
+ [&#39;1&#39;, &#39;33&#39;, &#39;39:33:41&#39;, &#39;53:42&#39;, &#39;06:17&#39;],
+ [&#39;1&#39;, &#39;34&#39;, &#39;40:33:59&#39;, &#39;54:00&#39;, &#39;05:59&#39;],
+ [&#39;1&#39;, &#39;35&#39;, &#39;41:33:41&#39;, &#39;53:42&#39;, &#39;06:17&#39;],
+ [&#39;1&#39;, &#39;36&#39;, &#39;42:36:38&#39;, &#39;56:39&#39;, &#39;03:20&#39;],
+ [&#39;1&#39;, &#39;37&#39;, &#39;43:34:18&#39;, &#39;54:19&#39;, &#39;05:40&#39;],
+ [&#39;1&#39;, &#39;38&#39;, &#39;44:33:52&#39;, &#39;53:53&#39;, &#39;06:06&#39;],
+ [&#39;1&#39;, &#39;39&#39;, &#39;45:30:33&#39;, &#39;50:34&#39;, &#39;09:25&#39;],
+ [&#39;1&#39;, &#39;40&#39;, &#39;46:31:21&#39;, &#39;51:22&#39;, &#39;08:37&#39;]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Možnost 2: Headless browsers</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Selenium</strong> je knihovna určená na automatizaci testování webových aplikací. Umožňuje spustit a ovládat prohlížeč, takže s ní můžete dělat prakticky všechno, co obvykle děláte na webu. Třeba automaticky vyplňovat formuláře nebo stahovat data.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="k">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.firefox.options</span> <span class="k">import</span> <span class="n">Options</span>  
+<span class="c1">#from selenium.webdriver.chrome.options import Options  </span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="k">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="k">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="k">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="k">import</span> <span class="n">TimeoutException</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span> 
+<span class="n">options</span><span class="o">.</span><span class="n">headless</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nemáš-li chromedriver nebo geckodriver (pro Firefox), stáhneš je tady:</p>
+<ul>
+<li><a href="https://sites.google.com/a/chromium.org/chromedriver/home">https://sites.google.com/a/chromium.org/chromedriver/home</a></li>
+<li><a href="https://github.com/mozilla/geckodriver/releases">https://github.com/mozilla/geckodriver/releases</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+<span class="c1">#driver = webdriver.Chrome(options=options)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://my3.raceresult.com/139372/#0_2C3B48&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div>
+  <img src="static/bigdog3.png">
+<br />
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Stáhneme tabulku s třídou <code>MainTable</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="c1"># čekáme 5 s, jestli se tabulka natáhne </span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s1">&#39;MainTable&#39;</span><span class="p">)))</span> 
+<span class="k">except</span> <span class="n">TimeoutException</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time out!&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[57]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;selenium.webdriver.firefox.webelement.FirefoxWebElement (session=&#34;a900b51a-9168-024d-ae19-5291d48f166d&#34;, element=&#34;8744ffeb-6ae3-0b43-983b-24ebdf28152c&#34;)&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  #
+Measurement
+Lap Split
+Rest Time
+  1
+Gavin Woody
+40Laps
+1 7:35:18 55:19 04:40  
+2 8:35:23 55:24 04:35  
+3 9:34:25 54:26 05:33  
+4 10:35:09 55:10 04:49  
+5 11:33:55 53:56 06:03  
+6 12:34:23 54:24 05:35  
+7 13:33:35 53:36 06:23  
+8 14:33:57 53:58 06:01  
+9 15:34:07 54:08 05:51  
+10 16:34:39 54:40 05:19  
+11 17:35:17 55:18 04:41  
+12 18:34:22 54:23 05:36  
+13 19:25:29 45:30 14:29  
+14 20:28:55 48:56 11:03  
+15 21:30:22 50:23 09:36  
+16 22:27:05 47:06 12:53  
+17 23:28:05 48:06 11:53  
+18 24:28:35 48:36 11:23  
+19 25:27:17 47:18 12:41  
+20 26:28:12 48:13 11:46  
+21 27:28:15 48:16 11:43  
+22 28:26:35 46:36 13:23  
+23 29:26:29 46:30 13:29  
+24 30:27:35 47:36 12:23  
+25 31:34:26 54:27 05:32  
+26 32:32:42 52:43 07:16  
+27 33:32:27 52:28 07:31  
+28 34:34:26 54:27 05:32  
+29 35:33:34 53:35 06:24  
+30 36:33:37 53:38 06:21  
+31 37:33:08 53:09 06:50  
+32 38:34:02 54:03 05:56  
+33 39:33:41 53:42 06:17  
+34 40:33:59 54:00 05:59  
+35 41:33:41 53:42 06:17  
+36 42:36:38 56:39 03:20  
+37 43:34:18 54:19
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Závěrem</h2>
+<p>Naučili jsme se jak získat data i bez API nebo CSV soubourů. Nesmíme u toho ale zapomínat na dodržování zákonů a etiky. Webscraping zkoušej vždy až jako poslední možnost, stačí sebemenší změna na stránce a tvůj postup přestane fungovat.</p>
+</div>
+</div>
+</div>
+ 
+

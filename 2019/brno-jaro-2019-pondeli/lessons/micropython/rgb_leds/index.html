@@ -1,0 +1,40 @@
+<h2>Barevná světýlka</h2>
+<p>Je čas na novou hračku!
+Tentokrát to bude LED pásek.</p>
+<p>Na pásku máš 8 malých čtverečků.
+Každý z nich obsahuje docela hodně elektroniky:
+tři barevné LED (červenou, zelenou a modrou)
+a čip, který je umí ovládat pomocí informací,
+které dostane přes jediný drátek z modulu.</p>
+<p>Takové pásky se prodávají po metrech a dají se
+nastříhat – mezi jednotlivými světýlky si všimni čárky,
+která naznačuje, kde máš střihnout.
+Energie z USB stačí zhruba na osm světýlek, proto jsi jich dostala tolik.</p>
+<p>Tenhle LED pásek je stavěný na pět voltů. Naštěstí ale potřebuje 5 V jen
+na <em>napájení</em>; řídící signál s informacemi o barvičkách může mít 3,3 V.</p>
+<p>Pojďme pásek zapojit:</p>
+<ul>
+<li><code>GND</code> pásku (bílý drátek) připoj na <code>G</code></li>
+<li><code>DI</code> (<em>data in</em> – zelený drátek) připoj na <code>D4</code></li>
+<li><code>+5V</code> (červený drátek) připoj na <code>VIN</code>.</li>
+</ul>
+<p>Nožička <code>VIN</code> poskytuje 5 voltů.
+Pozor na ni: nepřipojuj na ni zařízení, které se s pěti volty nevyrovnají.</p>
+<p>Máš-li zapojeno, můžeš začít programovat.
+„Jazyk”, kterým „mluví” tenhle LED pásek je trošku
+složitější než signál PWM, ale MicroPython obsahuje
+speciální knihovnu, která s páskem komunikovat umí.
+Vypadá to nějak takhle:</p>
+<pre>
+from machine import Pin
+from neopixel import NeoPixel
+
+POCET_LED = 8
+pin = Pin(2, Pin.OUT)
+np = NeoPixel(pin, POCET_LED)
+np<span class="highlight-nocolor">[0]</span> = (<span class="highlight-red">255</span>, <span class="highlight-green">255</span>, <span class="highlight-blue">255</span>)
+np.write()
+</pre><p>Co znamenají ta čísla (<code>0</code> a <code>255</code>), na to už jistě přijdeš sám/sama.
+Jen při experimentování nezapomeň zavolat
+<code>np.write()</code>, tím se informace pošlou do LED pásku.</p>
+<p>Zvládneš naprogramovat semafor?</p>

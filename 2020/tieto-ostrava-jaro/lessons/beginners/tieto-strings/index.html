@@ -1,0 +1,186 @@
+<h2>Řetězce (Strings)</h2>
+<p>Všechny standarní sekvenční operace (indexing, slicing, multiplication, membership, length, minimum, maximum) jsou použitelné také u řetězců.</p>
+<p>Pamatujte ale, že řetězce jsou immutable, proto následující kód nebude fungovat.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; website = 'http://www.python.org'
+&gt;&gt;&gt; website[-3:] = 'com'
+Traceback (most recent call last):
+  File "&lt;pyshell#19&gt;", line 1, in ?
+  website[-3:] = 'com'
+TypeError: object doesn't support slice assignment</code></pre></div><h2>Formátování řetězců</h2>
+<p>Jednou ze metod jak vytisknout a formátovat řetězce operátor %, tak jako v jazyce C.</p>
+<p>Jako hodnoty, které chceme vytisknout můžeme použít string, integer, tuple nebo dictionary.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; format = "Hello, %s. %s are you?"
+&gt;&gt;&gt; values = ('world', 'How')
+&gt;&gt;&gt; format % values
+'Hello, world. How are you?'</code></pre></div><p>%s je tzv. <em>conversion specifiers</em>. Označují místa, kde se má vložit hodnoty z pravé strany přiřazení.</p>
+<p>Další možné použití:</p>
+<div class="highlight"><pre><code>%s - string
+%i - integer
+%f - floating point</code></pre></div><p>Nejnovější a doporučovaný způsob formátování řetězců je pomocí metody <em>format()</em>. Každé položka řetězce, kterou chceme formátovat je reprezentována složenými závorkami <em>{}</em> a může obsahovat jméno a také informace o tom, jak správně řetězec zformátovat.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{}, {} and {}".format("first", "second", "third")
+'first, second and third'
+&gt;&gt;&gt; "{0}, {1} and {2}".format("first", "second", "third")
+'first, second and third'</code></pre></div><p>Můžeme formátovat i takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{3} {0} {2} {1} {3} {0}".format("be", "not", "or", "to")
+'to be or not to be'</code></pre></div><p>Hodnoty můžeme také pojmenovávat:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; from math import pi
+&gt;&gt;&gt; "{name} is approximately {value:.2f}.".format(value=pi, name="π")
+'π is approximately 3.14.'</code></pre></div><p><em>.2f</em> znamená, že číslo bude vytištěno s přesností na dvě desetinná místa.</p>
+<p>Od Pythonu 3.6 můžeme formátovat řetězec i takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; from math import e
+&gt;&gt;&gt; f"Euler's constant is roughly {e}."
+"Euler's constant is roughly 2.718281828459045."</code></pre></div><p>Další možnost je například takováto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; name = 'Fred'
+&gt;&gt;&gt; age = 42
+&gt;&gt;&gt; f'He said his name is {name} and he is {age} years old.'
+He said his name is Fred and he is 42 years old.</code></pre></div><p>Můžeme dokonce použít ve složených závorkách i Python výrazy a metody:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; name = 'Fred'
+&gt;&gt;&gt; seven = 7
+&gt;&gt;&gt; f'''He said his name is {name.upper()}
+...    and he is {6 * seven} years old.'''
+'He said his name is FRED\n    and he is 42 years old.'</code></pre></div><p>Starší ekvivalent stejného kódu je:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "Euler's constant is roughly {e}.".format(e=e)
+"Euler's constant is roughly 2.718281828459045."</code></pre></div><p>Formátování řetězců (funkce format) používá templatovací jazyk. Každá hodnota, která má být nahrazena je uložená ve složených uvozovkách <em>{}</em>, tzv <em>replacement fields</em>. Poud chceme vypsat ve výpisu složené uvozovky, musíme to udělat takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{{ double braces }}".format()
+'{ double braces }'</code></pre></div><h3>Replacement Fields</h3>
+<p>Skládají se z:</p>
+<p><strong>Field name</strong> - index nebo indentifikátor</p>
+<p><strong>Conversion flag</strong> - Vykřičník následovaný jedním znakem</p>
+<ul>
+<li>r - repr</li>
+<li>s - string</li>
+<li>a - ascii</li>
+</ul>
+<p><strong>Format specifier</strong> - dojtečka následovaná výrazem templatovacího jazyka</p>
+<p>Příklady použití:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{foo} {} {bar} {}".format(1, 2, bar=4, foo=3)
+'3 1 4 2'</code></pre></div><p>Můžeme přistupovat také jen k části hodnoty (pole), kterou chceme vytisknout:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; fullname = ["Alfred", "Hitchcock"]
+&gt;&gt;&gt; "Mr {name[1]}".format(name=fullname)
+'Mr Hitchcock'</code></pre></div><h3>Základní konverze</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; print("{pi!s} {pi!r} {pi!a}".format(pi="π"))
+π 'π' '\u03c0'</code></pre></div><p>Floating point <em>format specifier</em></p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "The number is {num}".format(num=42)
+'The number is 42'
+&gt;&gt;&gt; "The number is {num:f}".format(num=42)
+'The number is 42.000000'</code></pre></div><p>Binary <em>format specifier</em></p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "The number is {num:b}".format(num=42)
+'The number is 101010'</code></pre></div><p><strong>Format specifier</strong></p>
+<ul>
+<li>b - binary</li>
+<li>c - integer</li>
+<li>d - integer vytiskne jako decimal</li>
+<li>f - decimal s fixním počtem desetinných míst</li>
+<li>o - integer jako osmičkové číslo</li>
+</ul>
+<p>Více v dokumentaci.</p>
+<h3>Šířka zarovnání</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{num:10}".format(num=3)
+'         3'
+&gt;&gt;&gt; "{name:10}".format(name="Bob")
+'Bob       '</code></pre></div><h3>Precison</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "Pi is {pi:.2f}".format(pi=pi)
+'Pi is 3.14'</code></pre></div><p>Formátování se zarovnáním:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{pi:10.2f}".format(pi=pi)
+'      3.14'</code></pre></div><p>Přesnost zarovnání se dá použít také takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{:.5}".format("Guido van Rossum")
+'Guido'</code></pre></div><p>Můžeme specifikovat několik typů zarovnání.</p>
+<p>Zero-padded:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; '{:010.2f}'.format(pi)
+'0000003.14'</code></pre></div><p>Levé, pravé a vycentrované:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; print('{0:&lt;10.2f}\n{0:^10.2f}\n{0:&gt;10.2f}'.format(pi))
+3.14
+   3.14
+      3.14</code></pre></div><p>Můžeme specifikovat jakým znakem vyplníme volné místa, jako náhradu za mezeru:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{:$^15}".format(" I WON ")
+'$$$$ I WON $$$$'</code></pre></div><p>Jak formátovat čísla se znaménky?</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; print('{0:-.2}\n{1:-.2}'.format(pi, -pi)) # Default
+3.1
+-3.1
+&gt;&gt;&gt; print('{0:+.2}\n{1:+.2}'.format(pi, -pi))
++3.1
+-3.1
+&gt;&gt;&gt; print('{0: .2}\n{1: .2}'.format(pi, -pi))
+ 3.1
+-3.1</code></pre></div><p>Praktický příklad:</p>
+<div class="highlight"><pre><code># Print a formatted price list with a given width
+
+width = int(input('Please enter width: '))
+
+price_width = 10
+item_width  = width - price_width
+
+header_fmt = '{{:{}}}{{:&gt;{}}}'.format(item_width, price_width)
+fmt        = '{{:{}}}{{:&gt;{}.2f}}'.format(item_width, price_width)
+
+print('=' * width)
+
+print(header_fmt.format('Item', 'Price'))
+
+print('-' * width)
+
+print(fmt.format('Apples', 0.4))
+print(fmt.format('Pears', 0.5))
+print(fmt.format('Cantaloupes', 1.92))
+print(fmt.format('Dried Apricots (16 oz.)', 8))
+print(fmt.format('Prunes (4 lbs.)', 12))                                                                              
+
+print('=' * width)</code></pre></div><p>Výstup:</p>
+<div class="highlight"><pre><code>Please enter  width: 35
+===================================
+Item                          Price
+-----------------------------------
+Apples                         0.40
+Pears                          0.50
+Cantaloupes                    1.92
+Dried  Apricots (16 oz.)       8.00
+Prunes (4 lbs.)               12.00
+===================================</code></pre></div><h2>Metody řetězců</h2>
+<h3>center()</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "The Middle by Jimmy Eat World".center(39)
+'     The Middle by Jimmy Eat World     '
+&gt;&gt;&gt; "The Middle by Jimmy Eat World".center(39, "*")
+'*****The Middle by Jimmy Eat World*****'</code></pre></div><h3>find()</h3>
+<p>Vrací levý index, na kterém našel výskyt řetězce.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 'With a moo-moo here, and a moo-moo there'.find('moo')
+7
+&gt;&gt;&gt; title = "Monty Python's Flying Circus"
+&gt;&gt;&gt; title.find('Monty')
+0
+&gt;&gt;&gt; title.find('Python')
+6
+&gt;&gt;&gt; title.find('Flying')
+15
+&gt;&gt;&gt; title.find('Zirquss')
+-1</code></pre></div><h3>join()</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; seq = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; sep = '+'
+&gt;&gt;&gt; sep.join(seq) # Trying to join a list of numbers
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+TypeError: sequence item 0: expected string, int found
+&gt;&gt;&gt; seq = ['1', '2', '3', '4', '5']
+&gt;&gt;&gt; sep.join(seq) # Joining a list of strings
+'1+2+3+4+5'
+&gt;&gt;&gt; dirs = '', 'usr', 'bin', 'env'
+&gt;&gt;&gt; '/'.join(dirs)
+'/usr/bin/env'
+&gt;&gt;&gt; print('C:' + '\\'.join(dirs))
+C:\usr\bin\env</code></pre></div><p>Inverzní funkce je <em>split()</em>.</p>
+<h3>lower()</h3>
+<p>Vrací lowercase verzi řetězce:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 'Dance Floor'.lower()
+'dance floor'</code></pre></div><p>Reverzní funkce <em>upper()</em>.</p>
+<h3>replace()</h3>
+<p>Všechny výskyty hledaného řetězce jsou nahrazeny.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 'This is a test'.replace('is', 'eez')
+'Theez eez a test'</code></pre></div><h3>split()</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; '1+2+3+4+5'.split('+')
+['1', '2', '3', '4', '5']
+&gt;&gt;&gt; '/usr/bin/env'.split('/')
+['', 'usr', 'bin', 'env']
+&gt;&gt;&gt; 'Using   the   default'.split()
+['Using', 'the', 'default']</code></pre></div><h3>strip()</h3>
+<p>Vrací řetězec bez prázdných znaků na začátku a na konci.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; '    internal whitespace is kept    '.strip()
+'internal whitespace is kept'</code></pre></div>

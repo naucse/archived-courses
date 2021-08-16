@@ -1,0 +1,98 @@
+<h1>JSON</h1>
+<p>There are also other programming languages ​​than Python.</p>
+<p>Other languages ​​can not work with python code.
+If you would like to "talk" with such programs -
+pass them some processing information
+or to get results from them -
+you have to pass the information in a simplified form.</p>
+<h2>Types</h2>
+<p>Most programming languages ​​have some numbers, some sort of lists,
+a variety of strings and some variation of dictionaries
+(or several ways to create dictionaries).
+And they have a way how to write <code>True</code>, <code>False</code> and <code>None</code>.</p>
+<p>These basic types are usually sufficient for information handover
+in a legible form, although there are not the exact equivalents in all languages
+(Python has two basic types of numbers - <code>int</code> and<code>float</code>).
+So we will focus on them.</p>
+<h2>Data encoding</h2>
+<p>Another problem is data transfer:
+so for you to be able to write data on disk or transfer
+via the Internet, it has to be converted to a sequence of <em>bytes</em> (numbers from 0 to 255).
+Simplified: you have to convert it to a string.</p>
+<p>There are plenty of ways to encode data into text.
+Each way is trying to find the right balance between
+legibility for people/computers, length of record,
+security, options and extensibility.
+We already know the syntax for Python:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Anna&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Prague&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;languages&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Czech&#39;</span><span class="p">,</span> <span class="s1">&#39;English&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div><p>Another way to write data is [YAML] (<a href="http://www.yaml.org/">http://www.yaml.org/</a>):</p>
+<div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Anna</span>
+<span class="nt">city</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Prague</span>
+<span class="nt">languages</span><span class="p">:</span>
+<span class="err">  </span> <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Czech</span>
+<span class="err">  </span> <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">English</span>
+<span class="err">  </span> <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Python</span>
+<span class="nt">age</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">26</span>
+</pre></div><p>Or maybe [Bencode] (<a href="http://en.wikipedia.org/wiki/Bencode">http://en.wikipedia.org/wiki/Bencode</a>):</p>
+<div class="highlight"><pre><code>d6: language9: czech11: english6: Pythone4: agei26e6: city4: Prague6: name4: Annae</code></pre></div><p>There are also non-text formats like
+[Pickle 3] (<a href="https://docs.python.org/3/library/pickle.html">https://docs.python.org/3/library/pickle.html</a>):</p>
+<div class="highlight"><pre><code>}q(XjmÃ©noqXAnnaqXmÄtoqXBrnoqXjazykyq]q(X       ÄeÅ¡tinaqX
+                                                          angliÄtinaXPythonq       eXvÄq
+K▒u.</code></pre></div><p>Finally, there is also [JSON] (<a href="http://json.org/">http://json.org/</a>)
+(<em>Javascript Object Notation</em>),
+which, for its simplicity, has expanded the most:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anna&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;City&quot;</span><span class="p">:</span> <span class="s2">&quot;Prague&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Languages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Czech&quot;</span><span class="p">,</span> <span class="s2">&quot;English&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;Age&quot;</span><span class="p">:</span> <span class="mi">26</span>
+<span class="p">}</span>
+</pre></div><div class="admonition note"><p>Keep in mind that although JSON looks similar to code
+in Python, it's another format with its own rules.
+Do not confuse them!</p>
+<p>At first I do not recommend writing JSON manually;
+let computer decide where to write
+commas and quotation marks.</p>
+</div><h2>JSON in Python</h2>
+<p>Object encoding in JSON is simple: there is a <code>json</code> module,
+whose <code>load</code> method retrieves data from the string:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">json_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    {</span>
+<span class="s2">      &quot;name&quot;: &quot;Anna&quot;,</span>
+<span class="s2">      &quot;city&quot;: &quot;Brno&quot;,</span>
+<span class="s2">      &quot;languages&quot;: [&quot;Czech&quot;, &quot;English&quot;, &quot;Python&quot;],</span>
+<span class="s2">      &quot;age&quot;: 26</span>
+<span class="s2">    }</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">])</span>
+</pre></div><p>And then there is the <code>dumps</code> method, which decodes the given data
+and returns a string.</p>
+<p>The string that <code>dumps(data)</code> returns is suitable for computer
+treatment.
+If you want to read it, it is better to set <code>ensure_ascii = False</code> 
+(so that accented letters are not encoded with<code>\</code>)
+and <code>indent = 2</code> (indent with two spaces).</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">{</span>
+<span class="go">  &quot;name&quot;: &quot;Anna&quot;,</span>
+<span class="go">  &quot;city&quot;: &quot;Brno&quot;,</span>
+<span class="go">  &quot;languages&quot;: [</span>
+<span class="go">    &quot;Czech&quot;,</span>
+<span class="go">    &quot;English&quot;,</span>
+<span class="go">    &quot;Python&quot;</span>
+<span class="go">  ],</span>
+<span class="go">  &quot;age&quot;: 26</span>
+<span class="go">}</span>
+</pre></div><p>A complete description of <code>json</code> module -
+including write/read functions directly to/from files -
+is in the <a href="https://docs.python.org/3/library/json.html">documentation</a>.</p>

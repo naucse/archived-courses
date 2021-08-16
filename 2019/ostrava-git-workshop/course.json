@@ -1,0 +1,255 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "17:00",
+   "start": "9:00"
+  },
+  "description": "Git pro za\u010d\u00e1te\u010dnice a za\u010d\u00e1te\u010dn\u00edky",
+  "edit_info": {
+   "branch": "archive/2019-ostrava-git-workshop",
+   "url": "https://github.com/pyvec/naucse.python.cz/"
+  },
+  "etag": "b7f346a9b4ec45ac6b40996d722f47440d528166",
+  "lessons": {
+   "beginners/cmdline": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+       "Zalo\u017eeno na tutori\u00e1lu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+      ],
+      "content": {
+       "path": "lessons/beginners/cmdline/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/cmdline/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/cmdline/index.md",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "vars": {
+       "coach-present": true,
+       "coach-username": "frenzymadness"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/cmdline/info.yml",
+    "static_files": {
+     "windows-cmd-properties.png": {
+      "path": "lessons/beginners/cmdline/static/windows-cmd-properties.png"
+     }
+    },
+    "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky"
+   },
+   "git/basics": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/git/basics/index.html"
+      },
+      "css": ".green  {   color:  #0a0;    }\n.red    {   color:  #a00;    }\n.yellow {   color:  #a50;    }\n.strong {   font-weight:  bold;    }\n.blue   {   color:  #0aa;    }\n",
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/git/basics/index.md",
+      "title": "Git",
+      "vars": {
+       "coach-present": true,
+       "coach-username": "frenzymadness"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/git/basics/info.yml",
+    "static_files": {
+     "diagram.svg": {
+      "path": "lessons/git/basics/static/diagram.svg"
+     },
+     "dropbox.png": {
+      "path": "lessons/git/basics/static/dropbox.png"
+     },
+     "gitk.png": {
+      "path": "lessons/git/basics/static/gitk.png"
+     }
+    },
+    "title": "Git"
+   },
+   "git/branching": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/git/branching/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/git/branching/index.md",
+      "title": "V\u011btven\u00ed v Gitu",
+      "vars": {
+       "coach-present": true,
+       "coach-username": "frenzymadness"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/git/branching/info.yml",
+    "static_files": {
+     "branch1.png": {
+      "path": "lessons/git/branching/static/branch1.png"
+     },
+     "branches.png": {
+      "path": "lessons/git/branching/static/branches.png"
+     },
+     "merge.png": {
+      "path": "lessons/git/branching/static/merge.png"
+     }
+    },
+    "title": "V\u011btven\u00ed v Gitu"
+   },
+   "git/collaboration": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies CZ napsali Petr Viktorin a Oskar Hollman, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/git/collaboration/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/git/collaboration/index.md",
+      "title": "Spolupr\u00e1ce a Open source",
+      "vars": {
+       "coach-present": true,
+       "coach-username": "frenzymadness"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/git/collaboration/info.yml",
+    "static_files": {
+     "gh-workflow-diagram.svg": {
+      "path": "lessons/git/collaboration/static/gh-workflow-diagram.svg"
+     }
+    },
+    "title": "Spolupr\u00e1ce a Open source"
+   },
+   "git/ignoring": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies CZ napsal Petr Viktorin, 2017."
+      ],
+      "content": {
+       "path": "lessons/git/ignoring/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/git/ignoring/index.md",
+      "title": "Ignorov\u00e1n\u00ed soubor\u016f",
+      "vars": {
+       "coach-present": true,
+       "coach-username": "frenzymadness"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/git/ignoring/info.yml",
+    "static_files": {},
+    "title": "Ignorov\u00e1n\u00ed soubor\u016f"
+   },
+   "git/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/git/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/git/install/index.md",
+      "title": "Instalace Gitu",
+      "vars": {
+       "coach-present": true,
+       "coach-username": "frenzymadness"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/git/install/info.yml",
+    "static_files": {},
+    "title": "Instalace Gitu"
+   }
+  },
+  "long_description": "<p>Git je \u0161v\u00fdcarsk\u00fdm no\u017eem v\u0161ech program\u00e1tor\u016f a um\u00ed vy\u0159e\u0161it spoustu probl\u00e9m\u016f p\u0159i spr\u00e1v\u011b r\u016fzn\u00fdch verz\u00ed zdrojov\u00e9ho k\u00f3du a spolupr\u00e1ci mezi n\u011bkolika v\u00fdvoj\u00e1\u0159i. Je ale tak\u00e9 celkem komplexn\u00ed a nau\u010dit se jej pou\u017e\u00edvat vy\u017eaduje n\u011bjak\u00fd \u010das a tr\u00e9nink.</p>\n<p>Na workshopu si vysv\u011btl\u00edme z\u00e1kladn\u00ed principy pr\u00e1ce s Gitem, nakoukneme na Github a popov\u00edd\u00e1me si o open source softwaru.</p>\n<p>Tento workshop je pro v\u0161echny, kte\u0159\u00ed jsou pokro\u010dilej\u0161\u00ed za\u010d\u00e1te\u010dn\u00edci \u2013 um\u00ed pracovat s p\u0159\u00edkazovou \u0159\u00e1dkou zhruba na \u00farovni absolventek za\u010d\u00e1te\u010dnick\u00e9ho kurzu PyLadies, v\u011bd\u00ed, jak funguj\u00ed soubory na po\u010d\u00edta\u010di a \u017ee se do nich p\u00ed\u0161e zdrojov\u00fd k\u00f3d. Kdo bude cht\u00edt, bude moci i programovat v Pythonu, ale nen\u00ed to podm\u00ednkou.</p>",
+  "sessions": [
+   {
+    "date": "2019-03-02",
+    "materials": [
+     {
+      "lesson_slug": "git/install",
+      "title": "Instalace Gitu",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "git/basics",
+      "title": "Z\u00e1klady Gitu",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "git/ignoring",
+      "title": "Ignorov\u00e1n\u00ed soubor\u016f",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "git/collaboration",
+      "title": "Spolupr\u00e1ce a Open source",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "git/branching",
+      "title": "V\u011btven\u00ed v Gitu",
+      "type": "lesson"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/basic-git/basic-git-cs.pdf",
+      "title": "Tah\u00e1k na git",
+      "type": "none-link"
+     },
+     {
+      "external_url": "https://github.com/frenzymadness/vtipnik/",
+      "title": "Projekt \u201eVtipn\u00edk\u201c",
+      "type": "none-link"
+     }
+    ],
+    "slug": "git",
+    "source_file": "runs/2019/ostrava-git-workshop/info.yml",
+    "title": "Git"
+   }
+  ],
+  "source_file": "runs/2019/ostrava-git-workshop/info.yml",
+  "subtitle": "Workshop na t\u00e9ma git, github a open source",
+  "time_description": "9:00\u201317:00",
+  "timezone": "Europe/Prague",
+  "title": "Git Workshop",
+  "vars": {
+   "coach-present": true,
+   "coach-username": "frenzymadness"
+  }
+ }
+}

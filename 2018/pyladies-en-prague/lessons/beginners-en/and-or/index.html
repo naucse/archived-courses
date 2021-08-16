@@ -1,0 +1,60 @@
+<h1><em>Or</em> &amp; <em>and</em></h1>
+<p>In addition to the operators that we saw in the Comparison lesson, we will now add 3 more logical (Boolean) operators to the table:</p>
+<table class="table">
+    <tr>
+        <th>Symbol</th>
+        <th>Example</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>and</code></td>
+        <td><code>x and y</code></td>
+        <td>True if both operands are true</td>
+    </tr>
+    <tr>
+        <td><code>or</code></td>
+        <td><code>x or y</code></td>
+        <td>True if either operand is true</td>
+    </tr>
+    <tr>
+        <td><code>not</code></td>
+        <td><code>not x</code></td>
+        <td>True if the operand is false<br> 
+        (it negates the operand)</td>
+    </tr>
+</table><div class="highlight"><pre><span></span><span class="c1"># This program gives naive life advice.</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Answer &quot;yes&quot; or &quot;no&quot;.&#39;</span><span class="p">)</span>
+<span class="n">happy_status</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Are you happy?&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">happy_status</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span>
+    <span class="n">happy</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">elif</span> <span class="n">happy_status</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
+    <span class="n">happy</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;I do not understand!&#39;</span><span class="p">)</span>
+
+<span class="n">rich_status</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Are you rich?&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">rich_status</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span>
+    <span class="n">rich</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">elif</span> <span class="n">rich_status</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
+    <span class="n">rich</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;I do not understand!&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">rich</span> <span class="ow">and</span> <span class="n">happy</span><span class="p">:</span>
+    <span class="c1"># rich and at the same time.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Congratulations!&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">rich</span><span class="p">:</span>
+    <span class="c1"># rich but not &quot;rich and happy&quot;,</span>
+    <span class="c1">#so must be only rich.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Try to smile more.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">happy</span><span class="p">:</span>
+    <span class="c1"># must be only happy.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Try to spend less.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># neither happy nor rich.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m sorry for you.&quot;</span><span class="p">)</span>
+</pre></div><div class="admonition note"><p>What happens if you answer something other than "Yes" or "No"?</p>
+<p>The variables <code>happy</code> and <code>rich</code> won't be set, and later when they are needed, the program will end with an error.</p>
+<p>We will learn how to handle errors <a href="naucse:page?lesson=beginners/exceptions">next time</a>.</p>
+</div>

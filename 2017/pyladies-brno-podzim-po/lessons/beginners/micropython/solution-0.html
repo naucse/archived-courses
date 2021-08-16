@@ -1,0 +1,6 @@
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="n">pin_diody</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">pin_tlacitka</span> <span class="o">=</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Pin</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">pin_diody</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pin_tlacitka</span><span class="o">.</span><span class="n">value</span><span class="p">())</span>
+</pre></div>

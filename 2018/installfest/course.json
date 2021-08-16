@@ -1,0 +1,422 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "13:55",
+   "start": "11:00"
+  },
+  "description": "Hra v Pythonu pro naprost\u00e9 za\u010d\u00e1te\u010dn\u00edky i pokro\u010dil\u00e9",
+  "edit_info": {
+   "branch": "archive/2018-installfest",
+   "url": "https://github.com/pyvec/naucse.python.cz/"
+  },
+  "etag": "c882310a02b41bcb90f1eba82d4041957387abfd",
+  "lessons": {
+   "beginners/cmdline": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+       "Zalo\u017eeno na tutori\u00e1lu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+      ],
+      "content": {
+       "path": "lessons/beginners/cmdline/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/cmdline/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/cmdline/index.md",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/cmdline/info.yml",
+    "static_files": {
+     "windows-cmd-properties.png": {
+      "path": "lessons/beginners/cmdline/static/windows-cmd-properties.png"
+     }
+    },
+    "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky"
+   },
+   "beginners/first-steps": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/first-steps/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/first-steps/index.md",
+      "title": "Prvn\u00ed kr\u016f\u010dky",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/first-steps/info.yml",
+    "static_files": {},
+    "title": "Prvn\u00ed kr\u016f\u010dky"
+   },
+   "beginners/functions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/functions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/functions/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/functions/index.md",
+      "title": "Funkce",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/functions/info.yml",
+    "static_files": {},
+    "title": "Funkce"
+   },
+   "beginners/inheritance": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/inheritance/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/inheritance/index.md",
+      "title": "D\u011bdi\u010dnost",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/inheritance/info.yml",
+    "static_files": {},
+    "title": "D\u011bdi\u010dnost"
+   },
+   "beginners/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/index.md",
+      "title": "Instalace Pythonu",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "linux": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/linux.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "linux",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/linux.md",
+      "title": "Instalace Pythonu - Linux",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "macos": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/macos.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "macos",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/macos.md",
+      "title": "Instalace Pythonu - macOS",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "windows": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/windows.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "windows",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/windows.md",
+      "title": "Instalace Pythonu - Windows",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/install/info.yml",
+    "static_files": {
+     "windows_32v64-bit.png": {
+      "path": "lessons/beginners/install/static/windows_32v64-bit.png"
+     },
+     "windows_add_python_to_path.png": {
+      "path": "lessons/beginners/install/static/windows_add_python_to_path.png"
+     }
+    },
+    "title": "Instalace Pythonu"
+   },
+   "fast-track/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Miro Hron\u010dok a Petr Viktorin, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/fast-track/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/fast-track/install/index.md",
+      "title": "Vytvo\u0159en\u00ed virtu\u00e1n\u00edho prost\u0159ed\u00ed",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/fast-track/install/info.yml",
+    "static_files": {},
+    "title": "Vytvo\u0159en\u00ed virtu\u00e1n\u00edho prost\u0159ed\u00ed"
+   },
+   "intro/pyglet": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017.",
+       "Ikonku hada vytvo\u0159il Martin Berube."
+      ],
+      "content": {
+       "path": "lessons/intro/pyglet/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/pyglet/index.md",
+      "title": "Grafika",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/pyglet/info.yml",
+    "static_files": {
+     "had.gif": {
+      "path": "lessons/intro/pyglet/static/had.gif"
+     },
+     "had.png": {
+      "path": "lessons/intro/pyglet/static/had.png"
+     },
+     "had2.png": {
+      "path": "lessons/intro/pyglet/static/had2.png"
+     },
+     "pong.py": {
+      "path": "lessons/intro/pyglet/static/pong.py"
+     }
+    },
+    "title": "Grafika"
+   },
+   "projects/asteroids": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/projects/asteroids/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/projects/asteroids/index.md",
+      "title": "Asteroids",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/projects/asteroids/info.yml",
+    "static_files": {
+     "screenshot.png": {
+      "path": "lessons/projects/asteroids/static/screenshot.png"
+     }
+    },
+    "title": "Asteroids"
+   },
+   "projects/pong": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Praha napsal Oskar Hollmann s pou\u017eit\u00edm k\u00f3du Petra Viktorina, 2016."
+      ],
+      "content": {
+       "path": "lessons/projects/pong/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-1.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-2.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-3.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-4.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/projects/pong/solution-5.html"
+        }
+       }
+      ],
+      "source_file": "lessons/projects/pong/index.md",
+      "title": "Praktick\u00e9 cvi\u010den\u00ed: Pong",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/projects/pong/info.yml",
+    "static_files": {
+     "pong.png": {
+      "path": "lessons/projects/pong/static/pong.png"
+     }
+    },
+    "title": "Praktick\u00e9 cvi\u010den\u00ed: Pong"
+   }
+  },
+  "long_description": "<p>Na tomto workshopu pod veden\u00edm lektora vytvo\u0159\u00edte variantu ark\u00e1dov\u00e9 hry\nAsteroids, kter\u00e1 poprv\u00e9 vy\u0161la na konci sedmdes\u00e1t\u00fdch let. Vyu\u017eijeme k tomu\nframework Pyglet, o kter\u00e9m nejsou pot\u0159eba \u017e\u00e1dn\u00e9 p\u0159edchoz\u00ed znalosti.</p>\n<p>Hr\u00e1\u010d bude ovl\u00e1dat raketku l\u00e9taj\u00edc\u00ed vesm\u00edrem a st\u0159\u00edlej\u00edc\u00ed na kolem\npoletuj\u00edc\u00ed asteroidy. Ale pozor, s asteroidem se samoz\u0159ejm\u011b m\u016f\u017eete i srazit.</p>\n<p>P\u0159edpokl\u00e1d\u00e1 se pouze velmi z\u00e1kladn\u00ed znalost syntaxe Pythonu a z\u00e1klady\nobjektov\u00e9ho programov\u00e1n\u00ed (klidn\u011b z jin\u00e9ho jazyka). Z\u00e1kladn\u00ed znalosti\nz matematiky a fyziky jsou v\u00fdhodou (setrva\u010dnost, zrychlen\u00ed, sinus,\nkosinus...) ale ne nutnost\u00ed, ale nic hardcore ne\u010dekejte, p\u0159edpokl\u00e1dejme\nvakuum s nulov\u00fdm t\u0159en\u00edm.</p>\n<p>V\u0161e ostatn\u00ed se nau\u010d\u00edte na workshopu. Pokro\u010dilej\u0161\u00ed Pythonisti mohou \nozv\u00edjet hru r\u016fzn\u00fdmi dal\u0161\u00edmi sm\u011bry, tak\u017ee by se nem\u011bli nudit\n(v\u00fdbuchy, efekty, \u017eivoty, \u0161t\u00edty...).</p>",
+  "place": "\u010cVUT FEL, Karlovo n\u00e1m\u011bst\u00ed 13, budova E, WS room I",
+  "sessions": [
+   {
+    "date": "2018-03-03",
+    "materials": [
+     {
+      "lesson_slug": "fast-track/install",
+      "title": "Vytvo\u0159en\u00ed virtu\u00e1n\u00edho prost\u0159ed\u00ed",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "intro/pyglet",
+      "title": "Grafika",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "projects/asteroids",
+      "title": "Asteroids",
+      "type": "lesson"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/basic-functions/basic-functions-cs.pdf",
+      "title": "Tah\u00e1k s u\u017eite\u010dn\u00fdmi funkcemi Pythonu (mj. matematika, n\u00e1hodnost)",
+      "type": "cheatsheet"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf",
+      "title": "Tah\u00e1k na seznamy",
+      "type": "cheatsheet"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf",
+      "title": "Slovn\u00edkov\u00fd tah\u00e1k",
+      "type": "cheatsheet"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/classes/classes.pdf",
+      "title": "Tah\u00e1k na t\u0159\u00eddy",
+      "type": "cheatsheet"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/pyglet/pyglet-basics-cs.pdf",
+      "title": "Tah\u00e1k na Pyglet",
+      "type": "cheatsheet"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/sets/sets-cs.pdf",
+      "title": "Mno\u017einov\u00fd tah\u00e1k",
+      "type": "cheatsheet"
+     },
+     {
+      "external_url": "https://pyvec.github.io/cheatsheets/game-physics/game-physics-cs.pdf",
+      "title": "Tah\u00e1k na geometrii a fyziku 2D her",
+      "type": "cheatsheet"
+     }
+    ],
+    "slug": "workshop",
+    "source_file": "runs/2018/installfest/info.yml",
+    "title": "Workshop"
+   }
+  ],
+  "source_file": "runs/2018/installfest/info.yml",
+  "subtitle": "\u010cVUT FEL - installfest.cz",
+  "time_description": "11:00\u201313:55",
+  "timezone": "Europe/Prague",
+  "title": "Asteroidy na InstallFestu",
+  "vars": {
+   "coach-present": true
+  }
+ }
+}

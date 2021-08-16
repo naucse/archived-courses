@@ -1,0 +1,142 @@
+<h2>Seznamy (Lists)</h2>
+<p>Seznamy jsou proměnlivé (mutable) a to narozdíl od neměnných n-tic (imutable). Seznamy mají mnoho specializovaných metod pro práci a modifikací se seznamy. Nejprve však syntaxe vytváření seznamů.</p>
+<h3>Vytvoření seznamu</h3>
+<p>Prázdný seznam se vytvoří takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = []</code></pre></div><p>Seznam s dvěmi prvky se vytvoří takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; list = [1, 2]</code></pre></div><h3>Funkce list()</h3>
+<p>Pokud budeme chtít převést prvky řetězce na seznam, můžeme to udělat takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; list('Hello')
+['H', 'e', 'l', 'l', 'o']</code></pre></div><p>Pokud bychom chtěli naopak sloučit seznam zpět do řetězce, můžeme použít funkci <em>join()</em>.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; l = ['H', 'e', 'l', 'l', 'o']
+&gt;&gt;&gt; ''.join(l)
+'Hello'</code></pre></div><h3>Základní operace nad seznamy</h3>
+<h4>Změnna prvů</h4>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = [1, 1, 1]
+&gt;&gt;&gt; x[1] = 2
+&gt;&gt;&gt; x
+[1, 2, 1]</code></pre></div><div class="admonition note"><p>Nemůžete změnit prvek, který neexistuje, proto následující příklad selže</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = [1, 1, 1]
+&gt;&gt; x[3] = 4
+Traceback (most recent call last):
+ File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+IndexError: list assignment index out of range</code></pre></div></div><h4>Odstranění prvků</h4>
+<div class="highlight"><pre><code>&gt;&gt;&gt; names = ['Adam', 'Beta', 'Cyril', 'Dona', 'Eda']
+&gt;&gt;&gt; del names[2]
+&gt;&gt;&gt; names
+['Adam', 'Beta', 'Dona', 'Eda']</code></pre></div><h4>Přiřazení k řezu</h4>
+<div class="highlight"><pre><code>&gt;&gt;&gt; name = list('Perl')
+&gt;&gt;&gt; name
+['P', 'e', 'r', 'l']
+&gt;&gt;&gt; name[2:] = list('ar')
+&gt;&gt;&gt; name
+['P', 'e', 'a', 'r']</code></pre></div><p>Pokud používáme přiřazení k řezu, můžeme řezem prodloužit délku seznamu.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; name = list('Perl')
+&gt;&gt;&gt; name[1:] = list('ython')
+&gt;&gt;&gt; name
+['P', 'y', 't', 'h', 'o', 'n']</code></pre></div><p>Můžeme je dokonce použít, pokud chceme <em>vložit</em> prvky, anuž bychom chtěli nějaké změnit.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers = [1, 5]
+&gt;&gt;&gt; numbers[1:1] = [2, 3, 4]
+&gt;&gt;&gt; numbers
+[1, 2, 3, 4, 5]</code></pre></div><p>Pokud chceme některé prvky odstranit, můžeme to udělat takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers
+[1, 2, 3, 4, 5]
+&gt;&gt;&gt; numbers[1:4] = []
+&gt;&gt;&gt; numbers
+[1, 5]</code></pre></div><h3>Metody seznamů</h3>
+<p>Metoda je funkce, která je vázána k určitému objektu (číslo, seznam, n-tice...) a vykonává na něm nějakou akci. Volá se následovně:</p>
+<div class="highlight"><pre><code>object.method(arguments)</code></pre></div><p><strong>append</strong></p>
+<p>Metoda <em>append</em> přidává objekt na konec seznamu</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; lst = [1, 2, 3]
+&gt;&gt;&gt; lst.append(4)
+&gt;&gt;&gt; lst
+[1, 2, 3, 4]</code></pre></div><div class="admonition note"><p>Proč jsem nepoužil místo názvu proměnné lst list? Co by se stalo pak? Kdo na to příjde?</p>
+</div><p><strong>clear</strong></p>
+<p>Metoda clear vymaže obsah seznamu.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; lst = [1, 2, 3]
+&gt;&gt;&gt; lst.clear()
+&gt;&gt;&gt; lst
+[]</code></pre></div><p><strong>copy</strong></p>
+<p>Metoda copy zkopíruje list.</p>
+<div class="admonition warning"><p>Pozor na rozdíl mezi zkopírováním a přiřazením jiného jména k existujícímu seznamu!</p>
+</div><div class="highlight"><pre><code>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; b[1] = 4
+&gt;&gt;&gt; a
+[1, 4, 3]</code></pre></div><p>Pokud chcete, aby listy <em>a</em> a <em>b</em> byly oddělené seznamy, musíte je zkopírovat.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = a.copy()
+&gt;&gt;&gt; b[1] = 4
+&gt;&gt;&gt; a
+[1, 2, 3]</code></pre></div><p><strong>count</strong></p>
+<p>Metoda count počítá, kolikrát se prvek vyskytl v poli.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; ['to', 'be', 'or', 'not', 'to',  'be'].count('to')
+2
+&gt;&gt;&gt; x = [[1, 2], 1,  1,  [2, 1,  [1, 2]]]
+&gt;&gt;&gt; x.count(1)
+2
+&gt;&gt;&gt; x.count([1, 2])
+1</code></pre></div><p><strong>extend</strong></p>
+<p>Tato metoda umožňuje přidat několik hodnot najednou. Seznam tedy může být rozšířen o další seznam.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [4, 5, 6]
+&gt;&gt;&gt; a.extend(b)
+&gt;&gt;&gt; a
+[1, 2, 3, 4, 5, 6]</code></pre></div><p>Pozor na rozdíl mezi <em>spojením</em> dvou seznamů a rozšířením. Rozdíle je vidět na násladujícím příkladu.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; a = [1, 2, 3]
+&gt;&gt;&gt; b = [4, 5, 6]
+&gt;&gt;&gt; a + b
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; a
+[1, 2, 3]</code></pre></div><p><strong>index</strong></p>
+<p>Metoda <em>index</em> se používá k nalezení prvního výskytu hodnoty.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+&gt;&gt;&gt; n.index(6)
+5
+&gt;&gt;&gt; n.index(11)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ValueError: 11 is not in list</code></pre></div><p><strong>insert</strong></p>
+<p>Tato metoda vkládá objekt do existujícího seznamu.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers = [1, 2, 3, 5, 6, 7]
+&gt;&gt;&gt; numbers.insert(3, 'four')
+&gt;&gt;&gt; numbers
+[1, 2, 3, 'four', 5, 6, 7]</code></pre></div><p><strong>pop</strong></p>
+<p>Metoda pop odstraňuje (standardně) poslední prvek seznamu a vrátí jej jako návratovou hodnotu.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; x.pop()
+3
+&gt;&gt;&gt; x
+[1, 2]
+&gt;&gt;&gt; x.pop(0)
+1
+&gt;&gt;&gt; x
+[2]</code></pre></div><p><strong>remove</strong></p>
+<p>Odstraňuje první výskyt hodnoty, kterou nalezne v seznamu.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = ['to', 'be', 'or', 'not', 'to', 'be']
+&gt;&gt;&gt; x.remove('be')
+&gt;&gt;&gt; x
+['to', 'or', 'not', 'to', 'be']
+&gt;&gt;&gt; x.remove('bee')
+Traceback (innermost last):
+ File "&lt;pyshell&gt;", line 1, in ?
+  x.remove('bee')
+ValueError: list.remove(x): x not in list</code></pre></div><p><strong>reverse</strong></p>
+<p>Obrací pořadí prvků v seznamu.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = [1, 2, 3]
+&gt;&gt;&gt; x.reverse()
+&gt;&gt;&gt; x
+[3, 2, 1]</code></pre></div><p><strong>sort</strong></p>
+<p>Tato metoda uspořádává <em>in-place</em> prvky v seznamu. To znamená, že nevrací jako návratovou hodnotu uspořádaný seznam, ale přímo jej modifikuje.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = [4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; x.sort()
+&gt;&gt;&gt; x
+[1, 2, 4, 6, 7, 9]</code></pre></div><div class="highlight"><pre><code>&gt;&gt;&gt; x = [4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; y = x.sort() # Takhle to nefunguje
+&gt;&gt;&gt; print(y)
+None</code></pre></div><p>Místo toho můžeme použít funkci <em>sorted()</em>.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = [4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; y = sorted(x)
+&gt;&gt;&gt; x
+[4, 6, 2, 1, 7, 9]
+&gt;&gt;&gt; y
+[1, 2, 4, 6, 7, 9]</code></pre></div>

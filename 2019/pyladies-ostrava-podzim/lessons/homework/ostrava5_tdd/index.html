@@ -1,0 +1,47 @@
+<h1>1D piškvorky s testy</h1>
+<h2>Co to je?</h2>
+<p>Poté, co ses naučila pracovat s <a href="naucse:page?lesson=beginners/str">řetězci</a> a psát <a href="naucse:page?lesson=beginners/def">vlastní funkce</a>, dostala jsi za <a href="naucse:page?lesson=homework/ostrava5">úkol</a> naprogramovat si jednoduchou hru: jednorozměrné piškvorky. V domácím projektu je předepsáno, z jakých dílčích funkcí se bude hra skládat. Mrkni se na zadání domácího projektu, než budeš pokračovat. Detailního popisu zadání hned využijeme a nahlédneme do pokročilejší lekce – té o <a href="naucse:page?lesson=beginners/testing">testování</a>. Lekci o testování není třeba studovat celou, na to se podíváme společně za několik lekcí, ale můžeš v ní najít odpovědi na některé otázky.</p>
+<p>Testování ti pomůže ověřit, že tvůj program funguje, jak má. Neboj se však nic, všechno to složitější jsme zatím napsali za tebe. Ty tak můžeš postupovat podle zadání domácích projektů a testy ti spuštěním jednoho jednoduchého příkazu ukážou, jak moc blízko jsi dokončení programu.</p>
+<p>Toto je bonusový materiál, který může udělat domácí úkol zajímavější a naučit tě při tom opět něco nového. Pokud máš ale plné ruce práce se zvládáním aktuální látky, klidně postupuj jen podle zadání domácích projektů a na testování se společně podíváme později.</p>
+<h2>Jak na to?</h2>
+<ol>
+<li><p>Stáhni si připravený soubor pro <a href="naucse:static?filename=piskvorky.py">piškvorky</a> a <a href="naucse:static?filename=test_piskvorky.py">soubor s testy</a> a ulož je do samostatné složky.</p>
+<p>V souboru <em>test_piskvorky.py</em> máš připravené testy. Nic v něm neměň, ale můžeš se do něj podívat. Samotnou hru pak piš do připraveného souboru <em>piskvorky.py</em>. Máš tam nachystané všechny potřebné funkce, jen zatím nic nedělají. Až je všechny doplníš, budeš mít funkční hru.</p>
+</li>
+<li><p>Aktivuj si své virtuální prostředí. Jak na to jsme si ukázali <a href="naucse:page?lesson=beginners/venv-setup">na začátku kurzu</a>.</p>
+</li>
+<li><p>Nainstaluj si knihovnu <a href="https://pytest.readthedocs.io/">pytest</a> podle <a href="naucse:page?lesson=beginners/testing">návodu</a> v materiálech. Právě ta ti umožní ověřit správnou funkčnost programu.</p>
+<div class="highlight"><pre><span></span> <span class="o">(</span>venv<span class="o">)</span> $ pip install pytest
+</pre></div></li>
+<li><p>Opět podle návodu pytest spusť.</p>
+<div class="highlight"><pre><span></span> <span class="o">(</span>venv<span class="o">)</span> $ pytest -v test_piskvorky.py
+</pre></div></li>
+</ol>
+<h2>Co s tím?</h2>
+<p>Pytest ti vypíše, kde všude v tvém programu narazil na problém. Tyto jsou podrobně rozepsané a výstup je tak trochu dlouhý. Na jeho začátku však budeš mít takovéto řádky:</p>
+<div class="highlight"><pre><code>test_piskvorky.py::test_vyhodnot_vyhra_x FAILED
+test_piskvorky.py::test_vyhodnot_vyhra_o FAILED
+test_piskvorky.py::test_vyhodnot_remiza FAILED
+…
+test_piskvorky.py::test_tah_pocitace_skoro_plne_konec_2 FAILED</code></pre></div><p>Každé <em>FAILED</em> znamená jednu chybu: jeden test, který neprošel. Protože jsi zatím nic nenapsala, je problém úplně ve všem. To se ale změní, jakmile splníš první úkol: zařídíš, aby funkce <em>vyhodnot</em> rozpoznala, že vyhrál hráč s křížky.</p>
+<div class="highlight"><pre><code>test_piskvorky.py::test_vyhodnot_vyhra_x PASSED
+test_piskvorky.py::test_vyhodnot_vyhra_o FAILED
+test_piskvorky.py::test_vyhodnot_remiza FAILED
+…
+test_piskvorky.py::test_tah_pocitace_skoro_plne_konec_2 FAILED</code></pre></div><p>Vidíš? Výsledek prvního testu se změnil na <em>PASSED</em>. To znamená, že v tomto případě program funguje, jak má.</p>
+<p>Až budeš mít program hotový, místo všech červených <em>FAILED</em> bude u všech testů zelené <em>PASSED</em>. Pak víš, že máš hotovo. Teda, skoro.</p>
+<div class="highlight"><pre><code>test_piskvorky.py::test_vyhodnot_vyhra_x PASSED
+test_piskvorky.py::test_vyhodnot_vyhra_o PASSED
+…
+test_piskvorky.py::test_tah_pocitace_skoro_plne_konec PASSED
+test_piskvorky.py::test_tah_pocitace_skoro_plne_konec_2 PASSED</code></pre></div><p>Proč jen skoro? Některé věci testovat moc dobře nejdou, nebo by to bylo pro tebe v tuto chvíli moc složité.</p>
+<ul>
+<li>Jednou takovou věcí je zadání od uživatele. Funkci <em>tah_hrace</em> proto pytest netestuje. To pak platí i pro celé jádro hry, funkci <em>piskvorky1d</em>, která právě funkci <em>tah_hrace</em> používá, když je hráč na tahu.</li>
+<li>Druhou věcí, která není testy pokryta, je vypisování na obrazovku. Tedy všechna zvolání o chybách či stavu hry.</li>
+</ul>
+<p>Tyto věci musíš ověřit ručně. To by ale nemuselo být tak hrozné: programuješ hru a testováním si rovnou i hraješ.</p>
+<h2>Co dál?</h2>
+<p>Snad ti tato zkušenost ukázala, že automatické testování ti může ušetřit čas a práci. Že díky testům si můžeš být jistá, že jsi úpravou programu nerozbila nic, co před tím fungovalo.</p>
+<p>Nahlédni do souboru <em>test_piskvorky.py</em>. Možná teď ještě nebudeš rozumět do detailu, jak to všechno vlastně funguje, ale i tak uvidíš, že to není raketová věda. Máš herní pole v nějakém stavu, zavoláš svou funkci, a ověříš, že vrátila to, co by měla.</p>
+<div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">tah</span><span class="p">(</span><span class="s2">&quot;--------------------&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;----------x---------&quot;</span>
+</pre></div><p><a href="naucse:page?lesson=beginners/testing">Později</a> se naučíš psát si testy sama. Snad ti tenhle malý exkurs ukázal, proč to není zbytečnost a že se ta trocha přidané námahy na začátku skutečně vyplatí.</p>

@@ -1,0 +1,11 @@
+<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
+<span class="n">surname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your surname: &#39;</span><span class="p">)</span>
+<span class="n">initials</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">surname</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Initials:&#39;</span><span class="p">,</span> <span class="n">initials</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div><p>There are more ways how to write such a program.
+You can call <code>upper()</code> twice - on name and surname separately.</p>
+<p>Or like this:</p>
+<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
+<span class="n">surname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your surname: &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Initials:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">surname</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div><p>I recommend the first option. It is longer but way more clear.</p>

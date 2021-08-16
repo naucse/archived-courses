@@ -1,0 +1,91 @@
+<h2>Sekvence (Sequence)</h2>
+<p>Jednou ze základních <em>datových struktur</em> v Pythonu je posloupnost (sekvence). Každému elementu v sekvenci je přiřazeno číslo, jeho index (pozice). První číslo je nula, druhé je jednička atd.</p>
+<p>Dnes si povíme něco o sekvencích a také, jaké operace s nimi můžeme dělat. Popíšeme si některé operace, které můžeme dělat nad všemi sekvencemi, včetně seznamů a n-tic. Tyto operace fungují také s řetězci, o těch bude ale až příští lekce.</p>
+<h3>Přehled sekvencí</h3>
+<p>Python má několik základních typů sekvencí. Mezi nejpoužívanější patří seznamy a n-tice.</p>
+<p>Rozdíl mezi seznamy a n-ticemi je v tom, že seznamy lze měnit, zatímco n-tice ne. Proto se seznamy a n-tice používají pro jiné účely. Zatímco seznamy se používají tam, kde je vhodné nebo nutné měnit obsah nebo počet prvků v datové struktuře, n-tice se používá tam, kde je nopak žádoucí takové chování znemožnot.</p>
+<p>Sekvence se používají tam, kde potřebujete vytvořit seznam hodnot. Můžete například vytvořit sekvenci, která obsahuje osobu v databázi, jako je na následujícím příkladu:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; john_doe = ['John Doe', 40]
+&gt;&gt;&gt; peter_smith = ['Peter Smith', 50]
+&gt;&gt;&gt; database = [john_doe, peter_smith]
+&gt;&gt;&gt; database
+[['John Doe', 40], ['Peter Smith', 50]]</code></pre></div><h3>Operace nad sekvencemi</h3>
+<p>Některé operace můžete provádět nad všemi sekvencemi. Mezi tyto operace patří <em>indexing</em>, <em>slicing</em>, <em>adding</em>, <em>multiplying</em> a kontrola členství. Python také má vestavěné funkce pro zjištění délky sekvence a nalezení největšího a nejmenšího prvku.</p>
+<h4>Indexování (Indexing)</h4>
+<p>Pamatujete, že řetězce jsou také sekvencemi? Můžeme použít příklad s řetězcem a ukázat si na něm indexování v praxi:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; greeting = 'Hello'
+&gt;&gt;&gt; greeting[0]
+'H'</code></pre></div><p>Jak vidíte, řetězec je jen sekvence znaků. Můžete přistupovat k jednotlivým prvkům pole pomocí indexu, který začíná nulou a končí <em>-1</em>. Přistoupit k poslední pozici v sekvenci proto můžeme takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; greeting[-1]
+'o'</code></pre></div><div class="admonition note"><p>Vyzkoušejte přistoupit k prvku přímo, bez použití proměnné</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 'Hello'[1]
+'e'</code></pre></div></div><p>Také, pokud funkce vrací sekvenci, můžete přistoupit k hodnotě přímo:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; fourth = input('Year: ')[3]
+Year: 2005
+&gt;&gt;&gt; fourth
+'5'</code></pre></div><h4>Řez (Slicing)</h4>
+<p>Kromě toho, že můžete přistupovat k jednotlivým prvkům sekvence, můžete použít řez seznamem (slicing) a získat podmnožinu prvků. Abyste toho docílili, musíte použít místo jednoho dva indexy oddělené dvojtečkou.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; tag = '&lt;a href="http://www.python.org"&gt;Python web site&lt;/a&gt;'
+&gt;&gt;&gt; tag[9:30]
+'http://www.python.org'
+&gt;&gt;&gt; tag[32:-4]
+'Python web site'</code></pre></div><p>První index je číslo indexu prvního prvku, který chcete zahrnout. Ale druhý index je číslo prvku v sekvenci <em>za</em> vaším řezem.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+&gt;&gt;&gt; numbers[3:6]
+[4, 5, 6]
+&gt;&gt;&gt; numbers[0:1]
+[1]</code></pre></div><p>Další příklady:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers[7:10]
+[8, 9, 10]</code></pre></div><p>Index č.10 (jedenáctý prvek pole) odkazuje na neexistující prvek pole. Proto můžem místo toho použít následující zápis pomocí negativní notace:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers[-3:-1]
+[8, 9]</code></pre></div><p>Pokud zkusíme toto, nebude to fungovat, tak jak očekáváme:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers[-3:0]
+[]</code></pre></div><p>Proto místo toho musíme použít tento zápis:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers[-3:]
+[8, 9, 10]</code></pre></div><p>Totéž můžeme udělat v opačném směru:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers[:3]
+[1, 2, 3]</code></pre></div><p>A pomocí následující syntaxe můžeme <em>zkopírovat</em> celou sekvenci (<strong>její hodnoty</strong>), například do jiné proměnné:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers[:]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></pre></div><div class="admonition note"><p>Prosím vyzkoušejte si, jaký je rozdíl mezí následujícími příklady:</p>
+<div class="highlight"><pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+copy_numbers_variable = numbers
+slicing_numbers = numbers[:]</code></pre></div><p>Příjdete na to?</p>
+</div><p>Další možná ukázka slicingu je másledující:</p>
+<div class="highlight"><pre><code>url = input('Please enter the URL:')
+domain = url[11:-4]
+
+print("Domain name: " + domain)</code></pre></div><div class="highlight"><pre><code>Please enter the URL: http://www.python.org
+Domain name: python</code></pre></div><h4>Řez po krocích</h4>
+<p>Jako volitelný parametr můžete použít délku kroku, kterým chcete řez vytvořit:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers[0:10:1]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code></pre></div><div class="highlight"><pre><code>&gt;&gt;&gt; numbers[0:10:2]
+[1, 3, 5, 7, 9]</code></pre></div><h4>Slučování sekvencí</h4>
+<p>Sekvence mohou být slučovány pomocí znaku plus.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; [1, 2, 3] + [4, 5,  6]
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt; 'Hello,' + 'world!'
+'Hello, world!'</code></pre></div><h4>Multiplikační operátor</h4>
+<div class="highlight"><pre><code>&gt;&gt;&gt; z = [3, 1] * 2
+&gt;&gt;&gt; z
+[3, 1, 3, 1]</code></pre></div><p>Pokud byste chtěli vytvořit prázdný seznam s místem pro tři prvky, můžete to udělat takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; s = [None] * 3
+&gt;&gt;&gt; s
+[None, None, None]</code></pre></div><h4>Zjištění prvku v sekvenci (Membership)</h4>
+<p>Abychom zjistili, zda je nějaký prvek prkem sekvence, použijeme operátor <em>in</em>. Tento operátor ověřuje, zda je něco pravdivé nebo ne a podle toho vrací návratovou hodnotu <em>True/False</em>.</p>
+<div class="admonition note"><p>True a False jsou tzv. logické operátory</p>
+</div><div class="highlight"><pre><code>&gt;&gt;&gt; 3 in [1, 2, 3, 4, 5]
+True
+&gt;&gt;&gt; 3 not in [1, 2, 3, 4, 5]
+False</code></pre></div><div class="highlight"><pre><code>&gt;&gt;&gt; 'P' in 'Python'
+True</code></pre></div><h4>Délka sekvence, nalezení minima a maxima</h4>
+<div class="highlight"><pre><code>&gt;&gt;&gt; numbers = [100, 34, 678]
+&gt;&gt;&gt; len(numbers)
+3
+&gt;&gt;&gt; max(numbers)
+678
+&gt;&gt;&gt; min(numbers)
+34
+&gt;&gt;&gt; max(2, 3)
+3
+&gt;&gt;&gt; min(9, 3, 2, 5)
+2</code></pre></div>

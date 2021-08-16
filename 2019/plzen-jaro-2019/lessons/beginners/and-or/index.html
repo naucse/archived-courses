@@ -1,0 +1,65 @@
+<h1><em>Nebo</em> anebo <em>a</em></h1>
+<p>Vzpomínáš na tabulku operátorů
+z <a href="naucse:page?lesson=beginners/comparisons">lekce o Porovnávání</a>?
+Nyní si ji doplníme o další tři operátory,
+které se hodí do podmínek:</p>
+<table class="table">
+    <tr>
+        <th>Symbol</th>
+        <th>Příklad</th>
+        <th>Popis</th>
+    </tr>
+    <tr>
+        <td><code>and</code></td>
+        <td><code>True and False</code></td>
+        <td>„a zároveň“</td>
+    </tr>
+    <tr>
+        <td><code>or</code></td>
+        <td><code>True or False</code></td>
+        <td>„a nebo“</td>
+    </tr>
+    <tr>
+        <td><code>not</code></td>
+        <td><code>not False</code></td>
+        <td>„ne“</td>
+    </tr>
+</table><p>Pro příklad použijeme <code>and</code> v tomto programu.
+Zkus si ho projít a okomentovat části, které nejsou na první pohled jasné.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Tento program rozdává naivní rady do života.</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Odpovídej &quot;ano&quot; nebo &quot;ne&quot;.&#39;</span><span class="p">)</span>
+<span class="n">stastna_retezec</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Jsi šťastná? &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">stastna_retezec</span> <span class="o">==</span> <span class="s1">&#39;ano&#39;</span><span class="p">:</span>
+    <span class="n">stastna</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">elif</span> <span class="n">stastna_retezec</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+    <span class="n">stastna</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Nerozumím!&#39;</span><span class="p">)</span>
+
+<span class="n">bohata_retezec</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Jsi bohatá? &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s1">&#39;ano&#39;</span><span class="p">:</span>
+    <span class="n">bohata</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">elif</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+    <span class="n">bohata</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Nerozumím!&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">bohata</span> <span class="ow">and</span> <span class="n">stastna</span><span class="p">:</span>
+    <span class="c1"># Je bohatá a zároveň štǎstná, ta se má.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Gratuluji!&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">bohata</span><span class="p">:</span>
+    <span class="c1"># Je bohatá, ale není „bohatá a zároveň šťastná“,</span>
+    <span class="c1"># takže musí být jen bohatá.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Zkus se víc usmívat.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">stastna</span><span class="p">:</span>
+    <span class="c1"># Tady musí být jen šťastná.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Zkus míň utrácet.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># A tady víme, že není ani šťastná, ani bohatá.</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To je mi líto.&#39;</span><span class="p">)</span>
+</pre></div><div class="admonition note"><p>Všimni si co se stane, když zadáš něco jiného než „ano“ nebo „ne“.</p>
+<p>Proměnná <code>stastna</code> nebo <code>bohata</code> se nenastaví, a když je ji potom
+potřeba použít, program skončí s chybou.</p>
+<p>O tom, jak se vypořádat s chybami, si povíme <a href="naucse:page?lesson=beginners/exceptions">později</a>.</p>
+</div>

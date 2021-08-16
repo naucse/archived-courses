@@ -1,0 +1,53 @@
+<h1>Instalace Pythonu pro macOS</h1>
+<p>Nainstaluj si nástroj <a href="http://brew.sh">Homebrew</a>, který řeší a zjednodušuje
+instalaci aplikací a knihoven, které budeme potřebovat pro programování.
+Jak na to?</p>
+<p>Spusť v <a href="naucse:page?lesson=beginners/cmdline">příkazové řádce</a> příkaz:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div><p>Pak stačí zadat následující příkaz a Python bude nainstalovaný:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>brew install python3
+</pre></div><p>Zkontroluj si, že máš verzi 3.6 nebo vyšší:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python3 --version
+</pre></div><p>Objeví-li se „Python“ a číslo verze (např. <code>Python 3.6.6</code>)
+a verze je 3.6 nebo vyšší, máš nainstalováno.
+Jinak je něco špatně;
+poraď se s koučem.</p>
+<h2>Vytvoření virtuálního prostředí</h2>
+<p><!-- Pozn. Tahle sekce je velice podobná pro Linux, Mac i Windows;
+     měníš-li ji, koukni se jestli není změna potřeba i jinde. -->Nakonec vytvoř virtuální prostředí.</p>
+<p>Zvol si adresář (složku), ve které budeš mít soubory k PyLadies.
+Může to být třeba <code>/home/<i>jméno</i>/pyladies</code>,
+neboli <code class="pythondir">~/pyladies</code>.
+Vytvoř ho a poznamenej si, kde je.</p>
+<p>Vytváříš-li adresář jinde nebo s jiným názvem, tak kdykoli ve zbytku
+materiálů uvidíš <code class="pythondir">~/pyladies</code>, doplň
+místo toho „svůj“ adresář.</p>
+<p>Zvolený adresář po vytvoření nesmíš přesouvat jinam – když to uděláš,
+přestane virtuální prostředí fungovat.
+Proto ho nedoporučuji vytářet na Ploše.</p>
+<div class="admonition note"><p>Kdybys někdy chtěla adresář přece jen přesunout,
+musela bys smazat virtuální prostředí a vytvořit nové.</p>
+</div><p>Teď když je tenhle adresář vytvořený, otevři příkazovou řádku
+a příkazem <code>cd</code> se do něj přepni:
+<!-- XXX: Special highlight in source code needed --></p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> ~/pyladies
+</pre></div><p>Pak virtuální prostředí vytvoř:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python3 -m venv venv
+</pre></div><p>Tím se ti vytvořil adresář <code><span class="pythondir">~/pyladies</span>/venv</code>,
+ve kterém jsou soubory s virtuálním prostředím.
+Můžeš se podívat dovnitř, ale nikdy tam nic neměň.</p>
+<h2>Aktivace virtuálního prostředí</h2>
+<p>Nakonec virtuální prostředí aktivuj:</p>
+<div class="highlight">
+<pre><code><span class="gp">$</span> source <span class="pythondir">~/pyladies</span>/venv/bin/activate
+</code></pre>
+</div><p>Po spuštění tohoto příkazu by se mělo na začátku příkazové řádky
+(před <code>$</code>) objevit slovo <code>(venv)</code>.
+Tak poznáš, že je virtuální prostředí <em>aktivní</em>.</p>
+<p>Tenhle příkaz si zapiš. Budeš ho muset zadat vždycky, když pustíš příkazovou řádku,
+než se pustíš do programování.</p>
+<p>Máš-li vytištěné <a href="http://pyladies.cz/v1/s001-install/handout/handout.pdf">domácí projekty</a>,
+příkaz si poznač, ať ho do příště nezapomeneš :)</p>
+<p>Pusťme se tedy do programování!
+To už bude stejné pro tebe i pro lidi na Linuxu a Windows.
+Sejdeme se na <a href="naucse:page?lesson=beginners/first-steps">další stránce</a>, kde uděláme první krůčky s Pythonem.</p>

@@ -1,0 +1,20 @@
+<p>Jak na to? Dobré je si úkol rozdělit na dva kroky: cyklus přes soubory a samotný výpis.</p>
+<p>Nejprve si ve <code>for</code> cyklu vypiš obsah proměnné pomocí <code>echo</code>, aby sis byla jistá, že pracuješ se správnou hodnotou. 
+Když si zvykneš na výpomoc programu <code>echo</code>, ušetříš si v budoucnu spoustu starostí :)</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span><span class="k">for</span> jmeno in *.dat
+<span class="gp">&gt; </span><span class="k">do</span>
+<span class="gp">&gt; </span>    <span class="nb">echo</span> <span class="nv">$jmeno</span>
+<span class="gp">&gt; </span><span class="k">done</span>
+<span class="go">basilisk.dat</span>
+<span class="go">minotaur.dat</span>
+<span class="go">unicorn.dat</span>
+</pre></div><p>Teď už víš, že rámec cyklu <code>for</code> cyklu je napsán správně.
+A tak můžeš místo <code>echo</code> provést už známý příkaz s <code>head</code> a <code>tail</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span><span class="k">for</span> jmeno in *.dat
+<span class="gp">&gt; </span><span class="k">do</span>
+<span class="gp">&gt; </span>    head -n <span class="m">2</span> <span class="nv">$jmeno</span> <span class="p">|</span> tail -n <span class="m">1</span>
+<span class="gp">&gt; </span><span class="k">done</span>
+<span class="go">CLASSIFICATION: basiliscus vulgaris</span>
+<span class="go">CLASSIFICATION: bos hominus</span>
+<span class="go">CLASSIFICATION: equus monoceros</span>
+</pre></div>

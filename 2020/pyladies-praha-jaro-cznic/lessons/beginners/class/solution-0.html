@@ -1,0 +1,26 @@
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Kocka</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>         <span class="c1"># Init funkce nemusi brat jako parametr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pocet_zivotu</span> <span class="o">=</span> <span class="mi">9</span>   <span class="c1"># pocet zivotu, ten je pokazde 9.</span>
+
+    <span class="k">def</span> <span class="nf">zamnoukej</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mnau, mnau, mnauuu!&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">je_ziva</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pocet_zivotu</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">uber_zivot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">je_ziva</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nemuzes zabit uz mrtvou kocku!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pocet_zivotu</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">snez</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jidlo</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">je_ziva</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Je zbytecne krmit mrtvou kocku!&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="n">jidlo</span> <span class="o">==</span> <span class="s2">&quot;ryba&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">pocet_zivotu</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pocet_zivotu</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kocka spapala rybu a obnovil se ji jeden zivot.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kocka se krmi.&quot;</span><span class="p">)</span>
+</pre></div>

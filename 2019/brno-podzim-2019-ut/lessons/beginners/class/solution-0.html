@@ -1,0 +1,25 @@
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>         <span class="c1"># Init funkce nemusi brat jako parametr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_lives</span> <span class="o">=</span> <span class="mi">9</span>   <span class="c1"># pocet zivotu, ten je pokazde 9.</span>
+
+    <span class="k">def</span> <span class="nf">meow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Moew, moew, meooooow!&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">is_alive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_lives</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">lose_life</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Cannot kill dead cat!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">number_of_lives</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;It is pointless to feed dead cat!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">food</span> <span class="o">==</span> <span class="s2">&quot;fish&quot;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_lives</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">number_of_lives</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Cat ate fish and gained one life.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Cat is eating.&quot;</span><span class="p">)</span>
+</pre></div>

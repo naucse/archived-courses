@@ -1,0 +1,803 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Feedback k domácím projektům</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Zvířátka</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Najdi chyby, nejasnosti či nepřesnosti v tomto kódu:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zvire</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej zvíře: &quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">je_v_seznamu</span><span class="p">(</span><span class="n">zvire</span><span class="p">):</span>
+    <span class="n">zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pes&quot;</span><span class="p">,</span> <span class="s2">&quot;kočka&quot;</span><span class="p">,</span> <span class="s2">&quot;králík&quot;</span><span class="p">,</span> <span class="s2">&quot;had&quot;</span><span class="p">,</span> <span class="s2">&quot;andulka&quot;</span><span class="p">,</span> <span class="s2">&quot;želva&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">jmeno</span> <span class="ow">in</span> <span class="n">zvirata</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">zvire</span> <span class="ow">in</span> <span class="n">zvirata</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;True&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;False&quot;</span>
+            
+<span class="nb">print</span><span class="p">(</span><span class="n">je_v_seznamu</span><span class="p">(</span><span class="n">zvire</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Zadej zvíře: ježek
+False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Po úpravě:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pes&quot;</span><span class="p">,</span> <span class="s2">&quot;kočka&quot;</span><span class="p">,</span> <span class="s2">&quot;králík&quot;</span><span class="p">,</span> <span class="s2">&quot;had&quot;</span><span class="p">,</span> <span class="s2">&quot;andulka&quot;</span><span class="p">,</span> <span class="s2">&quot;želva&quot;</span><span class="p">]</span>
+<span class="n">zvire</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej zvíře: &quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">je_v_seznamu</span><span class="p">(</span><span class="n">zvirata</span><span class="p">,</span> <span class="n">zvire</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">zvire</span> <span class="ow">in</span> <span class="n">zvirata</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">je_v_seznamu</span><span class="p">(</span><span class="n">zvirata</span><span class="p">,</span> <span class="n">zvire</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Zadej zvíře: ježek
+False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Je možné tuto funkci ještě zkrátit a zjednodušit?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pes&quot;</span><span class="p">,</span> <span class="s2">&quot;kočka&quot;</span><span class="p">,</span> <span class="s2">&quot;králík&quot;</span><span class="p">,</span> <span class="s2">&quot;had&quot;</span><span class="p">,</span> <span class="s2">&quot;andulka&quot;</span><span class="p">,</span> <span class="s2">&quot;želva&quot;</span><span class="p">]</span>
+<span class="n">zvire</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej zvíře: &quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">je_v_seznamu</span><span class="p">(</span><span class="n">zvirata</span><span class="p">,</span> <span class="n">zvire</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">zvire</span> <span class="ow">in</span> <span class="n">zvirata</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">je_v_seznamu</span><span class="p">(</span><span class="n">zvirata</span><span class="p">,</span> <span class="n">zvire</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Zadej zvíře: ježek
+False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Další podobná funkce:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">kratke</span><span class="p">(</span><span class="n">jmeno</span> <span class="o">=</span> <span class="n">zvirata</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">jmeno</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">jmeno</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">jmeno</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jmeno</span>
+
+<span class="n">kratke</span><span class="p">(</span><span class="n">zvirata</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>pes
+had
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;pes&#39;, &#39;kočka&#39;, &#39;králík&#39;, &#39;had&#39;, &#39;andulka&#39;, &#39;želva&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A její přehlednější varianta:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pes&quot;</span><span class="p">,</span> <span class="s2">&quot;kočka&quot;</span><span class="p">,</span> <span class="s2">&quot;králík&quot;</span><span class="p">,</span> <span class="s2">&quot;had&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">kratke</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+    <span class="n">novy_seznam</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">zvire</span> <span class="ow">in</span> <span class="n">zvirata</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">zvire</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">novy_seznam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zvire</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">novy_seznam</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">kratke</span><span class="p">(</span><span class="n">zvirata</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;pes&#39;, &#39;had&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Básnička</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Obrácené pořadí veršů</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/basnicka.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor_s_basnickou</span><span class="p">:</span>
+    <span class="n">basnicka</span> <span class="o">=</span> <span class="n">soubor_s_basnickou</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">seznam_versu</span> <span class="o">=</span> <span class="n">basnicka</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Rozdělí básničku na jednotlivé verše (řádky) [seznam]</span>
+<span class="n">seznam_versu</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>  <span class="c1"># Obrátí pořadí veršů v seznamu</span>
+<span class="n">obracena_basnicka</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seznam_versu</span><span class="p">)</span>  <span class="c1"># Složí zpět seznam na řetězec a mezi verše vloží \n</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obracena_basnicka</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Anyway the wind blows doesn&#39;t really matter to me, to me.
+Little high, little low,
+Because I&#39;m easy come, easy go,
+I&#39;m just a poor boy, I need no sympathy,
+Look up to the skies and see,
+Open your eyes,
+
+No escape from reality.
+Caught in a landslide,
+Is this just fantasy?
+Is this the real life?
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/basnicka.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor_s_basnickou</span><span class="p">:</span>
+    <span class="n">seznam_versu</span> <span class="o">=</span> <span class="n">soubor_s_basnickou</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">vers</span> <span class="ow">in</span> <span class="n">seznam_versu</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">vers</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Anyway the wind blows doesn&#39;t really matter to me, to me.
+Little high, little low,
+Because I&#39;m easy come, easy go,
+I&#39;m just a poor boy, I need no sympathy,
+Look up to the skies and see,
+Open your eyes,
+
+No escape from reality.
+Caught in a landslide,
+Is this just fantasy?
+Is this the real life?
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Obrácené pořadí slov ve verších</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/basnicka.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor_s_basnickou</span><span class="p">:</span>
+    <span class="n">basnicka</span> <span class="o">=</span> <span class="n">soubor_s_basnickou</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">seznam_versu</span> <span class="o">=</span> <span class="n">basnicka</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Rozdělí básničku na jednotlivé verše (řádky) [seznam]</span>
+
+<span class="n">nova_basnicka</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Seznam pro novou básničku, která obrácením pořadí slov vznikne</span>
+
+<span class="k">for</span> <span class="n">vers</span> <span class="ow">in</span> <span class="n">seznam_versu</span><span class="p">:</span>  <span class="c1"># Pro každý verš v originální básničce</span>
+    <span class="n">slova</span> <span class="o">=</span> <span class="n">vers</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  <span class="c1"># Rozdělí verš na slova [seznam]</span>
+    <span class="n">slova</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>  <span class="c1"># Obrátí pořádí slov</span>
+    <span class="n">novy_vers</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slova</span><span class="p">)</span>  <span class="c1"># Spojí obrázená slova zpět do řetězce</span>
+    <span class="n">nova_basnicka</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">novy_vers</span><span class="p">)</span>  <span class="c1"># Přidá nový verš do nové básničky</span>
+
+<span class="n">obracena_basnicka</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nova_basnicka</span><span class="p">)</span>  <span class="c1"># Složí zpět seznam na řetězec a mezi verše vloží \n</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obracena_basnicka</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>life? real the this Is
+fantasy? just this Is
+landslide, a in Caught
+reality. from escape No
+
+eyes, your Open
+see, and skies the to up Look
+sympathy, no need I boy, poor a just I&#39;m
+go, easy come, easy I&#39;m Because
+low, little high, Little
+me. to me, to matter really doesn&#39;t blows wind the Anyway
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/basnicka.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor_s_basnickou</span><span class="p">:</span>
+    <span class="n">seznam_versu</span> <span class="o">=</span> <span class="n">soubor_s_basnickou</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vers</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seznam_versu</span><span class="p">):</span>
+    <span class="n">slova</span> <span class="o">=</span> <span class="n">vers</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">slova</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="n">seznam_versu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slova</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seznam_versu</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>life? real the this Is
+fantasy? just this Is
+landslide, a in Caught
+reality. from escape No
+
+eyes, your Open
+see, and skies the to up Look
+sympathy, no need I boy, poor a just I&#39;m
+go, easy come, easy I&#39;m Because
+low, little high, Little
+me. to me, to matter really doesn&#39;t blows wind the Anyway
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Obrácené pořadí slok</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/basnicka.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor_s_basnickou</span><span class="p">:</span>
+    <span class="n">basnicka</span> <span class="o">=</span> <span class="n">soubor_s_basnickou</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">seznam_slok</span> <span class="o">=</span> <span class="n">basnicka</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Rozdělí básničku na jednotlivé sloky [seznam]</span>
+<span class="n">seznam_slok</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">basnicka</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seznam_slok</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">basnicka</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Open your eyes,
+Look up to the skies and see,
+I&#39;m just a poor boy, I need no sympathy,
+Because I&#39;m easy come, easy go,
+Little high, little low,
+Anyway the wind blows doesn&#39;t really matter to me, to me.
+
+Is this the real life?
+Is this just fantasy?
+Caught in a landslide,
+No escape from reality.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Slova v náhodném pořadí (Mr. Yoda style)</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;static/basnicka.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor_s_basnickou</span><span class="p">:</span>
+    <span class="n">seznam_versu</span> <span class="o">=</span> <span class="n">soubor_s_basnickou</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vers</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seznam_versu</span><span class="p">):</span>
+    <span class="n">slova</span> <span class="o">=</span> <span class="n">vers</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">shuffle</span><span class="p">(</span><span class="n">slova</span><span class="p">)</span>
+    <span class="n">seznam_versu</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">slova</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seznam_versu</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>real Is the this life?
+this fantasy? Is just
+in Caught landslide, a
+No escape from reality.
+
+Open your eyes,
+Look and the skies to up see,
+a I&#39;m need poor I sympathy, boy, no just
+easy I&#39;m come, go, Because easy
+little high, low, Little
+really doesn&#39;t me, to matter Anyway wind to me. the blows
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Funkce jako stavební blok programu</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Takto použitá funkce situaci spíše komplikuje, než aby něčemu pomohla.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;had&#39;</span><span class="p">,</span> <span class="s1">&#39;andulka&#39;</span><span class="p">,</span> <span class="s1">&#39;pes&#39;</span><span class="p">,</span> <span class="s1">&#39;kočka&#39;</span><span class="p">,</span> <span class="s1">&#39;králík&#39;</span><span class="p">]</span>
+<span class="n">dvojice</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">vysledek</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">razeni_had</span><span class="p">(</span><span class="n">seznam1</span><span class="p">,</span> <span class="n">seznam2</span><span class="p">,</span> <span class="n">seznam3</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;seřadí výchozí seznam1 podle abecedy, ale bude ignorovat první písmeno&#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">slovo</span> <span class="ow">in</span> <span class="n">seznam1</span><span class="p">:</span>
+        <span class="n">seznam2</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">slovo</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">slovo</span><span class="p">])</span>
+    <span class="n">seznam2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">seznam2</span><span class="p">:</span>
+        <span class="n">seznam3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">seznam3</span>
+
+<span class="n">razeni_had</span><span class="p">(</span><span class="n">zvirata</span><span class="p">,</span> <span class="n">dvojice</span><span class="p">,</span> <span class="n">vysledek</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vysledek</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;had&#39;, &#39;pes&#39;, &#39;andulka&#39;, &#39;kočka&#39;, &#39;králík&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Co se asi stane, když takovou funkci zavoláme vícekrát?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;had&#39;</span><span class="p">,</span> <span class="s1">&#39;andulka&#39;</span><span class="p">,</span> <span class="s1">&#39;pes&#39;</span><span class="p">,</span> <span class="s1">&#39;kočka&#39;</span><span class="p">,</span> <span class="s1">&#39;králík&#39;</span><span class="p">]</span>
+<span class="n">dvojice</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">vysledek</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">razeni_had</span><span class="p">(</span><span class="n">seznam1</span><span class="p">,</span> <span class="n">seznam2</span><span class="p">,</span> <span class="n">seznam3</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;seřadí výchozí seznam1 podle abecedy, ale bude ignorovat první písmeno&#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">slovo</span> <span class="ow">in</span> <span class="n">seznam1</span><span class="p">:</span>
+        <span class="n">seznam2</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">slovo</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">slovo</span><span class="p">])</span>
+    <span class="n">seznam2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">seznam2</span><span class="p">:</span>
+        <span class="n">seznam3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">seznam3</span>
+
+<span class="n">razeni_had</span><span class="p">(</span><span class="n">zvirata</span><span class="p">,</span> <span class="n">dvojice</span><span class="p">,</span> <span class="n">vysledek</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vysledek</span><span class="p">)</span>
+<span class="n">razeni_had</span><span class="p">(</span><span class="n">zvirata</span><span class="p">,</span> <span class="n">dvojice</span><span class="p">,</span> <span class="n">vysledek</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vysledek</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;had&#39;, &#39;pes&#39;, &#39;andulka&#39;, &#39;kočka&#39;, &#39;králík&#39;]
+[&#39;had&#39;, &#39;pes&#39;, &#39;andulka&#39;, &#39;kočka&#39;, &#39;králík&#39;, &#39;had&#39;, &#39;had&#39;, &#39;pes&#39;, &#39;pes&#39;, &#39;andulka&#39;, &#39;andulka&#39;, &#39;kočka&#39;, &#39;kočka&#39;, &#39;králík&#39;, &#39;králík&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Ověření, že funkce funguje</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nejsnazší je funkci prostě spustit s různými argumenty a podívat se, zda dělá to, co by dělat měla.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">absolutni_soucet</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">absolutni_soucet</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolutni_soucet</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolutni_soucet</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolutni_soucet</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolutni_soucet</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3
+300
+3
+3
+102
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Rubber duck problem solving</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://raw.githubusercontent.com/RubberDuckDebugging/rubberduckdebugging.github.io/master/images/rubberducky.png" alt="Gumová kačenka"></p>
+<p><a href="https://rubberduckdebugging.com/">rubberduckdebugging.com</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jde o techniku řešení problému, při které se svůj problém snažíte vysvětlit někomu (nebo v případě gumové kachny něčemu), kdo programování nemusí vůbec rozumět. Když řešenou problematiku a vaše současné řešení popisujete nahlas, uvědomíte si, co váš program aktuálně dělá a co by dělat měl, což zpravidla vede k vyřešení problému.</p>
+</div>
+</div>
+</div>
+ 
+

@@ -1,0 +1,169 @@
+<h2>Conditionals, Loops</h2>
+<h3>Import statement</h3>
+<p>Typical import:</p>
+<div class="highlight"><pre><code>import something</code></pre></div><p>or</p>
+<div class="highlight"><pre><code>from somemodule import somefunction</code></pre></div><p>or</p>
+<div class="highlight"><pre><code>from somemodule import somefunction, anotherfunction</code></pre></div><p>or</p>
+<div class="highlight"><pre><code>from somemodule import *</code></pre></div><p>or</p>
+<div class="highlight"><pre><code>from somemodule import somefunction as different_name</code></pre></div><h3>Boolean values</h3>
+<p>False:</p>
+<div class="highlight"><pre><code>False    None    0    ""    ()    []    {}</code></pre></div><p>True:</p>
+<div class="highlight"><pre><code>True    1   "Some string"   (1, 2)  [1, 2]  {1: 'One'}</code></pre></div><h3>if-elif-else</h3>
+<p>Most common decision construction is <em>if-elif-else</em>.</p>
+<div class="highlight"><pre><code>if condition1:
+    body1
+elif condition2:
+    body2
+elif condifion3:
+    body3
+.
+.
+.
+elif condition(n-1)
+    body(n-1)
+else:
+    body(n)</code></pre></div><p>Examples:</p>
+<div class="highlight"><pre><code>num = int(input('Enter a number: '))
+if num &gt; 0:
+    print('The number is positive')
+elif num &lt; 0:
+    print('The number is negative')
+else:
+    print('The number is zero')</code></pre></div><p>Example with pass:</p>
+<div class="highlight"><pre><code>if x &lt; 5:
+    pass
+elif x &gt; 5:
+    pass
+else:
+    x = 5</code></pre></div><p>Nested block example:</p>
+<div class="highlight"><pre><code>name = input('What is your name? ')
+if name.endswith('Gumby'):
+    if name.startswith('Mr.'):
+        print('Hello, Mr. Gumby')
+    elif name.startswith('Mrs.'):
+        print('Hello, Mrs. Gumby')
+    else:
+        print('Hello, Gumby')
+else:
+    print('Hello, stranger')</code></pre></div><h3>Comparison Operators</h3>
+<table>
+<thead><tr>
+<th>Expression</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x == y</td>
+<td>x equals y</td>
+</tr>
+<tr>
+<td>x &lt; y</td>
+<td>x is less than y</td>
+</tr>
+<tr>
+<td>x &gt; y</td>
+<td>x is greater than y</td>
+</tr>
+<tr>
+<td>x &gt;= y</td>
+<td>x is greater than or equal to y</td>
+</tr>
+<tr>
+<td>x &lt;= y</td>
+<td>x is less than or equal to y</td>
+</tr>
+<tr>
+<td>x !=  y</td>
+<td>x is not equal to y</td>
+</tr>
+<tr>
+<td>x is y</td>
+<td>x and y are the same object</td>
+</tr>
+<tr>
+<td>x is not y</td>
+<td>x and y are different objects</td>
+</tr>
+<tr>
+<td>x in y</td>
+<td>x is a member of the container (e.g., sequence) y</td>
+</tr>
+<tr>
+<td>x not in y</td>
+<td>x is not a member of the container (e.g., sequence ) y</td>
+</tr>
+</tbody>
+</table>
+<p><strong>is: The identity operator</strong></p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = y = [1, 2, 3]
+&gt;&gt;&gt; z = [1, 2, 3]
+&gt;&gt;&gt; x == y
+True
+&gt;&gt;&gt; x == z
+True
+&gt;&gt;&gt; x is y
+True
+&gt;&gt;&gt; x is z
+False</code></pre></div><h3>Loops</h3>
+<h4>while loops</h4>
+<div class="highlight"><pre><code>while condition:
+    body
+else: # optional
+    code continuation</code></pre></div><p>Example:</p>
+<div class="highlight"><pre><code>x = 1
+while x &lt;= 100:
+    print(x)
+    x += 1</code></pre></div><h4>for loops</h4>
+<div class="highlight"><pre><code>for variable in sequence:
+    body
+else: # optional
+    code continuation</code></pre></div><p>Example:</p>
+<div class="highlight"><pre><code>numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+for number in numbers:
+    print(number)</code></pre></div><h4>range() function</h4>
+<p>Function range can be used in combination with len and for loop like this:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = [1, 2, 3, -7, 5, 10, -5, 4]
+&gt;&gt;&gt; for i in range(len(x)):
+...  if x[i] &lt; 0:
+...    print("Negative number on index ", i)
+...
+Negative number on index  3
+Negative number on index  6</code></pre></div><div class="highlight"><pre><code>&gt;&gt;&gt; range(10)
+range(0, 10)</code></pre></div><p>The following program writes out the numbers from 1 to 100:</p>
+<div class="highlight"><pre><code>for number in range(1,101):
+    print(number)</code></pre></div><p>Iterating over dictionaries:</p>
+<div class="highlight"><pre><code>d = {'x': 1, 'y': 2, 'z': 3}
+for key, value in d.items():
+    print(key, 'corresponds to', value)</code></pre></div><h4>Breaking out of loop</h4>
+<p><strong>break</strong></p>
+<p>To end (break out of) a loop, you use break.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = 1
+&gt;&gt;&gt;
+&gt;&gt;&gt; while True:
+...   x += 1
+...   if x == 10:
+...     break
+...   else:
+...     print("Value is ", x)
+...
+Value is  2
+Value is  3
+Value is  4
+Value is  5
+Value is  6
+Value is  7
+Value is  8
+Value is  9</code></pre></div><p><strong>continue</strong></p>
+<p>It causes the current iteration to end and to “jump” to the beginning of the next.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = 1
+&gt;&gt;&gt;
+&gt;&gt;&gt; while True:
+...   x += 1
+...   if x &lt; 10:
+...     continue
+...   else:
+...     print("x has the value ", x)
+...     break
+...
+x has the value  10</code></pre></div>

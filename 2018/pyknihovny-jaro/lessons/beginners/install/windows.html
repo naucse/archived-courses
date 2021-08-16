@@ -1,0 +1,57 @@
+<h1>Instalace Pythonu pro Windows</h1>
+<p>Běž na <a href="https://www.python.org/downloads/">stahovací stránku Pythonu</a>
+a stáhni si instalátor nejnovější stabilní verze Pythonu. Od verze 3.6.0 má Python ve Windows jistá
+vylepšení, která se nám budou hodit, a proto stahuj jen verzi <strong>3.6.0 nebo novější</strong>.</p>
+<p>Jak poznat, který instalátor je ten pravý?
+Pokud má tvůj počítač 64bitovou verzi Windows, stáhni si <em>Windows x86-64 executable installer</em>.
+Pokud máš starší počítač s 32bitovými Windows, stáhni si <em>Windows x86 executable installer</em>.</p>
+<div class="admonition note"><p>Kde zjistíš, zda máš 32bitové nebo 64bitové Windows? Stačí otevřít nabídku
+<strong>Start</strong>, vyhledat „Systém“ a otevřít <strong>Systémové informace</strong>.
+Pokud máš novější počítač, téměř jistě budeš mít 64bitový systém.</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_32v64-bit.png"><img src="naucse:static?filename=windows_32v64-bit.png" alt="Screenshot zjišťování verze systému"></a></span></p>
+</div><p>Pak instalátor spusť.
+Na začátku instalace zaškrtni <strong>Install launcher for all Users</strong>
+a také <strong>Add Python 3.6 to PATH</strong>.
+Tyto volby ti zjednoduší vytvoření virtuálního prostředí.</p>
+<p>(Jestli nemáš administrátorské oprávnění, volbu
+<em>Install launcher for all Users</em> nezaškrtávej.)</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_add_python_to_path.png"><img src="naucse:static?filename=windows_add_python_to_path.png" alt="Screenshot instalace Pythonu"></a></span></p>
+<p>Pak zmáčkni <strong>Install now</strong> a dále se drž instrukcí.</p>
+<p>Máš-li otevřenou příkazovou řádku, po instalaci Pythonu ji zavři a otevři
+novou.
+Instalace mění systémové nastavení, které se musí načíst znovu.</p>
+<h2>Vytvoření virtuálního prostředí</h2>
+<p><!-- Pozn. Tahle sekce je velice podobná pro Linux, Mac i Windows;
+     měníš-li ji, koukni se jestli není změna potřeba i jinde. -->Až bude Python nainstalovaný, vytvoř virtuální prostředí.</p>
+<p>Zvol si adresář (složku), ve které budeš mít soubory k PyLadies.
+Může to být třeba <code>C:\naucse-python</code>.</p>
+<p>Zvolený adresář po vytvoření nesmíš přesouvat jinam – když to uděláš,
+přestane virtuální prostředí fungovat.
+Proto ho nedoporučuji vytářet na Ploše.</p>
+<div class="admonition note"><p>Kdybys někdy chtěl/a adresář přece jen přesunout,
+musel/a bys smazat virtuální prostředí a vytvořit nové.</p>
+</div><p>Ve zbytku materiálů budeme tento adresář nazývat <code class="pythondir">~/naucse-python</code>,
+i když se u tebe pravděpodobně jmenuje jinak.
+Takže kdykoli od teď uvidíš <code class="pythondir">~/naucse-python</code>,
+doplň místo toho „svůj“ adresář.</p>
+<p>Teď když je tenhle adresář vytvořený, otevři <a href="naucse:page?lesson=beginners/cmdline">příkazovou řádku</a>
+a příkazem <code>cd</code> se do něj přepni.
+Pak vytvoř virtuální prostředí:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt; </span>py -3 -m venv venv
+</pre></div><p>Tím se nám vytvořil adresář <code><span class="pythondir">~/naucse-python</span>\venv</code>,
+ve kterém jsou soubory s virtuálním prostředím.
+Můžeš se podívat dovnitř, ale nikdy tam nic neměň.</p>
+<h2>Aktivace virtuálního prostředí</h2>
+<p>Nakonec virtuální prostředí aktivuj:</p>
+<div class="highlight">
+<pre><code><span class="gp">&gt;</span> <span class="pythondir">~/naucse-python</span>\venv\Scripts\activate
+</code></pre></div><div class="admonition note"><p>Nezapomeň místo <span class="pythondir">~/naucse-python</span> zadat
+„svůj“ adresář!</p>
+</div><p>Po spuštění tohoto příkazu by se mělo na začátku příkazové řádky
+(před <code>&gt;</code>) objevit slovo <code>(venv)</code>.
+Tak poznáš, že je virtuální prostředí <em>aktivní</em>.</p>
+<p>Tenhle příkaz si zapiš. Budeš ho muset zadat vždycky, když pustíš příkazovou řádku,
+než se pustíš do programování.</p>
+<p>Zkusme teď nainstalovaný Python použít!
+To už bude stejné pro tebe i pro lidi na Linuxu a Macu.
+Sejdeme se na <a href="naucse:page?lesson=beginners/first-steps">další stránce</a>, kde uděláme první krůčky s Pythonem.</p>

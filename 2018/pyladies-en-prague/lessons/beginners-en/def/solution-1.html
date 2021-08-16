@@ -1,0 +1,11 @@
+<ul>
+<li><code>pi</code> is global - it's not defined within the function and it's
+accessible in the whole program.</li>
+<li><code>area</code> - Note there are two variables of that name! One is global
+ant the other one is local inside the function <code>ellipse_area</code>.</li>
+<li><code>a</code> - Note there are also two variables of that name. This was that catch:
+Writing <code>a = a + 3</code> has no point. A value is assigned to the local
+variable <code>a</code>, but the function ends right after that, and this <code>a</code> is no 
+longer available, it will never be used.</li>
+<li><code>b</code> is only local - it's an argument for the <code>ellipse_area</code> function. </li>
+</ul>

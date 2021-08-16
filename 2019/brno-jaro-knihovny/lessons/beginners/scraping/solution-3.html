@@ -1,0 +1,41 @@
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org&quot;</span>
+<span class="n">START</span> <span class="o">=</span> <span class="s2">&quot;/wiki/Special:Random&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">najdi_titulek</span><span class="p">(</span><span class="n">soup</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;firstHeading&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+
+
+<span class="k">def</span> <span class="nf">najdi_odkaz</span><span class="p">(</span><span class="n">soup</span><span class="p">):</span>
+    <span class="n">hlavni_text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;mw-parser-output&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">odstavec</span> <span class="ow">in</span> <span class="n">hlavni_text</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">odstavec</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">odkaz</span> <span class="ow">in</span> <span class="n">odstavec</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">odkaz</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">odkaz</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">stahuj</span><span class="p">(</span><span class="n">stranka</span><span class="p">):</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">odpoved</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="n">stranka</span><span class="p">)</span>
+        <span class="n">odpoved</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">odpoved</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">najdi_titulek</span><span class="p">(</span><span class="n">soup</span><span class="p">))</span>
+
+        <span class="n">stranka</span> <span class="o">=</span> <span class="n">najdi_odkaz</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">stranka</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">stahuj</span><span class="p">(</span><span class="n">START</span><span class="p">)</span>
+</pre></div>

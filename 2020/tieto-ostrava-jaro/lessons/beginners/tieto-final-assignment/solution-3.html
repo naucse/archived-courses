@@ -1,0 +1,11 @@
+<div class="highlight"><pre><span></span>dist: xenial   <span class="c1"># required for Python &gt;= 3.7</span>
+language: python
+python:
+  - <span class="s2">&quot;3.7&quot;</span>
+<span class="c1"># command to install dependencies</span>
+install:
+  - pip install -r requirements.txt
+<span class="c1"># command to run tests</span>
+script:
+  - pytest
+</pre></div>

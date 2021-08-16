@@ -1,0 +1,72 @@
+<h1>Instalace  Kate</h1>
+<p>Linux installation:</p>
+<dl>
+<dt></dt><dt>Fedora</dt><dd><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo dnf install kate
+</pre></div></dd><dt></dt><dt>Ubuntu</dt><dd><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get install kate
+</pre></div></dd></dl><p>For Windows and macOS you can probably download Kate from its <a href="https://kate-editor.org/get-it/">webpage</a>.</p>
+<h2>Settings</h2>
+<dl>
+<dt></dt><dt>Line numbers</dt><dd><p>In menu View pick Show Line Numbers.</p>
+</dd><dt></dt><dt>Indentation:</dt><dd><p>In Settings choose Configure Kate</p>
+<p>Editing &gt; Indentation</p>
+<p>Now set here:</p>
+<ul>
+<li>Default indentation mode: Python</li>
+<li>Indent using: Spaces</li>
+<li>Tab Width: 4</li>
+<li>Indentation width: 4</li>
+<li>Backspace key in leading blank space unindents</li>
+</ul>
+</dd><dt></dt><dt>Colours:</dt><dd><p>Colouring of code is automatic if you save the file with proper extension
+– e. g. <code>.py</code> for Python.</p>
+<p>So it's better if you save your file as early as possible.</p>
+</dd></dl><h2>Indentation practice</h2>
+<p>As we already mentioned it's important in Python by how much spaces
+is line indented. So we will have to learn to quickly indent block
+of text.</p>
+<p>First of all copy following text into your editor.</p>
+<div class="highlight"><pre><code>OPHELIA:
+Good my lord,
+How does your honour for this many a day?
+HAMLET:
+I humbly thank you; well, well, well.
+OPHELIA:
+My lord, I have remembrances of yours,
+That I have longed long to re-deliver;
+I pray you, now receive them.
+HAMLET:
+No, not I;
+I never gave you aught.
+OPHELIA:
+My honour'd lord, you know right well you did;
+And, with them, words of so sweet breath composed
+As made the things more rich: their perfume lost,
+Take these again; for to the noble mind
+Rich gifts wax poor when givers prove unkind.
+There, my lord.</code></pre></div><p><small>Hamlet, W. Shakespeare</small></p>
+<p>This text is not well-arranged so we will indent it like that:</p>
+<div class="highlight"><pre><code>OPHELIA:
+    Good my lord,
+    How does your honour for this many a day?
+HAMLET:
+    I humbly thank you; well, well, well.
+OPHELIA:
+    My lord, I have remembrances of yours,
+    That I have longed long to re-deliver;
+    I pray you, now receive them.
+HAMLET:
+    No, not I;
+    I never gave you aught.
+OPHELIA:
+    My honour'd lord, you know right well you did;
+    And, with them, words of so sweet breath composed
+    As made the things more rich: their perfume lost,
+    Take these again; for to the noble mind
+    Rich gifts wax poor when givers prove unkind.
+    There, my lord.</code></pre></div><p>To indent one line set you coursor in the beginning of the line
+and press <kbd>Tab</kbd>.
+With every press you will indent the like by 4 spaces.</p>
+<p>If you indent too much, press <kbd>Shift</kbd>+<kbd>Tab</kbd>.</p>
+<p>If you would want to indent more lines just highlight them and
+press <kbd>Tab</kbd>.
+For undo press <kbd>Shift</kbd>+<kbd>Tab</kbd>.</p>

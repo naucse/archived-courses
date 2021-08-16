@@ -1,0 +1,205 @@
+<h2>Paramiko, Netmiko and Fabric</h2>
+<h3>Paramiko</h3>
+<p>Paramiko is a Python (2.7, 3.4+) implementation of the SSHv2 protocol, providing both client and server functionality. While it leverages a Python C extension for low level cryptography (Cryptography), Paramiko itself is a pure Python interface around SSH networking concepts.</p>
+<h4>Install Paramiko</h4>
+<div class="highlight"><pre><code>pip install paramiko</code></pre></div><h4>Paramiko example</h4>
+<div class="highlight"><pre><code>#!/usr/bin/env python
+import paramiko
+import sys
+
+if len(sys.argv) &lt; 3:
+    print("args missing")
+    sys.exit(1)
+
+hostname = sys.argv[1]
+command = sys.argv[2]
+
+username = "ubuntu"
+port = 2222
+
+try:
+    client = paramiko.SSHClient()
+    client.load_system_host_keys()
+    client.set_missing_host_key_policy(paramiko.WarningPolicy)
+    client.connect(hostname, port=port, username=username, key_filename='/Users/jasiplum/Development/Projects/Tieto/Python/naucse/.vagrant/machines/default/virtualbox/private_key')
+    stdin, stdout, stderr = client.exec_command(command)
+    print(stdout.read())
+except Exception as e:
+    print("Error happened: %s" % (e,))</code></pre></div><p>You can specify SSH private key using option connect() method parameter <strong>key_filename=</strong>.</p>
+<h3>Netmiko</h3>
+<p>Multi-vendor library to simplify Paramiko SSH connections to network devices.</p>
+<p>Currently supported:</p>
+<p><strong>Regularly tested</strong></p>
+<div class="highlight"><pre><code>Arista vEOS
+Cisco ASA
+Cisco IOS
+Cisco IOS-XE
+Cisco IOS-XR
+Cisco NX-OS
+Cisco SG300
+HP Comware7
+HP ProCurve
+Juniper Junos
+Linux</code></pre></div><p><strong>Limited testing</strong></p>
+<div class="highlight"><pre><code>Alcatel AOS6/AOS8
+Apresia Systems AEOS
+Calix B6
+Cisco WLC
+Dell OS9 (Force10)
+Dell OS10
+Dell PowerConnect
+Extreme ERS (Avaya)
+Extreme VSP (Avaya)
+Extreme VDX (Brocade)
+Extreme MLX/NetIron (Brocade/Foundry)
+Huawei
+IP Infusion OcNOS
+Mellanox
+NetApp cDOT
+Palo Alto PAN-OS
+Pluribus
+Ruckus ICX/FastIron
+Ubiquiti EdgeSwitch
+Vyatta VyOS</code></pre></div><p><strong>Experimental</strong></p>
+<div class="highlight"><pre><code>A10
+Accedian
+Aruba
+Ciena SAOS
+Citrix Netscaler
+Cisco Telepresence
+Check Point GAiA
+Coriant
+Dell OS6
+Dell EMC Isilon
+Eltex
+Enterasys
+Extreme EXOS
+Extreme Wing
+Extreme SLX (Brocade)
+F5 LTM
+Fortinet
+MRV Communications OptiSwitch
+Nokia/Alcatel SR-OS
+QuantaMesh
+Rad ETX</code></pre></div><h4>Netmiko installation</h4>
+<div class="highlight"><pre><code>pip install netmiko</code></pre></div><h4>Netmiko example</h4>
+<p>A simple SSH session to a Cisco router that executes the 'show ip int brief' command:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; from netmiko import ConnectHandler
+
+&gt;&gt;&gt; cisco_881 = {
+...   'device_type': 'cisco_ios',
+...   'ip': '10.10.10.227',
+...   'username': 'pyclass',
+...   'password': 'password',
+... }
+
+&gt;&gt;&gt; net_connect = ConnectHandler(**cisco_881)
+SSH connection established to 10.10.10.227:22
+Interactive SSH session established</code></pre></div><p>Alternatively, I could just call the ConnectHandler function directly and not use a dictionary (as follows):</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; net_connect = ConnectHandler(device_type='cisco_ios', ip='10.10.10.227', username='pyclass', password='password')</code></pre></div><p>Now at this point we have an SSH connection. I can verify this by executing the .find_prompt() method</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; net_connect.find_prompt()
+u'pynet-rtr1#'</code></pre></div><p>Use the .send_command() method to send the 'show ip int brief' command:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; output = net_connect.send_command("show ip int brief")
+&gt;&gt;&gt; print(output)
+Interface                  IP-Address      OK? Method Status                Protocol
+FastEthernet0              unassigned      YES unset  down                  down    
+FastEthernet1              unassigned      YES unset  down                  down    
+FastEthernet2              unassigned      YES unset  down                  down    
+FastEthernet3              unassigned      YES unset  down                  down    
+FastEthernet4              10.220.88.20    YES NVRAM  up                    up      
+Vlan1                      unassigned      YES unset  down                  down</code></pre></div><h3>Fabric</h3>
+<p>Fabric is a high level Python (2.7, 3.4+) library designed to execute shell commands remotely over SSH.</p>
+<h4>Fabric installation</h4>
+<div class="highlight"><pre><code>pip install Fabric</code></pre></div><h4>Fabric example</h4>
+<div class="highlight"><pre><code>from fabric.api import *
+import fabric.contrib.project as project
+import os
+import shutil
+import sys
+import SocketServer
+
+from pelican.server import ComplexHTTPRequestHandler
+
+# Local path configuration (can be absolute or relative to fabfile)
+env.deploy_path = 'output'
+DEPLOY_PATH = env.deploy_path
+
+# Remote server configuration
+production = 'root@localhost:22'
+dest_path = '/var/www'
+
+# Rackspace Cloud Files configuration settings
+env.cloudfiles_username = 'my_rackspace_username'
+env.cloudfiles_api_key = 'my_rackspace_api_key'
+env.cloudfiles_container = 'my_cloudfiles_container'
+
+# Github Pages configuration
+env.github_pages_branch = "gh-pages"
+
+# Port for `serve`
+PORT = 8000
+
+def clean():
+    """Remove generated files"""
+    if os.path.isdir(DEPLOY_PATH):
+        shutil.rmtree(DEPLOY_PATH)
+        os.makedirs(DEPLOY_PATH)
+
+def build():
+    """Build local version of site"""
+    local('pelican -s pelicanconf.py')
+
+def rebuild():
+    """`build` with the delete switch"""
+    local('pelican -d -s pelicanconf.py')
+
+def regenerate():
+    """Automatically regenerate site upon file modification"""
+    local('pelican -r -s pelicanconf.py')
+
+def serve():
+    """Serve site at http://localhost:8000/"""
+    os.chdir(env.deploy_path)
+
+    class AddressReuseTCPServer(SocketServer.TCPServer):
+        allow_reuse_address = True
+
+    server = AddressReuseTCPServer(('', PORT), ComplexHTTPRequestHandler)
+
+    sys.stderr.write('Serving on port {0} ...\n'.format(PORT))
+    server.serve_forever()
+
+def reserve():
+    """`build`, then `serve`"""
+    build()
+    serve()
+
+def preview():
+    """Build production version of site"""
+    local('pelican -s publishconf.py')
+
+def cf_upload():
+    """Publish to Rackspace Cloud Files"""
+    rebuild()
+    with lcd(DEPLOY_PATH):
+        local('swift -v -A https://auth.api.rackspacecloud.com/v1.0 '
+              '-U {cloudfiles_username} '
+              '-K {cloudfiles_api_key} '
+              'upload -c {cloudfiles_container} .'.format(**env))
+
+@hosts(production)
+def publish():
+    """Publish to production via rsync"""
+    local('pelican -s publishconf.py')
+    project.rsync_project(
+        remote_dir=dest_path,
+        exclude=".DS_Store",
+        local_dir=DEPLOY_PATH.rstrip('/') + '/',
+        delete=True,
+        extra_opts='-c',
+    )
+
+def gh_pages():
+    """Publish to GitHub Pages"""
+    rebuild()
+    local("ghp-import -b {github_pages_branch} {deploy_path} -p".format(**env))</code></pre></div>

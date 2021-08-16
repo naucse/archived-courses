@@ -1,0 +1,7 @@
+<div class="highlight"><pre><span></span><span class="nd">@ukolnik.command</span><span class="p">()</span>
+<span class="nd">@click.option</span><span class="p">(</span><span class="s2">&quot;--zadani&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Nový úkol&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">pridej</span><span class="p">(</span><span class="n">zadani</span><span class="p">):</span>
+    <span class="n">ukol</span> <span class="o">=</span> <span class="n">Ukol</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">zadani</span><span class="p">,</span> <span class="n">zadano</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">sezeni</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ukol</span><span class="p">)</span>
+    <span class="n">sezeni</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>

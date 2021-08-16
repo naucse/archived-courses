@@ -1,0 +1,35 @@
+<p>Možné řešení pro geometrickou kalkulačku:</p>
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">strana</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej stranu čtverce v centimetrech: &#39;</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To nebylo číslo!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">strana</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To nedává smysl!&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Obvod čtverce se stranou&#39;</span><span class="p">,</span> <span class="n">strana</span><span class="p">,</span> <span class="s1">&#39;je&#39;</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">strana</span><span class="p">,</span> <span class="s1">&#39;cm&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Obsah čtverce se stranou&#39;</span><span class="p">,</span> <span class="n">strana</span><span class="p">,</span> <span class="s1">&#39;je&#39;</span><span class="p">,</span> <span class="n">strana</span> <span class="o">*</span> <span class="n">strana</span><span class="p">,</span> <span class="s1">&#39;cm2&#39;</span><span class="p">)</span>
+</pre></div><p>Možné řešení pro 1-D piškvorky:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nacti_cislo</span><span class="p">(</span><span class="n">pole</span><span class="p">):</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pozice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Kam chceš hrát? (0..19) &#39;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To není číslo!&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pozice</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pozice</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pole</span><span class="p">):</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Nemůžeš hrát venku z pole!&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">pole</span><span class="p">[</span><span class="n">pozice</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tam není volno!&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+
+    <span class="n">pole</span> <span class="o">=</span> <span class="n">pole</span><span class="p">[:</span><span class="n">pozice</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;o&#39;</span> <span class="o">+</span> <span class="n">pole</span><span class="p">[</span><span class="n">pozice</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">pole</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">tah_hrace</span><span class="p">(</span><span class="s1">&#39;-x----&#39;</span><span class="p">))</span>
+</pre></div>

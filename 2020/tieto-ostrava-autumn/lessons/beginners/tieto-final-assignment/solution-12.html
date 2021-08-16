@@ -1,0 +1,8 @@
+<div class="highlight"><pre><span></span><span class="x">&lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">current_user.is_authenticated</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;auth.logout&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Log Out&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;auth.login&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Log In&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;/ul&gt;</span>
+</pre></div>

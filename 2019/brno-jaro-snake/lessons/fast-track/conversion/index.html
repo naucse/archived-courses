@@ -1,0 +1,39 @@
+<h1>Převádění typů</h1>
+<p>Pojď zkusit něco nového: zjistit délku čísla stejným způsobem,
+jakým jsme zjišťovali délku našeho jména.
+Zadej <code>len(304023)</code> a stiskni <kbd>Enter</kbd>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="mi">304023</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">object of type &#39;int&#39; has no len()</span>
+</pre></div><p>Zobrazila se ti naše první chyba!
+Ta říká, že objekty typu <code>int</code> (zkratka anglického <em>integer</em>, celé číslo)
+nemají délku.
+Tak co můžeme udělat teď?
+Možná můžeme zkusit napsat naše číslo jako řetězec?
+Řetězce mají délky, že?</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;304023&quot;</span><span class="p">)</span>
+<span class="go">6</span>
+</pre></div><p>Existuje i funkce, která <em>převede</em> číslo na řetězec. Jmenuje se <code>str</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">304023</span><span class="p">)</span>
+<span class="go">&quot;304023&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">304023</span><span class="p">))</span>
+<span class="go">6</span>
+</pre></div><p>Podobně funkce <code>int</code> převádí věci na celá čísla:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;304023&quot;</span><span class="p">)</span>
+</pre></div><p>Můžeš převést čísla na text, ale nemůžeš jen tak převést text na čísla.
+Co by se stalo, kdyby ses pokusila na číslo převést řetězec, ve kterém
+nejsou číslice?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: &#39;ahoj&#39;</span>
+</pre></div>
+    </div>
+</div>

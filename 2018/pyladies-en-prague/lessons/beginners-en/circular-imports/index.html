@@ -1,0 +1,93 @@
+<h2>Circular imports</h2>
+<p>In the 1D tic-tac-toe game for your homework, you will probably write several modules.
+It will look like this:
+(Arrows between modules are showing the imports.)</p>
+<div class="highlight"><pre><code>┌──────────────────╮ ┌───────────────╮  ┌──────────────────╮ 
+│      ai.py       │  │ tictactoe.py  │   │    game.py       │
+├──────────────────┤  ├───────────────┤   ├──────────────────┤
+│                  │◀-│ import ai     │◀-│import tictactoe  │
+├──────────────────┤  ├───────────────┤   ├──────────────────┤
+│ def ai_move      │  │ def evaluate  │   │                  │
+│                  │  │ def move      │   │                  │
+└──────────────────┘  │def player_move│   └──────────────────┘
+                      │               │
+                      └───────────────┘
+                          ▲
+                          │
+                          │ ┌───────────────────╮
+                          │ │ test_ticktactoe.py│
+                          │ ├───────────────────┤
+                          └─│ import tictactoe  │
+                            ├───────────────────┤
+                            │ def test_...      │
+                            │                   │
+                            └───────────────────┘</code></pre></div><p>But function <code>ai_move</code> needs to call function <code>move</code>.<br>
+What can we do?<br>
+Could you import <code>ai</code> from <code>tictactoe</code> while you are importing <code>tictactoe</code> from <code>ai</code>?</p>
+<div class="highlight"><pre><code>┌──────────────────╮ ┌───────────────╮
+│      ai.py       │  │ tictactoe.py  │
+├──────────────────┤  ├───────────────┤
+│                  │◀-│ import ai     │
+│import ticktaktoe │-▶│               │
+│                  │  │               │
+│   def ai_move    │  │ def evaluate  │
+│                  │  │ def move      │
+└──────────────────┘  │def player_move│
+                      │               │
+                      └───────────────┘</code></pre></div><p>We can look at it from the point of view of Python,
+which is executing the commands.
+When it has to import <code>tictactoe.py</code>, it process the file line by line.
+And it almost at the begging see command <code>import ai</code>.
+So it opens file <code>ai.py</code> and it start to process it line by line.
+And of course it will soon get to <code>import tictactoe</code>. What next?</p>
+<p>To avoid an infinite loop - one file would import another one and this one would import
+the first one over and over again - 
+Python will make some workaround when we run <code>tictactoe</code>:
+when it notices that <code>tictactoe</code> is already being imported in <code>ai.py</code>,
+it will import the part of <code>tictactoe</code> that it's just before <code>import ai</code> into <code>ai</code> module
+and this will replace line <code>import tictactoe</code> so it's no longer there. And then it can continue the
+import of <code>ai</code> in <code>tictactoe.py</code>.
+When it finishes this import it will continue in <code>tictactoe</code> and all its functions and commands.</p>
+<p>This could be useful but in most of the times it behaves very unpredictable therefore it's dangerous.</p>
+<p>In other words: when two modules are trying to import the other one
+the program doesn't have to work as expected.</p>
+<p>We want to prevent this kind of situation.</p>
+<p>How will we do it? We have two options.</p>
+<h2>Organise modules by dependency</h2>
+<p>First option is to move function <code>move</code> to module <code>ai</code> and we can use it from there.
+That's easy but that's not what we wont from <code>ai</code> module, because it should contain
+the logic how our "AI" is choosing where to move only.
+It definitely shouldn't contain other functions which might be useful somewhere else.</p>
+<div class="highlight"><pre><code>┌──────────────────╮ ┌───────────────╮
+│      ai.py       │  │ tictactoe.py  │
+├──────────────────┤  ├───────────────┤
+│                  │◀-│ import ai     │
+│                  │  │               │
+│ def ai_move      │  │ def evaluate  │
+│ def move         │  │def player_move│
+│                  │  │               │
+└──────────────────┘  └───────────────┘</code></pre></div><h2>Support module</h2>
+<p>Second option is to define new module which will be used in
+<code>tictactoe.py</code> and in <code>ai.py</code>.</p>
+<p>This module is usually as <code>util.py</code> (=utility).</p>
+<div class="highlight"><pre><code>              ┌──────────────────╮
+              │ util.py          │
+              ├──────────────────┤
+              │ def move         │
+              └──────────────────┘
+                      ▲  ▲
+                      │  │
+┌──────────────────╮ │  │  ┌───────────────╮
+│      ai.py       │  │  │  │ tictactoe.py  │
+├──────────────────┤  │  │  ├───────────────┤
+│ import util      │──┘  └──│ import util   │
+│                  │◀───────│ import ai     │
+│                  │        │               │
+│ def ai.move      │        │ def evaluate  │
+│                  │        │def player_move│
+│                  │        │               │
+└──────────────────┘        └───────────────┘</code></pre></div><p>Disadvantage of support module is that it can easily 
+become non-maintained storage of your code, which you used on so
+many places that you have no idea where exactly you used it and whether 
+you can modify or delete it.</p>
+<p>What you should choose always depends on the current situation.</p>

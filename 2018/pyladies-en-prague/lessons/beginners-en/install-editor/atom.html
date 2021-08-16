@@ -1,0 +1,74 @@
+<h1>Instalace  Atom</h1>
+<p>Download Atom
+from its <a href="https://atom.io">webpage</a>
+and install it.</p>
+<h2>Settings</h2>
+<p>You don't have to set up anything in Atom.</p>
+<p>Indentation and colouring, how we want it, works only with files with <code>.py</code>
+extension.</p>
+<p>So it's better if you save your file as early as possible.</p>
+<h2>Code style</h2>
+<p>There is just one thing missing in Atom: plug-in for checking
+code style</p>
+<p>As every written language Python also has its typographic rules.
+You can find them here in <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> document.</p>
+<p>If you don't want to remember them just install plug-in which will always
+notice you if you violate some.</p>
+<p>Firstly we will have to install special library which takes care of this.
+Write into your command line:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python -m pip install flake8
+</pre></div><p>And now just install the plug-in.
+In the main menu choose "File &gt; Settings" and click on "Install".
+Then search for "linter-flake8" and in the list click "Install" next to
+the "linter-flake8". You will be also asked for installation of every 
+dependency.</p>
+<h2>Indentation practice</h2>
+<p>As we already mentioned it's important in Python by how much spaces
+is line indented. So we will have to learn to quickly indent block
+of text.</p>
+<p>First of all copy following text into your editor.</p>
+<div class="highlight"><pre><code>OPHELIA:
+Good my lord,
+How does your honour for this many a day?
+HAMLET:
+I humbly thank you; well, well, well.
+OPHELIA:
+My lord, I have remembrances of yours,
+That I have longed long to re-deliver;
+I pray you, now receive them.
+HAMLET:
+No, not I;
+I never gave you aught.
+OPHELIA:
+My honour'd lord, you know right well you did;
+And, with them, words of so sweet breath composed
+As made the things more rich: their perfume lost,
+Take these again; for to the noble mind
+Rich gifts wax poor when givers prove unkind.
+There, my lord.</code></pre></div><p><small>Hamlet, W. Shakespeare</small></p>
+<p>This text is not well-arranged so we will indent it like that:</p>
+<div class="highlight"><pre><code>OPHELIA:
+    Good my lord,
+    How does your honour for this many a day?
+HAMLET:
+    I humbly thank you; well, well, well.
+OPHELIA:
+    My lord, I have remembrances of yours,
+    That I have longed long to re-deliver;
+    I pray you, now receive them.
+HAMLET:
+    No, not I;
+    I never gave you aught.
+OPHELIA:
+    My honour'd lord, you know right well you did;
+    And, with them, words of so sweet breath composed
+    As made the things more rich: their perfume lost,
+    Take these again; for to the noble mind
+    Rich gifts wax poor when givers prove unkind.
+    There, my lord.</code></pre></div><p>To indent one line set you coursor in the beginning of the line
+and press <kbd>Tab</kbd>.
+With every press you will indent the like by 4 spaces.</p>
+<p>If you indent too much, press <kbd>Shift</kbd>+<kbd>Tab</kbd>.</p>
+<p>If you would want to indent more lines just highlight them and
+press <kbd>Tab</kbd>.
+For undo press <kbd>Shift</kbd>+<kbd>Tab</kbd>.</p>

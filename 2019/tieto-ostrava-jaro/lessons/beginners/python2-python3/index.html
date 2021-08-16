@@ -1,0 +1,91 @@
+<h2>Základní rozdíly mezi Python 2 a Python 3</h2>
+<h3>Funkce print()</h3>
+<p>Jedná se o pravděpodobně nejviditelnější změnu mezi Python 2 a Python 3. Příkaz <em>print</em> z Python 2 byl v Python 3 nahrazen funkcí <em>python()</em>.</p>
+<p><strong>Python 2</strong>
+</p>
+<div class="highlight"><pre><code>print 'Hello, World!'
+print('Hello, World!')
+print "text", ; print 'print more text on the same line'</code></pre></div><div class="highlight"><pre><code>Hello, World!
+Hello, World!
+text print more text on the same line</code></pre></div><p><strong>Python 3</strong></p>
+<div class="highlight"><pre><code>print('Hello, World!')
+
+print("some text,", end="")
+print(' print more text on the same line')</code></pre></div><div class="highlight"><pre><code>Hello, World!
+some text, print more text on the same line</code></pre></div><div class="highlight"><pre><code>print 'Hello, World!'</code></pre></div><div class="highlight"><pre><code>File "&lt;ipython-input-3-139a7c5835bd&gt;", line 1
+    print 'Hello, World!'
+                        ^
+SyntaxError: invalid syntax</code></pre></div><h3>Dělení celými čísly</h3>
+<p>Dělení celými čísly se chová rúzným způsobem v Python 2 a v Python 3.</p>
+<p><strong>Python 2</strong></p>
+<div class="highlight"><pre><code>print '3 / 2 =', 3 / 2
+print '3 // 2 =', 3 // 2
+print '3 / 2.0 =', 3 / 2.0
+print '3 // 2.0 =', 3 // 2.0</code></pre></div><div class="highlight"><pre><code>3 / 2 = 1
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0</code></pre></div><p><strong>Python 3</strong></p>
+<div class="highlight"><pre><code>print('3 / 2 =', 3 / 2)
+print('3 // 2 =', 3 // 2)
+print('3 / 2.0 =', 3 / 2.0)
+print('3 // 2.0 =', 3 // 2.0)</code></pre></div><div class="highlight"><pre><code>3 / 2 = 1.5
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0</code></pre></div><h3>Podpora Unicode</h3>
+<p>Python 2 má separátní typy pro str(), jedná se o ASCII znaky a dále pak unicode(). V Python 3 jsou všechny řetězce str() standardně Unicode znaky. Dále pak Python 3 zavádí podporu <em>byte</em>.</p>
+<h3>Vyvolání výjimky</h3>
+<p>V Python 2 jsou možné dvě možnosti jak vyvolat výjimku. Python 3 umožňuje jen jednu.</p>
+<p><strong>Python 2</strong></p>
+<div class="highlight"><pre><code>raise IOError, "file error"</code></pre></div><div class="highlight"><pre><code>raise IOError, "file error"
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+IOError: file error</code></pre></div><div class="highlight"><pre><code>raise IOError("file error")</code></pre></div><div class="highlight"><pre><code>raise IOError("file error")
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+IOError: file error</code></pre></div><p><strong>Python 3</strong></p>
+<p>Následující způsob zápisu v Python 3 nefunguje:</p>
+<div class="highlight"><pre><code>raise IOError, "file error"</code></pre></div><div class="highlight"><pre><code>raise IOError, "file error"
+  File "&lt;stdin&gt;", line 1
+    raise IOError, "file error"
+                 ^
+SyntaxError: invalid syntax</code></pre></div><p>Jediný správný zápis je tento:</p>
+<div class="highlight"><pre><code>raise IOError("file error")</code></pre></div><div class="highlight"><pre><code>raise IOError("file error")
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+OSError: file error</code></pre></div><h3>Ošetřování výjimek</h3>
+<p>Oštřování výjimek se také změnilo. Podívej se, jak se ošetřují výjimky v Python 2 a v Python 3.</p>
+<p><strong>Python 2</strong></p>
+<div class="highlight"><pre><code>try:
+    let_us_cause_a_NameError
+except NameError, err:
+    print err, '--&gt; our error message'</code></pre></div><div class="highlight"><pre><code>name 'let_us_cause_a_NameError' is not defined --&gt; our error message</code></pre></div><p><strong>Python 3</strong></p>
+<div class="highlight"><pre><code>try:
+    let_us_cause_a_NameError
+except NameError as err:
+    print(err, '--&gt; our error message')</code></pre></div><div class="highlight"><pre><code>name 'let_us_cause_a_NameError' is not defined --&gt; our error message</code></pre></div><h3>Uživatelské vstupy</h3>
+<p>V Pythonu 2 existují dva způsoby, jak získat vstup od uživatele. Funkce <em>input()</em> a funkce <em>raw_input()</em>. Problém ve funkci <em>input()</em> je, že může být potenciálně nebezpečná, protože nevrací vždy typ <em>string</em>.</p>
+<p><strong>Python 2</strong></p>
+<div class="highlight"><pre><code>Python 2.7.6
+[GCC 4.0.1 (Apple Inc. build 5493)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+
+&gt;&gt;&gt; my_input = input('enter a number: ')
+
+enter a number: 123
+
+&gt;&gt;&gt; type(my_input)
+&lt;type 'int'&gt;
+
+&gt;&gt;&gt; my_input = raw_input('enter a number: ')
+
+enter a number: 123
+
+&gt;&gt;&gt; type(my_input)
+&lt;type 'str'&gt;</code></pre></div><p><strong>Python 3</strong></p>
+<div class="highlight"><pre><code>Python 3.7.0 (default, Aug 24 2018, 20:34:01)
+[Clang 9.0.0 (clang-900.0.39.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; my_input = input('enter a number: ')
+enter a number: 123
+&gt;&gt;&gt; type(my_input)
+&lt;class 'str'&gt;</code></pre></div>

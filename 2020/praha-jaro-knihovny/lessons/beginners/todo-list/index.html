@@ -1,0 +1,294 @@
+<h1>To-Do List</h1>
+<h2>Co je cílem tohoto cvičení?</h2>
+<p>Na tomto příkladu si vyzkoušíme použít knihovnu SQLAlchemy na práci s databází.
+Napíšeme si jednoduchý program pro evidenci úkolů. Také si procvičíme práci s
+knihovnou Click.</p>
+<h2>Předpoklady</h2>
+<p>Předpokládáme základní znalost Pythonu. Měli byste mít počítač s nainstalovaným
+interpretem jazyka Python ve verzi aspoň 3.6. Pro začátek si také vytvořte nové
+virtuální prostředí.</p>
+<p>Do tohoto prostředí si nainstalujte knihovny <code>sqlalchemy</code> a <code>click</code>.</p>
+<h2>Krok 1 – připojení k databázi</h2>
+<p>Pro zjednodušení začneme čtením dat z databáze. Můžete si stáhnout
+<a href="naucse:static?filename=ukoly.sqlite">připravená data</a>. Stáhněte si ho do
+stejného adresáře, ve kterém budete mít samotný program.</p>
+<p>Do souboru <code>ukoly.py</code> si stáhněte tuto základní kostru.</p>
+<div class="highlight"><pre><span></span><span class="c1"># ukoly.py</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;sqlite:///ukoly.sqlite&quot;</span><span class="p">)</span>
+</pre></div><p>Funkce <code>create_engine</code> vytváří spojení s databází <code>ukoly.sqlite</code>, která je
+uložená v aktuálním adresáři. Knihovna <code>sqlalchemy</code> umí pracovat i s jinými
+typy databází než je <code>SQLite</code>. Ta je ale nejjednodušší, a velice vhodná na
+uložení dat, se kterými budeme pracovat.</p>
+<p>Momentálně program nic nedělá. Nejprve musíme nadefinovat, jak vlastně naše
+data vypadají.</p>
+<h2>Krok 2 – první dotaz</h2>
+<p>Samotnou databází si můžeme přestavit jako několik tabulek, které mají nějak
+pojmenované sloupce. V našem příkladu budeme potřebovat jedinou tabulku, ale
+klidně by jich mohlo být víc.</p>
+<p>Pro každou tabulku budeme potřebovat třídu (<code>class</code>), jejíž instance budou
+reprezentovat jednotlivé řádky v ní.</p>
+<p>Metodu <code>__repr__</code> používá Python, když potřebuje zobrazit instanci této třídy.
+Není určená na výpis pro uživatele, ale pro ladění programu.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">DateTime</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.exc.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;sqlite:///ukoly.sqlite&quot;</span><span class="p">)</span>
+<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Ukol</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="c1"># Název tabulky v databází.</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;ukoly&quot;</span>
+
+    <span class="c1"># Číselný identifikátor úkolu, toto číslo bude jedinečné.</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Text úkolu.</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+    <span class="c1"># Datum a čas zadání úkolu.</span>
+    <span class="n">zadano</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+    <span class="c1"># Datum a čas vyřešení úkolu. Prázdná hodnota znamená nehotový úkol.</span>
+    <span class="n">vyreseno</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;Ukol(text=&#39;</span><span class="si">{self.text}</span><span class="s2">&#39;, zadano=</span><span class="si">{self.zadano}</span><span class="s2">, vyreseno=</span><span class="si">{self.vyreseno}</span><span class="s2">)&gt;&quot;</span>
+</pre></div><p>Přidejte jeden import a na konec souboru ještě několik řádků. Pokud chceme z
+databáze vytahovat data, nebo je ukládat, potřebujeme vytvořit ještě jeden
+objekt. Takzvané sezení (anglicky <em>session</em>) využije dříve vytvořené spojení a
+umožňuje nám použít všechny nadefinované třídy.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+
+<span class="o">...</span>
+
+<span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+<span class="n">sezeni</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+
+<span class="n">dotaz</span> <span class="o">=</span> <span class="n">sezeni</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Ukol</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dotaz</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+</pre></div><p>Metoda <code>query</code> vytvoří dotaz, který bude vracet instance třídy <code>Ukol</code>. Nezadáme
+žádné omezení, takže chceme všechny úkoly. Metoda <code>all</code> na tomto dotazu potom
+vrací seznam všech řádků v tabulce, které odpovídají dotazu.</p>
+<p>Tento program už půjde spustit a bude vypisovat všechny úkoly. Tento výpis ale
+není úplně pěkný. Upravte program tak, aby každý úkol byl na samostatném řádku,
+a v hezky čitelném formátu. Jednotlivé objekty mají atributy <code>id</code> a <code>text</code>,
+které můžeme použít.</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="o">...</span>
+
+<span class="n">ukoly</span> <span class="o">=</span> <span class="n">dotaz</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ukol</span> <span class="ow">in</span> <span class="n">ukoly</span><span class="p">:</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;[x]&quot;</span> <span class="k">if</span> <span class="n">ukol</span><span class="o">.</span><span class="n">vyreseno</span> <span class="k">else</span> <span class="s2">&quot;[ ]&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{symbol}</span><span class="s2"> </span><span class="si">{ukol.id}</span><span class="s2">. </span><span class="si">{ukol.text}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+    </div>
+</div><h2>Krok 3 – uživatelské rozhraní</h2>
+<p>Teď program upravíme tak, abychom ho mohli postupně rozšiřovat dalšími příkazy.</p>
+<p>Ve finále chceme, aby program fungoval takto:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python ukoly.py vypis
+<span class="go">[x] 1. dej si čaj</span>
+<span class="go">[x] 2. bež do kina</span>
+<span class="gp">$ </span>python ukoly.py pridej
+<span class="go">Nový úkol: Udělej si úkoly</span>
+<span class="go">Zadán úkol 3</span>
+<span class="gp">$ </span>python ukoly.py vyres <span class="m">3</span>
+<span class="gp">$ </span>python ukoly.py vypis
+<span class="go">[x] 1. dej si čaj</span>
+<span class="go">[x] 2. bež do kina</span>
+<span class="go">[x] 3. Udělej si úkoly</span>
+</pre></div><p>Nejprve musíme naimportovat knihovnu <code>click</code>.</p>
+<p>Následně označíme hlavní funkci dekorátorem <code>@click.group()</code>. Tím řekneme, že
+to vlastně není příkaz sám o sobě, ale bude to skupina dalších příkazů. Hned si
+jeden vytvoříme a necháme ho vypisovat úkoly.</p>
+<div class="highlight"><pre><span></span><span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+<span class="n">sezeni</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">ukolnik</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">vypis</span><span class="p">():</span>
+    <span class="n">dotaz</span> <span class="o">=</span> <span class="n">sezeni</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Ukol</span><span class="p">)</span>
+    <span class="n">ukoly</span> <span class="o">=</span> <span class="n">dotaz</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">ukol</span> <span class="ow">in</span> <span class="n">ukoly</span><span class="p">:</span>
+        <span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;[x]&quot;</span> <span class="k">if</span> <span class="n">ukol</span><span class="o">.</span><span class="n">vyreseno</span> <span class="k">else</span> <span class="s2">&quot;[ ]&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{symbol}</span><span class="s2"> </span><span class="si">{ukol.id}</span><span class="s2">. </span><span class="si">{ukol.text}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">ukolnik</span><span class="p">()</span>
+</pre></div><p>Výpis by měl pořád vypadat stejně, akorát ho budeme volat trochu jinak.</p>
+<h2>Krok 4 – přidávání úkolů</h2>
+<p>Přidejte do programu další příkaz. Bude se jmenovat <code>pridej</code>, a vždy od
+uživatele dostane text úkolu, který hned vypíše.</p>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--zadani&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Nový úkol&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">pridej</span><span class="p">(</span><span class="n">zadani</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OK: </span><span class="si">{zadani}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+    </div>
+</div><p>Teď můžeme metodu upravit tak, aby úkol opravdu vytvořila a uložila.</p>
+<p>Nejprve musíme vytvořit instanci třídy <code>Ukol</code>. Tu potom přidáme do našeho
+sezení a řekneme databázi, že ji chceme uložit. Aktuální čas dostaneme ze
+standardní knihovny, takže nezapomeňte na začátek programu přidat <code>from
+datetime import datetime</code>.</p>
+<div class="solution" id="solution-2">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=2"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--zadani&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Nový úkol&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">pridej</span><span class="p">(</span><span class="n">zadani</span><span class="p">):</span>
+    <span class="n">ukol</span> <span class="o">=</span> <span class="n">Ukol</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">zadani</span><span class="p">,</span> <span class="n">zadano</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">sezeni</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ukol</span><span class="p">)</span>
+    <span class="n">sezeni</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+    </div>
+</div><p>Pokud bychom vytvářeli několik úkolů, můžeme je všechny přidat a teprve potom
+jednou zavolat <code>commit</code>. Pokud bychom na toto poslední volání zapomněli,
+záznamy budou časem uloženy taky, ale nebude úplně přímočaré poznat, kde k tomu
+dojde. Je lepší najít vhodné místo a <code>commit</code> zavolat.</p>
+<h2>Krok 5 – vytvoření databáze</h2>
+<p>Momentálně program funguje celkem dobře, ale vždycky potřebuje, aby na disku
+existoval soubor s databází. Bylo by hezké, kdyby si dokázal vytvořit prázdnou
+databázi.</p>
+<p>Nejprve přesuneme vytváření sezení do samostatné funkce, kterou zavoláme v
+každém příkazu. Toto nebude mít vliv na výsledné chování, ale program bude
+trošku čitelnější a jednodušší na orientaci.</p>
+<p>Vytvořte funkci <code>pripoj_se</code>, která nebude mít žádné argumenty a bude vracet
+nové sezení.</p>
+<div class="solution" id="solution-3">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=3"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">pripoj_se</span><span class="p">():</span>
+    <span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Session</span><span class="p">()</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">ukolnik</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">vypis</span><span class="p">():</span>
+    <span class="n">sezeni</span> <span class="o">=</span> <span class="n">pripoj_se</span><span class="p">()</span>
+    <span class="o">...</span>
+
+
+<span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--zadani&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Nový úkol&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">pridej</span><span class="p">(</span><span class="n">zadani</span><span class="p">):</span>
+    <span class="n">sezeni</span> <span class="o">=</span> <span class="n">pripoj_se</span><span class="p">()</span>
+    <span class="o">...</span>
+</pre></div>
+    </div>
+</div><p>K vytvoření prázdné databáze stačí do funkce <code>pripoj_se</code> přidat jeden řádek:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pripoj_se</span><span class="p">():</span>
+    <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+    <span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Session</span><span class="p">()</span>
+</pre></div><p>Třída <code>Base</code> je společný předek všech našich tříd reprezentujících data. My
+máme pouze jednu, ale to není na závadu. Nově přidané volání se podívá, jestli
+pro každou třídu existuje odpovídající tabulka, a případně ji vytvoří.</p>
+<p>Tato funkce není úplně všemocná. Pokud například budeme měnit existující
+tabulku, s největší pravděpodobností dostaneme chybovou hlášku. Na obecné
+migrace dat je lepší použít něco sofistikovanějšího, jako třeba knihovnu
+<a href="https://pypi.org/project/alembic/">alembic</a>.</p>
+<h2>Krok 6 – řešení úkolů</h2>
+<p>Pojďme přidat poslední chybějící část: označování úkolů za vyřešené. Začneme
+zase přidáním kostry příkazu, která dostane číslo úkolu a vypíše ho na výstup.</p>
+<div class="solution" id="solution-4">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=4"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;cislo_ukolu&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">INT</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">vyres</span><span class="p">(</span><span class="n">cislo_ukolu</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Značím </span><span class="si">{cislo_ukolu}</span><span class="s2"> jako vyřešené&quot;</span><span class="p">)</span>
+</pre></div>
+    </div>
+</div><p>Postup pro vyřešení úkolu bude následovný: najdeme úkol podle čísla, nastavíme
+mu čas vyřešení a uložíme ho.</p>
+<p>Metodu <code>query</code> pro vytvoření dotazu už známe. Tentokrát ovšem místo všech úkolů
+chceme najít jeden konkrétní. K tomu použijeme <code>filter_by</code>, která přes
+pojmenované argumenty umí vyfiltrovat pouze některé řádky.</p>
+<p>Pro vykonání dotazu existuje kromě nám už známé <code>all()</code> několik metod:</p>
+<ul>
+<li><code>all</code> vrací všechny výsledky jako seznam</li>
+<li><code>first</code> vrací první výsledek, další ignoruje</li>
+<li><code>one</code> zkontroluje, že máme právě jeden výsledek, a vrátí ho. Pokud by jich
+byl jiný počet, vyhodí výjimku.</li>
+<li><code>one_or_none</code> se chová podobně, ale místo výjimky vrací <code>None</code></li>
+<li><code>scalar</code> očekává ve výsledku jeden řádek s jediným sloupcem, a vrací přímo
+hodnotu z tohoto jediného pole</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">argument</span><span class="p">(</span><span class="s2">&quot;cislo_ukolu&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">INT</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">vyres</span><span class="p">(</span><span class="n">cislo_ukolu</span><span class="p">):</span>
+    <span class="n">sezeni</span> <span class="o">=</span> <span class="n">pripoj_se</span><span class="p">()</span>
+    <span class="n">dotaz</span> <span class="o">=</span> <span class="n">sezeni</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Ukol</span><span class="p">)</span>
+    <span class="n">ukol</span> <span class="o">=</span> <span class="n">dotaz</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">cislo_ukolu</span><span class="p">)</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+    <span class="n">ukol</span><span class="o">.</span><span class="n">vyreseno</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">sezeni</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ukol</span><span class="p">)</span>
+    <span class="n">sezeni</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div><div class="admonition note"><p>Mohli bychom použít metodu <code>get(cislo_ukolu)</code>, která najde úkol podle klíče.
+To bychom si ale neprocvičili filtrování výsledků dotazu.</p>
+</div><h2>Krok 7 – výpis jen nedokončených úkolů</h2>
+<p>Filtrování můžeme aplikovat i pro výpis úkolů. Například bychom mohli vypisovat
+jenom úkoly, které ještě nejsou dokončené.</p>
+<p>Na to se nám může hodit metoda <code>filter</code>, která umožňuje více porovnání než
+známá <code>filter_by</code>.</p>
+<div class="highlight"><pre><span></span><span class="nd">@ukolnik</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--jen-nehotove&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">vypis</span><span class="p">(</span><span class="n">jen_nehotove</span><span class="p">):</span>
+    <span class="n">sezeni</span> <span class="o">=</span> <span class="n">pripoj_se</span><span class="p">()</span>
+    <span class="n">dotaz</span> <span class="o">=</span> <span class="n">sezeni</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Ukol</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">jen_nehotove</span><span class="p">:</span>
+        <span class="n">dotaz</span> <span class="o">=</span> <span class="n">dotaz</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Ukol</span><span class="o">.</span><span class="n">vyreseno</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">ukoly</span> <span class="o">=</span> <span class="n">dotaz</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">ukol</span> <span class="ow">in</span> <span class="n">ukoly</span><span class="p">:</span>
+        <span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;[x]&quot;</span> <span class="k">if</span> <span class="n">ukol</span><span class="o">.</span><span class="n">vyreseno</span> <span class="k">else</span> <span class="s2">&quot;[ ]&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{symbol}</span><span class="s2"> </span><span class="si">{ukol.id}</span><span class="s2">. </span><span class="si">{ukol.text}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div><h2>Další vylepšení</h2>
+<p>Tady je několik tipů, co by se v tomto programu dalo vylepšit:</p>
+<ul>
+<li>Ošetření chyb: momentálně program spadne, pokud se pokusíme vyřešit
+neexistující úkol.</li>
+<li>Řazení výpisu: teď jsou úkoly vypsané od nejstaršího. Možná bychom je chtěli
+řadit v opačném pořadí. Dotaz má metodu <code>order_by()</code>, které můžeme zadat
+sloupec, podle kterého se bude řadit. Také můžeme řadit v opačném pořadí,
+třeba pomocí <code>Ukol.zadano.desc()</code>.</li>
+<li>Mohli bychom přidat další příkaz, který smaže některé úkoly (třeba ty, které
+jsou vyřešené, nebo starší než nějaký limit). Dotaz s aplikovanými filtry má
+metodu <code>delete()</code>, která smaže všechny odpovídající záznamy.</li>
+</ul>

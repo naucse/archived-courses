@@ -1,0 +1,57 @@
+<div class="highlight"><pre><span></span><span class="c1"># webpiskvorky.py</span>
+
+<span class="c1"># Spouštění (v příkazové řádce):</span>
+<span class="c1"># export FLASK_APP=webpiskvorky.py</span>
+<span class="c1"># export FLASK_DEBUG=1</span>
+<span class="c1"># flask run</span>
+
+<span class="c1"># (na Windows &quot;set&quot; místo &quot;export&quot;)</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="kn">from</span> <span class="nn">util</span> <span class="kn">import</span> <span class="n">tah</span>
+<span class="kn">from</span> <span class="nn">ai</span> <span class="kn">import</span> <span class="n">tah_pocitace</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hra</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;pole&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;pole&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">20</span>
+    <span class="k">if</span> <span class="s1">&#39;cislo&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+        <span class="n">cislo_policka</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;cislo&#39;</span><span class="p">])</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">tah</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="n">cislo_policka</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">tah_pocitace</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+        <span class="s1">&#39;hra.html&#39;</span><span class="p">,</span>
+        <span class="n">ocislovane_pole</span><span class="o">=</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">pole</span><span class="p">),</span>
+        <span class="n">pole</span><span class="o">=</span><span class="n">pole</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Piškvorky<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Piškvorky<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;pole&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ pole }}&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+                {% for cislo, znak in ocislovane_pole %}
+                    {% if znak == &#39;-&#39; %}
+                        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;cislo&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ cislo }}&quot;</span><span class="p">&gt;</span>
+                    {% else %}
+                        {{ znak }}
+                    {% endif %}
+                {% endfor %}
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Odeslat!&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ url_for(&#39;hra&#39;) }}&quot;</span><span class="p">&gt;</span>Reset<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>

@@ -1,0 +1,26 @@
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">flask_bootstrap</span> <span class="kn">import</span> <span class="n">Bootstrap</span>
+<span class="kn">from</span> <span class="nn">flask_mail</span> <span class="kn">import</span> <span class="n">Mail</span>
+<span class="kn">from</span> <span class="nn">flask_moment</span> <span class="kn">import</span> <span class="n">Moment</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">config</span>
+
+<span class="n">bootstrap</span> <span class="o">=</span> <span class="n">Bootstrap</span><span class="p">()</span>
+<span class="n">mail</span> <span class="o">=</span> <span class="n">Mail</span><span class="p">()</span>
+<span class="n">moment</span> <span class="o">=</span> <span class="n">Moment</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config_name</span><span class="p">):</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="n">config_name</span><span class="p">])</span>
+    <span class="n">config</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="n">bootstrap</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">mail</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">moment</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c1"># attach routes and custom error pages here</span>
+
+    <span class="k">return</span> <span class="n">app</span>
+</pre></div>

@@ -1,0 +1,1088 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "16:30",
+   "start": "15:00"
+  },
+  "description": "Nau\u010dte se Python v\u00e1\u017en\u011b od za\u010d\u00e1tku. \u017d\u00e1dn\u00e9 p\u0159edchoz\u00ed znalosti nejsou pot\u0159eba.",
+  "edit_info": {
+   "branch": "archive/2019-tieto-ostrava-jaro",
+   "url": "https://github.com/pyvec/naucse.python.cz/"
+  },
+  "etag": "cd7f5ff33ac5d0a83c0cd0e9a875642d145751b8",
+  "lessons": {
+   "beginners/cmdline": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+       "Zalo\u017eeno na tutori\u00e1lu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+      ],
+      "content": {
+       "path": "lessons/beginners/cmdline/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/cmdline/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/cmdline/index.md",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/cmdline/info.yml",
+    "static_files": {
+     "windows-cmd-properties.png": {
+      "path": "lessons/beginners/cmdline/static/windows-cmd-properties.png"
+     }
+    },
+    "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky"
+   },
+   "beginners/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/index.md",
+      "title": "Instalace Pythonu",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "linux": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/linux.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "linux",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/linux.md",
+      "title": "Instalace Pythonu - Linux",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "macos": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/macos.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "macos",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/macos.md",
+      "title": "Instalace Pythonu - macOS",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "windows": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/windows.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "windows",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/windows.md",
+      "title": "Instalace Pythonu - Windows",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/install/info.yml",
+    "static_files": {
+     "windows_32v64-bit.png": {
+      "path": "lessons/beginners/install/static/windows_32v64-bit.png"
+     },
+     "windows_add_python_to_path.png": {
+      "path": "lessons/beginners/install/static/windows_add_python_to_path.png"
+     }
+    },
+    "title": "Instalace Pythonu"
+   },
+   "beginners/install-editor": {
+    "pages": {
+     "atom": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/atom.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "atom",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/atom.md",
+      "title": "Nastaven\u00ed Atomu",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "gedit": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/gedit.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "gedit",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/gedit.md",
+      "title": "Nastaven\u00ed Geditu",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/index.md",
+      "title": "Instalace editoru",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "kate": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/kate.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "kate",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/kate.md",
+      "title": "Nastaven\u00ed Kate",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "notepad-plus-plus": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/notepad-plus-plus.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "notepad-plus-plus",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/notepad-plus-plus.md",
+      "title": "Nastaven\u00ed Notepadu++",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "others": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/others.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "others",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/others.md",
+      "title": "Nastaven\u00ed editoru",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/install-editor/info.yml",
+    "static_files": {
+     "gedit_indent.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_indent.png"
+     },
+     "gedit_linenums.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_linenums.png"
+     },
+     "gedit_prefs.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_prefs.png"
+     }
+    },
+    "title": "Instalace editoru"
+   },
+   "beginners/instant-hacking": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/instant-hacking/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/instant-hacking/index.md",
+      "title": "Interaktivn\u00ed p\u0159\u00edkazov\u00e1 \u0159\u00e1dka Pythonu",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/instant-hacking/info.yml",
+    "static_files": {},
+    "title": "Interaktivn\u00ed p\u0159\u00edkazov\u00e1 \u0159\u00e1dka Pythonu"
+   },
+   "beginners/python2-python3": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/python2-python3/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/python2-python3/index.md",
+      "title": "Z\u00e1kladn\u00ed rozd\u00edly mezi Python 2 a Python 3",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/python2-python3/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1kladn\u00ed rozd\u00edly mezi Python 2 a Python 3"
+   },
+   "beginners/tieto-classes": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-classes/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-classes/index.md",
+      "title": "Abstraction - Classes",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-classes/info.yml",
+    "static_files": {
+     "encapsulation.png": {
+      "path": "lessons/beginners/tieto-classes/static/encapsulation.png"
+     },
+     "polymorphism.png": {
+      "path": "lessons/beginners/tieto-classes/static/polymorphism.png"
+     },
+     "python-class.png": {
+      "path": "lessons/beginners/tieto-classes/static/python-class.png"
+     }
+    },
+    "title": "Abstraction - Classes"
+   },
+   "beginners/tieto-conditionals-loops": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-conditionals-loops/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-conditionals-loops/index.md",
+      "title": "Conditionals, Loops",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-conditionals-loops/info.yml",
+    "static_files": {},
+    "title": "Conditionals, Loops"
+   },
+   "beginners/tieto-dictionaries": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-dictionaries/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-dictionaries/index.md",
+      "title": "Dictionaries",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-dictionaries/info.yml",
+    "static_files": {},
+    "title": "Dictionaries"
+   },
+   "beginners/tieto-exceptions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-exceptions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-exceptions/index.md",
+      "title": "Exceptions",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-exceptions/info.yml",
+    "static_files": {},
+    "title": "Exceptions"
+   },
+   "beginners/tieto-fabric": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-fabric/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-fabric/index.md",
+      "title": "Paramiko, Netmiko and Fabric",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-fabric/info.yml",
+    "static_files": {},
+    "title": "Paramiko, Netmiko and Fabric"
+   },
+   "beginners/tieto-files": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-files/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-files/index.md",
+      "title": "Files",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-files/info.yml",
+    "static_files": {},
+    "title": "Files"
+   },
+   "beginners/tieto-final-assignment": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2019"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-final-assignment/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-1.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-2.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-3.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-4.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-5.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-6.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-7.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-8.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-9.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-10.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-11.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-12.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/tieto-final-assignment/solution-13.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/tieto-final-assignment/index.md",
+      "title": "Final Assignment",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-final-assignment/info.yml",
+    "static_files": {},
+    "title": "Final Assignment"
+   },
+   "beginners/tieto-functions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-functions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-functions/index.md",
+      "title": "Abstraction - Functions",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-functions/info.yml",
+    "static_files": {},
+    "title": "Abstraction - Functions"
+   },
+   "beginners/tieto-json": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-json/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-json/index.md",
+      "title": "JSON",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-json/info.yml",
+    "static_files": {},
+    "title": "JSON"
+   },
+   "beginners/tieto-lists": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-lists/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-lists/index.md",
+      "title": "Seznamy (Lists)",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-lists/info.yml",
+    "static_files": {},
+    "title": "Seznamy (Lists)"
+   },
+   "beginners/tieto-modules": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-modules/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-modules/index.md",
+      "title": "Modules, packages and others",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-modules/info.yml",
+    "static_files": {},
+    "title": "Modules, packages and others"
+   },
+   "beginners/tieto-networking": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-networking/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-networking/index.md",
+      "title": "Network programming",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-networking/info.yml",
+    "static_files": {},
+    "title": "Network programming"
+   },
+   "beginners/tieto-packaging": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-packaging/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-packaging/index.md",
+      "title": "Packaging",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-packaging/info.yml",
+    "static_files": {},
+    "title": "Packaging"
+   },
+   "beginners/tieto-regular-expressions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-regular-expressions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-regular-expressions/index.md",
+      "title": "Regular expressions",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-regular-expressions/info.yml",
+    "static_files": {},
+    "title": "Regular expressions"
+   },
+   "beginners/tieto-sequence": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-sequence/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-sequence/index.md",
+      "title": "Sekvence (Sequence)",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-sequence/info.yml",
+    "static_files": {},
+    "title": "Sekvence (Sequence)"
+   },
+   "beginners/tieto-strings": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-strings/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-strings/index.md",
+      "title": "\u0158et\u011bzce (Strings)",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-strings/info.yml",
+    "static_files": {},
+    "title": "\u0158et\u011bzce (Strings)"
+   },
+   "beginners/tieto-testing": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-testing/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-testing/index.md",
+      "title": "Testing",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-testing/info.yml",
+    "static_files": {
+     "sphinx.png": {
+      "path": "lessons/beginners/tieto-testing/static/sphinx.png"
+     }
+    },
+    "title": "Testing"
+   },
+   "beginners/tieto-tuples": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-tuples/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-tuples/index.md",
+      "title": "N-tice (Tuples)",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-tuples/info.yml",
+    "static_files": {},
+    "title": "N-tice (Tuples)"
+   },
+   "beginners/tieto-yaml": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro Tieto Czech s.r.o. napsal Lum\u00edr Jasiok, 2018"
+      ],
+      "content": {
+       "path": "lessons/beginners/tieto-yaml/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tieto-yaml/index.md",
+      "title": "YAML",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/tieto-yaml/info.yml",
+    "static_files": {},
+    "title": "YAML"
+   },
+   "git/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/git/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/git/install/index.md",
+      "title": "Instalace Gitu",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/git/install/info.yml",
+    "static_files": {},
+    "title": "Instalace Gitu"
+   }
+  },
+  "long_description": "<p>Zde najde\u0161 materi\u00e1ly, kter\u00e9 se pou\u017e\u00edvaj\u00ed na za\u010d\u00e1te\u010dnick\u00fdch kurzech Pythonu v Tieto Czech s.r.o.</p>\n<p>Jednotliv\u00e9 lekce jsou ur\u010deny naprost\u00fdm za\u010d\u00e1te\u010dn\u00edk\u016fm, \u017e\u00e1dn\u00e9 p\u0159edchoz\u00ed\nznalosti nejsou nutn\u00e9. Instrukce jsou uvedeny pro opera\u010dn\u00ed syst\u00e9my Linux,\nWindows i macOS.</p>",
+  "sessions": [
+   {
+    "date": "2019-03-20",
+    "materials": [
+     {
+      "lesson_slug": "beginners/cmdline",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/install",
+      "title": "Instalace Pythonu",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/install-editor",
+      "title": "Instalace editoru",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "git/install",
+      "title": "Instalace Gitu",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/instant-hacking",
+      "title": "Interaktivn\u00ed p\u0159\u00edkazov\u00e1 \u0159\u00e1dka Pythonu",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/python2-python3",
+      "title": "Z\u00e1kladn\u00ed rozd\u00edly mezi Python 2 a Python 3",
+      "type": "lesson"
+     }
+    ],
+    "serial": "1",
+    "slug": "install",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Instalace"
+   },
+   {
+    "date": "2019-03-26",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-sequence",
+      "title": "Sekvence (Sequence)",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tieto-lists",
+      "title": "Seznamy (Lists)",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tieto-tuples",
+      "title": "N-tice (Tuples)",
+      "type": "lesson"
+     }
+    ],
+    "serial": "2",
+    "slug": "lists-and-tupples",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Seznamy a N-tice (Lists and Tupples)"
+   },
+   {
+    "date": "2019-03-28",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-strings",
+      "title": "\u0158et\u011bzce (Strings)",
+      "type": "lesson"
+     }
+    ],
+    "serial": "3",
+    "slug": "strings",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Pr\u00e1ce s \u0159et\u011bzci (Working with Strings)"
+   },
+   {
+    "date": "2019-04-02",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-dictionaries",
+      "title": "Dictionaries",
+      "type": "lesson"
+     }
+    ],
+    "serial": "4",
+    "slug": "dictionaries",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Slovn\u00edky (Dictionaries)"
+   },
+   {
+    "date": "2019-04-04",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-conditionals-loops",
+      "title": "Conditionals, Loops",
+      "type": "lesson"
+     }
+    ],
+    "serial": "5",
+    "slug": "conditionals-loops",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Podm\u00ednky a smy\u010dky"
+   },
+   {
+    "date": "2019-04-09",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-functions",
+      "title": "Abstraction - Functions",
+      "type": "lesson"
+     }
+    ],
+    "serial": "6",
+    "slug": "abstraction-functions",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Abstrakce - Funkce"
+   },
+   {
+    "date": "2019-04-11",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-classes",
+      "title": "Abstraction - Classes",
+      "type": "lesson"
+     }
+    ],
+    "serial": "7",
+    "slug": "abstraction-classes",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Abstrakce - T\u0159\u00eddy"
+   },
+   {
+    "date": "2019-04-16",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-modules",
+      "title": "Modules, packages and others",
+      "type": "lesson"
+     }
+    ],
+    "serial": "8",
+    "slug": "modules-and-stuff",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Moduly, bal\u00edky a dal\u0161\u00ed"
+   },
+   {
+    "date": "2019-04-18",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-files",
+      "title": "Files",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tieto-exceptions",
+      "title": "Exceptions",
+      "type": "lesson"
+     }
+    ],
+    "serial": "9",
+    "slug": "files-and-exceptions",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Soubory a v\u00fdjimky"
+   },
+   {
+    "date": "2019-04-23",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-testing",
+      "title": "Testing",
+      "type": "lesson"
+     }
+    ],
+    "serial": "10",
+    "slug": "testing",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Testov\u00e1n\u00ed"
+   },
+   {
+    "date": "2019-04-25",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-networking",
+      "title": "Network programming",
+      "type": "lesson"
+     }
+    ],
+    "serial": "11",
+    "slug": "network-programming",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "S\u00ed\u0165ov\u00e9 programov\u00e1n\u00ed"
+   },
+   {
+    "date": "2019-04-30",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-fabric",
+      "title": "Paramiko, Netmiko and Fabric",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tieto-regular-expressions",
+      "title": "Regular expressions",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tieto-final-assignment",
+      "title": "Final Assignment",
+      "type": "lesson"
+     }
+    ],
+    "serial": "12",
+    "slug": "regular-expressions",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Regul\u00e1rn\u00ed v\u00fdrazy, bal\u00edky, Fabric"
+   },
+   {
+    "date": "2019-05-02",
+    "materials": [
+     {
+      "lesson_slug": "beginners/tieto-packaging",
+      "title": "Packaging",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tieto-yaml",
+      "title": "YAML",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tieto-json",
+      "title": "JSON",
+      "type": "lesson"
+     }
+    ],
+    "serial": "13",
+    "slug": "databasis-json-yaml",
+    "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+    "title": "Working with databasis, logging, JSON and Yaml"
+   }
+  ],
+  "source_file": "runs/2019/tieto-ostrava-jaro/info.yml",
+  "time_description": "09:00-11:00",
+  "timezone": "Europe/Prague",
+  "title": "Za\u010d\u00e1te\u010dnick\u00fd kurz v Tieto Czech",
+  "vars": {
+   "coach-present": true
+  }
+ }
+}

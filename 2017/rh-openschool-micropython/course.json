@@ -1,0 +1,215 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "description": "Motiva\u010dn\u00ed workshop pro st\u0159edo\u0161kol\u00e1ky, kte\u0159\u00ed zat\u00edm neprogramovali.",
+  "edit_info": {
+   "branch": "archive/2017-rh-openschool-micropython",
+   "url": "https://github.com/pyvec/naucse.python.cz/"
+  },
+  "etag": "081126082290ddf6f97fd2911d6482424c86cc69",
+  "lessons": {
+   "beginners/install-editor": {
+    "pages": {
+     "atom": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/atom.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "atom",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/atom.md",
+      "title": "Nastaven\u00ed Atomu",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "gedit": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/gedit.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "gedit",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/gedit.md",
+      "title": "Nastaven\u00ed Geditu",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/index.md",
+      "title": "Instalace editoru",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "kate": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/kate.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "kate",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/kate.md",
+      "title": "Nastaven\u00ed Kate",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "notepad-plus-plus": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/notepad-plus-plus.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "notepad-plus-plus",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/notepad-plus-plus.md",
+      "title": "Nastaven\u00ed Notepadu++",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "others": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/others.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "others",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/others.md",
+      "title": "Nastaven\u00ed editoru",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/install-editor/info.yml",
+    "static_files": {
+     "gedit_indent.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_indent.png"
+     },
+     "gedit_linenums.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_linenums.png"
+     },
+     "gedit_prefs.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_prefs.png"
+     }
+    },
+    "title": "Instalace editoru"
+   },
+   "micropython/mini-workshop": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Napsal Petr Viktorin, 2017.",
+       "Ikonky textov\u00e9ho editoru a termin\u00e1lu jsou\nze sady <a href=\"https://github.com/GNOME/adwaita-icon-theme\">Adwaita</a>\nz\u00a0<a href=\"http://www.gnome.org\">GNOME Project</a>.",
+       "Semafor je zalo\u017een na\n<a href=\"https://commons.wikimedia.org/wiki/File:Vertikalni_semafor_anim.gif\">animaci</a>\nod <a href=\"https://en.wikipedia.org/wiki/User:Matija\"><em>Matia</em> na Wikipedii</a>."
+      ],
+      "content": {
+       "path": "lessons/micropython/mini-workshop/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/micropython/mini-workshop/index.md",
+      "title": "Workshop MicroPythonu",
+      "vars": {
+       "coach-present": true
+      }
+     },
+     "organizers": {
+      "attribution": [
+       "Napsal Petr Viktorin, 2017.",
+       "Ikonky textov\u00e9ho editoru a termin\u00e1lu jsou\nze sady <a href=\"https://github.com/GNOME/adwaita-icon-theme\">Adwaita</a>\nz\u00a0<a href=\"http://www.gnome.org\">GNOME Project</a>.",
+       "Semafor je zalo\u017een na\n<a href=\"https://commons.wikimedia.org/wiki/File:Vertikalni_semafor_anim.gif\">animaci</a>\nod <a href=\"https://en.wikipedia.org/wiki/User:Matija\"><em>Matia</em> na Wikipedii</a>."
+      ],
+      "content": {
+       "path": "lessons/micropython/mini-workshop/organizers.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "organizers",
+      "solutions": [],
+      "source_file": "lessons/micropython/mini-workshop/organizers.md",
+      "title": "Pokyny pro organiz\u00e1tory",
+      "vars": {
+       "coach-present": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/micropython/mini-workshop/info.yml",
+    "static_files": {
+     "boot.py": {
+      "path": "lessons/micropython/mini-workshop/static/boot.py"
+     },
+     "icon_gedit.png": {
+      "path": "lessons/micropython/mini-workshop/static/icon_gedit.png"
+     },
+     "icon_terminal.png": {
+      "path": "lessons/micropython/mini-workshop/static/icon_terminal.png"
+     },
+     "module_detail.jpg": {
+      "path": "lessons/micropython/mini-workshop/static/module_detail.jpg"
+     },
+     "module_full.jpg": {
+      "path": "lessons/micropython/mini-workshop/static/module_full.jpg"
+     },
+     "semafor.gif": {
+      "path": "lessons/micropython/mini-workshop/static/semafor.gif"
+     }
+    },
+    "title": "Workshop MicroPythonu"
+   }
+  },
+  "long_description": "<p>Na Open School, akci Red Hatu pro \u0161koly, jsme studenty seznamovali\ns\u00a0Pythonem prost\u0159ednictv\u00edm MicroPythonu na NodeMCU.</p>\n<p>Blik\u00e1n\u00ed a to\u010den\u00ed je p\u0159ece jen zaj\u00edmav\u011bj\u0161\u00ed ne\u017e <code>print()</code> do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky.</p>",
+  "place": "Red Hat Brno",
+  "sessions": [
+   {
+    "date": "2017-03-29",
+    "materials": [
+     {
+      "lesson_slug": "micropython/mini-workshop",
+      "title": "Workshop MicroPythonu",
+      "type": "lesson"
+     }
+    ],
+    "slug": "workshop",
+    "source_file": "runs/2017/rh-openschool-micropython/info.yml",
+    "title": "Workshop"
+   }
+  ],
+  "source_file": "runs/2017/rh-openschool-micropython/info.yml",
+  "subtitle": "Red Hat Open School",
+  "timezone": "Europe/Prague",
+  "title": "Workshop: MicroPython",
+  "vars": {
+   "coach-present": true
+  }
+ }
+}

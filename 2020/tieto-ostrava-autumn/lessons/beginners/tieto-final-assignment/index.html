@@ -1,0 +1,379 @@
+<h2>Final Assignment</h2>
+<p>Your task is to create simple web application which will track your sport activity.</p>
+<h3>Assignment steps</h3>
+<ol>
+<li>Create GitHub repository for your project</li>
+<li>Install locally on your laptop Flask</li>
+</ol>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span>python -m venv venv
+<span class="nb">source</span> venv/bin/activate
+pip install flask
+</pre></div>
+    </div>
+</div><ol>
+<li>Create project structure for Flask application</li>
+</ol>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="p">|</span>-activity
+  <span class="p">|</span>-app/
+    <span class="p">|</span>-templates/
+    <span class="p">|</span>-static/
+    <span class="p">|</span>-main/
+      <span class="p">|</span>-__init__.py
+      <span class="p">|</span>-errors.py
+      <span class="p">|</span>-forms.py
+      <span class="p">|</span>-views.py
+    <span class="p">|</span>-__init__.py
+    <span class="p">|</span>-email.py
+    <span class="p">|</span>-models.py
+  <span class="p">|</span>-migrations/
+  <span class="p">|</span>-tests/
+    <span class="p">|</span>-__init__.py
+    <span class="p">|</span>-test*.py
+  <span class="p">|</span>-venv/
+  <span class="p">|</span>-requirements.txt
+  <span class="p">|</span>-config.py
+  <span class="p">|</span>-activity.py
+
+
+mkdir <span class="o">{</span>app,migrations,tests<span class="o">}</span>
+mkdir app/<span class="o">{</span>templates,static,main<span class="o">}</span>
+touch requirements.txt
+touch config.py
+touch activity.py
+touch app/__init__.py
+touch app/main/__init__.py
+</pre></div>
+    </div>
+</div><p>Content of config.py</p>
+<div class="solution" id="solution-2">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=2"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+    <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;hard to guess string&#39;</span>
+    <span class="n">MAIL_SERVER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_SERVER&#39;</span><span class="p">,</span> <span class="s1">&#39;smtp.googlemail.com&#39;</span><span class="p">)</span>
+    <span class="n">MAIL_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_PORT&#39;</span><span class="p">,</span> <span class="s1">&#39;587&#39;</span><span class="p">))</span>
+    <span class="n">MAIL_USE_TLS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_USE_TLS&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> \
+        <span class="p">[</span><span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">]</span>
+    <span class="n">MAIL_USERNAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_USERNAME&#39;</span><span class="p">)</span>
+    <span class="n">MAIL_PASSWORD</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_PASSWORD&#39;</span><span class="p">)</span>
+    <span class="n">ACTIVITY_MAIL_SUBJECT_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;[Activity]&#39;</span>
+    <span class="n">ACTIVITY_MAIL_SENDER</span> <span class="o">=</span> <span class="s1">&#39;Activity Admin &lt;activity@example.com&gt;&#39;</span>
+    <span class="n">ACTIVITY_ADMIN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ACTIVITY_ADMIN&#39;</span><span class="p">)</span>
+    <span class="n">SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">DevelopmentConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEV_DATABASE_URL&#39;</span><span class="p">)</span> <span class="ow">or</span> \
+        <span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;data-dev.sqlite&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">TestingConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="n">TESTING</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TEST_DATABASE_URL&#39;</span><span class="p">)</span> <span class="ow">or</span> \
+        <span class="s1">&#39;sqlite://&#39;</span>
+
+<span class="k">class</span> <span class="nc">ProductionConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">):</span>
+    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DATABASE_URL&#39;</span><span class="p">)</span> <span class="ow">or</span> \
+        <span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;data.sqlite&#39;</span><span class="p">)</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;development&#39;</span><span class="p">:</span> <span class="n">DevelopmentConfig</span><span class="p">,</span>
+    <span class="s1">&#39;testing&#39;</span><span class="p">:</span> <span class="n">TestingConfig</span><span class="p">,</span>
+    <span class="s1">&#39;production&#39;</span><span class="p">:</span> <span class="n">ProductionConfig</span><span class="p">,</span>
+
+    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="n">DevelopmentConfig</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+</div><ol>
+<li>Integrate Travis CI/CD with your GitHub project</li>
+</ol>
+<p>Content of .travis.yml</p>
+<div class="solution" id="solution-3">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=3"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span>dist: xenial   <span class="c1"># required for Python &gt;= 3.7</span>
+language: python
+python:
+  - <span class="s2">&quot;3.7&quot;</span>
+<span class="c1"># command to install dependencies</span>
+install:
+  - pip install -r requirements.txt
+<span class="c1"># command to run tests</span>
+script:
+  - pytest
+</pre></div>
+    </div>
+</div><p>Content of tests/test_math.py:</p>
+<div class="solution" id="solution-4">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=4"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span>import math
+
+def test_sqrt<span class="o">()</span>:
+   <span class="nv">num</span> <span class="o">=</span> <span class="m">25</span>
+   assert math.sqrt<span class="o">(</span>num<span class="o">)</span> <span class="o">==</span> <span class="m">5</span>
+</pre></div>
+    </div>
+</div><p>Content of app/__init__.py:</p>
+<div class="solution" id="solution-5">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=5"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="kn">from</span> <span class="nn">flask_bootstrap</span> <span class="kn">import</span> <span class="n">Bootstrap</span>
+<span class="kn">from</span> <span class="nn">flask_mail</span> <span class="kn">import</span> <span class="n">Mail</span>
+<span class="kn">from</span> <span class="nn">flask_moment</span> <span class="kn">import</span> <span class="n">Moment</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">config</span>
+
+<span class="n">bootstrap</span> <span class="o">=</span> <span class="n">Bootstrap</span><span class="p">()</span>
+<span class="n">mail</span> <span class="o">=</span> <span class="n">Mail</span><span class="p">()</span>
+<span class="n">moment</span> <span class="o">=</span> <span class="n">Moment</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">create_app</span><span class="p">(</span><span class="n">config_name</span><span class="p">):</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="n">config_name</span><span class="p">])</span>
+    <span class="n">config</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="n">bootstrap</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">mail</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">moment</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+    <span class="c1"># attach routes and custom error pages here</span>
+
+    <span class="k">return</span> <span class="n">app</span>
+</pre></div>
+    </div>
+</div><p>Content of activity.py</p>
+<div class="solution" id="solution-6">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=6"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">click</span>
+<span class="kn">from</span> <span class="nn">flask_migrate</span> <span class="kn">import</span> <span class="n">Migrate</span>
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">create_app</span><span class="p">,</span> <span class="n">db</span>
+
+<span class="nd">@pytest.fixture</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">create_app</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;FLASK_CONFIG&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">migrate</span> <span class="o">=</span> <span class="n">Migrate</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+
+<span class="nd">@app.shell_context_processor</span>
+<span class="k">def</span> <span class="nf">make_shell_context</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello World!&quot;</span>
+</pre></div>
+    </div>
+</div><p>Content of app/models.py</p>
+<div class="solution" id="solution-7">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=7"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>from werkzeug.security import generate_password_hash, check_password_hash
+from . import db</p>
+<p>class Role(db.Model):
+    <strong>tablename</strong> = 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), unique=True)
+    users = db.relationship('User', backref='role', lazy='dynamic')</p>
+<div class="highlight"><pre><code>def __repr__(self):
+    return '&lt;Role %r&gt;' % self.name
+
+
+</code></pre></div><p>class User(db.Model):
+    <strong>tablename</strong> = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), unique=True, index=True)
+    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    password_hash = db.Column(db.String(128))</p>
+<div class="highlight"><pre><code>@property
+def password(self):
+    raise AttributeError('password is not a readable attribute')
+
+@password.setter
+def password(self, password):
+    self.password_hash = generate_password_hash(password)
+
+def verify_password(self, password):
+    return check_password_hash(self.password_hash, password)
+
+def __repr__(self):
+    return '&lt;User %r&gt;' % self.username</code></pre></div>
+    </div>
+</div><p>Content of test/test_user_model.py:</p>
+<div class="solution" id="solution-8">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=8"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>import unittest
+from app.models import User</p>
+<p>class UserModelTestCase(unittest.TestCase):
+    def test_password_setter(self):
+        u = User(password = 'cat')
+        self.assertTrue(u.password_hash is not None)</p>
+<div class="highlight"><pre><code>def test_no_password_getter(self):
+    u = User(password = 'cat')
+    with self.assertRaises(AttributeError):
+        u.password
+
+def test_password_verification(self):
+    u = User(password = 'cat')
+    self.assertTrue(u.verify_password('cat'))
+    self.assertFalse(u.verify_password('dog'))
+
+def test_password_salts_are_random(self):
+    u = User(password='cat')
+    u2 = User(password='cat')
+    self.assertTrue(u.password_hash != u2.password_hash)</code></pre></div>
+    </div>
+</div><p>Content of app/auth/__init.py:</p>
+<div class="solution" id="solution-9">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=9"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>from flask import Blueprint</p>
+<p>auth = Blueprint('auth', <strong>name</strong>)</p>
+<p>from . import views</p>
+    </div>
+</div><p>Content of app/auth/views.py:</p>
+<div class="solution" id="solution-10">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=10"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>from flask import render_template
+from . import auth</p>
+<p>@auth.route('/login')
+def login():
+    return render_template('auth/login.html')</p>
+    </div>
+</div><p>Content of app/auth/forms.py:</p>
+<div class="solution" id="solution-11">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=11"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired, Length, Email</p>
+<p>class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Length(1, 64),
+                                             Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('Keep me logged in')
+    submit = SubmitField('Log In')</p>
+    </div>
+</div><p>Content of app/templates/base.html:</p>
+<div class="solution" id="solution-12">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=12"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="x">&lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">current_user.is_authenticated</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;auth.logout&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Log Out&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;li&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;auth.login&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Log In&lt;/a&gt;&lt;/li&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;/ul&gt;</span>
+</pre></div>
+    </div>
+</div><p>Content of apps/templates/auth/login.html</p>
+<div class="solution" id="solution-13">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=13"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">import</span> <span class="s2">&quot;bootstrap/wtf.html&quot;</span> <span class="k">as</span> <span class="nv">wtf</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Flasky - Login</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">page_content</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;div class=&quot;page-header&quot;&gt;</span>
+<span class="x">    &lt;h1&gt;Login&lt;/h1&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+<span class="x">&lt;div class=&quot;col-md-4&quot;&gt;</span>
+<span class="x">    </span><span class="cp">{{</span> <span class="nv">wtf.quick_form</span><span class="o">(</span><span class="nv">form</span><span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">endfilter</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">filter</span> <span class="nf">solution</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Flasky</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">page_content</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">&lt;div class=&quot;page-header&quot;&gt;</span>
+<span class="x">    &lt;h1&gt;Hello, </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">current_user.is_authenticated</span> <span class="cp">%}{{</span> <span class="nv">current_user.username</span> <span class="cp">}}{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x">Stranger</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x">!&lt;/h1&gt;</span>
+<span class="x">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+    </div>
+</div><ol>
+<li>Create test case for first function (route)</li>
+<li>Create first function</li>
+<li>Create basic application that will do following:<ul>
+<li>Allow users to log-in</li>
+<li>Use Templates</li>
+<li>Use   Web Forms</li>
+<li>Use SQLite or PostreSQL/MySQL</li>
+<li>Error Handling</li>
+<li>Use Bootstrap 4</li>
+<li>Use logging to the console and log file</li>
+<li>Email Support (sending notification about new sport activity)</li>
+<li>Allow user to add new kind of sport (like running)</li>
+<li>Allow user to add new activity and assign it to the sport type</li>
+<li>Display last ten activities on Dashboard</li>
+</ul>
+</li>
+</ol>

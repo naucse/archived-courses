@@ -1,0 +1,22 @@
+<div class="highlight"><pre><span></span><span class="kn">from</span>  <span class="nn">random</span>  <span class="kn">import</span>  <span class="n">randrange</span>
+
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="nb">sum</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You have&#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">,</span> <span class="s1">&#39;points.&#39;</span><span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Turn card? &#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span>
+        <span class="n">card</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You&#39;ve got number&quot;</span><span class="p">,</span> <span class="n">card</span><span class="p">)</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">card</span>
+    <span class="k">elif</span> <span class="n">answer</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I do not understand! Answer &quot;yes&quot; or &quot;no&quot;&#39;</span> <span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">sum</span> <span class="o">==</span> <span class="mi">21</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Congratulations! You won!&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="nb">sum</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bad luck!&#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">,</span> <span class="s1">&#39;points is too much!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;So close! You missed&#39;</span><span class="p">,</span> <span class="mi">21</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">,</span> <span class="s1">&#39;points!&#39;</span><span class="p">)</span>
+</pre></div>

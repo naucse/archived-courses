@@ -1,0 +1,7 @@
+<div class="highlight"><pre><span></span><span class="o">...</span>
+
+<span class="n">ukoly</span> <span class="o">=</span> <span class="n">dotaz</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ukol</span> <span class="ow">in</span> <span class="n">ukoly</span><span class="p">:</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="s2">&quot;[x]&quot;</span> <span class="k">if</span> <span class="n">ukol</span><span class="o">.</span><span class="n">vyreseno</span> <span class="k">else</span> <span class="s2">&quot;[ ]&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{symbol}</span><span class="s2"> </span><span class="si">{ukol.id}</span><span class="s2">. </span><span class="si">{ukol.text}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>

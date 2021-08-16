@@ -1,0 +1,618 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Zpětná vazba k lekci <em>Seznamy</em></h1>
+<h2>TOP domácí projekty</h2>
+<ul>
+<li><strong>Martina</strong></li>
+<li>Markéta</li>
+<li>Tereza</li>
+<li>Aleš</li>
+<li><em>Všichni, kdo (do)odevzdali...</em></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Hra "Had" 🐍</h2>
+<ul>
+<li>Pořadí souřadnic: <code>výška x šířka</code> vs. <code>šířka x výška</code></li>
+<li>Varianty:<ul>
+<li>had pod ovocem, tzv. "lenochod"</li>
+<li>vybíravý had (nebo nepoživatelné ovoce?)</li>
+<li>had Copperfield/démon, kterému je vidět do žaludku</li>
+<li>herní pole zavalené lavinou potravy (dvojice souřadnic)</li>
+</ul>
+</li>
+</ul>
+<h2>Knihovna curses (windows-curses)</h2>
+<ul>
+<li>"Okénkové programy", jednoduché hry apod. v konzoli/terminálu/příkazové řádce</li>
+<li><a href="https://docs.python.org/3/howto/curses.html">Více zde</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Záludnost seznamů</h2>
+<p>Seznam předaný dovnitř funkce do libovolné lokální proměnné (proměnných) je ve finále stále <strong>jeden a ten samý seznam na jednom místě v paměti</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">setridit</span><span class="p">(</span><span class="n">szn</span><span class="p">):</span>
+   <span class="n">s</span> <span class="o">=</span> <span class="n">szn</span>
+   <span class="n">s</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+   
+<span class="n">setridit</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1, 2, 3]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="http://pythontutor.com/visualize.html#code=seznam%20%3D%20%5B3,%201,%202%5D%0A%0Adef%20setridit%28szn%29%3A%0A%20%20%20s%20%3D%20szn%0A%20%20%20s.sort%28%29%0A%20%20%20%0Asetridit%28seznam%29%0Aprint%28seznam%29&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;mode=display&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">Vizualizace</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Zadání projektu (připomenutí)</h2>
+<ul>
+<li>Projít si od začátku do konce.</li>
+<li>Podívat se, jaké proměnné budou použity, funkce, bloky atd.</li>
+<li>Konzultovat nejasnosti.</li>
+<li>Lépe se pochopí fungování dílčích částí...</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Funkce uvnitř funkce</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">b</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bééé&quot;</span><span class="p">)</span>
+    <span class="n">b</span><span class="p">()</span>
+    
+<span class="n">a</span><span class="p">()</span>
+<span class="n">b</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Bééé
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-6149e301b1f9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+<span class="ansi-green-intense-fg ansi-bold">      6</span> a<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>b<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;b&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Rekurze v seznamu</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">seznam</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[5, 5, 5, 5, 5, [...]]
+5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Výchozí hodnota ve funkci</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">domaci_zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pes&quot;</span><span class="p">,</span> <span class="s2">&quot;kočka&quot;</span><span class="p">,</span> <span class="s2">&quot;králík&quot;</span><span class="p">,</span> <span class="s2">&quot;had&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">prvni_pismeno</span><span class="p">(</span><span class="n">domaci_zvirata</span><span class="p">,</span> <span class="n">pismeno</span><span class="p">):</span>
+    <span class="n">zvire_na_pismeno</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">zvire</span> <span class="ow">in</span> <span class="n">domaci_zvirata</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">zvire</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">pismeno</span><span class="p">):</span>
+            <span class="n">zvire_na_pismeno</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zvire</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">zvire_na_pismeno</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">prvni_pismeno</span><span class="p">(</span><span class="n">domaci_zvirata</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prvni_pismeno</span><span class="p">(</span><span class="n">domaci_zvirata</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;kočka&#39;, &#39;králík&#39;]
+[&#39;had&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Chceme použít výchozí písmeno (např. "k") =&gt; použijeme pojmenovaný argument</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">domaci_zvirata</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pes&quot;</span><span class="p">,</span> <span class="s2">&quot;kočka&quot;</span><span class="p">,</span> <span class="s2">&quot;králík&quot;</span><span class="p">,</span> <span class="s2">&quot;had&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">prvni_pismeno</span><span class="p">(</span><span class="n">domaci_zvirata</span><span class="p">,</span> <span class="n">pismeno</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">):</span>
+    <span class="n">zvire_na_pismeno</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">zvire</span> <span class="ow">in</span> <span class="n">domaci_zvirata</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">zvire</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">pismeno</span><span class="p">):</span>
+            <span class="n">zvire_na_pismeno</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zvire</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">zvire_na_pismeno</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">prvni_pismeno</span><span class="p">(</span><span class="n">domaci_zvirata</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prvni_pismeno</span><span class="p">(</span><span class="n">domaci_zvirata</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;kočka&#39;, &#39;králík&#39;]
+[&#39;had&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Výchozí hodnota MUSÍ být vždy tzv. immutable: int, float, bool, str, tuple, None</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Třídění seznamů</h2>
+<ul>
+<li>Kapitola sama pro sebe.</li>
+<li>Spousty algoritmů, každý má své plusy a mínusy. Lze si napsat vlastní algoritmus. My vystačíme pro začátek se <code>.sort()</code>.</li>
+<li>Klíč: <code>sort(key=&lt;typicky funkce&gt;, reverse=...)</code></li>
+<li><em>lambda funkce</em></li>
+</ul>
+<p>Funkce <code>sorted</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[3, 1, 2]
+[1, 2, 3]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>List comprehension</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0, 2, 4, 6, 8]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[&#39;.&#39;, &#39;.&#39;, &#39;.&#39;], [&#39;.&#39;, &#39;.&#39;, &#39;.&#39;], [&#39;.&#39;, &#39;.&#39;, &#39;.&#39;]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nebo...</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;.&quot;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[&#39;.&#39;, &#39;.&#39;, &#39;.&#39;], [&#39;.&#39;, &#39;.&#39;, &#39;.&#39;], [&#39;.&#39;, &#39;.&#39;, &#39;.&#39;]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Kde je problém s <code>[["."] * 3] * 3</code>?</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;.&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;.&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[&#39;.&#39;, &#39;.&#39;, &#39;.&#39;], [&#39;X&#39;, &#39;.&#39;, &#39;.&#39;], [&#39;.&#39;, &#39;.&#39;, &#39;.&#39;]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Nástroje pro porovnání kódu</h2>
+<ul>
+<li>Dnes již běžná součást služeb GitHub apod.</li>
+<li>Součást textových editorů</li>
+<li><a href="https://atom.io/packages/split-diff">Atom</a></li>
+<li>vimdiff</li>
+<li>Online služby: <a href="https://www.diffchecker.com/iW2c5Qv6">Příklad</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Obecné věci</h2>
+<ul>
+<li>Než udělám akci, provedu (obvykle) nejdříve kontroly:<ul>
+<li>Typicky uživatelský vstup</li>
+<li>Hra "Had", než udělám pohyb na novou pozici:<ul>
+<li>Je tam konec plánu? =&gt; Konec hry.</li>
+<li>Jsem tam já, tzn. hrozí, že se kousnu? =&gt; Konec hry.</li>
+<li>Je tam ovoce? =&gt; Nechám hada narůst.</li>
+<li>Pohyb =&gt; Uložím údaj o nové pozici.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+ 
+

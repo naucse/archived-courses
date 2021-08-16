@@ -1,0 +1,125 @@
+<h2>Exceptions</h2>
+<p>An exception is an event, which occurs during the execution of a program that disrupts the normal flow of the program's instructions. In general, when a Python script encounters a situation that it cannot cope with, it raises an exception. An exception is a Python object that represents an error.</p>
+<p>When a Python script raises an exception, it must either handle the exception immediately otherwise it terminates and quits.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 1 / 0
+Traceback (most recent call last):
+   File "&lt;stdin&gt;", line 1, in ?
+ZeroDivisionError: integer division or modulo by zero</code></pre></div><h3>raise statement</h3>
+<p>You can raise exceptions in several ways by using the raise statement. An exception can be a string, a class or an object. Most of the exceptions that the Python core raises are classes, with an argument that is an instance of the class.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; raise Exception
+Traceback (most recent call last):
+   File "&lt;stdin&gt;", line 1, in ?
+Exception
+&gt;&gt;&gt; raise Exception('hyperdrive overload')
+Traceback (most recent call last):
+   File "&lt;stdin&gt;", line 1, in ?
+Exception: hyperdrive overload</code></pre></div><p>Build-in Exceptions:</p>
+<table>
+<thead><tr>
+<th>Class Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exception</td>
+<td>The base class for almost all exceptions.</td>
+</tr>
+<tr>
+<td>AttributeError</td>
+<td>Raised when attribute reference or assignment fails.</td>
+</tr>
+<tr>
+<td>OSError</td>
+<td>Raised when the operating system can’t perform a task, such as a file, for example. Has several specific subclasses.</td>
+</tr>
+<tr>
+<td>IndexError</td>
+<td>Raised when using a nonexistent index on a sequence. Subclass of LookupError.</td>
+</tr>
+<tr>
+<td>KeyError</td>
+<td>Raised when using a nonexistent key on a mapping. Subclass of LookupError.</td>
+</tr>
+<tr>
+<td>NameError</td>
+<td>Raised when a name (variable) is not found.</td>
+</tr>
+<tr>
+<td>SyntaxError</td>
+<td>Raised when the code is ill-formed.</td>
+</tr>
+<tr>
+<td>TypeError</td>
+<td>Raised when a built-in operation or function is applied to an object of the wrong type.</td>
+</tr>
+<tr>
+<td>ValueError</td>
+<td>Raised when a built-in operation or function is applied to an object with the correct type but with an inappropriate value.</td>
+</tr>
+<tr>
+<td>ZeroDivisionError</td>
+<td>Raised when the second argument of a division or modulo operation is zero.</td>
+</tr>
+</tbody>
+</table>
+<h3>Create custom exception class</h3>
+<div class="highlight"><pre><code>class SomeCustomException(Exception): pass</code></pre></div><h3>Catching exceptions</h3>
+<div class="highlight"><pre><code>try:
+    x = int(input('Enter the first number: '))
+    y = int(input('Enter the second number: '))
+    print(x / y)
+except ZeroDivisionError:
+    print("The second number can't be zero!")</code></pre></div><p><strong>More than one except clause</strong></p>
+<div class="highlight"><pre><code>try:
+   x = int(input('Enter the first number: '))
+   y = int(input('Enter the second number: '))
+   print(x / y)
+except ZeroDivisionError:
+   print("The second number can't be zero!")
+except TypeError:
+   print("That wasn't a number, was it?")</code></pre></div><p><strong>Two exceptions with one block</strong></p>
+<div class="highlight"><pre><code>try:
+   x = int(input('Enter the first number: '))
+   y = int(input('Enter the second number: '))
+   print(x / y)
+except (ZeroDivisionError, TypeError, NameError):
+   print('Your numbers were bogus ...')</code></pre></div><p><strong>Printing error</strong></p>
+<div class="highlight"><pre><code>try:
+    x = int(input('Enter the first number: '))
+    y = int(input('Enter the second number: '))
+    print(x / y)
+except (ZeroDivisionError, TypeError) as e:
+    print(e)</code></pre></div><p><strong>Catching all</strong></p>
+<div class="highlight"><pre><code>try:
+    x = int(input('Enter the first number: '))
+    y = int(input('Enter the second number: '))
+    print(x / y)
+except:
+    print('Something wrong happened ...')</code></pre></div><p><strong>Catching all, done right</strong></p>
+<div class="highlight"><pre><code>try:
+    x = int(input('Enter the first number: '))
+    y = int(input('Enter the second number: '))
+    print(x / y)
+except Exception as e:
+    print('Something wrong happened: %s' % (e,))</code></pre></div><p><strong>Using else clause</strong></p>
+<div class="highlight"><pre><code>try:
+   print('A simple task')
+except:
+   print('What? Something went wrong?')
+else:
+   print('Ah ... It went as planned.')</code></pre></div><p><strong>Using finally clause</strong></p>
+<div class="highlight"><pre><code>x = None
+try:
+    x = 1 / 0
+finally:
+    print('Cleaning up ...')
+    del x</code></pre></div><p><strong>Combine it all</strong></p>
+<div class="highlight"><pre><code>try:
+    1 / 0
+except NameError:
+    print("Unknown variable")
+else:
+    print("That went well!")
+finally:
+    print("Cleaning up.")</code></pre></div>

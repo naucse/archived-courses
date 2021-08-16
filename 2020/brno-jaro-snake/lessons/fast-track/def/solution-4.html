@@ -1,0 +1,15 @@
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">paty_pad</span><span class="p">(</span><span class="n">jmeno</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">jmeno</span> <span class="o">==</span> <span class="s1">&#39;Hubert&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Huberte&#39;</span>
+    <span class="k">elif</span> <span class="n">jmeno</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jmeno</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;o&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jmeno</span>
+
+<span class="k">def</span> <span class="nf">pozdrav</span><span class="p">(</span><span class="n">jmeno</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vítam tě,&#39;</span><span class="p">,</span> <span class="n">paty_pad</span><span class="p">(</span><span class="n">jmeno</span><span class="p">))</span>
+
+<span class="n">pozdrav</span><span class="p">(</span><span class="s1">&#39;Hubert&#39;</span><span class="p">)</span>
+<span class="n">pozdrav</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="p">)</span>
+<span class="n">pozdrav</span><span class="p">(</span><span class="s1">&#39;Soňa&#39;</span><span class="p">)</span>
+</pre></div>

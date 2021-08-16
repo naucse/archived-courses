@@ -1,0 +1,28 @@
+<h1>Python installation for Windows</h1>
+<p>Go to <a href="https://www.python.org/downloads/">the Python website</a> and 
+download the latest stable version of Python. From version 3.6.0.
+there are some enhancements for Windows so download only version
+ <strong>3.6.0 and above</strong>.</p>
+<p>How to know which installer is the right one?
+If your computer has 64bit Windows then download <em>Windows x86-64 executable installer</em>.
+If your Windows is only 32bit download <em>Windows x86 executable installer</em>.</p>
+<div class="admonition note"><p>If you don't know what Windows version do you have just open <strong>Start</strong>, 
+search <strong>System</strong> and open <strong>System information</strong>.</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_32v64-bit.png"><img src="naucse:static?filename=windows_32v64-bit.png" alt="Windows version"></a></span></p>
+</div><p>Then you can run the installer.
+In the beginning check <strong>Install launcher for all Users</strong>
+and also <strong>Add Python 3.6 to PATH</strong>.
+This will make creating venv much easier.</p>
+<p>(If you don't have admin rights don't check <em>Install launcher for all Users</em>.)</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_add_python_to_path.png"><img src="naucse:static?filename=windows_add_python_to_path.png" alt="Python installation"></a></span></p>
+<p>Then click <strong>Install now</strong> and follow the instructions.</p>
+<p>If you have your command line open, close it and open again.</p>
+<h2>conda installation</h2>
+<p>For conda installation use <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html">this link</a> and choose Anaconda.</p>
+<p>Then you have to add full path to C:\.......\Continuum\anaconda3\Scripts (instead of
+dots there will be something different regarding where you installed it) to your 
+environment variable PATH - try to find out by yourself (but if you will have some 
+troubles contact us). You will know that it's been added successfully by typing into 
+your command line:</p>
+<div class="highlight"><pre><span></span>conda --help
+</pre></div><p>After succesfull installation follow how to <a href="https://conda.io/docs/user-guide/tasks/manage-environments.html">create virtual environment</a></p>

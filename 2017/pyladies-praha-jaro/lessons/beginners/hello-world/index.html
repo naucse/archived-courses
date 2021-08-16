@@ -1,0 +1,71 @@
+<h1>První program</h1>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="go">7</span>
+</pre></div><p>Psaní příkazů přímo v Pythonu, <em>interaktivně</em>,
+má jednu velkou nevýhodu:
+to, co napíšeš, se ztratí, jakmile zavřeš okno příkazové řádky.
+Na jednoduché výpočty to nevadí, ale až budou tvoje programy složitější,
+budeš je potřebovat nějak uložit.</p>
+<p>Otevři editor
+(Ten bys měla mít nainstalovaný, jestli ne, instrukce jsou v <a href="naucse:page?lesson=beginners/install-editor">předchozí
+lekci</a>.)</p>
+<p>V něm vytvoř nový soubor, do kterého napiš následující text:</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ahoj světe!&quot;</span><span class="p">)</span>
+</pre></div><p>Pak soubor ulož pod jménem <code><span class="pythondir">~/pyladies</span>/02/ahoj.py</code>.
+Za <code class="pythondir">~/pyladies</code> musíš doplnit adresář,
+který jsi vytvořila minule, při <a href="naucse:page?lesson=beginners/install">instalaci Pythonu</a>.
+Podadresář <code>02</code> musíš vytvořit.
+Do něj pak soubor ulož jako <code>ahoj.py</code>.</p>
+<p>Pokud máš v ukládacím okýnku možnost zvolit <em>kódování</em>, zvol <code>UTF-8</code>.
+Můžeš–li zvolit typ souboru, zvol <code>.py</code> nebo „všechny soubory“.</p>
+<p>Některé systémy a editory se snaží přípony jako <code>.py</code> schovávat
+nebo si doplňovat přípony vlastní. V příkazové řádce se ale vždycky ukáže
+opravdové jméno.
+Proto ještě v příkazové řádce pomocí <code>cd</code> přejdi do adresáře <code><span class="pythondir">~/pyladies</span>/02</code>
+a pomocí <code>ls</code> (Unix) nebo <code>dir</code> (Windows) zkontroluj, že se soubor opravdu
+jmenuje <code>ahoj.py</code> a ne třeba <code>ahoj.py.txt</code>.</p>
+<h2>Spuštění</h2>
+<p>Otevři si příkazovou řádku, aktivuj si v ní virtuální prostředí,
+vlez do adresáře <code><span class="pythondir">~/pyladies</span>/02</code>
+a zadej tento příkaz:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python ahoj.py
+</pre></div><div class="admonition note"><p>S příkazovou řádkou jsme se seznámily
+v <a href="naucse:page?lesson=beginners/cmdline">minulé lekci</a>, která popisuje i změnu aktuálního
+adresáře pomocí příkazu <code>cd</code>.
+Aktivaci virtuálního prostředí jsme probraly společně
+s <a href="naucse:page?lesson=beginners/install">instalací Pythonu</a>.</p>
+</div><div class="admonition note"><p class="admonition-title">Poznámka pro Windows a starší Python</p>
+<p>V nečeských Windows s Pythonem 3.5 či nižším bude třeba před
+programem spustit <code>chcp 1250</code>, jinak bude program píšící české
+znaky končit chybou <code>UnicodeEncodeError</code>.
+Je to trochu polovičaté řešení, ale pro naše příklady bude stačit.</p>
+</div><p>Pokud se vypíše hláška, gratuluji!
+Napsala jsi svůj první program v Pythonu!</p>
+<p>Jestli to nefunguje, zkontroluj, že:</p>
+<ul>
+<li>Máš zapnuté virtuální prostředí.
+(Na příkazové řádce se musí ukazovat <code>(venv)</code>;
+pokud tam není, použij příkaz „activate“ z <a href="naucse:page?lesson=beginners/install">minula</a>.)</li>
+<li>Jsi ve správném adresáři, <code><span class="pythondir">~/pyladies</span>/02</code>.
+(Za <span class="pythondir">~/pyladies</span> musíš doplnit adresář, který jsi vytvořila minule.)</li>
+<li>Soubor <code>ahoj.py</code> obsahuje správný příkaz, včetně všech uvozovek a závorek.</li>
+<li>Znak <code>$</code> nezadáváš – ten je tam proto, aby bylo poznat že jde o příkaz příkazové
+řádky.
+Na <code>$</code> (nebo, na Windows, <code>&gt;</code>) končí dotaz, který vypíše počítač.
+Příkaz, který zadáváš ty, je jen <code>python ahoj.py</code>.</li>
+</ul>
+<p>A jestli to pořád nefunguje, zeptej se
+kouče.</p>
+<div class="admonition style-note"><p class="admonition-title">Typografická vsuvka</p>
+<p>V Pythonu je většinou jedno, kde napíšeš mezeru. Stejně jako náš příkaz
+<code>print("Ahoj světe!")</code> by fungovalo třeba:</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span>      <span class="p">(</span>   <span class="s2">&quot;Ahoj světe!&quot;</span>     <span class="p">)</span>
+</pre></div><p>Je ale zvykem dodržovat určitá pravidla.
+Jako v češtině se po otvírací závorce a za
+ozavírací závorkou nepíše mezera.
+Na rozdíl od češtiny ale mezeru nepiš ani mezi <code>print</code> a závorkou.
+„Správně“ je tedy:</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ahoj světe!&quot;</span><span class="p">)</span>
+</pre></div><p>V rámci uvozovek má pak každá mezera význam: když napíšeš
+<code>"    Ahoj      světe!"</code>, mezery navíc se objeví ve výsledné hlášce.</p>
+</div>

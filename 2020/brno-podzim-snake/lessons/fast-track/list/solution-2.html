@@ -1,0 +1,30 @@
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span>
+<span class="go">[59, 42, 30, 19, 12, 3, 199]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">19</span>
+</pre></div><p>Index 3 označuje čtvrtý prvek.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+</pre></div><p>Prvek s indexem 100 v seznamu není – nastane chyba.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+</pre></div><p>Prvek s indexem 7 v seznamu taky není.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">199</span>
+</pre></div><p>Index -1 označuje <em>poslední</em> prvek.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">3</span>
+</pre></div><p>Index -2 označuje předposlední prvek.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+<span class="go">42</span>
+</pre></div><p>Index -6 označuje šestý prvek od konce.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loterie</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+</pre></div><p>Stý prvek od konce v seznamu není. Nastane chyba.</p>

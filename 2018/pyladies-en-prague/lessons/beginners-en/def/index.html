@@ -1,0 +1,213 @@
+<h1>Functions</h1>
+<p>In the previous <a href="naucse:page?lesson=beginners/functions">lesson</a> 
+we were working with functions that were written by someone else - they are
+already built-in in Python.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+</pre></div><p>Today we will learn how to code our own functions
+which will be helpful when we need to run tasks repeatedly.</p>
+<p>It's not hard:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span>  <span class="nf">find_perimeter</span><span class="p">(</span> <span class="n">width</span> <span class="p">,</span>  <span class="n">height</span> <span class="p">):</span> 
+    <span class="s2">&quot;Returns the rectangle&#39;s perimeter of the given sides&quot;</span> 
+    <span class="k">return</span>  <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">width</span>  <span class="o">+</span>  <span class="n">height</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="p">(</span> <span class="n">find_perimeter</span><span class="p">(</span><span class="mi">4</span> <span class="p">,</span>  <span class="mi">2</span><span class="p">))</span>
+</pre></div><p>How does it work?</p>
+<p>You <em>define</em> a function with the command <code>def</code>. Right after that
+you have to write name of the function, parentheses (which may contain 
+<em>arguments</em>) and then, of course, a colon.</p>
+<p>We have already said that after a colon, everything that 
+belongs to (in our case) the function must be indented. 
+The indented code is called <em>function body</em> and it contains 
+the commands that the function performs. 
+In the body you can use various commands including <code>if</code>, <code>loop</code>, etc.</p>
+<p>The body can start with a <em>documentation comment</em> which describes what
+the function is doing.</p>
+<p>A function can return a value with the <code>return</code> command.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span>  <span class="nf">print_score</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span> 
+    <span class="k">print</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;score is&#39;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span> 
+    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;World record!&#39;</span><span class="p">)</span> 
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span> 
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Perfect!&#39;</span><span class="p">)</span> 
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span> 
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Passable.&#39;</span><span class="p">)</span> 
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> 
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;At least something. &#39;</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Maybe next time. &#39;</span><span class="p">)</span>
+
+<span class="n">print_score</span><span class="p">(</span><span class="s1">&#39;Your&#39;</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span> 
+<span class="n">print_score</span><span class="p">(</span><span class="s1">&#39;Denis&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div><p>When you call a function, the arguments you write in parentheses
+are assigned to the corresponding variables in the function definition's
+parentheses.
+So when you call our new function with <code>print_score('Your', 256)</code>,
+imagine that, internally, it assigns the values like this:</p>
+<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Your&#39;</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mi">256</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;score is&#39;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span> 
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="o">...</span> <span class="c1">#etc.</span>
+</pre></div><h2>Return</h2>
+<p>The <code>return</code> command <em>terminates</em> the function and returns the calculated value 
+out of the function. You can use this command only in functions.</p>
+<p>It behaves similar to the <code>break</code> command that terminates loops.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">yes_or_no</span><span class="p">(</span><span class="n">question</span><span class="p">):</span>
+    <span class="s2">&quot;Returns True or False, depending on the user&#39;s answers.&quot;</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">elif</span> <span class="n">answer</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;What do you want!! Just  type &quot;Yes&quot; or &quot;No&quot;.&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">yes_or_no</span><span class="p">(</span><span class="s1">&#39;Do you want to play a game?&#39;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;OK, but you have to program it first.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;That is sad.&#39;</span> <span class="p">)</span>
+</pre></div><div class="admonition note"><p>Same as <code>if</code> and <code>break</code>, <code>return</code> is a <em>command</em>, not a function.
+That's why <code>return</code> has no parentheses after it.</p>
+</div><p>Try to write a function that returns the area of an ellipse with given 
+dimensions.
+The formula is <var>A</var> = π<var>a</var><var>b</var>,
+where <var>a</var> and <var>b</var> are the lengths of the axes.
+Then call the function and print the result.</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">ellipse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The ellipsis area with 3 cm and 5 cm axes length is&#39;</span><span class="p">,</span> <span class="n">ellipse</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span><span class="s1">&#39;cm2.&#39;</span><span class="p">)</span>
+</pre></div>
+    </div>
+</div><h3>Return or print?</h3>
+<p>The last program could be also written like that:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">ellipse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> 
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The area is&#39;</span><span class="p">,</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># Caution, &#39;print&#39; instead of &#39;return&#39;!</span>
+
+<span class="n">ellipse</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div><p>The program works this way, too. But it loses one of the main advantages
+that functions have - when you want to use the value differently than to <code>print</code> it.</p>
+<p>A function that <em>returns</em> its result can be used as part of other calculations:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">elliptical_cylinder</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">hight</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ellipse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">hight</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">elliptical_cylinder</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div><p>But if our ellipse function just <em>printed</em> the result, we wouldn't be
+able to calculate the area of elliptical cylinder this way.</p>
+<p>The reason why <code>return</code> is better than <code>print</code> is that a function
+can be re-used in many different situations. When we don't actually
+want to know the intermediate results, we can't use functions with <code>print</code>.</p>
+<p>Using <code>return</code>, we can re-use the same function, for example, in graphic games, 
+web applications, or even to control a robot.</p>
+<p>It is similar with input: If I hardcoded <code>input</code> into a function, I could use
+it only in situations where there's a user with keyboard present.
+That's why it's always better to pass arguments to a function, and call
+<code>input</code> outside of the function:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span>  <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">ellipse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> 
+    <span class="sd">&quot;&quot;&quot;This reusable function returns only the result - the ellipse&#39;s area with a and b axes&quot;&quot;&quot;</span>
+    <span class="c1">#This is only the calculation</span>
+    <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="c1">#print and input are &quot;outside&quot; the reusable function!</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter length of 1st axis: &#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter length of 2nd axis: &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The ellipsis area is&#39;</span><span class="p">,</span> <span class="n">ellipse</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span><span class="s1">&#39;cm2.&#39;</span><span class="p">)</span>
+</pre></div><p>There are of course exceptions: A function that directly generates 
+a text can be written with <code>print</code>, or a function that processes text information.
+But when the function calculates something it's better to not have
+<code>print</code> and <code>input</code> inside it.</p>
+<h2>None</h2>
+<p>When the function does not end with an explicit <code>return</code>,
+the value that it returns is automatically <code>None</code>.</p>
+<p><code>None</code> is a value that is already "inside" Python (same as <code>True</code> and <code>False</code>).
+It's literally "none, nothing".</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nothing</span><span class="p">():</span>
+    <span class="s2">&quot;This function isn&#39;t doing anything.&quot;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">nothing</span><span class="p">())</span>
+</pre></div><h2>Local variables</h2>
+<p>Congratulations! You can now define your own functions!
+Now we have to explain what local and global variables are.</p>
+<p>A function can use variables from "outside":</p>
+<div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415926</span>  <span class="c1"># a variable defined outside the function</span>
+
+<span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">circle_area</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div><p>But every variable and argument that is defined within the function body are
+<em>brand new</em> and they share nothing with "outside" code.</p>
+<p>Variables that are defined inside a function body are <em>local variables</em>,
+because they work only locally inside the function.
+For example, the following won't work how you would expect:</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Assign value to global variable x</span>
+
+<span class="k">def</span> <span class="nf">set_x</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">value</span>  <span class="c1"># Assign value to local variable x</span>
+
+<span class="n">set_x</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div><p>Variables that are not local are <em>global variables</em> -
+they exist throughout the whole program. But if a function defines
+a local variable with the same name, this local variable will only<br>
+have the value that was assigned within the function.</p>
+<p>Let's look at an example.
+Before you run the next program, try to guess how it will behave.
+Then run it, and if it did something different than
+you expected, try to explain why.
+There is a catch! :)</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="n">area</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">def</span> <span class="nf">ellipse_area</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>  <span class="c1"># Assign value to &#39;area`</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">3</span>  <span class="c1"># Assign value to &#39;a`</span>
+    <span class="k">return</span> <span class="n">area</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">ellipse_area</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div><p>Now try to answer the following questions:</p>
+<ul>
+<li>Is the variable <code>pi</code> local or global?</li>
+<li>Is the variable <code>area</code> local or global?</li>
+<li>Is the variable <code>a</code> local or global?</li>
+<li>Is the variable <code>b</code> local or global?</li>
+</ul>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <ul>
+<li><code>pi</code> is global - it's not defined within the function and it's
+accessible in the whole program.</li>
+<li><code>area</code> - Note there are two variables of that name! One is global
+ant the other one is local inside the function <code>ellipse_area</code>.</li>
+<li><code>a</code> - Note there are also two variables of that name. This was that catch:
+Writing <code>a = a + 3</code> has no point. A value is assigned to the local
+variable <code>a</code>, but the function ends right after that, and this <code>a</code> is no 
+longer available, it will never be used.</li>
+<li><code>b</code> is only local - it's an argument for the <code>ellipse_area</code> function. </li>
+</ul>
+    </div>
+</div><p>If it seems confusing and complicated just avoid naming variables (and
+function's arguments) within a function the same as those outside.</p>

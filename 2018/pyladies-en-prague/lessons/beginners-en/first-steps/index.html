@@ -1,0 +1,58 @@
+<h2>First commands in Python</h2>
+<p>Let's see if we installed Python successfully!</p>
+<p>First check if your virtual environment is active. (You should see <code>(myenv)</code>
+in the beginning of your command line.)</p>
+<p>If it's there, we can now start Python (specifically, the Python console).
+To do that, just write <code>python</code>:</p>
+<div class="highlight"><pre><code>(myenv)$ python
+Python 3.4.0 (default, Jan 26 2014, 18:15:05)
+[GCC 4.8.2 20131212 (Red Hat 4.8.2-7)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;</code></pre></div><p>This command will print some information.
+in the first line, it shows which version of Python you have 
+(you should have Python 3).
+The command line starts with three "greater than" signs.
+This way Python prompts (asks) you for instructions.
+This is the same as the standard command line, but instead of commands
+like <code>cd</code> or <code>mkdir</code>, you write Python commands.</p>
+<p>The simplest command is a number. Try it:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">42</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mf">8.3</span>    <span class="c1"># (Python uses period as decimal point)</span>
+<span class="go">-8.3</span>
+</pre></div><div class="admonition note"><p>Python prints the greater-than signs <code>&gt;&gt;&gt;</code> and the answer by itself!
+You just write number and press Enter.</p>
+</div><p>Python can also add up numbers, like this:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">10</span>
+</pre></div><p>Notice that commands from the standard command line do not work here,
+although the window looks the same:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">whoami</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;whoami&#39; is not defined</span>
+</pre></div><p>This is an <em>error message</em> which appears every time when you
+do anything wrong.
+You will see a lot of them during the course,
+so look at it carefully so you recognise it later.</p>
+<p>If you got this far, congratulations!
+You have installed Python and it works.
+You can now quit the Python console and close the command prompt.
+To quit, just type <code>quit()</code> with empty parentheses.</p>
+<div class="highlight"><pre>
+<span class="gp">&gt;&gt;&gt;</span> quit()
+<span class="gp">(myenv)$</span>
+</pre></div><p>The greater-than signs <code>&gt;&gt;&gt;</code> change back to <code>(myenv)</code> 
+followed by <code>$</code> or <code>&gt;</code>.
+Now commands like <code>whoami</code> and <code>cd</code> work again, but Python
+commands like <code>1 + 2</code> don't wotk, until you enter the Python console<br>
+with <code>python</code> again.</p>
+<p>To quit the virtual environment, type <code>deactivate</code> or <code>source deactivate</code> 
+(for Linux and Mac) -- this time without parentheses.</p>
+<div class="highlight"><pre><span></span><span class="gp">(myenv)$ </span>deactivate
+</pre></div><p>The command prompt (terminal) can be closed by typing <code>exit</code>.</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">exit</span>
+</pre></div><p>As an exercise, try to run the Python console again -- open the command prompt 
+(the terminal), then activate the virtual environment, and finally run Python.</p>

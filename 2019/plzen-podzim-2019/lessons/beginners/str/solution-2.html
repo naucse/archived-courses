@@ -1,0 +1,13 @@
+<div class="highlight"><pre><span></span><span class="n">jmeno</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej jméno: &#39;</span><span class="p">)</span>
+<span class="n">prijmeni</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej příjmení &#39;</span><span class="p">)</span>
+<span class="n">inicialy</span> <span class="o">=</span> <span class="n">jmeno</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">prijmeni</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Iniciály:&#39;</span><span class="p">,</span> <span class="n">inicialy</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div><p>Způsobů, jak takový program napsat, je více.
+Lze například zavolat <code>upper()</code> dvakrát – zvlášť na jméno a zvlášť na příjmení.</p>
+<p>Nebo to jde zapsat i takto –
+metoda se dá volat na výsledku jakéhokoli výrazu:</p>
+<div class="highlight"><pre><span></span><span class="n">jmeno</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej jméno: &#39;</span><span class="p">)</span>
+<span class="n">prijmeni</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej příjmení &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Iniciály:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">jmeno</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">prijmeni</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div><p>Doporučuji spíš první způsob, ten se smysluplnými názvy proměnných.
+Je sice delší, ale mnohem přehlednější.</p>

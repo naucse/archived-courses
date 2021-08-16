@@ -1,0 +1,150 @@
+<h1>Výjimky</h1>
+<p>Pojďme si prohloubit znalosti o chybách, neboli odborně o <em>výjimkách</em>
+(angl. <em>exceptions</em>).</p>
+<p>Vezměme následující funkci:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nacti_cislo</span><span class="p">():</span>
+    <span class="n">odpoved</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej číslo: &#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">odpoved</span><span class="p">)</span>
+</pre></div><p>Když uživatel nezadá číslice, ale třeba text <code>cokolada</code>,
+nastene výjimka jménem <code>ValueError</code> (chyba hodnoty) a Python vypíše
+odpovídající chybovou hlášku.</p>
+<div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;ukazka.py&quot;</span>, line <span class="m">3</span>, in <span class="n">nacti_cislo</span>
+    <span class="n">cislo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">odpoved</span><span class="p">)</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: &#39;cokolada&#39;</span>
+</pre></div><p>Program volá funkci <code>int()</code> pro neco, co nedává smysl jako číslo.
+Co s tím má chudák funkce <code>int</code> dělat?
+Není žádná rozumná hodnota, kterou by mohla vrátit.
+Převádění tohoto textu na celé číslo nedává smysl.</p>
+<p>Až funkce <code>nacti_cislo</code> nejlíp „ví“, co se má stát, když uživatel nezadá
+číslice.
+Stačí se uživatele zeptat znovu!
+Kdybychom měli funkci, která zjistí jestli jsou v řetězci jen číslice,
+mohlo by to fungovat nějak takhle:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nacti_cislo</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">odpoved</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej číslo: &#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">obsahuje_jen_cislice</span><span class="p">(</span><span class="n">odpoved</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">odpoved</span><span class="p">)</span>  <span class="c1"># máme výsledek, funkce končí</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To nebylo číslo!&#39;</span><span class="p">)</span>
+            <span class="c1"># ... a zeptáme se znovu -- cyklus `while` pokračuje</span>
+</pre></div><p>Kde ale vzít funkci <code>obsahuje_jen_cislice</code>?
+Nechceme ji psát znovu – funkce <code>int</code> sama nejlíp pozná, co se dá převést na
+číslo a co ne.
+A dokonce nám to dá vědět – chybou, kterou můžeme <em>zachytit</em>.</p>
+<h2>Ošetření chyby</h2>
+<p>Pro zachycení chyby má Python příkaz <code>try</code>/<code>except</code>.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nacti_cislo</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">odpoved</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej číslo: &#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">odpoved</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;To nebylo číslo!&#39;</span><span class="p">)</span>
+</pre></div><p>Jak to funguje?
+Příkazy v bloku uvozeném příkazem <code>try</code> se normálně provádějí, ale když
+nastane uvedená výjimka, Python přeskočí zbytek bloky <code>try</code> a provede všechno 
+v bloku <code>except</code>.
+Pokud výjimka nenastala, přeskočí se celý blok <code>except</code>.</p>
+<h2>Druhy chyb</h2>
+<p>A co je to <code>ValueError</code>? To je typ chyby.
+Podobných typů je spousta.
+Všechny jsou popsané <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">v dokumentaci</a>; pro nás jsou (nebo budou) důležité tyto:</p>
+<div class="highlight"><pre><code>BaseException
+ ├── SystemExit                     vyvolána funkcí exit()
+ ├── KeyboardInterrupt              vyvolána po stisknutí Ctrl+C
+ ╰── Exception
+      ├── ArithmeticError
+      │    ╰── ZeroDivisionError    dělení nulou
+      ├── AssertionError            nepovedený příkaz `assert`
+      ├── AttributeError            neexistující atribut/metoda, např. 'abc'.len
+      ├── ImportError               nepovedený import
+      ├── LookupError
+      │    ╰── IndexError           neexistující index, např. 'abc'[999]
+      ├── NameError                 použití neexistujícího jména proměnné
+      │    ╰── UnboundLocalError    použití proměnné, která ještě nebyla nastavená
+      ├── SyntaxError               špatná syntaxe, program je nečitelný/nepoužitelný
+      │    ╰── IndentationError     špatné odsazení
+      │         ╰── TabError        kombinování mezer a tabulátorů v odsazení
+      ├── TypeError                 špatný typ, např. len(9)
+      ╰── ValueError                špatná hodnota, např. int('xyz')</code></pre></div><p>Když odchytáváš obecnou výjimku,
+chytnou se i všechny podřízené typy výjimek –
+například <code>except ArithmeticError:</code> zachytí i <code>ZeroDivisionError</code>.
+A <code>except Exception:</code> zachytí <em>všechny</em> výjimky, které běžně chceš zachytit.</p>
+<h2>Nechytej je všechny!</h2>
+<p>Většinu chyb <em>není</em> potřeba ošetřovat.</p>
+<p>Nastane-li <em>nečekaná</em> situace, je téměř vždy
+mnohem lepší program ukončit, než se snažit
+pokračovat dál počítat se špatnými hodnotami.
+Navíc chybový výstup, který Python standardně
+připraví, může hodně ulehčit hledání chyby.</p>
+<p>Zachytávej tedy jenom ty chyby, které <em>očekáváš</em> – víš přesně, která chyba může
+nastat a proč, a máš možnost správně zareagovat.</p>
+<p>V našem příkladu to platí pro <code>ValueError</code> z funkce <code>int</code>.</p>
+<p>Co ale dělat, kdyš uživatel chce ukončit program a zmáčkne
+<kbd>Ctrl</kbd>+<kbd>C</kbd>?
+Nebo když se mu porouchá klávesnice a selže funkce <code>input</code>?
+V obou případech je nejlepší reakce ukončit program a informovat
+programátora, že (a kde) je něco špatně.
+Neboli vypat chybovou hlášku – to, co se stane normálně, bez <code>try</code>.</p>
+<h2>Další přílohy k <code>try</code></h2>
+<p>Pro úplnost: kromě <code>except</code> existují dva jiné bloky,
+které můžeš „přilepit“ k <code>try</code>, a to <code>else</code> a <code>finally</code>.
+První se provede, když v <code>try</code> bloku
+žádná chyba nenastane; druhý se provede vždy – ať
+už chyba nastala nebo ne.</p>
+<p>Můžeš taky použít více bloků <code>except</code>. Provede se vždy maximálně jeden:
+ten první, který danou chybu umí ošetřit.</p>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">neco_udelej</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tohle se provede, pokud nastane ValueError&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tohle se provede, pokud nastane NameError&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tohle se provede, pokud nastane jiná chyba&#39;</span><span class="p">)</span>
+    <span class="c1"># (kromě SystemExit a KeyboardInterrupt, ty chytat nechceme)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tohle se neprovede nikdy&#39;</span><span class="p">)</span>
+    <span class="c1"># (&quot;except Exception&quot; výše ošetřuje i TypeError; sem se Python nedostane)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tohle se provede, pokud chyba nenastane&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tohle se provede vždycky; i pokud v `try` bloku byl např. `return`&#39;</span><span class="p">)</span>
+</pre></div><h2>Vyvolání chyby</h2>
+<p>Občas se stane, že výjimku budeš potřebovat vyvolat sama.</p>
+<p>Často se to stává když píšeš nějakou obecnou funkci.
+Třeba funkci na výpočet obsahu čtverce.
+Co se stane, když někdo zavolá <code>obsah_ctverce(-5)</code>?</p>
+<ul>
+<li>Zadal-li ono <code>-5</code> uživatel, je potřeba mu vynadat a zeptat se znovu.</li>
+<li>Naměřil-li <code>-5</code> nějaký robotický aparát, je potřeba ho líp zkalibrovat.</li>
+<li>Vyšel-li čtverec se stranou <code>-5</code> v nějakém výpočtu, je nejspíš potřeba opravit
+chybu v tom výpočtu.</li>
+</ul>
+<p>Samotná funkce <code>obsah_ctverce</code> ale „neví“, proč ji někdo volá.
+Jejím úkolem je jen něco spočítat.
+Měla by být použitelná ve všech případech výše – a v mnoha dalších.</p>
+<p>Když někdo zavolá <code>obsah_ctverce(-5)</code>, <em>neexistuje</em> správný výsledek, který by
+funkce mohla vrátit.
+Místo vracení výsledku musí tato funkce <em>signalizovat chybu</em>.
+S tou se pak může program, který <code>obsah_ctverce(-5)</code> zavolal,
+vypořádat – vynadat uživateli, zkalibrovat měřák, nebo, pokud na chybu není
+připravený, sám skončit s chybou (a upozornit tak programátora, že je něco
+špatně).</p>
+<p>Jak na to prakticky?
+Chybu můžeš vyvolat pomocí příkazu <code>raise</code>.
+Za příkaz dáš druh výjimky a pak do závorek nějaký popis toho, co je špatně.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obsah_ctverce</span><span class="p">(</span><span class="n">strana</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">strana</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">strana</span> <span class="o">*</span> <span class="n">strana</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Strana musí být kladná, číslo {strana} kladné není!&#39;</span><span class="p">)</span>
+</pre></div><p>Podobně jako <code>return</code>, i příkaz <code>raise</code> ukončí funkci.
+A nejen tu – pokud na tuhle konkrétní chybu program předem připravený,
+ukončí se celý program.</p>
+<p>Ze začátku není příliš důležité dumat nad tím, který typ výjimky je ten
+správný.
+Klidně „střílej od boku“.
+<code>ValueError</code> bývá často správná volba.</p>

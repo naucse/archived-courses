@@ -1,0 +1,12 @@
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pyglet</span>
+
+<span class="n">TILES_DIRECTORY</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;snake-tiles&#39;</span><span class="p">)</span>
+
+<span class="n">snake_tiles</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">TILES_DIRECTORY</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.png&#39;</span><span class="p">):</span>
+    <span class="n">snake_tiles</span><span class="p">[</span><span class="n">path</span><span class="o">.</span><span class="n">stem</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyglet</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">snake_tiles</span><span class="p">)</span>
+</pre></div>

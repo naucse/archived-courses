@@ -1,0 +1,1540 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "20:00",
+   "start": "18:00"
+  },
+  "description": "Kurz linuxov\u00e9 administrace",
+  "edit_info": {
+   "branch": "master",
+   "url": "https://github.com/encukou/linuxadmin/"
+  },
+  "etag": "bdbfc8f16a6b99340bc177accafccb48fe110cd4",
+  "lessons": {
+   "carpentry-unix/bash-intro": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020",
+       "zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/carpentry-unix/bash-intro/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/carpentry-unix/bash-intro/index.md",
+      "title": "Bash \u2013 \u00davod",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/carpentry-unix/bash-intro/info.yml",
+    "static_files": {
+     "data-shell.zip": {
+      "path": "lessons/carpentry-unix/bash-intro/static/data-shell.zip"
+     }
+    },
+    "title": "Bash \u2013 \u00davod"
+   },
+   "carpentry-unix/create": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020",
+       "zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/carpentry-unix/create/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/carpentry-unix/create/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/carpentry-unix/create/solution-1.html"
+        }
+       }
+      ],
+      "source_file": "lessons/carpentry-unix/create/index.md",
+      "title": "Pr\u00e1ce se soubory a adres\u00e1\u0159i",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/carpentry-unix/create/info.yml",
+    "static_files": {
+     "nano.png": {
+      "path": "lessons/carpentry-unix/create/static/nano.png"
+     }
+    },
+    "title": "Pr\u00e1ce se soubory a adres\u00e1\u0159i"
+   },
+   "carpentry-unix/filedir": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020",
+       "zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/carpentry-unix/filedir/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/carpentry-unix/filedir/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/carpentry-unix/filedir/solution-1.html"
+        }
+       }
+      ],
+      "source_file": "lessons/carpentry-unix/filedir/index.md",
+      "title": "Navigace v\u00a0souborech a adres\u00e1\u0159\u00edch",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/carpentry-unix/filedir/info.yml",
+    "static_files": {},
+    "title": "Navigace v\u00a0souborech a adres\u00e1\u0159\u00edch"
+   },
+   "carpentry-unix/pipefilter": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020",
+       "zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/carpentry-unix/pipefilter/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/carpentry-unix/pipefilter/index.md",
+      "title": "Roury a filtry",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/carpentry-unix/pipefilter/info.yml",
+    "static_files": {
+     "cat-file-arg.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/cat-file-arg.svg"
+     },
+     "cat-from-file.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/cat-from-file.svg"
+     },
+     "cat.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/cat.svg"
+     },
+     "ls-cheats.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/ls-cheats.svg"
+     },
+     "main.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/main.svg"
+     },
+     "pipeline.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/pipeline.svg"
+     },
+     "sort-head-nopipe.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/sort-head-nopipe.svg"
+     },
+     "sort-head-pipeline.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/sort-head-pipeline.svg"
+     },
+     "wc-to-file.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/wc-to-file.svg"
+     },
+     "wc-to-term.svg": {
+      "path": "lessons/carpentry-unix/pipefilter/static/wc-to-term.svg"
+     }
+    },
+    "title": "Roury a filtry"
+   },
+   "linuxadmin/bin-func-alias": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/bin-func-alias/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/bin-func-alias/index.md",
+      "title": "Programy, funkce a aliasy",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/bin-func-alias/info.yml",
+    "static_files": {
+     "forking-mcd.svg": {
+      "path": "lessons/linuxadmin/bin-func-alias/static/forking-mcd.svg"
+     }
+    },
+    "title": "Programy, funkce a aliasy"
+   },
+   "linuxadmin/echo": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Karolina Surma a Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/echo/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/echo/index.md",
+      "title": "Echo",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/echo/info.yml",
+    "static_files": {},
+    "title": "Echo"
+   },
+   "linuxadmin/env-var": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/env-var/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/env-var/index.md",
+      "title": "Prom\u011bnn\u00e9 Bashe a prom\u011bnn\u00e9 prost\u0159ed\u00ed",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/env-var/info.yml",
+    "static_files": {
+     "man-less.svg": {
+      "path": "lessons/linuxadmin/env-var/static/man-less.svg"
+     }
+    },
+    "title": "Prom\u011bnn\u00e9 Bashe a prom\u011bnn\u00e9 prost\u0159ed\u00ed"
+   },
+   "linuxadmin/fork-exec": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/fork-exec/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/fork-exec/index.md",
+      "title": "Fork a exec",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/fork-exec/info.yml",
+    "static_files": {
+     "fork-exec.svg": {
+      "path": "lessons/linuxadmin/fork-exec/static/fork-exec.svg"
+     }
+    },
+    "title": "Fork a exec"
+   },
+   "linuxadmin/gnome-basics": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/gnome-basics/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/gnome-basics/index.md",
+      "title": "\u00davod do prost\u0159ed\u00ed GNOME",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/gnome-basics/info.yml",
+    "static_files": {
+     "activities.png": {
+      "path": "lessons/linuxadmin/gnome-basics/static/activities.png"
+     },
+     "add-favorite.png": {
+      "path": "lessons/linuxadmin/gnome-basics/static/add-favorite.png"
+     },
+     "gnome-shell.png": {
+      "path": "lessons/linuxadmin/gnome-basics/static/gnome-shell.png"
+     },
+     "system-menu.png": {
+      "path": "lessons/linuxadmin/gnome-basics/static/system-menu.png"
+     }
+    },
+    "title": "\u00davod do prost\u0159ed\u00ed GNOME"
+   },
+   "linuxadmin/installation": {
+    "pages": {
+     "gnome-boxes": {
+      "attribution": [
+       "napsal Martin Pavl\u00e1sek"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/installation/gnome-boxes.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "gnome-boxes",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/installation/gnome-boxes.md",
+      "subtitle": "Gnome Boxes",
+      "title": "Virtu\u00e1ln\u00ed po\u010d\u00edta\u010d \u2013 Gnome Boxes",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "index": {
+      "attribution": [
+       "napsal Martin Pavl\u00e1sek"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/installation/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/installation/index.md",
+      "title": "Virtu\u00e1ln\u00ed po\u010d\u00edta\u010d",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "virtualbox": {
+      "attribution": [
+       "napsal Martin Pavl\u00e1sek"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/installation/virtualbox.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "virtualbox",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/installation/virtualbox.md",
+      "subtitle": "VirtualBox",
+      "title": "Virtu\u00e1ln\u00ed po\u010d\u00edta\u010d \u2013 VirtualBox",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/installation/info.yml",
+    "static_files": {
+     "boxes-01.png": {
+      "path": "lessons/linuxadmin/installation/static/boxes-01.png"
+     },
+     "boxes-02.png": {
+      "path": "lessons/linuxadmin/installation/static/boxes-02.png"
+     },
+     "boxes-03.png": {
+      "path": "lessons/linuxadmin/installation/static/boxes-03.png"
+     },
+     "fedora-install-01.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-01.png"
+     },
+     "fedora-install-02.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-02.png"
+     },
+     "fedora-install-03.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-03.png"
+     },
+     "fedora-install-04.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-04.png"
+     },
+     "fedora-install-05.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-05.png"
+     },
+     "fedora-install-06.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-06.png"
+     },
+     "fedora-install-07.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-07.png"
+     },
+     "fedora-install-08.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-08.png"
+     },
+     "fedora-install-09.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-09.png"
+     },
+     "fedora-install-10.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-10.png"
+     },
+     "fedora-install-11.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-11.png"
+     },
+     "fedora-install-12.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-12.png"
+     },
+     "fedora-install-13.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-13.png"
+     },
+     "fedora-install-14.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-14.png"
+     },
+     "fedora-install-15.png": {
+      "path": "lessons/linuxadmin/installation/static/fedora-install-15.png"
+     },
+     "vbox-01.png": {
+      "path": "lessons/linuxadmin/installation/static/vbox-01.png"
+     },
+     "vbox-02.png": {
+      "path": "lessons/linuxadmin/installation/static/vbox-02.png"
+     },
+     "vbox-03.png": {
+      "path": "lessons/linuxadmin/installation/static/vbox-03.png"
+     },
+     "vbox-04.png": {
+      "path": "lessons/linuxadmin/installation/static/vbox-04.png"
+     },
+     "vbox-05.png": {
+      "path": "lessons/linuxadmin/installation/static/vbox-05.png"
+     },
+     "vbox-07.png": {
+      "path": "lessons/linuxadmin/installation/static/vbox-07.png"
+     },
+     "vbox-08.png": {
+      "path": "lessons/linuxadmin/installation/static/vbox-08.png"
+     }
+    },
+    "title": "Virtu\u00e1ln\u00ed po\u010d\u00edta\u010d"
+   },
+   "linuxadmin/output-files": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020",
+       "\u010d\u00e1ste\u010dn\u011b zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/output-files/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/output-files/index.md",
+      "title": "Vypisov\u00e1n\u00ed soubor\u016f",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/output-files/info.yml",
+    "static_files": {},
+    "title": "Vypisov\u00e1n\u00ed soubor\u016f"
+   },
+   "linuxadmin/process-execution": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/process-execution/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/process-execution/index.md",
+      "title": "Spou\u0161t\u011bn\u00ed proces\u016f",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/process-execution/info.yml",
+    "static_files": {
+     "echo-ps.svg": {
+      "path": "lessons/linuxadmin/process-execution/static/echo-ps.svg"
+     },
+     "main.svg": {
+      "path": "lessons/linuxadmin/process-execution/static/main.svg"
+     },
+     "ps-cat-sort.svg": {
+      "path": "lessons/linuxadmin/process-execution/static/ps-cat-sort.svg"
+     },
+     "ps-cat.svg": {
+      "path": "lessons/linuxadmin/process-execution/static/ps-cat.svg"
+     },
+     "ps.svg": {
+      "path": "lessons/linuxadmin/process-execution/static/ps.svg"
+     }
+    },
+    "title": "Spou\u0161t\u011bn\u00ed proces\u016f"
+   },
+   "linuxadmin/virtualbox-networking": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Martin Pavl\u00e1sek, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/virtualbox-networking/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/virtualbox-networking/index.md",
+      "title": "Virtualbox, nastaven\u00ed s\u00edt\u011b",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/virtualbox-networking/info.yml",
+    "static_files": {
+     "fedora-network-reconnect.png": {
+      "path": "lessons/linuxadmin/virtualbox-networking/static/fedora-network-reconnect.png"
+     },
+     "virtualbox-vm-config.png": {
+      "path": "lessons/linuxadmin/virtualbox-networking/static/virtualbox-vm-config.png"
+     }
+    },
+    "title": "Virtualbox, nastaven\u00ed s\u00edt\u011b"
+   },
+   "linuxadmin/whats-linux": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/linuxadmin/whats-linux/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/linuxadmin/whats-linux/index.md",
+      "title": "Co je to ten \u201eLinux\u201c?",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/linuxadmin/whats-linux/info.yml",
+    "static_files": {},
+    "title": "Co je to ten \u201eLinux\u201c?"
+   },
+   "notes/01": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020",
+       "zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/notes/01/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/01/index.md",
+      "title": "Pozn\u00e1mky \u2013 Bash I",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/01/info.yml",
+    "static_files": {},
+    "title": "Pozn\u00e1mky \u2013 Bash I"
+   },
+   "notes/02": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020",
+       "zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/notes/02/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/02/index.md",
+      "title": "Pozn\u00e1mky \u2013 Bash II",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/02/info.yml",
+    "static_files": {},
+    "title": "Pozn\u00e1mky \u2013 Bash II"
+   },
+   "notes/ansible": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Karolina Surma a Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/ansible/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/ansible/index.md",
+      "title": "Automatizace administrace \u2013 Ansible",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/ansible/info.yml",
+    "static_files": {},
+    "title": "Automatizace administrace \u2013 Ansible"
+   },
+   "notes/containers": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Karolina Surma a Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/containers/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/containers/index.md",
+      "title": "Kontejnery",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/containers/info.yml",
+    "static_files": {},
+    "title": "Kontejnery"
+   },
+   "notes/cron": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma a Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/cron/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/cron/index.md",
+      "title": "Cron",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/cron/info.yml",
+    "static_files": {},
+    "title": "Cron"
+   },
+   "notes/fhs": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/fhs/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/fhs/index.md",
+      "title": "Adres\u00e1\u0159ov\u00e1 struktura",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/fhs/info.yml",
+    "static_files": {},
+    "title": "Adres\u00e1\u0159ov\u00e1 struktura"
+   },
+   "notes/fs": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/fs/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/fs/index.md",
+      "title": "Souborov\u00e9 syst\u00e9my \u2013 \u00favod",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/fs/info.yml",
+    "static_files": {},
+    "title": "Souborov\u00e9 syst\u00e9my \u2013 \u00favod"
+   },
+   "notes/httpd": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Karolina Surma a Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/httpd/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/httpd/index.md",
+      "title": "Pozn\u00e1mky \u2013 HTTPD",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/httpd/info.yml",
+    "static_files": {},
+    "title": "Pozn\u00e1mky \u2013 HTTPD"
+   },
+   "notes/links": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/links/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/links/index.md",
+      "title": "Odkazy",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/links/info.yml",
+    "static_files": {},
+    "title": "Odkazy"
+   },
+   "notes/mount": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsali Petr Viktorin a Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/mount/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/mount/index.md",
+      "title": "Pozn\u00e1mky \u2013 Mount",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/mount/info.yml",
+    "static_files": {},
+    "title": "Pozn\u00e1mky \u2013 Mount"
+   },
+   "notes/package-management": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/package-management/index.html"
+      },
+      "css": "table {margin-left: 1em;}\ntr {vertical-align: top;}\ntd,th {padding-right: 0.5em;}\ntr:hover {background-color: rgba(0, 0, 0, 0.1);}\n",
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/package-management/index.md",
+      "title": "Pozn\u00e1mky \u2013 Instalace bal\u00ed\u010dk\u016f",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/package-management/info.yml",
+    "static_files": {},
+    "title": "Pozn\u00e1mky \u2013 Instalace bal\u00ed\u010dk\u016f"
+   },
+   "notes/ssh": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Petr Viktorin a Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/ssh/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/ssh/index.md",
+      "title": "SSH",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/ssh/info.yml",
+    "static_files": {
+     "putty-config.png": {
+      "path": "lessons/notes/ssh/static/putty-config.png"
+     }
+    },
+    "title": "SSH"
+   },
+   "notes/users": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsal Petr Viktorin, 2020"
+      ],
+      "content": {
+       "path": "lessons/notes/users/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/notes/users/index.md",
+      "title": "Pozn\u00e1mky \u2013 Spr\u00e1va u\u017eivatel\u016f",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/notes/users/info.yml",
+    "static_files": {},
+    "title": "Pozn\u00e1mky \u2013 Spr\u00e1va u\u017eivatel\u016f"
+   },
+   "pilot/02": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020",
+       "zalo\u017eeno na kurzu <a href=\"http://swcarpentry.github.io/shell-novice/\"><em>The Unix Shell</em></a>, 2016\u20132018 Software Carpentry Foundation, 2018\u20132020 The Carpentries"
+      ],
+      "content": {
+       "path": "lessons/pilot/02/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/pilot/02/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/pilot/02/solution-1.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/pilot/02/solution-2.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/pilot/02/solution-3.html"
+        }
+       }
+      ],
+      "source_file": "lessons/pilot/02/index.md",
+      "title": "Z\u00e1pis \u2013 Bash II",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/02/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 Bash II"
+   },
+   "pilot/03": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/03/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/03/index.md",
+      "title": "Z\u00e1pis \u2013 Procesy a soubory",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/03/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 Procesy a soubory"
+   },
+   "pilot/04": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/04/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/04/index.md",
+      "title": "Z\u00e1pis \u2013 4",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/04/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 4"
+   },
+   "pilot/05": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/05/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/05/index.md",
+      "title": "Z\u00e1pis \u2013 Odkazy & hierarchie",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/05/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 Odkazy & hierarchie"
+   },
+   "pilot/06": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/06/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/06/index.md",
+      "title": "Z\u00e1pis \u2013 Mount",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/06/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 Mount"
+   },
+   "pilot/07": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/07/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/07/index.md",
+      "title": "Z\u00e1pis \u2013 S\u00ed\u0165",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/07/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 S\u00ed\u0165"
+   },
+   "pilot/08": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/08/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/08/index.md",
+      "title": "Z\u00e1pis \u2013 Bal\u00ed\u010dkovac\u00ed syst\u00e9my a httpd",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/08/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 Bal\u00ed\u010dkovac\u00ed syst\u00e9my a httpd"
+   },
+   "pilot/09": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/09/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/09/index.md",
+      "title": "Z\u00e1pis \u2013 cron, Ansible, barvi\u010dky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/09/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 cron, Ansible, barvi\u010dky"
+   },
+   "pilot/10": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "napsala Karolina Surma, 2020"
+      ],
+      "content": {
+       "path": "lessons/pilot/10/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pilot/10/index.md",
+      "title": "Z\u00e1pis \u2013 Syscalls, kontejnery",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/pilot/10/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1pis \u2013 Syscalls, kontejnery"
+   }
+  },
+  "long_description": "<p>Na z\u00edsk\u00e1n\u00ed pr\u00e1ce v IT je \u010dasto pot\u0159eba n\u011bco v\u00edc ne\u017e programov\u00e1n\u00ed.\n\u010casto to b\u00fdvaj\u00ed zku\u0161enosti s\u00a0p\u0159\u00edkazovou \u0159\u00e1dkou, znalost fungov\u00e1n\u00ed opera\u010dn\u00edch\nsyst\u00e9m\u016f a dal\u0161\u00ed v\u011bci, kter\u00e9 si uk\u00e1\u017eeme v\u00a0kurzu se (zjednodu\u0161en\u00fdm) n\u00e1zvem \n\"Linuxov\u00e1 administrace\".\nPro p\u0159ijet\u00ed do kurzu je t\u0159eba zn\u00e1t z\u00e1klady programov\u00e1n\u00ed.\nPokud m\u00e1\u0161 za sebou za\u010d\u00e1te\u010dnick\u00fd kurz PyLadies, tak jsi ve h\u0159e.</p>\n<p>Podobn\u011b jako v za\u010d\u00e1te\u010dnick\u00e9m kurzu Pythonu je tu c\u00edlem obecn\u00fd p\u0159ehled sp\u00ed\u0161 ne\u017e detailn\u00ed znalosti. Kurz ti otev\u0159e cestu ke skriptov\u00e1n\u00ed v Bashi, syst\u00e9mov\u00e9 administraci, automatizovan\u00e9 konfiguraci (nap\u0159. p\u0159es Ansible) nebo nasazov\u00e1n\u00ed kontejner\u016f.</p>\n<p>Na procvi\u010den\u00ed doma budou i men\u0161\u00ed \u00fakoly, tak s nimi po\u010d\u00edtej do sv\u00fdch \u010dasov\u00fdch mo\u017enost\u00ed.</p>\n<p>Jde o prvn\u00ed b\u011bh tohoto kurzu. Materi\u00e1ly pro n\u011bj teprve vznikaj\u00ed, nebudou tedy bohu\u017eel k dispozici p\u0159edem.</p>\n<p>Tento kurz je bez omezen\u00ed OS, ale je nutn\u00e9 m\u00edt notebook s instala\u010dn\u00edmi pr\u00e1vy\na 10+ GB m\u00edsta na disku.</p>\n<p>Kurz je zdarma, ale kapacita je omezen\u00e1. Je pot\u0159eba se <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSemBR69LSRrKQZfr4S02WEGU8wasYY-BRzHIoXYjTE55zjIcg/viewform\">registrovat</a>.</p>\n<p>Kv\u016fli opat\u0159en\u00edm ohledn\u011b setk\u00e1v\u00e1n\u00ed lid\u00ed budou videa z kurzu nahr\u00e1v\u00e1na\n<a href=\"https://www.youtube.com/playlist?list=PLFt-PM7J_H3HNjtAXCCeQPyRioItF1egJ\">na Youtube</a>. Jestli se to povede, tak i v p\u0159\u00edm\u00e9m p\u0159enosu.</p>",
+  "place": "Mendelova univerzita v Brn\u011b + online",
+  "sessions": [
+   {
+    "date": "2020-09-29",
+    "materials": [
+     {
+      "lesson_slug": "linuxadmin/installation",
+      "title": "Virtu\u00e1ln\u00ed po\u010d\u00edta\u010d",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "linuxadmin/whats-linux",
+      "title": "Co je to ten \u201eLinux\u201c?",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "linuxadmin/gnome-basics",
+      "title": "\u00davod do prost\u0159ed\u00ed GNOME",
+      "type": "lesson"
+     }
+    ],
+    "serial": "0",
+    "slug": "vm-setup",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Instalace"
+   },
+   {
+    "date": "2020-10-06",
+    "materials": [
+     {
+      "lesson_slug": "carpentry-unix/bash-intro",
+      "title": "Bash \u2013 \u00davod",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "carpentry-unix/filedir",
+      "title": "Navigace v\u00a0souborech a adres\u00e1\u0159\u00edch",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "carpentry-unix/create",
+      "title": "Pr\u00e1ce se soubory a adres\u00e1\u0159i",
+      "type": "lesson"
+     },
+     {
+      "external_url": "http://swcarpentry.github.io/shell-novice/",
+      "title": "The Carpentries \u2013 The Unix Shell (po Working With Files and Directories v\u010detn\u011b)",
+      "type": "none-link"
+     },
+     {
+      "lesson_slug": "notes/01",
+      "title": "Pozn\u00e1mky \u2013 Bash I",
+      "type": "link"
+     },
+     {
+      "external_url": "https://hackmd.io/@encukou/ukoly-bash1",
+      "title": "\u00dakoly",
+      "type": "homework"
+     }
+    ],
+    "serial": "1",
+    "slug": "shell-1",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Bash I"
+   },
+   {
+    "date": "2020-10-13",
+    "materials": [
+     {
+      "lesson_slug": "notes/02",
+      "title": "Pozn\u00e1mky \u2013 Bash II",
+      "type": "lesson"
+     },
+     {
+      "external_url": "http://swcarpentry.github.io/shell-novice/",
+      "title": "The Carpentries \u2013 The Unix Shell (pokra\u010dujeme)",
+      "type": "none-link"
+     },
+     {
+      "lesson_slug": "pilot/02",
+      "title": "Z\u00e1pis z\u00a0pilotn\u00edho kurzu",
+      "type": "link"
+     }
+    ],
+    "serial": "2",
+    "slug": "shell-2",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Bash II"
+   },
+   {
+    "date": "2020-10-20",
+    "materials": [
+     {
+      "lesson_slug": "linuxadmin/output-files",
+      "title": "Vypisov\u00e1n\u00ed soubor\u016f",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "carpentry-unix/pipefilter",
+      "title": "Roury a filtry",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "linuxadmin/echo",
+      "title": "Echo",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pilot/03",
+      "title": "Z\u00e1pis \u2013 Procesy a soubory",
+      "type": "lesson"
+     },
+     {
+      "external_url": "http://swcarpentry.github.io/shell-novice/",
+      "title": "The Carpentries \u2013 The Unix Shell",
+      "type": "none-link"
+     }
+    ],
+    "serial": "3",
+    "slug": "shell-3",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Procesy & deskriptory soubor\u016f"
+   },
+   {
+    "date": "2020-10-27",
+    "materials": [
+     {
+      "title": "cut, history",
+      "type": "special"
+     },
+     {
+      "title": "whoami, groups, file",
+      "type": "special"
+     },
+     {
+      "title": "Grep a regul\u00e1rn\u00ed v\u00fdrazy; n\u00e1vratov\u00e1 hodnota `$?`",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "linuxadmin/process-execution",
+      "title": "Spou\u0161t\u011bn\u00ed proces\u016f",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "linuxadmin/fork-exec",
+      "title": "Fork a exec",
+      "type": "lesson"
+     },
+     {
+      "title": "Programy, kter\u00e9 pou\u0161t\u00ed jin\u00e9 programy: watch",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "linuxadmin/env-var",
+      "title": "Prom\u011bnn\u00e9 Bashe a prom\u011bnn\u00e9 prost\u0159ed\u00ed",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "linuxadmin/bin-func-alias",
+      "title": "type; alias, skripty, funkce; bashrc",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pilot/04",
+      "title": "Z\u00e1pis \u2013 4",
+      "type": "link"
+     }
+    ],
+    "serial": "4",
+    "slug": "descriptors",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Bash III"
+   },
+   {
+    "date": "2020-11-03",
+    "materials": [
+     {
+      "lesson_slug": "notes/users",
+      "title": "Pozn\u00e1mky \u2013 Spr\u00e1va u\u017eivatel\u016f",
+      "type": "lesson"
+     }
+    ],
+    "serial": "5",
+    "slug": "users",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Spr\u00e1va u\u017eivatel\u016f"
+   },
+   {
+    "date": "2020-11-10",
+    "materials": [
+     {
+      "lesson_slug": "notes/fs",
+      "title": "Souborov\u00e9 syst\u00e9my \u2013 \u00favod",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "notes/links",
+      "title": "Odkazy",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "notes/fhs",
+      "title": "Adres\u00e1\u0159ov\u00e1 struktura",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pilot/05",
+      "title": "Z\u00e1pis \u2013 Odkazy & hierarchie",
+      "type": "link"
+     }
+    ],
+    "serial": "6",
+    "slug": "review",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Hierarchie"
+   },
+   {
+    "date": "2020-11-24",
+    "materials": [
+     {
+      "lesson_slug": "notes/package-management",
+      "title": "Pozn\u00e1mky \u2013 Instalace bal\u00ed\u010dk\u016f",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "notes/mount",
+      "title": "Pozn\u00e1mky \u2013 Mount",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pilot/06",
+      "title": "Z\u00e1pis z\u00a0minula \u2013 Mount",
+      "type": "link"
+     }
+    ],
+    "serial": "7",
+    "slug": "fhs",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Souborov\u00e9 syst\u00e9my"
+   },
+   {
+    "date": "2020-12-01",
+    "materials": [
+     {
+      "title": "Slu\u017eby a d\u00e9moni",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "notes/httpd",
+      "title": "Pozn\u00e1mky \u2013 HTTPD",
+      "type": "lesson"
+     },
+     {
+      "title": "Barvi\u010dky v termin\u00e1lu",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "pilot/08",
+      "title": "Z\u00e1pis z\u00a0minula \u2013 bal\u00ed\u010dky a httpd",
+      "type": "link"
+     }
+    ],
+    "serial": "8",
+    "slug": "mount",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Slu\u017eby a HTTPD"
+   },
+   {
+    "date": "2020-12-08",
+    "materials": [
+     {
+      "lesson_slug": "notes/ssh",
+      "title": "SSH",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "notes/cron",
+      "title": "Cron",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pilot/07",
+      "title": "Z\u00e1pis z\u00a0minula \u2013 s\u00ed\u0165ov\u00e1n\u00ed a SSH",
+      "type": "link"
+     },
+     {
+      "lesson_slug": "linuxadmin/virtualbox-networking",
+      "title": "Virtualbox, nastaven\u00ed s\u00edt\u011b",
+      "type": "lesson"
+     }
+    ],
+    "serial": "9",
+    "slug": "service",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Cron & SSH"
+   },
+   {
+    "date": "2020-12-15",
+    "materials": [
+     {
+      "title": "Systemd timer",
+      "type": "special"
+     },
+     {
+      "title": "Sign\u00e1ly",
+      "type": "special"
+     },
+     {
+      "external_url": "https://drive.google.com/file/d/1wNnnR8IOk6XgnbYF0ZQzYoGeQ-c9DqP7/view?usp=sharing",
+      "title": "Videa a pozn\u00e1mky",
+      "type": "none-link"
+     }
+    ],
+    "serial": "10",
+    "slug": "net-services",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Sign\u00e1ly a slu\u017eby"
+   },
+   {
+    "date": "2020-12-22",
+    "materials": [
+     {
+      "lesson_slug": "notes/ansible",
+      "title": "Automatizace administrace \u2013 Ansible",
+      "type": "lesson"
+     },
+     {
+      "title": "Virtu\u00e1ln\u00ed stroj, j\u00e1dro, syscalls",
+      "type": "special"
+     },
+     {
+      "lesson_slug": "notes/containers",
+      "title": "Kontejnery",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pilot/09",
+      "title": "Z\u00e1pis z\u00a0minula \u2013 cron, Ansible, barvi\u010dky",
+      "type": "link"
+     },
+     {
+      "lesson_slug": "pilot/10",
+      "title": "Z\u00e1pis z\u00a0minula \u2013 Syscalls, kontejnery",
+      "type": "link"
+     }
+    ],
+    "serial": "11",
+    "slug": "containers",
+    "source_file": "runs/2020/linux-admin/info.yml",
+    "title": "Kontejnery a Automatizovan\u00e1 konfigurace"
+   }
+  ],
+  "source_file": "runs/2020/linux-admin/info.yml",
+  "subtitle": "Brno - podzim 2020",
+  "time_description": "18:00\u201320:00",
+  "timezone": "Europe/Prague",
+  "title": "Linuxov\u00e1 administrace",
+  "vars": {
+   "coach-present": true,
+   "pyladies": true,
+   "user-gender": "f"
+  }
+ }
+}

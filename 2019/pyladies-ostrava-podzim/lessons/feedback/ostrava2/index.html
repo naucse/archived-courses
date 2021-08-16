@@ -1,0 +1,440 @@
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Zpětná vazba k domácím projektům</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Použiji proměnnou, která neexistuje</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obvod čtverce je: &#39;</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">strana</span><span class="p">)</span>
+<span class="n">strana</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-1-5755e86bb26d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Obvod čtverce je: &#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">4</span><span class="ansi-yellow-intense-fg ansi-bold">*</span>strana<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      2</span> strana <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">10</span>
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;strana&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>ASCII tabulka</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;abc&#39;</span> <span class="o">&gt;</span> <span class="s1">&#39;Abc&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>PROČ?</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Existuje něco jménem <a href="http://znakynaklavesnici.cz/ascii-tabulka/">ASCII tabulka</a>, která každému znaku přiřazuje číselnou hodnotu. V Pythonu tohle číslo lze získat pomocí funkce ord, např. ord("a"). Protože velké A má číselnou hodnotu 65 a malé "a" má 97, platí, že "A" &lt; "a".</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>KÁMEN - NŮŽKY - PAPÍR</h2>
+<p><strong>Je možné toto zjednodušit?</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tah_cloveka</span> <span class="o">=</span> <span class="s1">&#39;kámen&#39;</span>
+<span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s1">&#39;papír&#39;</span>
+
+<span class="k">if</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span><span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span> <span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Plichta.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span> <span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span><span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span> <span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vyhrála jsi!&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span><span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span> <span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Počítač vyhrál.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Ano je !</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tah_cloveka</span> <span class="o">=</span> <span class="s1">&#39;kámen&#39;</span>
+<span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s1">&#39;papír&#39;</span>
+
+<span class="k">if</span> <span class="n">tah_cloveka</span> <span class="o">==</span>  <span class="n">tah_pocitace</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Plichta.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span> <span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;nůžky&#39;</span><span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span> <span class="ow">or</span> <span class="n">tah_cloveka</span> <span class="o">==</span> <span class="s1">&#39;papír&#39;</span> <span class="ow">and</span> <span class="n">tah_pocitace</span> <span class="o">==</span> <span class="s1">&#39;kámen&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vyhrála jsi!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Počítač vyhrál.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Najdi chyby 1</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Tento kousek kódu, který se stará o výběr tahu počítače na základě náhodně vygenerovaného čísla, může vypada na první pohled správně, ale ve skutečnosti jej stačí párkrát spustit a chybička se projeví.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">randrange</span>
+<span class="n">cislo</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;kámen&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Počítač vybral kámen.&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Počítač vybral nůžky.&quot;</span><span class="p">)</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;nůžky&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;papír&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Počítač vybral papír.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>SPRÁVNÉ ŘEŠENÍ</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Chybička byla v záměně <strong>elif</strong> za další <strong>if</strong> což způsobilo rozdělení jedné podmínky se třemi větvemi na dvě samostatné podmínky, z nichž ta první měla jen jednu větev (jen jeden if) a ta druhá dvě (jeden if a jeden else).</p>
+<p>Další chyba pak byla v generování náhodných čísel, protože <strong>randrange(2)</strong> vrátí vždy jen 0 nebo 1.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">randrange</span>
+<span class="n">cislo</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;kámen&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Počítač vybral kámen.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Počítač vybral nůžky.&quot;</span><span class="p">)</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;nůžky&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;papír&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Počítač vybral papír.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>JDE TO JEŠTĚ VYLEPŠIT??</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">randrange</span>
+<span class="n">cislo</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;kámen&quot;</span>
+<span class="k">elif</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;nůžky&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">tah_pocitace</span> <span class="o">=</span> <span class="s2">&quot;papír&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Počítač vybral&#39;</span><span class="p">,</span> <span class="n">tah_pocitace</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Najdi chyby 2</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Copak se asi stane s proměnnou strana ještě před výpočtem povrchu a objemu?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">strana</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej velikost strany v cm: &#39;</span><span class="p">))</span>
+<span class="n">strana</span> <span class="o">=</span> <span class="mi">2852</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Objem krychle o straně&#39;</span><span class="p">,</span><span class="n">strana</span><span class="p">,</span><span class="s1">&#39;cm je&#39;</span><span class="p">,</span> <span class="n">strana</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;cm3&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Obsah krychle o straně&#39;</span><span class="p">,</span><span class="n">strana</span><span class="p">,</span><span class="s1">&#39;cm je&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">strana</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;cm2&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Bohatá a šťastná</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Několik možných řešení programu šťastná-bohatá. Všechny dělají totéž, ale některé jsou zkrátka lépe čitelné a kompaktnější.
+<strong>ŘEŠENÍ 1</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odpovídej &quot;ano&quot; nebo &quot;ne&quot;.&#39;</span><span class="p">)</span>
+<span class="n">stastna</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Jsi šťastná? &#39;</span><span class="p">)</span>
+<span class="n">bohata</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;jsi bohatá? &#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">stastna</span> <span class="o">==</span> <span class="s1">&#39;ano&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">bohata</span> <span class="o">==</span> <span class="s1">&#39;ano&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gratuluji&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">bohata</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;zkus míň utrácet&#39;</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">stastna</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">bohata</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;to je mi líto&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">bohata</span> <span class="o">==</span> <span class="s1">&#39;ano&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;zkus se víc usmívat&#39;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;nerozumím&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>ŘEŠENÍ 2</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odpovídej &quot;ano&quot; nebo &quot;ne&quot;.&#39;</span><span class="p">)</span>
+<span class="n">stastna_retezec</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Jsi šťastná? &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">stastna_retezec</span> <span class="o">==</span> <span class="s1">&#39;ano&#39;</span><span class="p">:</span>
+    <span class="n">stastna</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">elif</span> <span class="n">stastna_retezec</span> <span class="o">==</span> <span class="s1">&#39;Ano&#39;</span><span class="p">:</span>
+    <span class="n">stastna</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">elif</span> <span class="n">stastna_retezec</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+    <span class="n">stastna</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">elif</span> <span class="n">stastna_retezec</span> <span class="o">==</span> <span class="s1">&#39;Ne&#39;</span><span class="p">:</span>
+    <span class="n">stastna</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nerozumím!&#39;</span><span class="p">)</span>
+
+<span class="n">bohata_retezec</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Jsi bohatá? &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s1">&#39;ano&#39;</span><span class="p">:</span>
+    <span class="n">bohata</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">elif</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s1">&#39;Ano&#39;</span><span class="p">:</span>
+    <span class="n">bohata</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">elif</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+    <span class="n">bohata</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">elif</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s1">&#39;Ne&#39;</span><span class="p">:</span>
+    <span class="n">bohata</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nerozumím!&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">bohata</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">stastna</span><span class="p">:</span>
+    <span class="c1"># Je bohatá a zároveň štǎstná, ta se má.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gratuluji!&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">bohata</span><span class="p">:</span>
+    <span class="c1"># Je bohatá, ale není „bohatá a zároveň šťastná“,</span>
+    <span class="c1"># takže musí být jen bohatá.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zkus se víc usmívat.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">stastna</span><span class="p">:</span>
+    <span class="c1"># Tady musí být jen šťastná.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zkus míň utrácet.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># A tady víme, že není ani šťastná, ani bohatá.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;To je mi líto.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>ŘEŠENÍ 3</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Odpovídej &quot;ano&quot; nebo &quot;ne&quot;.&#39;</span><span class="p">)</span>
+<span class="n">stastna_retezec</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Jsi šťastná? &#39;</span><span class="p">)</span>
+<span class="n">bohata_retezec</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Jsi bohatá? &#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">stastna_retezec</span> <span class="o">==</span> <span class="s2">&quot;ano&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s2">&quot;ano&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gratuluji.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zkus míň utrácet.&quot;</span><span class="p">)</span>
+        
+<span class="k">elif</span> <span class="n">bohata_retezec</span> <span class="o">==</span> <span class="s2">&quot;ano&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zkus se více usmívat.&quot;</span><span class="p">)</span>
+    
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;To je mi líto.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Obecné rady, prosby a doporučení</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Používání nových (neprobraných) funkcionalit --&gt; ANO/NE?</li>
+<li>Názvy proměnných mají mít vysvětlující charakter, takže jednoznakové názvy jsou zapovězeny.</li>
+<li>Pište komentáře. Když narazíme na špatné řešení, snáze se nám radí, když vím, jak jste se k němu dostaly a na co jste při tom myslely. Komentáře ke standardním věcem psát netřeba.</li>
+<li>Odevzdávejte nejpozději v neděli večer, konzultujte na Slacku</li>
+<li>Spouštějte svůj program opakovaně, snažte se simulovat všechny možnosti, které mohou nastat</li>
+</ul>
+</div>
+</div>
+</div>
+ 
+

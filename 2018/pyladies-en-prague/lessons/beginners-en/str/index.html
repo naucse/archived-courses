@@ -1,0 +1,270 @@
+<h1>Strings</h1>
+<p>Now we will learn about strings.
+You already know how to write them in Python code.</p>
+<div class="highlight"><pre><span></span><span class="s1">&#39;This is string&#39;</span>
+<span class="s2">&quot;And this is also string&quot;</span>
+</pre></div><p>Sometimes you will need a string that is multiple lines long.
+But you can write strings only on one line in Python
+(you can actually write on more lines but the text would
+appear on just one).</p>
+<p>In your text, you can use a special character that means
+new line <code>\n</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello word</span><span class="se">\n</span><span class="s1">How are you?&#39;</span><span class="p">)</span>
+</pre></div><p>A backslash allows us to write characters which we can't easily
+write on the keyboard.
+The backslash also allows us to use both types of quotes in one piece of text.</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;&quot;Don</span><span class="se">\&#39;</span><span class="s1">t do it&quot;, said dad.&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">Don&#39;t do it</span><span class="se">\&quot;</span><span class="s2">, said dad.&quot;</span><span class="p">)</span>
+</pre></div><p>Backward slashes can also insert exotic characters 
+that you do not have on the keyboard.
+Fancy characters can be written as <code>\N</code> and a character 
+name in compound ("curly") braces.
+Try for example the following characters
+(some might not work for your system):</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;--</span><span class="se">\N{LATIN SMALL LETTER L WITH STROKE}</span><span class="s1">--&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;--</span><span class="se">\N{SECTION SIGN}</span><span class="s1">--&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;--</span><span class="se">\N{PER MILLE SIGN}</span><span class="s1">--&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;--</span><span class="se">\N{BLACK STAR}</span><span class="s1">--&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;--</span><span class="se">\N{SNOWMAN}</span><span class="s1">--&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;--</span><span class="se">\N{KATAKANA LETTER TU}</span><span class="s1">--&#39;</span><span class="p">)</span>
+</pre></div><p>If you want to write a backslash character in your text
+you have to write it twice (for example, in a path to a
+file in Windows).
+So the sequence <code>\\</code> means one backslash.</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">PyLadies</span><span class="se">\\</span><span class="s1">New Folder&#39;</span><span class="p">)</span>
+</pre></div><p>But back to multi-line strings. There is also another way how to write them
+in Python. You just have to wrap them in <em>three</em> single
+or <em>three</em> double quotes:</p>
+<div class="highlight"><pre><span></span><span class="n">basen</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Hello World!</span>
+<span class="s1">How are you?&#39;&#39;&#39;</span>
+</pre></div><p>Programmers also use three quotes to document their functions.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; This function multiplies two arguments and returns the result.</span>
+
+<span class="sd">    Both arguments should be numbers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div><p>Now we will have a look at how to work with strings.</p>
+<h2>Subscripting</h2>
+<p>You already know how to concatenate strings by addition and multiplication.</p>
+<div class="highlight"><pre><span></span><span class="n">concatenated_string</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span> <span class="o">+</span> <span class="s1">&#39;b&#39;</span>
+<span class="n">long_string</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div><p>Now we will learn how we can get part of a string.
+We will start with single characters.
+This is done by <em>subscripting</em>. The Syntax looks similar
+to calling a function but with square brackets.</p>
+<div class="highlight"><pre><span></span><span class="n">fifth_character</span> <span class="o">=</span> <span class="s1">&#39;PyLadies&#39;</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">fifth_character</span><span class="p">)</span>
+</pre></div><p>Does it work? Did you really get the fifth character?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>You didn't – you got the <em>sixth</em> character.</p>
+    </div>
+</div><p>As you may have already noticed, programmers start counting from zero.
+First comes 0, then 1, and so on.</p>
+<p>It's the same with strings - the first character is on position zero.</p>
+<p>Why is it like that?
+You would have to know about pointers and arrays
+to fully understand, so now let's just assume
+that programmers are weird. Or that they just like
+weird numbers.</p>
+<div class="highlight"><pre><code>   [0] [1] [2] [3] [4] [5] [6] [7]
+
+  ╭───┬───┬───┬───┬───┬───┬───┬───╮
+  │ P │ y │ L │ a │ d │ i │ e │ s │
+  ╰───┴───┴───┴───┴───┴───┴───┴───╯</code></pre></div><p>What happens if you pick characters with negative numbers?</p>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;PyLadies&#39;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># → s</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;PyLadies&#39;</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># → e</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;PyLadies&#39;</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># → i</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;PyLadies&#39;</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># → d</span>
+</pre></div><p>Negative numbers pick characters from the end.</p>
+<div class="highlight"><pre><code>   [0] [1] [2] [3] [4] [5] [6] [7]
+   [-8][-7][-6][-5][-4][-3][-2][-1]
+  ╭───┬───┬───┬───┬───┬───┬───┬───╮
+  │ P │ y │ L │ a │ d │ i │ e │ s │
+  ╰───┴───┴───┴───┴───┴───┴───┴───╯</code></pre></div>
+    </div>
+</div><p>Strings can do more tricks.
+You can find out how long the string is,
+or if it contains a certain substring.</p>
+<table class="table">
+    <tr>
+        <th>Code</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td><code>len(r)</code></td>
+        <td>Length of string</td>
+        <td><code>len('PyLadies')</code></td>
+    </tr>
+    <tr>
+        <td><code>x&nbsp;in&nbsp;r</code></td>
+        <td>True if the string <code>x</code> is in the string <code>r</code></td>
+        <td><code>'Ladies' in 'PyLadies'</code></td>
+    </tr>
+    <tr>
+        <td><code>x&nbsp;not&nbsp;in&nbsp;r</code></td>
+        <td>The opposite of <code>x in r</code></td>
+        <td><code>'eye' not in 'PyLadies</code></td>
+    </tr>
+</table><p>Python is case sensitive, so <code>ladies in PyLadies</code>
+is <code>False</code>. If you want to do a case insensitive test,
+you would have to change the case of both strings 
+(both to lower, or both to upper) and then do <code>x in y</code>.</p>
+<p>And how to change the case of our string?
+To do that, we will need another Python feature: methods.</p>
+<h2>Methods</h2>
+<p><em>Methods</em> are like functions - we can call something with them.
+Unlike a function, a method is tied to some <em>object</em> (value).
+It is called by writing a colon and a method name just after the object.
+And then, of course, parentheses, which may contain arguments.</p>
+<p>The String methods <code>upper()</code> and <code>lower()</code> change the case.</p>
+<div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div><div class="admonition note"><p>Notice that the original string has not changed.
+Methods return a new string and the old string stays
+as it was.</p>
+<p>That is Python's standard behavior: already existing string can't be changed,
+we can only create a new one - derived from the old one.</p>
+</div><h3>Initials</h3>
+<p>For practicing methods and subscripting, try to write a program,
+which will ask the user for their name, then their surname
+and then it will print their initials - the first letters of
+name and surname.</p>
+<p>Initials are always upper case (even if the
+user won't write it that way).</p>
+<div class="solution" id="solution-2">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=2"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
+<span class="n">surname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your surname: &#39;</span><span class="p">)</span>
+<span class="n">initials</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">surname</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Initials:&#39;</span><span class="p">,</span> <span class="n">initials</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div><p>There are more ways how to write such a program.
+You can call <code>upper()</code> twice - on name and surname separately.</p>
+<p>Or like this:</p>
+<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
+<span class="n">surname</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your surname: &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Initials:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">surname</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div><p>I recommend the first option. It is longer but way more clear.</p>
+    </div>
+</div><p>There are many more string methods. You can find the most
+useful ones in our <a href="https://github.com/muzikovam/cheatsheets/blob/master/strings/strings-en.pdf">cheatsheet</a>.</p>
+<p>All methods are in the <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">Python documentation</a>.</p>
+<p>Notice that <code>len</code> isn't a method but a function. It's
+written <code>len(s)</code> not <code>r.len()</code>.
+You will find out why it is like that in a minute.</p>
+<h2>Formatting</h2>
+<p>Especially useful is the <code>format</code> method, which replaces
+a pair of curly braces in string for whatever it
+gets as an argument.</p>
+<div class="highlight"><pre><span></span><span class="n">write</span> <span class="o">=</span> <span class="s1">&#39;{}×{} equals {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">write</span><span class="p">)</span>
+</pre></div><p>The String <code>'{}×{} equals {}'</code> is something like a <em>template</em>.
+Imagine it as form, where we have highlighted fields where Python
+fills in values.</p>
+<p>If you want to fill values in a different order, or you want
+the template to be clearer, you can write variables into your
+curly braces:</p>
+<div class="highlight"><pre><span></span><span class="n">write</span> <span class="o">=</span> <span class="s1">&#39;Hi {name}! The result is {number}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Mary&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">write</span><span class="p">)</span>
+</pre></div><p>Formatting is used when you need to include a variable value in
+the string.</p>
+<div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Mary&quot;</span>
+<span class="n">write</span> <span class="o">=</span> <span class="s1">&#39;Hi {}! The result is {}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">write</span><span class="p">)</span>
+</pre></div><p>It is almost the same as the old fashioned <code>%s</code>, but instead of <code>.format</code>
+you write <code>%</code>. If you want to use just one variable, you don't
+need parenthesis, just make sure that there is one space after the <code>%</code>.</p>
+<div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Mary&quot;</span>
+<span class="n">write</span> <span class="o">=</span> <span class="s1">&#39;Hi </span><span class="si">%s</span><span class="s1">! The result is </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">write</span><span class="p">)</span>
+</pre></div><h2>Substrings</h2>
+<p>Now we will go back to subscripting.
+Try to find out what the following program does:</p>
+<div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;PyLadies&#39;</span>
+<span class="n">substring</span> <span class="o">=</span> <span class="n">string</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">substring</span><span class="p">)</span>
+</pre></div><div class="admonition warning"><p>Keep in mind that we are still counting from 0!</p>
+</div><div class="solution" id="solution-3">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=3"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p><code>string[5:]</code> will print the <em>substring</em> from the fifth character to the end.</p>
+    </div>
+</div><p>We can also use <code>string[:5]</code>, which will select all characters
+up to the fifth character, which is not included.
+So <code>string[:5] + string[5:] == string</code>.</p>
+<p>What does <code>string[2:5]</code> do?</p>
+<p>And what about <code>string[-4:]</code>?</p>
+<div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;PyLadies&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:])</span>
+</pre></div><p>You have to think about which number, which <em>index</em>, you want to use.</p>
+<p>It is better to think of these numbers as being on the borderlines 
+between characters, it makes it easier to understand:</p>
+<p><a id="slicing-diagram"></a></p>
+<div class="highlight"><pre><code>  ╭───┬───┬───┬───┬───┬───┬───┬───╮
+  │ P │ y │ L │ a │ d │ i │ e │ s │
+  ├───┼───┼───┼───┼───┼───┼───┼───┤
+  │   │   │   │   │   │   │   │   │
+  0   1   2   3   4   5   6   7   8
+ -8  -7  -6  -5  -4  -3  -2  -1
+
+  ╰───────────────╯
+  'PyLadies'[:4] == 'PyLa'
+
+          ╰───────────────╯
+        'PyLadies'[2:6] == 'Ladi'
+
+                      ╰───────────╯
+                      'PyLadies'[-3:] == 'ies'</code></pre></div><h2>Exercise</h2>
+<p>Try to write a function <code>change(string, position, character)</code>.</p>
+<p>This function returns a string which inserts the given character into the given
+position. The rest is the same as the original <code>string</code>.
+For example:</p>
+<div class="highlight"><pre><span></span><span class="n">change</span><span class="p">(</span><span class="s1">&#39;doctor&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;dogtor&#39;</span>
+<span class="n">change</span><span class="p">(</span><span class="s1">&#39;slice&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;spice&#39;</span>
+</pre></div><p>Keep in mind that you can't change a string.
+You can only create a new one and put together
+pieces from the old one.</p>
+<div class="solution" id="solution-4">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=4"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">change</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">character</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function inserts the given character into the given position.</span>
+
+<span class="sd">    Returns a new string which has the given character in the given</span>
+<span class="sd">    position. The rest is the same as the original string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">string</span><span class="p">[:</span><span class="n">position</span><span class="p">]</span> <span class="o">+</span> <span class="n">character</span> <span class="o">+</span> <span class="n">string</span><span class="p">[</span><span class="n">position</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+    </div>
+</div>

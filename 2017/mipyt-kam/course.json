@@ -1,0 +1,533 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "derives": "mi-pyt",
+  "description": "Betaverze zimn\u00edho MI-PYT pro katedru matematiky",
+  "edit_info": {
+   "branch": "archive/2017-mipyt-kam",
+   "url": "https://github.com/pyvec/naucse.python.cz/"
+  },
+  "etag": "ca7d8ee56b6997b83bb53f8b54876f1ebe375e18",
+  "lessons": {
+   "beginners/cmdline": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+       "Zalo\u017eeno na tutori\u00e1lu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+      ],
+      "content": {
+       "path": "lessons/beginners/cmdline/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/cmdline/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/cmdline/index.md",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/cmdline/info.yml",
+    "static_files": {
+     "windows-cmd-properties.png": {
+      "path": "lessons/beginners/cmdline/static/windows-cmd-properties.png"
+     }
+    },
+    "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky"
+   },
+   "beginners/first-steps": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/first-steps/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/first-steps/index.md",
+      "title": "Prvn\u00ed kr\u016f\u010dky",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/first-steps/info.yml",
+    "static_files": {},
+    "title": "Prvn\u00ed kr\u016f\u010dky"
+   },
+   "beginners/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/index.md",
+      "title": "Instalace Pythonu",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     },
+     "linux": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/linux.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "linux",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/linux.md",
+      "title": "Instalace Pythonu - Linux",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     },
+     "macos": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/macos.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "macos",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/macos.md",
+      "title": "Instalace Pythonu - macOS",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     },
+     "windows": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/windows.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "windows",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/windows.md",
+      "title": "Instalace Pythonu - Windows",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/beginners/install/info.yml",
+    "static_files": {
+     "windows_32v64-bit.png": {
+      "path": "lessons/beginners/install/static/windows_32v64-bit.png"
+     },
+     "windows_add_python_to_path.png": {
+      "path": "lessons/beginners/install/static/windows_add_python_to_path.png"
+     }
+    },
+    "title": "Instalace Pythonu"
+   },
+   "fast-track/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Miro Hron\u010dok a Petr Viktorin, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/fast-track/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/fast-track/install/index.md",
+      "title": "Vytvo\u0159en\u00ed virtu\u00e1n\u00edho prost\u0159ed\u00ed",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/fast-track/install/info.yml",
+    "static_files": {},
+    "title": "Vytvo\u0159en\u00ed virtu\u00e1n\u00edho prost\u0159ed\u00ed"
+   },
+   "intro/click": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Miro Hron\u010dok, Petr Viktorin a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/click/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/click/index.md",
+      "title": "Click \u2013 Rozhran\u00ed pro p\u0159\u00edkazovou \u0159\u00e1dku",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/click/info.yml",
+    "static_files": {},
+    "title": "Click \u2013 Rozhran\u00ed pro p\u0159\u00edkazovou \u0159\u00e1dku"
+   },
+   "intro/deployment": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Miro Hron\u010dok, Petr Viktorin a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/deployment/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/deployment/index.md",
+      "title": "Deployment webov\u00fdch aplikac\u00ed",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     },
+     "pythonanywhere": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Miro Hron\u010dok, Petr Viktorin a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/deployment/pythonanywhere.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "pythonanywhere",
+      "solutions": [],
+      "source_file": "lessons/intro/deployment/pythonanywhere.md",
+      "title": "Deployment webov\u00fdch aplikac\u00ed na PythonAnywhere",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/deployment/info.yml",
+    "static_files": {},
+    "title": "Deployment webov\u00fdch aplikac\u00ed"
+   },
+   "intro/flask": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Miro Hron\u010dok, Petr Viktorin a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/flask/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/flask/index.md",
+      "title": "Flask",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/flask/info.yml",
+    "static_files": {},
+    "title": "Flask"
+   },
+   "intro/json": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/json/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/json/index.md",
+      "title": "JSON",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/json/info.yml",
+    "static_files": {},
+    "title": "JSON"
+   },
+   "intro/notebook": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Petr Viktorin, Miro Hron\u010dok a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/notebook/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "license_code": "cc0",
+      "modules": {
+       "katex": "0.7.1"
+      },
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/notebook/index.ipynb",
+      "title": "Notebook",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/notebook/info.yml",
+    "static_files": {},
+    "title": "Notebook"
+   },
+   "intro/numpy": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Petr Viktorin, Miro Hron\u010dok a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/numpy/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "modules": {
+       "katex": "0.7.1"
+      },
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/numpy/index.ipynb",
+      "title": "NumPy",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/numpy/info.yml",
+    "static_files": {
+     "python.jpg": {
+      "path": "lessons/intro/numpy/static/python.jpg"
+     },
+     "sample.wav": {
+      "path": "lessons/intro/numpy/static/sample.wav"
+     },
+     "secret.png": {
+      "path": "lessons/intro/numpy/static/secret.png"
+     }
+    },
+    "title": "NumPy"
+   },
+   "intro/pandas": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Petr Viktorin, Miro Hron\u010dok a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/pandas/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/pandas/index.ipynb",
+      "title": "Pandas",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/pandas/info.yml",
+    "static_files": {
+     "actors.csv": {
+      "path": "lessons/intro/pandas/static/actors.csv"
+     },
+     "spouses.csv": {
+      "path": "lessons/intro/pandas/static/spouses.csv"
+     },
+     "style-table.css": {
+      "path": "lessons/intro/pandas/static/style-table.css"
+     }
+    },
+    "title": "Pandas"
+   },
+   "intro/requests": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro kurz MI-PYT na \u010cVUT napsali Miro Hron\u010dok, Petr Viktorin a dal\u0161\u00ed, 2016-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/requests/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "license_code": "cc0",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/requests/index.md",
+      "title": "Requests \u2013 Webov\u00ed klienti",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/intro/requests/info.yml",
+    "static_files": {},
+    "title": "Requests \u2013 Webov\u00ed klienti"
+   },
+   "projects/github-api": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/projects/github-api/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/projects/github-api/index.md",
+      "title": "Github API",
+      "vars": {
+       "coach-present": true,
+       "mi-pyt": true
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/projects/github-api/info.yml",
+    "static_files": {},
+    "title": "Github API"
+   }
+  },
+  "long_description": "<p>C\u00edlem kurzu je vyzkou\u0161et si v\u00fduku, materi\u00e1ly a \u00fakoly na p\u0159edm\u011bt MI-PYT\na z\u00e1rove\u0148 nau\u010dit a procvi\u010dit Python pracovn\u00edky z katedry matematiky na FIT\n\u010cVUT.</p>\n<p>Sch\u00e1zet se budeme dle dohody ve st\u0159edy mezi 16:00 a 16:15.\nPrvn\u00ed st\u0159edy v m\u011bs\u00edci jsou v\u00fdjime\u010dn\u00e9 a m\u00edsto nich se kurz kon\u00e1 v n\u00e1hradn\u00edm\nterm\u00ednu.</p>\n<p>Kurz byl od 11. 10. slou\u010den s\u00a0<a href=\"http://naucse.python.cz/2017/mipyt-zima/\">MI-PYT na \u010cVUT</a>.</p>",
+  "place": "KAM",
+  "sessions": [
+   {
+    "date": "2017-10-03",
+    "materials": [
+     {
+      "lesson_slug": "fast-track/install",
+      "title": "Vytvo\u0159en\u00ed virtu\u00e1n\u00edho prost\u0159ed\u00ed",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "intro/requests",
+      "title": "Requests \u2013 Webov\u00ed klienti",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "intro/click",
+      "title": "Click \u2013 Rozhran\u00ed pro p\u0159\u00edkazovou \u0159\u00e1dku",
+      "type": "lesson"
+     },
+     {
+      "external_url": "https://github.com/cvut/MI-PYT/blob/b171/tutorials/01_requests_click.md#%C3%9Akol",
+      "title": "Zad\u00e1n\u00ed \u00fakolu",
+      "type": "homework"
+     }
+    ],
+    "serial": "1",
+    "slug": "requests-click",
+    "source_file": "runs/2017/mipyt-kam/info.yml",
+    "title": "Webov\u00ed klienti & CLI \u2013 Requests a Click"
+   },
+   {
+    "date": "2017-10-10",
+    "materials": [
+     {
+      "lesson_slug": "intro/flask",
+      "title": "Flask",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "intro/deployment",
+      "title": "Deployment webov\u00fdch aplikac\u00ed",
+      "type": "lesson"
+     },
+     {
+      "external_url": "https://github.com/cvut/MI-PYT/blob/b171/tutorials/02_flask.md#%C3%9Akol",
+      "title": "Zad\u00e1n\u00ed \u00fakolu",
+      "type": "homework"
+     }
+    ],
+    "serial": "2",
+    "slug": "flask",
+    "source_file": "runs/2017/mipyt-kam/info.yml",
+    "title": "Webov\u00e9 aplikace \u2013 Flask"
+   },
+   {
+    "date": "2017-10-11",
+    "materials": [
+     {
+      "lesson_slug": "intro/notebook",
+      "title": "Notebook",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "intro/pandas",
+      "title": "Pandas",
+      "type": "lesson"
+     },
+     {
+      "external_url": "https://github.com/cvut/MI-PYT/blob/b171/tutorials/03_pandas.md#%C3%9Akol",
+      "title": "Zad\u00e1n\u00ed \u00fakolu",
+      "type": "homework"
+     }
+    ],
+    "serial": "3",
+    "slug": "pandas",
+    "source_file": "runs/2017/mipyt-kam/info.yml",
+    "title": "Anal\u00fdza dat \u2013 Pandas"
+   }
+  ],
+  "source_file": "runs/2017/mipyt-kam/info.yml",
+  "subtitle": "KAM FIT \u010cVUT - podzim 2017",
+  "time_description": "za\u010d\u00e1tek mezi 16:00 a 16:15 (plat\u00ed pro st\u0159edy)",
+  "timezone": "Europe/Prague",
+  "title": "MI-PYT (Pokro\u010dil\u00fd Python) beta pro KAM",
+  "vars": {
+   "coach-present": true,
+   "mi-pyt": true
+  }
+ }
+}

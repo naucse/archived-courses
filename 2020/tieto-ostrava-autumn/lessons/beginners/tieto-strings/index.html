@@ -1,0 +1,185 @@
+<h2>Strings</h2>
+<p>All standard sequential operations (indexing, slicing, multiplication, membership, length, minimum, maximum) are also applicable to strings.</p>
+<p>Keep in mind, however, that strings are immutable, so the following code will not work.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; website = 'http://www.python.org'
+&gt;&gt;&gt; website[-3:] = 'com'
+Traceback (most recent call last):
+  File "&lt;pyshell#19&gt;", line 1, in ?
+  website[-3:] = 'com'
+TypeError: object doesn't support slice assignment</code></pre></div><h2>Formatting strings</h2>
+<p>One of the methods is to print and format strings with the% operator, just like in C.</p>
+<p>We can use string, integer, tuple or dictionary as the values we want to print.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; format = "Hello, %s. %s are you?"
+&gt;&gt;&gt; values = ('world', 'How')
+&gt;&gt;&gt; format % values
+'Hello, world. How are you?'</code></pre></div><p>%s is so called <em>conversion specifiers</em>. Indicates where to insert values from the right side of the assignment.</p>
+<p>Other possible uscase:</p>
+<div class="highlight"><pre><code>%s - string
+%i - integer
+%f - floating point</code></pre></div><p>The latest and recommended way to format strings is to use the <em>format()</em> method. Each string entry we want to format is represented by braces <em>{}</em> and can contain a name as well as information on how to format the string correctly.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{}, {} and {}".format("first", "second", "third")
+'first, second and third'
+&gt;&gt;&gt; "{0}, {1} and {2}".format("first", "second", "third")
+'first, second and third'</code></pre></div><p>We can also format as follows:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{3} {0} {2} {1} {3} {0}".format("be", "not", "or", "to")
+'to be or not to be'</code></pre></div><p>We can also name the values:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; from math import pi
+&gt;&gt;&gt; "{name} is approximately {value:.2f}.".format(value=pi, name="π")
+'π is approximately 3.14.'</code></pre></div><p><em>.2f</em> means that the number will be printed to two decimal places.</p>
+<p>As of Python 3.6, we can also format a string as follows:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; from math import e
+&gt;&gt;&gt; f"Euler's constant is roughly {e}."
+"Euler's constant is roughly 2.718281828459045."</code></pre></div><p>For example, another option is:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; name = 'Fred'
+&gt;&gt;&gt; age = 42
+&gt;&gt;&gt; f'He said his name is {name} and he is {age} years old.'
+He said his name is Fred and he is 42 years old.</code></pre></div><p>We can even use Python expressions and methods in braces:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; name = 'Fred'
+&gt;&gt;&gt; seven = 7
+&gt;&gt;&gt; f'''He said his name is {name.upper()}
+...    and he is {6 * seven} years old.'''
+'He said his name is FRED\n    and he is 42 years old.'</code></pre></div><p>The older equivalent of the same code is:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "Euler's constant is roughly {e}.".format(e=e)
+"Euler's constant is roughly 2.718281828459045."</code></pre></div><p>String formatting (format function) uses a template language. Each value to be replaced is stored in compound quotation marks <em>{}</em>, called <em>replacement fields</em>. If we want to list the compound quotes in the list, we have to do it like this:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{{ double braces }}".format()
+'{ double braces }'</code></pre></div><h3>Replacement Fields</h3>
+<p>They consist of:</p>
+<p><strong>Field name</strong> - index or identifier</p>
+<p><strong>Conversion flag</strong> - Exclamation mark followed by one character</p>
+<ul>
+<li>r - repr</li>
+<li>s - string</li>
+<li>a - ascii</li>
+</ul>
+<p><strong>Format specifier</strong> - a colon followed by an expression of the templating language</p>
+<p>Examples:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{foo} {} {bar} {}".format(1, 2, bar=4, foo=3)
+'3 1 4 2'</code></pre></div><p>We can also access only the part of the value (field) that we want to print:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; fullname = ["Alfred", "Hitchcock"]
+&gt;&gt;&gt; "Mr {name[1]}".format(name=fullname)
+'Mr Hitchcock'</code></pre></div><h3>Basic conversion</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; print("{pi!s} {pi!r} {pi!a}".format(pi="π"))
+π 'π' '\u03c0'</code></pre></div><p>Floating point <em>format specifier</em></p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "The number is {num}".format(num=42)
+'The number is 42'
+&gt;&gt;&gt; "The number is {num:f}".format(num=42)
+'The number is 42.000000'</code></pre></div><p>Binary <em>format specifier</em></p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "The number is {num:b}".format(num=42)
+'The number is 101010'</code></pre></div><p><strong>Format specifier</strong></p>
+<ul>
+<li>b - binary</li>
+<li>c - integer</li>
+<li>d - integer print as decimal</li>
+<li>f - decimal with a fixed number of decimal places</li>
+<li>o - integer as an octal number</li>
+</ul>
+<h3>Alignment width</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{num:10}".format(num=3)
+'         3'
+&gt;&gt;&gt; "{name:10}".format(name="Bob")
+'Bob       '</code></pre></div><h3>Precison</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "Pi is {pi:.2f}".format(pi=pi)
+'Pi is 3.14'</code></pre></div><p>Aligned formatting:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{pi:10.2f}".format(pi=pi)
+'      3.14'</code></pre></div><p>Alignment accuracy can also be used as follows:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{:.5}".format("Guido van Rossum")
+'Guido'</code></pre></div><p>We can specify several types of alignment.</p>
+<p>Zero-padded:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; '{:010.2f}'.format(pi)
+'0000003.14'</code></pre></div><p>Left, right, centered:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; print('{0:&lt;10.2f}\n{0:^10.2f}\n{0:&gt;10.2f}'.format(pi))
+3.14
+   3.14
+      3.14</code></pre></div><p>We can specify with which character we fill in the blanks, as a replacement for the space:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "{:$^15}".format(" I WON ")
+'$$$$ I WON $$$$'</code></pre></div><p>How to format signed numbers?</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; print('{0:-.2}\n{1:-.2}'.format(pi, -pi)) # Default
+3.1
+-3.1
+&gt;&gt;&gt; print('{0:+.2}\n{1:+.2}'.format(pi, -pi))
++3.1
+-3.1
+&gt;&gt;&gt; print('{0: .2}\n{1: .2}'.format(pi, -pi))
+ 3.1
+-3.1</code></pre></div><p>Practical example:</p>
+<div class="highlight"><pre><code># Print a formatted price list with a given width
+
+width = int(input('Please enter width: '))
+
+price_width = 10
+item_width  = width - price_width
+
+header_fmt = '{{:{}}}{{:&gt;{}}}'.format(item_width, price_width)
+fmt        = '{{:{}}}{{:&gt;{}.2f}}'.format(item_width, price_width)
+
+print('=' * width)
+
+print(header_fmt.format('Item', 'Price'))
+
+print('-' * width)
+
+print(fmt.format('Apples', 0.4))
+print(fmt.format('Pears', 0.5))
+print(fmt.format('Cantaloupes', 1.92))
+print(fmt.format('Dried Apricots (16 oz.)', 8))
+print(fmt.format('Prunes (4 lbs.)', 12))                                                                              
+
+print('=' * width)</code></pre></div><p>Output:</p>
+<div class="highlight"><pre><code>Please enter  width: 35
+===================================
+Item                          Price
+-----------------------------------
+Apples                         0.40
+Pears                          0.50
+Cantaloupes                    1.92
+Dried  Apricots (16 oz.)       8.00
+Prunes (4 lbs.)               12.00
+===================================</code></pre></div><h2>String methods</h2>
+<h3>center()</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; "The Middle by Jimmy Eat World".center(39)
+'     The Middle by Jimmy Eat World     '
+&gt;&gt;&gt; "The Middle by Jimmy Eat World".center(39, "*")
+'*****The Middle by Jimmy Eat World*****'</code></pre></div><h3>find()</h3>
+<p>Returns the left index on which the string was found.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 'With a moo-moo here, and a moo-moo there'.find('moo')
+7
+&gt;&gt;&gt; title = "Monty Python's Flying Circus"
+&gt;&gt;&gt; title.find('Monty')
+0
+&gt;&gt;&gt; title.find('Python')
+6
+&gt;&gt;&gt; title.find('Flying')
+15
+&gt;&gt;&gt; title.find('Zirquss')
+-1</code></pre></div><h3>join()</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; seq = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; sep = '+'
+&gt;&gt;&gt; sep.join(seq) # Trying to join a list of numbers
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+TypeError: sequence item 0: expected string, int found
+&gt;&gt;&gt; seq = ['1', '2', '3', '4', '5']
+&gt;&gt;&gt; sep.join(seq) # Joining a list of strings
+'1+2+3+4+5'
+&gt;&gt;&gt; dirs = '', 'usr', 'bin', 'env'
+&gt;&gt;&gt; '/'.join(dirs)
+'/usr/bin/env'
+&gt;&gt;&gt; print('C:' + '\\'.join(dirs))
+C:\usr\bin\env</code></pre></div><p>Inverse function is <em>split()</em>.</p>
+<h3>lower()</h3>
+<p>Returns the lowercase version of the string:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 'Dance Floor'.lower()
+'dance floor'</code></pre></div><p>Reverse function is <em>upper()</em>.</p>
+<h3>replace()</h3>
+<p>All occurrences of the search string are replaced.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 'This is a test'.replace('is', 'eez')
+'Theez eez a test'</code></pre></div><h3>split()</h3>
+<div class="highlight"><pre><code>&gt;&gt;&gt; '1+2+3+4+5'.split('+')
+['1', '2', '3', '4', '5']
+&gt;&gt;&gt; '/usr/bin/env'.split('/')
+['', 'usr', 'bin', 'env']
+&gt;&gt;&gt; 'Using   the   default'.split()
+['Using', 'the', 'default']</code></pre></div><h3>strip()</h3>
+<p>Returns a string without spaces at the beginning and end.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; '    internal whitespace is kept    '.strip()
+'internal whitespace is kept'</code></pre></div>

@@ -1,0 +1,23 @@
+<h2>N-tice (Tuples)</h2>
+<p>N-tice jsou neměnnou variantou seznamů. Proč jej potřebujeme? Mimo jiné slouží jako klíče k slovníkům, viz pozdější lekce.</p>
+<h3>Vytvoření n-tice</h3>
+<p>Prázdná n-tice se vytvoří takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; x = ()
+&gt;&gt;&gt; type(x)
+&lt;class 'tuple'&gt;</code></pre></div><p>Pokud oddělíte nějaké hodnoty pomocí čárky, automaticky dostanete n-tici.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 1, 2, 3
+(1, 2, 3)</code></pre></div><p>N-tici můžete také vytvořit takto:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; (1, 2, 3)
+(1, 2, 3)</code></pre></div><p>Pokud chcete vytvořit n-tici s jedinou hodnotou, musíte to udělat pomocí následujícího triku.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 11
+11
+&gt;&gt;&gt; 11,
+(11,)
+&gt;&gt;&gt; (11,)
+(11,)</code></pre></div><h4>Funkce tuple()</h4>
+<p>Jako argument předáváme této funkci sekvenci a ona ji konvertuje na n-tici.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; tuple([1, 2, 3])
+(1, 2, 3)
+&gt;&gt;&gt; tuple('abc')
+('a', 'b', 'c')</code></pre></div><div class="admonition note"><p>Co se stane, když předáme jako parametr funkci tuple() jiže existující n-tici? Vyzkoušejte si to.</p>
+</div>

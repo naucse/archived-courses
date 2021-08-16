@@ -1,0 +1,9 @@
+<div class="highlight"><pre><span></span>        <span class="o">...</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">prvni</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;prvni&quot;</span><span class="p">])</span>
+            <span class="n">druhe</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;druhe&quot;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+        <span class="n">operace</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;operace&quot;</span><span class="p">]</span>
+        <span class="o">...</span>
+</pre></div>

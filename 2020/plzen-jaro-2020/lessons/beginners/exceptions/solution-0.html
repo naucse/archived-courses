@@ -1,0 +1,41 @@
+<p>Možné řešení:</p>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Následující dvě řádky vyhodí ValueError pokud vstup není číslo</span>
+    <span class="n">prvni_cislo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej první číslo: &quot;</span><span class="p">))</span>
+    <span class="n">druhe_cislo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej druhé číslo: &quot;</span><span class="p">))</span>
+
+    <span class="n">operand</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;A co s nimi mám udělat? * / + nebo -  &quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">operand</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+        <span class="n">vysledek</span> <span class="o">=</span> <span class="n">prvni_cislo</span> <span class="o">+</span> <span class="n">druhe_cislo</span>
+    <span class="k">elif</span> <span class="n">operand</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+        <span class="n">vysledek</span> <span class="o">=</span> <span class="n">prvni_cislo</span> <span class="o">-</span> <span class="n">druhe_cislo</span>
+    <span class="k">elif</span> <span class="n">operand</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+        <span class="n">vysledek</span> <span class="o">=</span> <span class="n">prvni_cislo</span> <span class="o">*</span> <span class="n">druhe_cislo</span>
+    <span class="k">elif</span> <span class="n">operand</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span>
+        <span class="c1"># Pokud je `druhe_cislo` nula, následující řádka vyhodí `ZeroDivisionError`</span>
+        <span class="n">vysledek</span> <span class="o">=</span> <span class="n">prvni_cislo</span> <span class="o">/</span> <span class="n">druhe_cislo</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Vstupem je operand, se kterým neumíme počítat, nebo nějaký nesmysl</span>
+        <span class="c1"># S nesmyslem počítat také neumíme, takže vyhodíme `ArithmeticError`</span>
+        <span class="c1"># Volba výjimky je ale na nás, vhodný by mohl být i `SyntaxError`</span>
+        <span class="k">raise</span> <span class="ne">ArithmeticError</span>
+
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="c1"># Zachytili jsme `ValueError` z načítání čísel</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jedno z čísel bylo špatně zadané. Musíš být pečlivější.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="c1"># Tady jsme zachytili dělení nulou</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nemůžeš dělit nulou!&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ArithmeticError</span><span class="p">:</span>
+    <span class="c1"># Tady jsme zachytili `ArithmeticError`, který program vyhodí</span>
+    <span class="c1"># v případě špatně zadaného operátoru</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tuhle operaci provést neumím.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Else větev ve spojení s `try` blokem proběhne pouze, pokud v `try` bloku</span>
+    <span class="c1"># nenastala žádná vyjímka</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">prvni_cislo</span><span class="p">,</span> <span class="n">operand</span><span class="p">,</span> <span class="n">druhe_cislo</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">vysledek</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Tohle proběhne &quot;nakonec&quot;, ať už k nějaké vyjímce došlo nebo ne</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Děkuji za použití této skvělé kalkulačky&quot;</span><span class="p">)</span>
+</pre></div>

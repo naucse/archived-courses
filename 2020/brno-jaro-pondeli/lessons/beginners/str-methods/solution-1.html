@@ -1,0 +1,12 @@
+<div class="highlight"><pre><span></span><span class="n">slovo</span> <span class="o">=</span> <span class="s1">&#39;baňka&#39;</span>
+<span class="n">pozice</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">novy_znak</span> <span class="o">=</span> <span class="s1">&#39;j&#39;</span>
+
+<span class="n">zacatek</span> <span class="o">=</span> <span class="n">slovo</span><span class="p">[:</span><span class="n">pozice</span><span class="p">]</span>
+<span class="n">konec</span> <span class="o">=</span> <span class="n">slovo</span><span class="p">[</span><span class="n">pozice</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">nove_slovo</span> <span class="o">=</span> <span class="n">zacatek</span> <span class="o">+</span> <span class="n">novy_znak</span> <span class="o">+</span> <span class="n">konec</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nove_slovo</span><span class="p">)</span>
+</pre></div><p>Nebo jednodušeji:</p>
+<div class="highlight"><pre><span></span><span class="n">nove_slovo</span> <span class="o">=</span> <span class="n">slovo</span><span class="p">[:</span><span class="n">pozice</span><span class="p">]</span> <span class="o">+</span> <span class="n">novy_znak</span> <span class="o">+</span> <span class="n">slovo</span><span class="p">[</span><span class="n">pozice</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+</pre></div>

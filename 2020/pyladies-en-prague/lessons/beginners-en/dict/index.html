@@ -1,0 +1,126 @@
+<h1>Dictionaries</h1>
+<p>Another basic data type which we will instroduce is the
+<em>dictionary</em>, or short, <code>dict</code>.</p>
+<p>Similar to lists, dictionaries contain values.
+In contrast to lists, where all elements are in a specific order, there are two types
+of elements in dictionaries: <em>key</em> and <em>value</em>. 
+Exactly one value exists for every key. (I don't want to confuse you right at the beginning,
+but just so you know -- an empty list can also be a value for a key.)</p>
+<p>You use a dictionary when each piece of data has an individual name, but you want 
+to work with the data as one variable.</p>
+<p>There is a dictionary with 3 keys, and each one of them has a value:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">me</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Marketa&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Prague&#39;</span><span class="p">,</span> <span class="s1">&#39;numbers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">]}</span>
+</pre></div><p>When you print the dictionary you may find that 
+your keys and values are in a different order.
+Dictionaries don't have a fixed order of elements. They just 
+assign values to keys.</p>
+<p>You can get values from the dictionary similar as
+from lists, but instead of an index, you have to use the key.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">me</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="go">&#39;Marketa&#39;</span>
+</pre></div><p>If you try to access a non-existent key, Python won't like it:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">me</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&amp;lt;module&amp;gt;</span>
+<span class="gr">KeyError</span>: <span class="n">&#39;age&#39;</span>
+</pre></div><p>You can change the values of keys:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">me</span><span class="p">[</span><span class="s1">&#39;numbers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">me</span>
+<span class="go">{&#39;name&#39;: &#39;Marketa&#39;, &#39;city&#39;: &#39;Prague&#39;, &#39;numbers&#39;: [20, 8, 42]}</span>
+</pre></div><p>... or add keys and values:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">me</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">me</span>
+<span class="go">{&#39;name&#39;: &#39;Marketa&#39;, &#39;city&#39;: &#39;Prague&#39;, &#39;numbers&#39;: [20, 8, 42], &#39;language&#39;: &#39;Python&#39;}</span>
+</pre></div><p>... or delete keys and values using the <code>del</code> command (also the same as for lists):</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">me</span><span class="p">[</span><span class="s1">&#39;numbers&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">me</span>
+<span class="go">{&#39;name&#39;: &#39;Marketa&#39;, &#39;city&#39;: &#39;Prague&#39;, &#39;language&#39;: &#39;Python&#39;}</span>
+</pre></div><h2>Lookup table</h2>
+<p>A use of dictionaries other than data clustering is the
+so-called <em>lookup table</em>.
+It stores values of same type.</p>
+<p>This is useful for example with phone book.
+For every name there is one phone number.
+Other examples are dictionaries with properties of food, or word translations.</p>
+<div class="highlight"><pre><span></span><span class="n">phones</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Mary&#39;</span><span class="p">:</span> <span class="s1">&#39;153 85283&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Theresa&#39;</span><span class="p">:</span> <span class="s1">&#39;237 26505&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Paul&#39;</span><span class="p">:</span> <span class="s1">&#39;385 11223&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Michael&#39;</span><span class="p">:</span> <span class="s1">&#39;491 88047&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">colours</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;pear&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;melon&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plum&#39;</span><span class="p">:</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;radish&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cabbage&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;carrot&#39;</span><span class="p">:</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div><h2>Iteration</h2>
+<p>When you loop over a dictionary using <code>for</code>, you will get only keys:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">func_descript</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;len&#39;</span><span class="p">:</span> <span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;str&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;dict&#39;</span><span class="p">:</span> <span class="s1">&#39;dictionary&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">func_descript</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="go">str</span>
+<span class="go">dict</span>
+<span class="go">len</span>
+</pre></div><p>If you want to access the values, you will have to use the method <code>values</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">func_descript</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="go">string</span>
+<span class="go">dictionary</span>
+<span class="go">length</span>
+</pre></div><p>But in most cases, you will need both -- keys and values.
+For this purpose, dictionaries have the method <code>items</code>.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="n">func_descript</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+<span class="go">str: string</span>
+<span class="go">dict: dictionary</span>
+<span class="go">len: length</span>
+</pre></div><div class="admonition note"><p>There is also the method <code>keys()</code> which return just keys.</p>
+<p><code>keys()</code>, <code>values()</code> and <code>items()</code> return special objects
+which can be used in <code>for</code> loops (we say that those objects are "iterable"),
+and they behave as a set.
+This is well described in the <a href="https://docs.python.org/3.0/library/stdtypes.html#dictionary-view-objects">documentation</a></p>
+</div><p>In a <code>for</code> loop, you can't add keys to dictionary nor delete them:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">func_descript</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">del</span> <span class="n">func_descript</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">RuntimeError</span>: <span class="n">dictionary changed size during iteration</span>
+</pre></div><p>But you can change values for already existing keys.</p>
+<h2>How to create a dictionary</h2>
+<p>Dictionaries can be created in two ways.
+The first way uses square brackets <code>[]</code>.
+The other way is by using the keyword <code>dict</code>.
+This works similar to <code>strings</code>, <code>integer</code> or <code>list</code>, so it will
+convert some specific objects to a dictionary.</p>
+<p>A dictionary has very specific structure --
+numbers or simple lists can't be converted into a dictionary.
+But we can convert a dictionary into <em>another dictionary</em>.
+This new dictionary won't be in any way connected to the
+old one.</p>
+<div class="highlight"><pre><span></span><span class="n">colour_riped</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">colours</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">colour_riped</span><span class="p">:</span>
+    <span class="n">colour_riped</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;blackish-brownish-&#39;</span> <span class="o">+</span> <span class="n">colour_riped</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">colours</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">colour_riped</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">])</span>
+</pre></div><p>We can also convert a list which contains tuples with <em>pairs</em> 
+(which work as ke and value) into a dictionary:</p>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">)]</span>
+<span class="n">number_names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div><p>And that's all that we can convert into a dictionary.</p>
+<p>As a bonus function, <code>dict</code> can also work with named arguments.
+Each argument's name will be a key and the argument itself will be the value:</p>
+<div class="highlight"><pre><span></span><span class="n">func_descript</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nb">dict</span><span class="o">=</span><span class="s1">&#39;dictionary&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">func_descript</span><span class="p">[</span><span class="s1">&#39;len&#39;</span><span class="p">])</span>
+</pre></div><div class="admonition note"><p>Be aware that in this case, keys have to have "pythonic" names –- 
+they must follow the same rules as other Python variables.
+For example, the following strings can't be keys: <code>"def"</code> or <code>"propan-butan"</code>.</p>
+</div><h2>And that's all for now</h2>
+<p>If you would like to know all the tricks
+about dictionaries you can look at (and also print) this <a href="https://github.com/ehmatthes/pcc/releases/download/v1.0.0/beginners_python_cheat_sheet_pcc_dictionaries.pdf">cheatsheet</a>.</p>
+<p>A complete description can be found here in the
+Python <a href="https://docs.python.org/3.0/library/stdtypes.html#mapping-types-dict">documentation</a>.</p>

@@ -1,0 +1,395 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Zpětná vazba k lekci <em>Soubory a výjimky</em></h1>
+<h2>Zacyklené volání funkcí mezi sebou (chyba v algoritmu)</h2>
+<p>Nežádoucí tzv. rekurze. Python se nezadře, vyhodí časem výjimku <code>RecursionError</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sibenice</span><span class="p">():</span>
+    <span class="n">vyhodnoceni</span><span class="p">()</span>
+    <span class="n">sibenice</span><span class="p">()</span>  <span class="c1"># pokus o opětovné spuštění hry</span>
+
+<span class="k">def</span> <span class="nf">vyhodnoceni</span><span class="p">():</span>
+    <span class="n">sibenice</span><span class="p">()</span>  <span class="c1"># pokus o opětovné spuštění hry</span>
+
+<span class="n">sibenice</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">RecursionError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-b4e485a85e09&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># pokus o opětovné spuštění hry</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> 
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-2-b4e485a85e09&gt;</span> in <span class="ansi-cyan-fg">sibenice</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>vyhodnoceni<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># pokus o opětovné spuštění hry</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> 
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-green-fg">def</span> vyhodnoceni<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-2-b4e485a85e09&gt;</span> in <span class="ansi-cyan-fg">vyhodnoceni</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> 
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-green-fg">def</span> vyhodnoceni<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg">     </span>sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># pokus o opětovné spuštění hry</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> 
+<span class="ansi-green-intense-fg ansi-bold">      8</span> sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+... last 2 frames repeated, from the frame below ...
+
+<span class="ansi-green-fg">&lt;ipython-input-2-b4e485a85e09&gt;</span> in <span class="ansi-cyan-fg">sibenice</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>vyhodnoceni<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     sibenice<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># pokus o opětovné spuštění hry</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> 
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-green-fg">def</span> vyhodnoceni<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">RecursionError</span>: maximum recursion depth exceeded</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Co když hledáme znak, ale hráč zadá Enter a vyhodnocuje se prázdný řetězec?</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vstup</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej písmeno: &#39;</span><span class="p">)</span>    <span class="c1"># po stisku Enter je vstup == &#39;&#39;</span>
+
+<span class="s1">&#39;d&#39;</span> <span class="ow">in</span> <span class="s1">&#39;čokoláda&#39;</span>       <span class="c1"># True</span>
+<span class="s1">&#39;x&#39;</span> <span class="ow">in</span> <span class="s1">&#39;čokoláda&#39;</span>       <span class="c1"># False</span>
+<span class="s1">&#39;&#39;</span> <span class="ow">in</span> <span class="s1">&#39;čokoláda&#39;</span>        <span class="c1"># True (sic!)</span>
+
+<span class="s1">&#39;čokoláda&#39;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>   <span class="c1"># 7</span>
+<span class="s1">&#39;čokoláda&#39;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;č&#39;</span><span class="p">)</span>   <span class="c1"># 0</span>
+<span class="s1">&#39;čokoláda&#39;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>    <span class="c1"># 0 (sic!)</span>
+
+<span class="s1">&#39;čokoláda&#39;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>    <span class="c1"># 9 (sic!)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Pozor na záludné osamocené zpětné lomítko!</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">obesenec</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">+---.</span>
+<span class="s2">|   |</span>
+<span class="s2">|   O</span>
+<span class="s2">| --|--</span>
+<span class="s2">|  / </span><span class="se">\</span>
+<span class="s2">|</span>
+<span class="s2">~~~~~~~&quot;&quot;&quot;</span>  <span class="c1"># oběšenec s dřevěnou nohou z ráhna šibenice :-)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">obesenec</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
++---.
+|   |
+|   O
+| --|--
+|  / |
+~~~~~~~
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Referenční hodnoty ("etalony") nutno očistit</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">katakana</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;ァアィイゥウェエォオカガキギクグ</span>
+<span class="s2">            ケゲコゴサザシジスズセゼソゾタダチ</span>
+<span class="s2">            ヂッツヅテデトドナニヌネノハバパヒ</span>
+<span class="s2">            ビピフブプヘベペホボポマミムメモャ</span>
+<span class="s2">            ヤュユョヨラリルレロヮワヰヱヲンヴ</span>
+<span class="s2">            ヵヶヷヸヹヺ&quot;&quot;&quot;</span>
+
+<span class="c1"># text je &quot;ァアィ  イゥ&quot;</span>
+<span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">katakana</span><span class="p">:</span>
+        <span class="n">pocet_katakana</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># chybně se započítávají i &#39; &#39; a &#39;\n&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pocet_katakana</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jedno z jednodušších řešení:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">katakana</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">katakana</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">katakana</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶヷヸヹヺ
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Hra Šibenice: Při otevírání souborů je vhodné ošetřit výjimku <code>FileNotFoundError</code></h2>
+<p>Konkrétně u kódu hry Šibenice se jednalo o výjimku, která neovlivňuje / neohrožuje fungování hry, takže je vhodné tuto výjimku ošetřit.</p>
+<p>Chybový výstup by měl podávat co nejvíc relevantních informací. Uživatelský výstup by měl být natolik sdílný, aby bylo možno chybu dohledat, ale neměl by vyzrazovat citlivé informace o aplikaci samotné nebo datech.</p>
+<p>Aplikace by měla být připravena na to, že chybí nebo nefunguje nějaká její klíčová kompomenta nebo nemá potřebná data.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;obrazek&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">chyba</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor</span><span class="p">:</span>
+        <span class="n">obsah</span> <span class="o">=</span> <span class="n">soubor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nebyl nalezen obrázek k počtu chyb&quot;</span><span class="p">,</span> <span class="n">chyba</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Nebyl nalezen obrázek k počtu chyb 0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Řešení pomocí modulu <code>logging</code></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>  <span class="c1"># modul pro sbirani zaznamu o behu programu, varovanich, chybach a vyjimkach</span>
+                <span class="c1"># uzivateli, do souboru, na vzdaleny server atd. (jsou mozne kombinace vseho)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;katalogovy-list-&quot;</span> <span class="o">+</span> <span class="n">produkt</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor</span><span class="p">:</span>
+        <span class="n">obsah</span> <span class="o">=</span> <span class="n">soubor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1">#</span>
+    <span class="c1"># tady program vrati chybovou hlasku na web stranku, napr.:</span>
+    <span class="c1">#     Pri importu produktu SN56132746-54600-5 doslo k chybe. Import bude zastaven.</span>
+    <span class="c1">#</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Soubor s nezbytnými daty &#39;</span><span class="si">{}</span><span class="s2">&#39; nebyl nalezen. Produkt: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">produkt</span><span class="p">))</span>
+    <span class="k">raise</span>  <span class="c1"># chceme vyvolat vyjimku, protoze bez dat program nemuze dale pokracovat</span>
+           <span class="c1"># hrozi nekonzistence dat pri neuplnem importu</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>ERROR:root:Soubor s nezbytnými daty &#39;katalogovy-list-SN56.txt&#39; nebyl nalezen. Produkt: SN56132746-54600-5
+Traceback (most recent call last):
+  File &#34;&lt;ipython-input-42-beb0234b3389&gt;&#34;, line 5, in &lt;module&gt;
+    with open(&#34;katalogovy-list-&#34; + produkt[0:4] + &#34;.txt&#34;, encoding=&#34;utf-8&#34;) as soubor:
+FileNotFoundError: [Errno 2] No such file or directory: &#39;katalogovy-list-SN56.txt&#39;
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-42-beb0234b3389&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;katalogovy-list-&#34;</span> <span class="ansi-blue-fg">+</span> produkt<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">+</span> <span class="ansi-blue-fg">&#34;.txt&#34;</span><span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;utf-8&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> soubor<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>         obsah <span class="ansi-blue-fg">=</span> soubor<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span> <span class="ansi-green-fg">except</span> FileNotFoundError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;katalogovy-list-SN56.txt&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Elegantní načtení souboru <code>sibenice.txt</code> (s pomocí seznamů, které se naučíme dnes 😺)</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sibenice.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor</span><span class="p">:</span>
+    <span class="n">obsah_souboru</span> <span class="o">=</span> <span class="n">soubor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">sibenice</span> <span class="o">=</span> <span class="n">obsah_souboru</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;------------------&#39;</span><span class="p">)</span>
+
+<span class="n">sibenice</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>     <span class="c1"># obsahuje textový obrázek šibenice, úroveň 5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+ 
+

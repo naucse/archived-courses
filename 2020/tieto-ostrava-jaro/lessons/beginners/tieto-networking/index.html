@@ -1,0 +1,236 @@
+<h2>Network Programming</h2>
+<h3>A socket module</h3>
+<p>The Python interface is a straightforward transliteration of the Unix system call and library interface for sockets to Python’s object-oriented style: the socket() function returns a socket object whose methods implement the various socket system calls.</p>
+<p>Sockets come in two varieties: server sockets and client sockets . After you create a server socket, you tell it to wait for connections. It will then listen at a certain network address (a combination of an IP address and a port number) until a client socket connects. The two can then communicate.</p>
+<p>It is instantiated with up to three parameters: an address family (defaulting to socket.AF_INET), whether it’s a stream (socket.SOCK_STREAM, the default) or a datagram (socket.SOCK_DGRAM) socket, and a protocol.</p>
+<p><strong>Minimal server</strong></p>
+<div class="highlight"><pre><code>import socket
+
+s = socket.socket()
+
+host = socket.gethostname()
+port = 1234
+s.bind((host, port))
+
+s.listen(5)
+while True:
+
+    c, addr = s.accept()
+    print('Got connection from', addr)
+    c.send(b'Thank you for connecting')
+    c.close()</code></pre></div><p><strong>Minimal client</strong></p>
+<div class="highlight"><pre><code>import socket
+
+s = socket.socket()
+
+host = socket.gethostname()
+port = 1234
+
+s.connect((host, port))
+print(s.recv(1024))</code></pre></div><p>More informations about socket programming is on <a href="https://docs.python.org/3/howto/sockets.html">Socket Programming HOWTO</a>.</p>
+<h3>The urllib and urllib2 modules</h3>
+<p><strong>Opening remote files</strong></p>
+<div class="highlight"><pre><code>from urllib.request import urlopen
+webpage = urlopen('http://www.python.org')</code></pre></div><p>the variable webpage should now contain a file-like object linked to the Python web page.</p>
+<p><strong>Retreiving remote files</strong></p>
+<p>The urlopen function gives you a file-like object you can read from. If you would rather have urllib take care of downloading the file for you, storing a copy in a local file, you can use urlretrieve instead.</p>
+<div class="highlight"><pre><code>from urllib.request import urlretrieve
+urlretrieve('http://www.python.org', 'python_webpage.html')</code></pre></div><p><strong>Other important modules</strong></p>
+<table>
+<thead><tr>
+<th>Module</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>asynchat</td>
+<td>Additional functionality for asyncore</td>
+</tr>
+<tr>
+<td>asyncore</td>
+<td>Asynchronous socket handler</td>
+</tr>
+<tr>
+<td>cgi</td>
+<td>Basic CGI support</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>Cookie object manipulation, mainly for servers</td>
+</tr>
+<tr>
+<td>cookielib</td>
+<td>Client-side cookie support</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Support for e-mail messages (including MIME)</td>
+</tr>
+<tr>
+<td>ftplib</td>
+<td>FTP client module</td>
+</tr>
+<tr>
+<td>gopherlib</td>
+<td>Gopher client module</td>
+</tr>
+<tr>
+<td>httplib</td>
+<td>HTTP client module</td>
+</tr>
+<tr>
+<td>imaplib</td>
+<td>IMAP4 client module</td>
+</tr>
+<tr>
+<td>mailbox</td>
+<td>Reads several mailbox formats</td>
+</tr>
+<tr>
+<td>mailcap</td>
+<td>Access to MIME configuration through mailcap files</td>
+</tr>
+<tr>
+<td>nntplib</td>
+<td>NNTP client module</td>
+</tr>
+<tr>
+<td>poplib</td>
+<td>POP client module</td>
+</tr>
+<tr>
+<td>robotparser</td>
+<td>Support for parsing web server robot files</td>
+</tr>
+<tr>
+<td>SimpleXMLRPCServer</td>
+<td>A simple XML-RPC server</td>
+</tr>
+<tr>
+<td>smtpd</td>
+<td>SMTP server module</td>
+</tr>
+<tr>
+<td>smtplib</td>
+<td>SMTP client module</td>
+</tr>
+<tr>
+<td>telnetlib</td>
+<td>Telnet client module</td>
+</tr>
+<tr>
+<td>urlparse</td>
+<td>Support for interpreting URLs</td>
+</tr>
+<tr>
+<td>xmlrpclib</td>
+<td>Client support for XML-RPC</td>
+</tr>
+</tbody>
+</table>
+<h3>Simple TCP server and client</h3>
+<div class="highlight"><pre><code>#!/usr/bin/env python3
+# Simple TCP client and server that send and receive 16 octets
+
+import argparse, socket
+
+def recvall(sock, length):
+    data = b''
+    while len(data) &lt; length:
+        more = sock.recv(length - len(data))
+        if not more:
+            raise EOFError('was expecting %d bytes but only received'
+                           ' %d bytes before the socket closed'
+                           % (length, len(data)))
+        data += more
+    return data
+
+def server(interface, port):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind((interface, port))
+    sock.listen(1)
+    print('Listening at', sock.getsockname())
+    while True:
+        print('Waiting to accept a new connection')
+        sc, sockname = sock.accept()
+        print('We have accepted a connection from', sockname)
+        print('  Socket name:', sc.getsockname())
+        print('  Socket peer:', sc.getpeername())
+        message = recvall(sc, 16)
+        print('  Incoming sixteen-octet message:', repr(message))
+        sc.sendall(b'Farewell, client')
+        sc.close()
+        print('  Reply sent, socket closed')
+
+def client(host, port):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((host, port))
+    print('Client has been assigned socket name', sock.getsockname())
+    sock.sendall(b'Hi there, server')
+    reply = recvall(sock, 16)
+    print('The server said', repr(reply))
+    sock.close()
+
+if __name__ == '__main__':
+    choices = {'client': client, 'server': server}
+    parser = argparse.ArgumentParser(description='Send and receive over TCP')
+    parser.add_argument('role', choices=choices, help='which role to play')
+    parser.add_argument('host', help='interface the server listens at;'
+                        ' host the client sends to')
+    parser.add_argument('-p', metavar='PORT', type=int, default=1060,
+                        help='TCP port (default 1060)')
+    args = parser.parse_args()
+    function = choices[args.role]
+    function(args.host, args.p)</code></pre></div><p>You can try instead of argparse other command line parse modules:</p>
+<ul>
+<li>Docopt (pip install docopt)</li>
+<li>Click (pip install click)</li>
+<li>Invoke (pip install invoke)</li>
+</ul>
+<h3>RPC</h3>
+<p>Remote Procedure Call (RPC) systems let you call a function in another process or on a remote server using the same syntax you would use when calling a routine in a local API or library. This is usefull in situations like:</p>
+<ul>
+<li>Your program has a lot of work to do, and you want to spread it across several machines by making calls across the network, but without having to change the code that is making the call, which is now remote.</li>
+<li>You need data or information that is only available on another hard drive or network, and an RPC interface lets you easily send queries to another system to get back an answer.</li>
+</ul>
+<h3>XML-RPC</h3>
+<p>XML-RPC is a convinient way to send messages across the Internet.</p>
+<p>The nice thing about XML-RPC is that it transports native data structures- you can ship off lists, strings, dictionaries, and numbers.</p>
+<p><strong>Server</strong></p>
+<div class="highlight"><pre><code>from xmlrpc.server import SimpleXMLRPCServer
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    return x // y
+
+# A simple server with simple arithmetic functions
+server = SimpleXMLRPCServer(("localhost", 8000))
+print("Listening on port 8000...")
+server.register_multicall_functions()
+server.register_function(add, 'add')
+server.register_function(subtract, 'subtract')
+server.register_function(multiply, 'multiply')
+server.register_function(divide, 'divide')
+server.serve_forever()</code></pre></div><p><strong>Client</strong></p>
+<p>List available methods:</p>
+<div class="highlight"><pre><code>import xmlrpc.client
+
+proxy = xmlrpc.client.ServerProxy("http://localhost:8000/")
+multicall = xmlrpc.client.MultiCall(proxy)
+multicall.add(7, 3)
+multicall.subtract(7, 3)
+multicall.multiply(7, 3)
+multicall.divide(7, 3)
+result = multicall()
+
+print("7+3=%d, 7-3=%d, 7*3=%d, 7//3=%d" % tuple(result))</code></pre></div>

@@ -1,0 +1,38 @@
+<h1>Instalace</h1>
+<p>Instalace všeho potřebného není složitá a zabere jen chvíli. Pokud se během ní
+přeci jen něco pokazí, popros na Slacku nebo někoho zkušenějšího o radu.</p>
+<blockquote><p>Další kroky počítají s tím, že máš nainstalovaný a funkční Python 3.6 nebo 3.7.
+Pokud ne, návod na instalaci máme k dispozici <a href="https://naucse.python.cz/course/pyladies/sessions/install/">v začátečnickém kurzu</a>.</p>
+<p><strong>Upozornění:</strong>
+Na základě povšimnutí jedné z vás jsme zjistili, že jsou problémy hned se dvěma způsoby instalace Pythonu
+ve Windows. Prosím, neinstaluj Python z Windows Store
+a neinstaluj Python 3.8, v obou případech není jednoduché zprovoznit Jupyter Notebook. Doporučujeme nainstalovat
+Python 3.7.6 <a href="https://www.python.org/downloads/release/python-376/">odtud</a> (vyber "executable installer", ideálně verzi <code>x86-64</code>).
+Nezapomeň v první obrazovce instalátoru zaškrtnout, že chceš přidat Python do proměnné <code>PATH</code>. Pokud chceš (a navíc víš proč), 
+s distribucí <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> by také neměly být problémy
+(někteří z autorů ji používají).</p>
+</blockquote>
+<h2>Adresář, vytvoření a aktivace virtuálního prostředí</h2>
+<p>Nejprve si připrav adresář pro ukládání souborů (třeba <code>pydata</code>) a v něm si vytvoř
+virtuální prostředí.</p>
+<p>Pokud nevíš jak na to, kompletní návod je stejně jako pro instalaci Pythonu k dispozici
+v <a href="https://naucse.python.cz/2019/pyladies-ostrava-podzim/beginners/venv-setup/">materiálech k začátečnickému kurzu</a>.</p>
+<p>Po každém spuštění příkazové řádky bude potřeba aktivovat virtuální prostředí, abychom
+mohli pracovat s knihovnami a nástroji v něm nainstalovanými.</p>
+<h2>Instalace</h2>
+<p>Do příkazové řádky s aktivním virtuálním prostředím zadej následující příkaz:</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>$ python -m pip install jupyter pandas matplotlib requests seaborn scipy scikit-learn plotly xlrd openpyxl
+</pre></div><p>Tímto příkazem se do virtuálního prostředí nainstalovaly následující knihovny (a některé další jejich závislosti):</p>
+<ul>
+<li>Jupyter - webové rozhraní pro interaktivní a reprodukovatelnou práci s Pythonem</li>
+<li>Pandas - pro práci s tabulkovými daty</li>
+<li>Matplotlib - jedna z nejznámějších knihoven pro tvorbu grafů</li>
+<li>Seaborn - rozšíření pro Matplotlib, které umí vytvořit pokročilejší grafy</li>
+<li>SciPy - švýcarský nůž pro věděcké výpočty a pokročilou matematiku</li>
+<li>Scikit-learn - sbírka nejznámějších algoritmů pro strojové učení</li>
+<li>Requests - knihovna pro práci s HTTP (webovými a API) požadavky</li>
+<li>Plotly - knihovna pro vytváření interaktivních grafů</li>
+<li>Xlrd - knihovna pro načítání souborů .xls/.xlsx</li>
+<li>Openpyxl - knihovna pro načítání a zápis souborů .xlsx</li>
+</ul>
+<p>V následující kapitole se podíváme na to, jak Jupyter spustit a jak s ním pracovat.</p>

@@ -1,0 +1,286 @@
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Feedback k domácím projektům</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Nejmenší číslo</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Upovídané řešení z domácích projektů</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej prvni cele cislo:&#39;</span><span class="p">))</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej druhe cele cislo:&#39;</span><span class="p">))</span>
+<span class="n">n3</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej treti cele cislo:&#39;</span><span class="p">))</span>
+<span class="n">n4</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej ctvrte cele cislo:&#39;</span><span class="p">))</span>
+<span class="n">n5</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej pate cele cislo:&#39;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">n1</span> <span class="o">&lt;</span> <span class="n">n2</span> <span class="ow">and</span> <span class="n">n1</span> <span class="o">&lt;</span> <span class="n">n3</span> <span class="ow">and</span> <span class="n">n1</span> <span class="o">&lt;</span> <span class="n">n4</span> <span class="ow">and</span> <span class="n">n1</span> <span class="o">&lt;</span> <span class="n">n5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nejnizsi zadane cislo je:&#39;</span><span class="p">,</span><span class="n">n1</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">n2</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="ow">and</span> <span class="n">n2</span> <span class="o">&lt;</span> <span class="n">n3</span> <span class="ow">and</span> <span class="n">n2</span> <span class="o">&lt;</span> <span class="n">n4</span> <span class="ow">and</span> <span class="n">n2</span> <span class="o">&lt;</span> <span class="n">n5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nejnizsi zadane cislo je:&#39;</span><span class="p">,</span><span class="n">n2</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">n3</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="ow">and</span> <span class="n">n3</span> <span class="o">&lt;</span> <span class="n">n2</span> <span class="ow">and</span> <span class="n">n3</span> <span class="o">&lt;</span> <span class="n">n4</span> <span class="ow">and</span> <span class="n">n3</span> <span class="o">&lt;</span> <span class="n">n5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nejnizsi zadane cislo je:&#39;</span><span class="p">,</span><span class="n">n3</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">n4</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="ow">and</span> <span class="n">n4</span> <span class="o">&lt;</span> <span class="n">n2</span> <span class="ow">and</span> <span class="n">n4</span> <span class="o">&lt;</span> <span class="n">n3</span> <span class="ow">and</span> <span class="n">n4</span> <span class="o">&lt;</span> <span class="n">n5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nejnizsi zadane cislo je:&#39;</span><span class="p">,</span><span class="n">n4</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">n5</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="ow">and</span> <span class="n">n5</span> <span class="o">&lt;</span> <span class="n">n2</span> <span class="ow">and</span> <span class="n">n5</span> <span class="o">&lt;</span> <span class="n">n3</span> <span class="ow">and</span> <span class="n">n5</span> <span class="o">&lt;</span> <span class="n">n4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nejnizsi zadane cislo je:&#39;</span><span class="p">,</span><span class="n">n5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Lepší, ale pořád ne optimální</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Prvni cislo: &#39;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Druhe cislo: &#39;</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Treti cislo: &#39;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Ctrvte cislo: &#39;</span><span class="p">))</span>
+<span class="n">e</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Pate cislo: &#39;</span><span class="p">))</span>
+
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">a</span>
+
+<span class="k">for</span> <span class="n">cislo</span> <span class="ow">in</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">cislo</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>
+      <span class="n">m</span><span class="o">=</span><span class="n">cislo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Kratší a méně náročné řešení</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Napište libovolné číslo: &#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">cislo</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Napište libovolné číslo: &#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>N-úhelníky v řadě</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Upovídané řešení z domácích projektů</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">turtle</span> <span class="k">import</span> <span class="n">forward</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">exitonclick</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">penup</span><span class="p">,</span> <span class="n">pendown</span>
+<span class="n">shape</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">180</span><span class="o">+</span><span class="p">(((</span><span class="mi">5</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">180</span><span class="o">+</span><span class="p">(((</span><span class="mi">6</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">180</span><span class="o">+</span><span class="p">(((</span><span class="mi">7</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="p">)</span><span class="o">/</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">180</span><span class="o">+</span><span class="p">(((</span><span class="mi">8</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">180</span><span class="o">+</span><span class="p">(((</span><span class="mi">9</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="p">)</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Kratší řešení s využitím cyklu v dalším cyklu</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">turtle</span> <span class="k">import</span> <span class="n">forward</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">penup</span><span class="p">,</span> <span class="n">pendown</span><span class="p">,</span> <span class="n">exitonclick</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">uhelniky</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">forward</span><span class="p">(</span><span class="mi">200</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="n">penup</span><span class="p">()</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Kytka</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">turtle</span> <span class="k">import</span> <span class="n">forward</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">exitonclick</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">circle</span><span class="p">,</span> <span class="n">speed</span>
+
+<span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">18</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+        <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">circle</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">left</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">circle</span><span class="p">(</span><span class="n">j</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">right</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">circle</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">left</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>
+<span class="n">forward</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">circle</span><span class="p">(</span><span class="n">l</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Obecné připomínky a rady</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>K importům:<ul>
+<li>Importy provádíme vždy na prvních řádcích programu a v rámci programu pouze jednou.</li>
+<li>Snažíme se nepoužívat importy s hvězdičkou.</li>
+<li>Neimportujeme nic co pak v programu nepoužijeme.</li>
+</ul>
+</li>
+<li>Ke komentářům:<ul>
+<li>Nezakomentováváme programy nebo jednotlivé úlohy v nich.</li>
+<li>Není třeba psát komentáře k tomu, co je zcela jasné. Je to ale pořád lepší než je nepsat vůbec.</li>
+<li>Komentáře je lepší a jednodušší psát nad nebo pod kód místo vedle něj. Obzvlášť pokud má komentovaná část kódu několik řádků.</li>
+</ul>
+</li>
+<li>Ke stylu:<ul>
+<li>Zkuste nedělat extra dlouhé řádky. Maximum je takových 100 znaků.</li>
+<li>Kód nemusí být elegantní, hlavně když funguje (alespoň pro začátek).</li>
+</ul>
+</li>
+<li>Díky všem, kteří zrychlili želvičku.</li>
+</ul>
+</div>
+</div>
+</div>
+ 
+

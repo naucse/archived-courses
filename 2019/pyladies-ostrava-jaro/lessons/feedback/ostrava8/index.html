@@ -1,0 +1,1185 @@
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Feedback k domácím projektům</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Globální proměnné nebrat</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>V tomto příkladu sice máme funkce, ale ty nejsou příliš užitečné, protože ke svému fungování potřebují množství globálních proměnných.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Vytvoření prázdného slovníku</span>
+<span class="n">slovnik_mocniny</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">slovnik_klicu_a_hodnot</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="c1">#Uživatel zadá číslo n, n+1 zajistí, že se později vypíše číslo přesně do výše,</span>
+<span class="c1">#jakou uživatel zadal</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej číslo, program vypočítá druhé mocniny od 1 až po toto číslo: &#39;</span><span class="p">))</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1">#Funkce k úkolu č. 0 - vypíše mocniny až do čísla daného uživatelem</span>
+<span class="k">def</span> <span class="nf">mocniny</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">slovnik_mocniny</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">slovnik_mocniny</span><span class="p">)</span>
+
+<span class="c1">#Funkce k úkolu č. 1 - sečte klíče a hodnoty ve slovníku mocniny, přidá je do</span>
+<span class="c1">#slovníku soucet_klicu_a_hodnot</span>
+<span class="k">def</span> <span class="nf">soucet_klicu_a_hodnot</span><span class="p">():</span>
+    <span class="n">soucet_klicu</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">slovnik_mocniny</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">soucet_hodnot</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">slovnik_mocniny</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">slovnik_klicu_a_hodnot</span> <span class="o">=</span> <span class="p">{</span><span class="n">soucet_klicu</span><span class="p">,</span> <span class="n">soucet_hodnot</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">slovnik_klicu_a_hodnot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mnohem lepší přístup:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">mocniny</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Vytvori slovnik mocnin o velikosti n &quot;&quot;&quot;</span>
+    <span class="n">slovnik</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">slovnik</span><span class="p">[(</span><span class="n">j</span><span class="p">)]</span> <span class="o">=</span> <span class="n">j</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">slovnik</span>
+
+
+<span class="k">def</span> <span class="nf">soucet_klicu_a_hodnot</span><span class="p">(</span><span class="n">slovnik</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; vrati soucty vsech klicu a vsech hodnot&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">slovnik</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">slovnik</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">vypis_slovnik</span><span class="p">(</span><span class="n">slovnik</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; vypise obsah slovniku &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">objekt</span> <span class="ow">in</span> <span class="n">slovnik</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Klic &quot;</span><span class="p">,</span> <span class="n">objekt</span><span class="p">,</span> <span class="s2">&quot;, hodnota &quot;</span><span class="p">,</span> <span class="n">slovnik</span><span class="p">[</span><span class="n">objekt</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mocniny</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soucet_klicu_a_hodnot</span><span class="p">(</span><span class="n">mocniny</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pocet_znaku</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">))</span>
+<span class="n">vypis_slovnik</span><span class="p">(</span><span class="n">mocniny</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Skautská hra</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">odpoved</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Na kolik odpovědí chceš hrát? &#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">odpoved</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">odpoved</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Musíš napsat celé číslo!&#39;</span><span class="p">)</span>
+
+<span class="n">kdo</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">s_kym</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">co_delali</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">kde</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">kdy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">vsechno</span> <span class="o">=</span> <span class="p">[</span><span class="n">kdo</span><span class="p">,</span><span class="n">s_kym</span><span class="p">,</span><span class="n">co_delali</span><span class="p">,</span><span class="n">kde</span><span class="p">,</span><span class="n">kdy</span><span class="p">,</span><span class="n">proc</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">odpoved</span><span class="p">):</span>
+    <span class="n">kdo1</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;Kdo? &#39;</span><span class="p">)</span>
+    <span class="n">s_kym1</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;S kým? &#39;</span><span class="p">)</span>
+    <span class="n">co_delali1</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;Co dělali? &#39;</span><span class="p">)</span>
+    <span class="n">kde1</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;Kde? &#39;</span><span class="p">)</span>
+    <span class="n">kdy1</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;Kdy? &#39;</span><span class="p">)</span>
+    <span class="n">proc1</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">(</span><span class="s1">&#39;Proč? &#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">kdo</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kdo1</span><span class="p">)</span>
+    <span class="n">s_kym</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_kym1</span><span class="p">)</span>
+    <span class="n">co_delali</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">co_delali1</span><span class="p">)</span>
+    <span class="n">kde</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kde1</span><span class="p">)</span>
+    <span class="n">kdy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kdy1</span><span class="p">)</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proc1</span><span class="p">)</span>
+
+<span class="n">a</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">kdo</span><span class="p">)</span>
+<span class="n">b</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">s_kym</span><span class="p">)</span>
+<span class="n">c</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">co_delali</span><span class="p">)</span>
+<span class="n">d</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">kde</span><span class="p">)</span>
+<span class="n">e</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">kdy</span><span class="p">)</span>
+<span class="n">f</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Řešení bez slovníků, ale hlavně takové, kde by nebylo úplně snadné přidat další otázky.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">kdo_seznam</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">s_kym_seznam</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">kde_seznam</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">co_delali_seznam</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">proc_seznam</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">pocet</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">kdo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Kdo? &#39;</span><span class="p">)</span>
+    <span class="n">kdo_seznam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kdo</span><span class="p">)</span>
+    <span class="n">s_kym</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;S kým? &#39;</span><span class="p">)</span>
+    <span class="n">s_kym_seznam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s_kym</span><span class="p">)</span>
+    <span class="n">kde</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Kde? &#39;</span><span class="p">)</span>
+    <span class="n">kde_seznam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kde</span><span class="p">)</span>
+    <span class="n">co_delali</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Co dělali? &#39;</span><span class="p">)</span>
+    <span class="n">co_delali_seznam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">co_delali</span><span class="p">)</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Proč? &#39;</span><span class="p">)</span>
+    <span class="n">proc_seznam</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">proc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">kdo_seznam</span><span class="p">),</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">s_kym_seznam</span><span class="p">),</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">kde_seznam</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">co_delali_seznam</span><span class="p">),</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">proc_seznam</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Řešení, kde přidání, změna či odebrání jakékoli otázky znamená jen změnu na jednom míste v seznamu otázek.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">choice</span>
+
+<span class="n">otazky</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Kdo&#39;</span><span class="p">,</span> <span class="s1">&#39;S kym&#39;</span><span class="p">,</span> <span class="s1">&#39;Co delali&#39;</span><span class="p">,</span> <span class="s1">&#39;Kde&#39;</span><span class="p">]</span>
+
+<span class="n">odpovedi</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">otazka</span> <span class="ow">in</span> <span class="n">otazky</span><span class="p">:</span>
+    <span class="n">odpovedi</span><span class="p">[</span><span class="n">otazka</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Alternativní cesta</span>
+<span class="c1"># odpovedi = {otazka: [] for otazka in otazky}</span>
+    
+<span class="k">for</span> <span class="n">otazka</span> <span class="ow">in</span> <span class="n">otazky</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">odpoved</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej odpoved na otazku </span><span class="si">{}</span><span class="s1">? &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">otazka</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">odpoved</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">odpovedi</span><span class="p">[</span><span class="n">otazka</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">odpoved</span><span class="p">)</span>
+
+<span class="n">veta</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="k">for</span> <span class="n">otazka</span> <span class="ow">in</span> <span class="n">otazky</span><span class="p">:</span>
+    <span class="n">veta</span> <span class="o">=</span> <span class="n">veta</span> <span class="o">+</span> <span class="n">choice</span><span class="p">(</span><span class="n">odpovedi</span><span class="p">[</span><span class="n">otazka</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">veta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Seznam sám v sobě</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span>
+<span class="n">seznam</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5, 5, 5, 5, 5, 5]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">seznam</span>
+<span class="n">seznam</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5, 5, 5, 5, 5, [...]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5, 5, 5, 5, 5, [...]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5, 5, 5, 5, 5, [...]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5, 5, 5, 5, 5, [...]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[5, 5, 5, 5, 5, [...]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seznam</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Ukázky jednoduchých API</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Ano nebo ne?</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://yesno.wtf/api&quot;</span><span class="p">)</span>
+
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;answer&#39;: &#39;yes&#39;,
+ &#39;forced&#39;: False,
+ &#39;image&#39;: &#39;https://yesno.wtf/assets/yes/13-c3082a998e7758be8e582276f35d1336.gif&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;yes&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;https://yesno.wtf/assets/yes/13-c3082a998e7758be8e582276f35d1336.gif&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://yesno.wtf/assets/yes/13-c3082a998e7758be8e582276f35d1336.gif" alt="image"></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Náhodná rada do života</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.adviceslip.com/advice&quot;</span><span class="p">)</span>
+
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;slip&#39;: {&#39;advice&#39;: &#39;A nod is as good as a wink to a blind horse.&#39;,
+  &#39;slip_id&#39;: &#39;120&#39;}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;slip&quot;</span><span class="p">][</span><span class="s2">&quot;advice&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;A nod is as good as a wink to a blind horse.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Texty písní</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">artist</span> <span class="o">=</span> <span class="s2">&quot;Queen&quot;</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Bohemian Rhapsody&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.lyrics.ovh/v1/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">title</span><span class="p">))</span>
+
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;lyrics&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Is this the real life? Is this just fantasy?
+Caught in a landslide, no escape from reality
+Open your eyes, look up to the skies and see
+
+I&#39;m just a poor boy, I need no sympathy
+Because I&#39;m easy come, easy go, little high, little low
+Anyway the wind blows, doesn&#39;t really matter to me, to me
+
+Mama, just killed a man
+Put a gun against his head, pulled my trigger, now he&#39;s dead
+Mama, life had just begun
+But now I&#39;ve gone and thrown it all away
+
+Mama, ooh, didn&#39;t mean to make you cry
+If I&#39;m not back again this time tomorrow
+Carry on, carry on, as if nothing really matters
+
+Too late, my time has come
+Sends shivers down my spine, body&#39;s aching all the time
+Goodbye, everybody, I&#39;ve got to go
+Gotta leave you all behind and face the truth
+
+Mama, ooh, (Any way the wind blows) I don&#39;t wanna die
+I sometimes wish I&#39;d never been born at all
+
+I see a little silhouetto of a man
+Scaramouche, Scaramouche, will you do the Fandango?
+Thunderbolts and lightning, very, very frightening me
+
+Galileo (Galileo), Galileo (Galileo)
+Galileo, Figaro, Magnifico, oh, oh, oh, oh, oh
+
+I&#39;m just a poor boy, nobody loves me
+He&#39;s just a poor boy from a poor family
+Spare him his life from this monstrosity
+
+Easy come, easy go, will you let me go?
+Bismillah, no, we will not let you go (Let him go)
+Bismillah, we will not let you go (Let him go)
+Bismillah, we will not let you go (Let me go)
+Never let you go (Let me go)
+Never let you go (Never, never, never let me go, oh, oh, oh)
+No, no, no, no, no, no, no
+
+Oh, mamma mia, mamma mia
+Mamma mia, let me go
+Beelzebub has a devil put aside
+For me, for me, for me
+
+So you think you can stone me and spit in my eye?
+So you think you can love me and leave me to die?
+Oh baby, can&#39;t do this to me, baby
+Just gotta get out, just gotta get right out of here
+
+Ooh-ooh-ooh
+Ooh-yeah, ooh-yeah
+
+Nothing really matters, anyone can see
+Nothing really matters, nothing really matters to me
+
+Any way the wind blows
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Počasí</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;551801&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.metaweather.com/api/location/</span><span class="si">{}</span><span class="s2">/&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">location</span><span class="p">))</span>
+
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;consolidated_weather&#39;: [{&#39;id&#39;: 4827330616754176,
+   &#39;weather_state_name&#39;: &#39;Light Cloud&#39;,
+   &#39;weather_state_abbr&#39;: &#39;lc&#39;,
+   &#39;wind_direction_compass&#39;: &#39;NNE&#39;,
+   &#39;created&#39;: &#39;2019-04-01T15:40:43.519403Z&#39;,
+   &#39;applicable_date&#39;: &#39;2019-04-01&#39;,
+   &#39;min_temp&#39;: 6.23,
+   &#39;max_temp&#39;: 16.87,
+   &#39;the_temp&#39;: 16.0,
+   &#39;wind_speed&#39;: 5.624506348275404,
+   &#39;wind_direction&#39;: 15.843933712230228,
+   &#39;air_pressure&#39;: 1021.44,
+   &#39;humidity&#39;: 53,
+   &#39;visibility&#39;: 14.091766583154378,
+   &#39;predictability&#39;: 70},
+  {&#39;id&#39;: 5566602449780736,
+   &#39;weather_state_name&#39;: &#39;Light Cloud&#39;,
+   &#39;weather_state_abbr&#39;: &#39;lc&#39;,
+   &#39;wind_direction_compass&#39;: &#39;SE&#39;,
+   &#39;created&#39;: &#39;2019-04-01T15:40:46.702324Z&#39;,
+   &#39;applicable_date&#39;: &#39;2019-04-02&#39;,
+   &#39;min_temp&#39;: 6.324999999999999,
+   &#39;max_temp&#39;: 16.495,
+   &#39;the_temp&#39;: 14.040000000000001,
+   &#39;wind_speed&#39;: 8.848418440266178,
+   &#39;wind_direction&#39;: 141.6650057162162,
+   &#39;air_pressure&#39;: 1016.7,
+   &#39;humidity&#39;: 51,
+   &#39;visibility&#39;: 15.103980255308995,
+   &#39;predictability&#39;: 70},
+  {&#39;id&#39;: 6239291585855488,
+   &#39;weather_state_name&#39;: &#39;Heavy Cloud&#39;,
+   &#39;weather_state_abbr&#39;: &#39;hc&#39;,
+   &#39;wind_direction_compass&#39;: &#39;SSE&#39;,
+   &#39;created&#39;: &#39;2019-04-01T15:40:50.333305Z&#39;,
+   &#39;applicable_date&#39;: &#39;2019-04-03&#39;,
+   &#39;min_temp&#39;: 8.459999999999999,
+   &#39;max_temp&#39;: 18.935,
+   &#39;the_temp&#39;: 17.6,
+   &#39;wind_speed&#39;: 10.249016933365146,
+   &#39;wind_direction&#39;: 152.0369435066321,
+   &#39;air_pressure&#39;: 1007.515,
+   &#39;humidity&#39;: 56,
+   &#39;visibility&#39;: 13.653078521434821,
+   &#39;predictability&#39;: 71},
+  {&#39;id&#39;: 5814165388132352,
+   &#39;weather_state_name&#39;: &#39;Light Cloud&#39;,
+   &#39;weather_state_abbr&#39;: &#39;lc&#39;,
+   &#39;wind_direction_compass&#39;: &#39;SSE&#39;,
+   &#39;created&#39;: &#39;2019-04-01T15:40:52.521424Z&#39;,
+   &#39;applicable_date&#39;: &#39;2019-04-04&#39;,
+   &#39;min_temp&#39;: 10.945,
+   &#39;max_temp&#39;: 16.915,
+   &#39;the_temp&#39;: 16.5,
+   &#39;wind_speed&#39;: 11.391530074339192,
+   &#39;wind_direction&#39;: 160.16280146794102,
+   &#39;air_pressure&#39;: 1002.565,
+   &#39;humidity&#39;: 55,
+   &#39;visibility&#39;: 13.370976000159072,
+   &#39;predictability&#39;: 70},
+  {&#39;id&#39;: 5800497996890112,
+   &#39;weather_state_name&#39;: &#39;Showers&#39;,
+   &#39;weather_state_abbr&#39;: &#39;s&#39;,
+   &#39;wind_direction_compass&#39;: &#39;SE&#39;,
+   &#39;created&#39;: &#39;2019-04-01T15:40:55.517305Z&#39;,
+   &#39;applicable_date&#39;: &#39;2019-04-05&#39;,
+   &#39;min_temp&#39;: 5.91,
+   &#39;max_temp&#39;: 10.305,
+   &#39;the_temp&#39;: 9.469999999999999,
+   &#39;wind_speed&#39;: 6.654490472305734,
+   &#39;wind_direction&#39;: 133.01467370354433,
+   &#39;air_pressure&#39;: 1005.3655,
+   &#39;humidity&#39;: 71,
+   &#39;visibility&#39;: 7.865937922532411,
+   &#39;predictability&#39;: 73},
+  {&#39;id&#39;: 5218222536130560,
+   &#39;weather_state_name&#39;: &#39;Heavy Cloud&#39;,
+   &#39;weather_state_abbr&#39;: &#39;hc&#39;,
+   &#39;wind_direction_compass&#39;: &#39;NNE&#39;,
+   &#39;created&#39;: &#39;2019-04-01T15:40:58.514664Z&#39;,
+   &#39;applicable_date&#39;: &#39;2019-04-06&#39;,
+   &#39;min_temp&#39;: 4.58,
+   &#39;max_temp&#39;: 13.9,
+   &#39;the_temp&#39;: 6.1,
+   &#39;wind_speed&#39;: 2.9785608048993875,
+   &#39;wind_direction&#39;: 22.50000000000001,
+   &#39;air_pressure&#39;: 1010.0,
+   &#39;humidity&#39;: 75,
+   &#39;visibility&#39;: 9.997862483098704,
+   &#39;predictability&#39;: 71}],
+ &#39;time&#39;: &#39;2019-04-01T20:37:07.101346+02:00&#39;,
+ &#39;sun_rise&#39;: &#39;2019-04-01T06:33:42.385539+02:00&#39;,
+ &#39;sun_set&#39;: &#39;2019-04-01T19:24:13.588295+02:00&#39;,
+ &#39;timezone_name&#39;: &#39;LMT&#39;,
+ &#39;parent&#39;: {&#39;title&#39;: &#39;Austria&#39;,
+  &#39;location_type&#39;: &#39;Country&#39;,
+  &#39;woeid&#39;: 23424750,
+  &#39;latt_long&#39;: &#39;47.696510,13.345770&#39;},
+ &#39;sources&#39;: [{&#39;title&#39;: &#39;BBC&#39;,
+   &#39;slug&#39;: &#39;bbc&#39;,
+   &#39;url&#39;: &#39;http://www.bbc.co.uk/weather/&#39;,
+   &#39;crawl_rate&#39;: 180},
+  {&#39;title&#39;: &#39;Forecast.io&#39;,
+   &#39;slug&#39;: &#39;forecast-io&#39;,
+   &#39;url&#39;: &#39;http://forecast.io/&#39;,
+   &#39;crawl_rate&#39;: 480},
+  {&#39;title&#39;: &#39;HAMweather&#39;,
+   &#39;slug&#39;: &#39;hamweather&#39;,
+   &#39;url&#39;: &#39;http://www.hamweather.com/&#39;,
+   &#39;crawl_rate&#39;: 360},
+  {&#39;title&#39;: &#39;Met Office&#39;,
+   &#39;slug&#39;: &#39;met-office&#39;,
+   &#39;url&#39;: &#39;http://www.metoffice.gov.uk/&#39;,
+   &#39;crawl_rate&#39;: 180},
+  {&#39;title&#39;: &#39;OpenWeatherMap&#39;,
+   &#39;slug&#39;: &#39;openweathermap&#39;,
+   &#39;url&#39;: &#39;http://openweathermap.org/&#39;,
+   &#39;crawl_rate&#39;: 360},
+  {&#39;title&#39;: &#39;Weather Underground&#39;,
+   &#39;slug&#39;: &#39;wunderground&#39;,
+   &#39;url&#39;: &#39;https://www.wunderground.com/?apiref=fc30dc3cd224e19b&#39;,
+   &#39;crawl_rate&#39;: 720},
+  {&#39;title&#39;: &#39;World Weather Online&#39;,
+   &#39;slug&#39;: &#39;world-weather-online&#39;,
+   &#39;url&#39;: &#39;http://www.worldweatheronline.com/&#39;,
+   &#39;crawl_rate&#39;: 360},
+  {&#39;title&#39;: &#39;Yahoo&#39;,
+   &#39;slug&#39;: &#39;yahoo&#39;,
+   &#39;url&#39;: &#39;http://weather.yahoo.com/&#39;,
+   &#39;crawl_rate&#39;: 180}],
+ &#39;title&#39;: &#39;Vienna&#39;,
+ &#39;location_type&#39;: &#39;City&#39;,
+ &#39;woeid&#39;: 551801,
+ &#39;latt_long&#39;: &#39;48.202541,16.368799&#39;,
+ &#39;timezone&#39;: &#39;Europe/Vienna&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;consolidated_weather&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">day</span><span class="p">[</span><span class="s2">&quot;applicable_date&quot;</span><span class="p">],</span> <span class="nb">round</span><span class="p">(</span><span class="n">day</span><span class="p">[</span><span class="s2">&quot;min_temp&quot;</span><span class="p">],</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">day</span><span class="p">[</span><span class="s2">&quot;max_temp&quot;</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2019-04-01 6.23 16.87
+2019-04-02 6.32 16.5
+2019-04-03 8.46 18.93
+2019-04-04 10.95 16.91
+2019-04-05 5.91 10.3
+2019-04-06 4.58 13.9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Oxford dictionary</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app_id</span> <span class="o">=</span> <span class="s1">&#39;8206c2a3&#39;</span>
+<span class="n">app_key</span> <span class="o">=</span> <span class="s1">&#39;bf9aacede374e4d731fb020edd801642&#39;</span>
+<span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;en&#39;</span>
+<span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://od-api.oxforddictionaries.com:443/api/v1/entries/</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">language</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;app_id&#39;</span> <span class="p">:</span> <span class="n">app_id</span><span class="p">,</span> <span class="s1">&#39;app_key&#39;</span> <span class="p">:</span> <span class="n">app_key</span><span class="p">})</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;metadata&#39;: {&#39;provider&#39;: &#39;Oxford University Press&#39;},
+ &#39;results&#39;: [{&#39;id&#39;: &#39;python&#39;,
+   &#39;language&#39;: &#39;en&#39;,
+   &#39;lexicalEntries&#39;: [{&#39;derivatives&#39;: [{&#39;id&#39;: &#39;pythonic&#39;, &#39;text&#39;: &#39;pythonic&#39;}],
+     &#39;entries&#39;: [{&#39;etymologies&#39;: [&#39;late 16th century (in the Greek sense): via Latin from Greek Puthōn, the name of a huge serpent killed by Apollo. The main current sense dates from the mid 19th century&#39;],
+       &#39;grammaticalFeatures&#39;: [{&#39;text&#39;: &#39;Singular&#39;, &#39;type&#39;: &#39;Number&#39;}],
+       &#39;homographNumber&#39;: &#39;000&#39;,
+       &#39;senses&#39;: [{&#39;definitions&#39;: [&#39;a large heavy-bodied non-venomous snake occurring throughout the Old World tropics, killing prey by constriction and asphyxiation.&#39;],
+         &#39;domains&#39;: [&#39;Reptile&#39;],
+         &#39;id&#39;: &#39;m_en_gbus0833540.009&#39;,
+         &#39;notes&#39;: [{&#39;text&#39;: &#39;Family Pythonidae: genera Python (of Asia and Africa), and Morelia and Aspidites (of Australasia)&#39;,
+           &#39;type&#39;: &#39;technicalNote&#39;}],
+         &#39;short_definitions&#39;: [&#39;large heavy-bodied non-venomous snake occurring throughout Old World tropics&#39;]},
+        {&#39;definitions&#39;: [&#39;a high-level general-purpose programming language.&#39;],
+         &#39;domains&#39;: [&#39;Computing&#39;],
+         &#39;id&#39;: &#39;m_en_gbus0833540.014&#39;,
+         &#39;notes&#39;: [{&#39;text&#39;: &#39;mass noun&#39;, &#39;type&#39;: &#39;grammaticalNote&#39;}],
+         &#39;short_definitions&#39;: [&#39;high-level general-purpose programming language&#39;],
+         &#39;variantForms&#39;: [{&#39;text&#39;: &#39;Python&#39;}]}]}],
+     &#39;language&#39;: &#39;en&#39;,
+     &#39;lexicalCategory&#39;: &#39;Noun&#39;,
+     &#39;pronunciations&#39;: [{&#39;audioFile&#39;: &#39;http://audio.oxforddictionaries.com/en/mp3/python_gb_1.mp3&#39;,
+       &#39;dialects&#39;: [&#39;British English&#39;],
+       &#39;phoneticNotation&#39;: &#39;IPA&#39;,
+       &#39;phoneticSpelling&#39;: &#39;ˈpʌɪθ(ə)n&#39;}],
+     &#39;text&#39;: &#39;python&#39;}],
+   &#39;type&#39;: &#39;headword&#39;,
+   &#39;word&#39;: &#39;python&#39;}]}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;lexicalEntries&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;entries&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;senses&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[33]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;definitions&#39;: [&#39;a large heavy-bodied non-venomous snake occurring throughout the Old World tropics, killing prey by constriction and asphyxiation.&#39;],
+  &#39;domains&#39;: [&#39;Reptile&#39;],
+  &#39;id&#39;: &#39;m_en_gbus0833540.009&#39;,
+  &#39;notes&#39;: [{&#39;text&#39;: &#39;Family Pythonidae: genera Python (of Asia and Africa), and Morelia and Aspidites (of Australasia)&#39;,
+    &#39;type&#39;: &#39;technicalNote&#39;}],
+  &#39;short_definitions&#39;: [&#39;large heavy-bodied non-venomous snake occurring throughout Old World tropics&#39;]},
+ {&#39;definitions&#39;: [&#39;a high-level general-purpose programming language.&#39;],
+  &#39;domains&#39;: [&#39;Computing&#39;],
+  &#39;id&#39;: &#39;m_en_gbus0833540.014&#39;,
+  &#39;notes&#39;: [{&#39;text&#39;: &#39;mass noun&#39;, &#39;type&#39;: &#39;grammaticalNote&#39;}],
+  &#39;short_definitions&#39;: [&#39;high-level general-purpose programming language&#39;],
+  &#39;variantForms&#39;: [{&#39;text&#39;: &#39;Python&#39;}]}]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Obecné rady a postřehy</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Ptejte se na Slacku na cokoli. Co bude zajímavé pro více lidí, to zpracujeme do hodiny.</li>
+<li>Pokud máte úkoly na githubu:<ul>
+<li>Odevzdejte na Dropbox jen odkaz v souboru <code>.txt</code> nikoli <code>.docx</code></li>
+<li>Pokud vám Martin nezaloží issue, je ve vašem úkolu vše v pořádku</li>
+</ul>
+</li>
+<li>Pochvala za validaci inputů<ul>
+<li>Ještě větší pochvala za validaci s pomocí výjimek</li>
+</ul>
+</li>
+<li>Pochvala za dokumentační řetězce<ul>
+<li>Ještě větší pochvala za dokumentační řetězce ve třech uvozovkách<ul>
+<li>A ještě větší pochvala těm, kdož jsou konzistentní a dávají dokumentační řetězce úplně všude</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+ 
+

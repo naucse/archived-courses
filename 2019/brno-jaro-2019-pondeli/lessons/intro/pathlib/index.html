@@ -1,0 +1,364 @@
+<h1>Cesty a soubory s Pathlib</h1>
+<p>Základní práci se soubory – čtení z nich a psaní do nich – rozebírá
+<a href="naucse:page?lesson=beginners/files">lekce o souborech</a>. Pro zopakování:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Otevření textového souboru &quot;basnicka.txt&quot; pro čtení</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;basnicka.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">soubor</span><span class="p">:</span>
+    <span class="c1"># Přečtení obsahu</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">soubor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Velikost souboru</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">soubor</span><span class="p">))</span>
+</pre></div><p>Jméno souboru, případně cesta k němu, se tradičně zadává jako řetězec.
+Jednotlivé adresáře jsou odděleny lomítkem (případně na Windows zpětným lomítkem);
+fungují tu absolutní i relativní cesty.</p>
+<p>Pro prosté otvírání známých souborů to stačí.
+Když ale potřebuješ s cestami k souborům pracovat víc,
+řetězce jsou docela nepohodlné.
+A navíc je problém pamatovat na všechny různé případy, které můžou nastat.</p>
+<p>Zkus pro příkad napsat funkce, které dostanou cestu k souboru a:</p>
+<ul>
+<li><code>vrat_casti</code> rozdělí cestu na jednotlivé adresáře (a vrátí je jako seznam),</li>
+<li><code>vrat_priponu</code> vrátí příponu souboru.</li>
+</ul>
+<p>Na mém Linuxovém počítači cesty vypadají jako
+<code>/home/janca/Documents/archiv.tar.gz</code>, takže bych mohl napsat něco jako:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vrat_casti</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrátí seznam komponentů cesty (jednotlivých adresářů/souborů)&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">vrat_priponu</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrátí příponu souboru&quot;&quot;&quot;</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div><p>Pro mou cestu to funguje:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retezcova_cesta</span> <span class="o">=</span> <span class="s1">&#39;/home/janca/Documents/archiv.tar.gz&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vrat_casti</span><span class="p">(</span><span class="n">retezcova_cesta</span><span class="p">)</span>
+<span class="go">[&#39;&#39;, &#39;home&#39;, &#39;janca&#39;, &#39;Documents&#39;, &#39;archiv.tar.gz&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vrat_pripona</span><span class="p">(</span><span class="n">retezcova_cesta</span><span class="p">)</span>
+<span class="go">&#39;gz&#39;</span>
+</pre></div><p>Ale pro jinou cestu na jiném počítači už ne:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retezcova_cesta</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">Jana</span><span class="se">\\</span><span class="s1">Programy</span><span class="se">\\</span><span class="s1">superprojekt</span><span class="se">\\</span><span class="s1">README&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vrat_casti</span><span class="p">(</span><span class="n">retezcova_cesta</span><span class="p">)</span>
+<span class="go">[&#39;C:\\Users\\Jana\\Programy\\superprojekt\\README&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vrat_priponu</span><span class="p">(</span><span class="n">retezcova_cesta</span><span class="p">)</span>
+<span class="go">&#39;C:\Users\Jana\Programy\superprojekt\README&#39;</span>
+</pre></div><div class="admonition note"><p>To, že programátoři používali na cesty řetězce a nepromýšleli všechny možné
+podivnosti souborových systémů, je hlavní důvod proč si ještě dnes spousta
+programů neporadí s diakritikou nebo mezerami v názvech souborů.</p>
+</div><p>Jde to líp? Samozřejmě!</p>
+<h2>Knihovna pathlib</h2>
+<p>Od verze 3.4 obsahuje Python knihovnu <code>pathlib</code>, jejíž třída <code>Path</code> reprezentuje
+cestu k souboru a umožňuje s takovými cestami jednoduše a bezpečně manipulovat.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Cesta, která na Windows i Unixu funguje podobně:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/janca/Documents/archiv.tar.gz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">parts</span>
+<span class="go">(&#39;/&#39;, &#39;home&#39;, &#39;janca&#39;, &#39;Documents&#39;, &#39;archiv.tar.gz&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">suffix</span>
+<span class="go">&#39;.gz&#39;</span>
+</pre></div><p>Ukázka s cestou pro Windows (která by na Unixu nefungovala):</p>
+<div class="admonition note"><p>Pouštíš-li ukázku na Windows, můžeš místo <code>PureWindowsPath</code> použít rovnou
+<code>Path</code>.</p>
+</div><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">PureWindowsPath</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">win_cesta</span> <span class="o">=</span> <span class="n">PureWindowsPath</span><span class="p">(</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">Jana</span><span class="se">\\</span><span class="s1">Programy</span><span class="se">\\</span><span class="s1">superprojekt</span><span class="se">\\</span><span class="s1">README&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">win_cesta</span><span class="o">.</span><span class="n">parts</span>
+<span class="go">(&#39;C:\\&#39;, &#39;Users&#39;, &#39;Jana&#39;, &#39;Programy&#39;, &#39;superprojekt&#39;, &#39;README&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">win_cesta</span><span class="o">.</span><span class="n">suffix</span>
+<span class="go">&#39;&#39;</span>
+</pre></div><p>Ukažme si teď něco z toho, co <code>pathlib</code> umožňuje.
+Nebude to všechno – další možnosti najdeš <a href="https://pyvec.github.io/cheatsheets/pathlib/pathlib-cs.pdf">na taháku</a> nebo v angličtině
+v <a href="https://docs.python.org/3/library/pathlib.html">dokumentaci</a>.</p>
+<h2>Tvoření cest</h2>
+<p>Cesty v <code>pathlib</code> se tvoří zavoláním třídy <code>Path</code>.
+Na Windows se tím vytvoří <code>WindowsPath</code>, na Unixu <code>PosixPath</code>.</p>
+<p>Obě považují dopředná lomítka za oddělovač adresářů,
+takže následující bude fungovat na všech systémech:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">docs_cesta</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/janca/Documents&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">docs_cesta</span>
+<span class="go">PosixPath(&#39;/home/janca/Documents&#39;)</span>
+</pre></div><p>Už při vytvoření cesty se tato <em>normalizuje</em>, zjednoduší bez změny významu.
+Víc lomítek za sebou se spojí do jednoho, zbytečné adresáře nebo lomítka na
+konci se vynechají.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/tmp//foo/./bar/&#39;</span><span class="p">)</span>
+<span class="go">PosixPath(&#39;/tmp/foo/bar&#39;)</span>
+</pre></div><p>Když chci k takové cestě něco připojit, použiju operátor <code>/</code> (který by se měl
+používat na dělení, ale psst!):</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">docs_cesta</span> <span class="o">/</span> <span class="s1">&#39;archiv.tar.gz&#39;</span>
+<span class="go">PosixPath(&#39;/home/janca/Documents/archiv.tar.gz&#39;)</span>
+</pre></div><p>Přidávat se takhle dají řetězcové cesty, nebo i další <code>Path</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;home/janca&#39;</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;archiv.tar.gz&#39;</span><span class="p">)</span>
+<span class="go">PosixPath(&#39;/home/janca/archiv.tar.gz&#39;)</span>
+</pre></div><p>Pozor ale na to, že absolutní cesta (s lomítkem nebo jménem disku na začátku)
+znamená, že procházení začíná znovu od kořenového adresáře.
+Když k něčemu připojím absolutní cestu, předchozí cesta se zahodí.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/janca&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;/tmp/foo&#39;</span>
+<span class="go">PosixPath(&#39;/tmp/foo&#39;)</span>
+</pre></div><p>Občas lomítko není pohodlné.
+V takových případech jde použít metoda <code>joinpath</code>, která má stejný efekt:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;janca/archiv.tar.gz&#39;</span><span class="p">)</span>
+<span class="go">PosixPath(&#39;/home/janca/archiv.tar.gz&#39;)</span>
+</pre></div><h2>Atributy</h2>
+<p>Cesty v pathlib mají spoustu užitečných atributů – vlastností, ke kterým se
+dostaneš pomocí tečky:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Příklady ukážeme opět na téhle cestě:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/janca/Documents/archiv.tar.gz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span>
+<span class="go">PosixPath(&#39;/home/janca/Documents/archiv.tar.gz&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># jméno</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;archiv.tar.gz&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Přípona (poslední)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">suffix</span>
+<span class="go">&#39;.gz&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Věchny přípony</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">suffixes</span>
+<span class="go">[&#39;.tar&#39;, &#39;.gz&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># &quot;kořen&quot; jména (bez poslední přípony)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">stem</span>
+<span class="go">&#39;archiv.tar&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># &quot;rodič&quot; – adresář, který tuto cestu obsahuje</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">parent</span>
+<span class="go">PosixPath(&#39;/home/janca/Documents&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+<span class="go">PosixPath(&#39;/home/janca&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+<span class="go">PosixPath(&#39;/&#39;)</span>
+</pre></div><p>Všechny "předky" -- rodiče, prarodiče, atd. -- nabízí atribut "parents".
+Výsledek je ale <em>iterátor</em>; aby se ukázaly jednotlivé hodnoty,
+je potřeba ho projít cyklem <code>for</code>, převést na seznam, atp.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">parents</span>
+<span class="go">&lt;PosixPath.parents&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">cesta</span><span class="o">.</span><span class="n">parents</span><span class="p">)</span>
+<span class="go">[PosixPath(&#39;/home/janca/Documents&#39;),</span>
+<span class="go"> PosixPath(&#39;/home/janca&#39;),</span>
+<span class="go"> PosixPath(&#39;/home&#39;),</span>
+<span class="go"> PosixPath(&#39;/&#39;)]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Je cesta absolutní?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;foo/archiv.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">()</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Jaká by byla relativní vzhledem k jiné, nadřazené cestě?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relativni_cesta</span> <span class="o">=</span> <span class="n">cesta</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="s1">&#39;/home/janca&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">relativni_cesta</span>
+<span class="go">PosixPath(&#39;Documents/archiv.tar.gz&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Spojením té nadřazené cesty a této relativní dostanu zpátky původní cestu</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/home/janca&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">relativni_cesta</span>
+<span class="go">PosixPath(&#39;/home/janca/Documents/archiv.tar.gz&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Přepsání jména souboru (poslední části cesty)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="s1">&#39;hrad.jpeg&#39;</span><span class="p">)</span>
+<span class="go">PosixPath(&#39;/home/janca/Documents/hrad.jpeg&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Přepsání koncovky</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.bz2&#39;</span><span class="p">)</span>
+<span class="go">PosixPath(&#39;/home/janca/Documents/archiv.tar.bz2&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Pokud existující koncovka není, `with_suffix` ji přidá</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;myproject/README&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.xz&#39;</span><span class="p">)</span>
+<span class="go">PosixPath(&#39;myproject/README.xz&#39;)</span>
+</pre></div><h2>Zkoumání disku</h2>
+<p>Všechno uvedené výše jsou čistě „textové“ operace – pracují jen se jmény.
+Soubor <code>archiv.zip</code> (ani jiné) počítači mít, aby ses dostala k příponě
+nebo ke jménům nadřazených adresářů.</p>
+<div class="admonition note"><p>Dokonce si můžeš vyzkoušet, jak by to fungovalo na jiném systému – místo <code>Path</code>
+naimportuj a použij <code>PureWindowsPath</code> nebo <code>PurePosixPath</code>, které reprezentují
+Windowsové, resp. Unixové cesty.</p>
+</div><p>Zamysli se: k čemu se hodí umět pojmenovat soubor, který neexistuje?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>Jméno potřebuješ třeba když chceš soubor vytvořit.</p>
+    </div>
+</div><p>Teď se dostaneme k operacím pro které je potřeba mít přístup k souborovému
+systému.</p>
+<p>Nejdříve dvě funkce, které vrací cesty k užitečným adresářům:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Aktuální adresář</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="go">PosixPath(&#39;/home/janca/pyladies/barvy&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Můj domovský adresář</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span>
+<span class="go">PosixPath(&#39;/home/janca&#39;)</span>
+</pre></div><p>A základní otázky – existuje daný soubor?
+Je to normální soubor nebo adresář?</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Existuje na té ukázkové cestě nějaký soubor?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Existuje můj domovský adresář?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># A je to vůbec adresář?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Je to normální datový soubor?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="go">False</span>
+</pre></div><h2>Ukázka</h2>
+<p>Abychom měli všichni stejné podmínky, stáhni si na další experimenty
+<a href="naucse:static?filename=archiv.tar.gz">archiv s testovacími soubory</a>.
+Dej si ho do aktuálního adresáře (<code>Path.cwd()</code>), a pak ho rozbal pomocí
+<code>tarfile</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">tarfile</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cesta_k_archivu</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;archiv.tar.gz&quot;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Co je v archivu?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cesta_k_archivu</span><span class="p">,</span> <span class="s1">&#39;r|gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getnames</span><span class="p">()</span>
+<span class="go">[&#39;soubory&#39;,</span>
+<span class="go"> &#39;soubory/hrad.jpeg&#39;,</span>
+<span class="go"> &#39;soubory/hrad.attribution&#39;,</span>
+<span class="go"> &#39;soubory/.gitignore&#39;,</span>
+<span class="go"> &#39;soubory/kolecko.png&#39;,</span>
+<span class="go"> &#39;soubory/texty&#39;,</span>
+<span class="go"> &#39;soubory/texty/vodnik.txt&#39;,</span>
+<span class="go"> &#39;soubory/texty/lidove&#39;,</span>
+<span class="go"> &#39;soubory/texty/lidove/pes.txt&#39;,</span>
+<span class="go"> &#39;soubory/texty/lidove/holka.txt&#39;,</span>
+<span class="go"> &#39;soubory/texty/vladimir.txt&#39;,</span>
+<span class="go"> &#39;soubory/texty/cizojazycne&#39;,</span>
+<span class="go"> &#39;soubory/texty/cizojazycne/iroha.txt&#39;,</span>
+<span class="go"> &#39;soubory/texty/cizojazycne/witch.txt&#39;,</span>
+<span class="go"> &#39;soubory/hlad.txt&#39;,</span>
+<span class="go"> &#39;soubory/hraz.attribution&#39;,</span>
+<span class="go"> &#39;soubory/ententyky.txt&#39;,</span>
+<span class="go"> &#39;soubory/hraz.jpeg&#39;,</span>
+<span class="go"> &#39;soubory/README&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extrakce archivu. (Kdybys to zkoušel/a pro jiné archivy, vždy před</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># rozbalením zkontroluj cesty všech souborů v archivu -- ať se rozbalením</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># nepřepíše nějaký důležitý soubor!)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cesta_k_archivu</span><span class="p">,</span> <span class="s1">&#39;r|gz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+</pre></div><p>Rozbalením archivu vznikl <code>./soubory/</code> (tedy: adresář <code>soubory</code> v aktuálním
+adresáři).
+Pojď se mu kouknout na zoubek:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">zaklad</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./soubory&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zaklad</span>
+<span class="go">PosixPath(&#39;soubory&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Je to adresář?&#39;</span><span class="p">,</span> <span class="n">zaklad</span><span class="o">.</span><span class="n">is_dir</span><span class="p">())</span>
+<span class="go">Je to adresář? True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Je to normální soubor?&#39;</span><span class="p">,</span> <span class="n">zaklad</span><span class="o">.</span><span class="n">is_file</span><span class="p">())</span>
+<span class="go">Je to normální soubor? False</span>
+</pre></div><p>Podle informací o archivu je v soubory nějaký <code>ententyky.txt</code> – podle přípony
+soubor s textem.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ententyky</span> <span class="o">=</span> <span class="n">zaklad</span> <span class="o">/</span> <span class="s1">&#39;ententyky.txt&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Je to adresář?&#39;</span><span class="p">,</span> <span class="n">ententyky</span><span class="o">.</span><span class="n">is_dir</span><span class="p">())</span>
+<span class="go">Je to adresář? False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Je to normální soubor?&#39;</span><span class="p">,</span> <span class="n">ententyky</span><span class="o">.</span><span class="n">is_file</span><span class="p">())</span>
+<span class="go">Je to normální soubor? True</span>
+</pre></div><p>Objekty <code>Path</code> lze používat v naprosté většině situací, kdy jde použít cesta
+jako řetězec.
+Například pro funkci <code>open</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ententyky</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div><p><code>Path</code> ale má <code>open</code> i jako metodu:</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ententyky</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div><p>A protože je čtení celého textového obsahu souboru docela užitečné,
+existuje i zkratka která soubor otevře, přečte a zavře najednou:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ententyky</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+</pre></div><p>(Větší soubory je ale lepší otevřít ve <code>with</code> a zpracovávat třeba po řádcích,
+aby se obsah nemusel do paměti počítače načíst celý najednou.)</p>
+<p>Existuje i <code>write_text</code>:</p>
+<div class="highlight"><pre><span></span><span class="n">cesta</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;pisnicka.txt&#39;</span>
+<span class="n">cesta</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s1">&#39;Holka modrooká</span><span class="se">\n</span><span class="s1">Nesedávej u potoka!&#39;</span><span class="p">)</span>
+</pre></div><h2>A co adresáře?</h2>
+<p>I s adresáři umí <code>pathlib</code> pracovat.
+Nejzákladnější operace je získání cest k obsaženým souborům:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">zaklad</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+<span class="go">&lt;generator object Path.iterdir at 0x7fbd4443b9e8&gt;</span>
+</pre></div><p>Metoda iterdir opět vrací <em>iterátor</em> – objekt, přes který musíš „projít“
+(cyklem for, převedením na seznam ap.), abys z něj dostala obsah.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">zaklad</span><span class="o">.</span><span class="n">iterdir</span><span class="p">())</span>
+<span class="go">[PosixPath(&#39;soubory/hrad.jpeg&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/hrad.attribution&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/.gitignore&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/kolecko.png&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/texty&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/hlad.txt&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/hraz.attribution&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/ententyky.txt&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/hraz.jpeg&#39;),</span>
+<span class="go"> PosixPath(&#39;soubory/README&#39;)]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">cesta</span> <span class="ow">in</span> <span class="n">zaklad</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>   <span class="k">print</span><span class="p">(</span><span class="n">cesta</span><span class="p">)</span>
+<span class="go">soubory/hrad.jpeg</span>
+<span class="go">soubory/hrad.attribution</span>
+<span class="go">soubory/.gitignore</span>
+<span class="go">soubory/kolecko.png</span>
+<span class="go">soubory/texty</span>
+<span class="go">soubory/hlad.txt</span>
+<span class="go">soubory/hraz.attribution</span>
+<span class="go">soubory/ententyky.txt</span>
+<span class="go">soubory/hraz.jpeg</span>
+<span class="go">soubory/README</span>
+</pre></div><h2>Strom adresářů – rekurze</h2>
+<p>Adresáře, podadresáře a soubory v nich tvoří strukturu, na kterou se často
+používají rekurzivní funkce.</p>
+<p>Tady je funkce <code>vypis_soubory</code>, která ypíše všechny soubory v daném adresáři.
+Před každé jméno dá odrážku <code>-</code>, aby to líp vypadalo:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span> <span class="nf">vypis_soubory</span><span class="p">(</span><span class="n">odrazka</span><span class="p">,</span> <span class="n">adresar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vypíše odrážkový seznam jmen souborů v daném adresáři&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">soubor</span> <span class="ow">in</span> <span class="n">adresar</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">odrazka</span><span class="p">,</span> <span class="n">soubor</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">vypis_soubory</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+</pre></div><p>Odrážka se dá zadat:</p>
+<div class="highlight"><pre><span></span><span class="n">vypis_soubory</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+<span class="n">vypis_soubory</span><span class="p">(</span><span class="s1">&#39;  *&#39;</span><span class="p">,</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+</pre></div><p>Tahle funkce se dá změnit, aby vypsala i obsahy <em>podadresářů</em>.
+Jak?
+Poté, co vypíše jméno nějakého podadresáře, zavolá funkci která vypíše
+obsah toho podadresáře.
+Takovou funkci ale už máš napsanou – stačí trochu změnit odrážku, aby bylo
+poznat co je podadresář.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span> <span class="nf">vypis_soubory</span><span class="p">(</span><span class="n">odrazka</span><span class="p">,</span> <span class="n">adresar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vypíše odrážkový seznam jmen souborů v daném adresáři i podadresářích&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">soubor</span> <span class="ow">in</span> <span class="n">adresar</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">odrazka</span><span class="p">,</span> <span class="n">soubor</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">soubor</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="n">vypis_soubory</span><span class="p">(</span><span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="n">odrazka</span><span class="p">,</span> <span class="n">soubor</span><span class="p">)</span>
+
+<span class="n">vypis_soubory</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">())</span>
+</pre></div><p>Podobně lze například spočítat soubory v nějakém adresáři (i všech
+podadresářích).</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span> <span class="nf">spocitej_normalni_soubory</span><span class="p">(</span><span class="n">adresar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrátí počet normálních souborů v daném adresáři i všech podadresářích&quot;&quot;&quot;</span>
+    <span class="n">pocet</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">soubor</span> <span class="ow">in</span> <span class="n">adresar</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">soubor</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="n">pocet</span> <span class="o">=</span> <span class="n">pocet</span> <span class="o">+</span> <span class="n">spocitej_normalni_soubory</span><span class="p">(</span><span class="n">soubor</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">soubor</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+            <span class="n">pocet</span> <span class="o">=</span> <span class="n">pocet</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pocet</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">spocitej_normalni_soubory</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()))</span>
+</pre></div>

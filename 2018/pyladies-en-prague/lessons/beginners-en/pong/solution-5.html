@@ -1,0 +1,17 @@
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="o">...</span>
+<span class="k">def</span> <span class="nf">reset</span><span class="p">():</span>
+    <span class="n">ball_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">ball_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="c1"># x speed - right or left</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">ball_speed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">SPEED</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ball_speed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">SPEED</span>
+    <span class="c1"># y speed - completely random</span>
+    <span class="n">ball_speed</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">SPEED</span>
+<span class="o">...</span>
+<span class="c1"># We will set the initial state.</span>
+<span class="n">reset</span><span class="p">()</span>
+</pre></div>

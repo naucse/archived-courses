@@ -1,0 +1,195 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Feedback k domácím projektům</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Úkol 1</h2>
+<p>Doplň funkci tah_pocitace tak, aby brala jako argument symbol, za který má počítač hrát – buď 'x',nebo 'o'. Ověř, že se funkce tah_pocitace umí vyrovnat s jinou délkou hracího pole než 20. Ověř si,že se tah_pocitace chová rozumně když dostane plné hrací pole, nebo pole s délkou 0. Rozumné chování v tomto případě znamená vyvolání rozumné výjimky.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Funkce tah_pocitace() před úpravou:</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tah_pocitace</span><span class="p">(</span><span class="n">herni_pole</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrátí herní pole se zaznamenaným tahem počítače.&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">cislo_pozice</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">herni_pole</span><span class="p">[</span><span class="n">cislo_pozice</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tah</span><span class="p">(</span><span class="n">herni_pole</span><span class="p">,</span> <span class="n">cislo_pozice</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3>Jedna z možností, jak funkci tah_pocitace() upravit:</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tah_pocitace</span><span class="p">(</span><span class="n">herni_pole</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrátí herní pole se zaznamenaným tahem počítače.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">herni_pole</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Nelze hrát, herní pole má délku 0&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;-&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">herni_pole</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Nelze hrát, herní pole je plné&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">cislo_pozice</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">herni_pole</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">herni_pole</span><span class="p">[</span><span class="n">cislo_pozice</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tah</span><span class="p">(</span><span class="n">herni_pole</span><span class="p">,</span> <span class="n">cislo_pozice</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Ukázka testu, zda se umí tah_pocitace() vyrovnat s různou délkou herního pole.</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_tah_PC_ruzna_delka_pole</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test funkce tah_pocitace: program se umí vyrovnat s různou délkou hracího</span>
+<span class="sd">    pole = nedojde k chybě, po tahu počítače se nezmění délka hracího pole</span>
+<span class="sd">    a nové hrací pole bude obsahovat 1 znak symbolu &quot;x&quot; a zbytek bude prázdný.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">delka_pole</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="n">delka_pole</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">tah_pocitace</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span> <span class="o">==</span> <span class="n">delka_pole</span>
+        <span class="k">assert</span> <span class="n">pole</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">pole</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">delka_pole</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">test_tah_PC_vyjimky</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Testuje vyvolání vyjímky v případě herního pole nulové délky a herního pole</span>
+<span class="sd">    bez prázdných míst.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">pole</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1"># prázné herní pole</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">tah_pocitace</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    
+    <span class="n">pole</span> <span class="o">=</span> <span class="s1">&#39;xoxoxox&#39;</span>  <span class="c1"># pole, kde není kam hrát</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">tah_pocitace</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Ukázky dalších možných testů</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_tah_PC_zapln_pole</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test funkce tah_pocitace: při opakovaném tahu počítač zaplní celé pole</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">pole</span> <span class="o">=</span> <span class="s1">&#39;----------&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">tah_pocitace</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">pole</span> <span class="o">==</span> <span class="s1">&#39;xxxxxxxxxx&#39;</span>
+
+    
+<span class="k">def</span> <span class="nf">test_tah_vyjimka</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test funkce tah: funkce vyvolá výjimku:</span>
+<span class="sd">    --&gt; ValueError - když dostane prázné pole nebo když jako symbol dostane</span>
+<span class="sd">                    více znaků,</span>
+<span class="sd">    --&gt; IndexError - když má zapsat symbol na pozici mimo pole, když jako pozice</span>
+<span class="sd">                    není INT,</span>
+<span class="sd">    --&gt; TypeError - když dostane jako symbol, který má zapsat INT místo STR</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">ai</span><span class="o">.</span><span class="n">tah</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">ai</span><span class="o">.</span><span class="n">tah</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">):</span>
+        <span class="n">ai</span><span class="o">.</span><span class="n">tah</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">ai</span><span class="o">.</span><span class="n">tah</span><span class="p">(</span><span class="s1">&#39;---------&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">ai</span><span class="o">.</span><span class="n">tah</span><span class="p">(</span><span class="s1">&#39;---------&#39;</span><span class="p">,</span><span class="mf">10.5</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+        <span class="n">ai</span><span class="o">.</span><span class="n">tah</span><span class="p">(</span><span class="s1">&#39;---------&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">ai</span><span class="o">.</span><span class="n">tah</span><span class="p">(</span><span class="s1">&#39;---------&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">10.5</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_tah_PC_ruzna_delka_pole</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test funkce tah_pocitace: program se umí vyrovnat s různou délkou hracího</span>
+<span class="sd">    pole = nedojde k chybě, po tahu počítače se nezmění délka hracího pole</span>
+<span class="sd">    a nové hrací pole bude obsahovat 1 znak symbolu &quot;x&quot; a zbytek bude prázdný.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">delka_pole</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">):</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">tah_pocitace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="n">delka_pole</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span> <span class="o">==</span> <span class="n">delka_pole</span>
+        <span class="k">assert</span> <span class="n">pole</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="n">pole</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">delka_pole</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Obecné rady a postřehy</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Evergreen = ptejte se!</li>
+<li>Dokumentační řetězce se píšou do třech uvozovek a patří na první řádky do těla funkce. Pokud si chcete poznamenat nějakou poznámku na jiném místě, používejte komentáře (#).</li>
+</ul>
+</div>
+</div>
+</div>
+ 
+

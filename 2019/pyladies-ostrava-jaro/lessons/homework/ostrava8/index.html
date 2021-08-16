@@ -1,0 +1,89 @@
+<ol start="0">
+
+
+        </ol>
+        <div class="group-heading">
+                <p>Těchto pár úkolů slouží k procvičení práce se slovníky, které se následně
+pokusíš využít při programování známé skautské hry.</p>
+            </div>
+
+        <ol start="0">
+
+
+
+        <li>
+            <p>Napiš funkci, která pro argumentem zadané číslo <code>n</code> vytvoří a vrátí slovník,
+kde jako klíče budou čísla od jedné do <code>n</code> a jako hodnoty k nim
+jejich druhé mocniny. Například:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mocniny</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">{1: 1, 2: 4, 3: 9, 4: 16}</span>
+</pre></div>
+        </li>
+
+
+
+
+        <li>
+            <p>Napiš funkci, která sečte a vrátí sumu všech klíčů a sumu všech hodnot
+ve slovníku, který dostane jako argument. K vyzkoušení můžeš použít
+slovník z minulé úlohy. Například:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">soucet_klicu_a_hodnot</span><span class="p">(</span><span class="n">mocniny</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="go">(10, 30)</span>
+</pre></div>
+        </li>
+
+
+
+
+        <li>
+            <p>Napiš funkci, která jako argument dostane řetězec a vrátí slovník,
+ve kterém budou jako klíče jednotlivé znaky ze zadaného řetězce a jako
+hodnoty počty výskytů těchto znaků v řetězci. Například:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pocet_znaku</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="go">{&#39;h&#39;: 1, &#39;e&#39;: 1, &#39;l&#39;: 3, &#39;o&#39;: 2, &#39; &#39;: 1, &#39;w&#39;: 1, &#39;r&#39;: 1, &#39;d&#39;: 1}</span>
+</pre></div>
+        </li>
+
+
+
+
+        <li>
+            <p>Napiš funkci, která vypíše obsah slovníku (klíče a k nim náležící
+hodnoty) na jednotlivé řádky.</p>
+<p>Funkci, která něco vypisuje, je vhodné
+pojmenovat speciálně, zde třeba <code>vypis_slovnik</code>, aby bylo jasné,
+že jen vypisuje a nic nevrací. Například:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vypis_slovnik</span><span class="p">(</span><span class="n">mocniny</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="go">Klíč 1, hodnota 1</span>
+<span class="go">Klíč 2, hodnota 4</span>
+<span class="go">Klíč 3, hodnota 9</span>
+<span class="go">Klíč 4, hodnota 16</span>
+</pre></div>
+        </li>
+
+
+
+
+        </ol>
+        <hr><div class="group-heading">
+                <p>A teď už ke slíbené hře.</p>
+            </div>
+
+        <ol start="4">
+
+
+
+        <li>
+            <p>Úkolem je vytvořit známou skautskou hru „Kdo? S kým? Co dělali?“. Hra se
+hráče zeptá postupně na různé otázky, například „Kdo?“, „S kým?“,
+„Co dělali?“, „Kde?“, „Kdy?“, a nakonec „Proč?“, s tím, že mu umožní
+na jednu otázku odpovědět vícekrát a všechny odpovědi si uloží.
+Na závěr pak hra z každé sady odpovědí vybere náhodně jednu odpověď
+a z takto vybraných odpovědí složí větu, kterou vypíše uživateli.
+Seznam otázek by mělo být možné změnit v kódu na jednom místě bez zásahu
+do logiky programu.</p>
+        </li>
+
+
+
+</ol>

@@ -1,0 +1,194 @@
+<h1>Webový server - rozhraní k piškvorkám</h1>
+<p>Tato lekce navazuje na dřívější úkoly - 1D piškvorky. Pokud je nemáš udělané,
+můžeš použít ukázkové následující soubory.</p>
+<p>Soubor <code>util.py</code> musí obsahovat funkci <code>tah(pole, index, symbol)</code>, která se
+pokusí umístit hráčův symbol do zadaného hracího pole a vrací nový stav hracího
+pole (neúspěch je indikován vyvoláním výjimky <code>ValueError</code>). Může vypadat
+například takto:</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="c1"># util.py</span>
+<span class="k">def</span> <span class="nf">tah</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span>
+    <span class="k">if</span> <span class="n">pole</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span>
+    <span class="k">if</span> <span class="n">symbol</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span>
+
+    <span class="k">return</span> <span class="n">pole</span><span class="p">[:</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="n">symbol</span> <span class="o">+</span> <span class="n">pole</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+
+<span class="k">def</span> <span class="nf">vyhodnot</span><span class="p">(</span><span class="n">pole</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;xxx&#39;</span> <span class="ow">in</span> <span class="n">pole</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;x&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;ooo&#39;</span> <span class="ow">in</span> <span class="n">pole</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;o&#39;</span>
+    <span class="k">if</span> <span class="s1">&#39;-&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pole</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;!&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;-&#39;</span>
+</pre></div>
+    </div>
+</div><p>Podobně s <code>ai.py</code>. Ten musí obsahovat funkci <code>tah_pocitace(pole, symbol)</code>, který
+se pokusí umístit zadaný symbol do hracího pole, vrací nový stav hracího pole.
+použít velmi naivní strategii:</p>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="c1"># ai.py</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="kn">from</span> <span class="nn">util</span> <span class="kn">import</span> <span class="n">tah</span>
+
+<span class="k">def</span> <span class="nf">tah_pocitace</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+    <span class="n">delka</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pole</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">delka</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">tah</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+</pre></div>
+    </div>
+</div><h1>První seznámení se serverem</h1>
+<p>Pro webový server dneska použijeme knihovnu <code>flask</code>. Již tradičně, nejprve si ji
+nainstalujeme:</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> $ python -m pip install flask
+</pre></div><p>Začneme s jednoduchou kostrou:</p>
+<div class="highlight"><pre><span></span><span class="c1"># webpiskvorky.py</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hra</span><span class="p">():</span>
+    <span class="n">jmeno_zvirete</span> <span class="o">=</span> <span class="s1">&#39;Andulka na bidýlku&#39;</span>
+
+    <span class="k">return</span> <span class="n">f</span><span class="s1">&#39;Ahoj, jmenuju se {jmeno_zvirete}.&#39;</span>
+</pre></div><h2>Spuštění serveru</h2>
+<p>Aplikace ve Flasku se spouští trochu jinak, než programy, které jsme si doposud
+napsali.  Nejprve je nutné nastavit několik proměnných prostředí a to se dělá na
+různých počítačích jiným způsobem.</p>
+<p>V linuxu/Mac:</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>webpiskvorky.py
+$ <span class="nb">export</span> <span class="nv">FLASK_DEBUG</span><span class="o">=</span><span class="m">1</span>
+</pre></div><p>Pokud pracuješ na Windows:</p>
+<div class="highlight"><pre><span></span>&gt; <span class="nb">set</span> <span class="nv">FLASK_APP</span><span class="o">=</span>webpiskvorky.py
+&gt; <span class="nb">set</span> <span class="nv">FLASK_DEBUG</span><span class="o">=</span><span class="m">1</span>
+</pre></div><p>Tak, tím máme nachystané prostředí a konečně můžeme server spustit:</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> $ flask run
+ * Serving Flask app <span class="s2">&quot;webpiskvorky.py&quot;</span> <span class="o">(</span>lazy loading<span class="o">)</span>
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ <span class="o">(</span>Press CTRL+C to quit<span class="o">)</span>
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: <span class="m">279</span>-218-554
+</pre></div><p>Otevři si v prohlížeči stránku <a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a> a mělo by se ti zobrazi
+prázdná stránka pouze s textem</p>
+<div class="highlight"><pre><code>Ahoj, jmenuju se Andulka na bidýlku.</code></pre></div><h2>Šablona</h2>
+<p>Psaní obsahu stránky přímo v pythonu je docela nepohodlné. Proto využijeme tzv.
+šablon. To je soubor, do kterého ve kterém se dají nahradit proměnné za jejich
+hodnoty.</p>
+<p>Ve stejné složce, jako se nachází soubor <code>webpiskvorky.py</code> vytvoříme novou
+složku <code>templates</code> a v ní následující <code>piskvorky.html</code>:</p>
+<p>Soubor <code>templates/piskvorky.html</code>:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        Ahoj, jmenuju se {{ jmeno }}
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div><p>Nyní upravíme naši funkci tak, abychom šabloně předali proměnné a výsledný obsah
+vrátili jako odpověd serveru.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hra</span><span class="p">():</span>
+    <span class="n">jmeno_zvirete</span> <span class="o">=</span> <span class="s1">&#39;Andulka na bidýlku&#39;</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;piskvorky.html&#39;</span><span class="p">,</span> <span class="n">jmeno</span><span class="o">=</span><span class="n">jmeno_zvirete</span><span class="p">)</span>
+</pre></div><p>Pojmenovaný argument funkce <code>render_template</code> uvnitř šablony vezme jako název
+proměnné uvnitř šablony. Hodnotu proměnné v šabloně vypíšeme pomocí dvojitých
+složených závorek.</p>
+<h2>Výsledná aplikace</h2>
+<div class="solution" id="solution-2">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=2"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="c1"># webpiskvorky.py</span>
+
+<span class="c1"># Spouštění (v příkazové řádce):</span>
+<span class="c1"># export FLASK_APP=webpiskvorky.py</span>
+<span class="c1"># export FLASK_DEBUG=1</span>
+<span class="c1"># flask run</span>
+
+<span class="c1"># (na Windows &quot;set&quot; místo &quot;export&quot;)</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="kn">from</span> <span class="nn">util</span> <span class="kn">import</span> <span class="n">tah</span>
+<span class="kn">from</span> <span class="nn">ai</span> <span class="kn">import</span> <span class="n">tah_pocitace</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hra</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;pole&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;pole&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">20</span>
+    <span class="k">if</span> <span class="s1">&#39;cislo&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+        <span class="n">cislo_policka</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;cislo&#39;</span><span class="p">])</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">tah</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="n">cislo_policka</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+        <span class="n">pole</span> <span class="o">=</span> <span class="n">tah_pocitace</span><span class="p">(</span><span class="n">pole</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+        <span class="s1">&#39;hra.html&#39;</span><span class="p">,</span>
+        <span class="n">ocislovane_pole</span><span class="o">=</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">pole</span><span class="p">),</span>
+        <span class="n">pole</span><span class="o">=</span><span class="n">pole</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Piškvorky<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Piškvorky<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;pole&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ pole }}&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+                {% for cislo, znak in ocislovane_pole %}
+                    {% if znak == &#39;-&#39; %}
+                        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;cislo&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ cislo }}&quot;</span><span class="p">&gt;</span>
+                    {% else %}
+                        {{ znak }}
+                    {% endif %}
+                {% endfor %}
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Odeslat!&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ url_for(&#39;hra&#39;) }}&quot;</span><span class="p">&gt;</span>Reset<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+    </div>
+</div>

@@ -1,0 +1,1829 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Databáze</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Obsah:</p>
+<ul>
+<li>Úvod do databází</li>
+<li>Úvod do relačních databází</li>
+<li>Úvod do SQL + Python a Pandas</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Úvod do databází</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Doteď jste na kurzu zřejmě pracovali se <strong>soubory</strong> - odněkud soubor stáhli na svůj počítač, a tam ho zpracovali, a pak třeba zase výsledek někam nahráli. Tento postup ale nestačí, pokud s těmito daty potřebuje pracovat více lidí (nebo strojů) najednou a zároveň je i aktualizovat. To se řeší tak, že spustíte <strong>databázový systém</strong> (DBMS, <a href="https://cs.wikipedia.org/wiki/Syst%C3%A9m_%C5%99%C3%ADzen%C3%AD_b%C3%A1ze_dat">SŘBD</a>), ten ta data u sebe spravuje (soubory na disku obsahující specializované datové struktury) a vy se na tento systém připojujete přes počítačovou síť. Nebo třeba používáte webovou aplikaci a ta je na tento databázový systém (databázi) připojena.</p>
+<p>Např. e-shop bude pracovat s databází, ve které jsou uloženy informace o prodávaném zboží, rozdělení zboží do kategorií, objednávky, reklamace, registrovaní uživatelé... Takovou databázi můžeme označit za "transakční".</p>
+<p>Vy jako datoví analytici, inženýři apod. se pravděpodobně budete chtít do takovéto databáze připojit a stáhnout si z ní část dat pro svou další práci. Nebo dokonce může být vaším úkolem vytvořit novou "analytickou" databázi, která obsahuje data v jiné podobě, např. prodávané zboží bez popisků, bez fotografií, ale zato se statistikami návštěvnosti a prodejnosti.</p>
+<p>V těchto materiálech budeme pracovat s databází <a href="https://www.sqlite.org/">SQLite</a>. Ta je poněkud specifická tím, že je uložena v jednom souboru (s příponou <code>.sqlite</code> nebo <code>.db</code>), není to tedy samostatně běžící server, ke kterému byste se připojovali, jak je tomu u většiny databází. O to snadněji se ale s SQLite pracuje. I SQLite umožňuje pracovat s jednou databází (jedním souborem) z několika programů zároveň, narozdíl od např. CSV nebo XLS sobourů.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Vlastnosti databází</h2>
+<p>Od databáze (resp. databázového systému) očekáváme několik vlastností:</p>
+<ul>
+<li>Že bude uchovávat data :) Ne, vážně - data musí zůstat beze ztráty uložena i v případě výpadku napájení, když dojde místo na disku...</li>
+<li>Práce s daty "z různých úhlů". Např. v e-shopu chceme jednou vypsat zboží podle kategorie, jindy podle stavu skladových zásob, jindy na základě full-textového vyhledávání..</li>
+<li>Podpora uživatelů, rolí, oprávnění a kontroly přístupu k datům, security.</li>
+<li>Rychlost, výkon, propustnost, latence</li>
+<li>Škálovatelnost - jak do velikosti (gigabajty, terabajty, petabajty), tak do počtu prováděných operací za sekundu</li>
+<li>ACID<ul>
+<li>Atomicity:</li>
+<li>Consistency:</li>
+<li>Isolation:</li>
+<li>Durability:</li>
+</ul>
+</li>
+</ul>
+<p>Když se nad tím zamyslíte, jedná se o protichůdné požadavky. Tvůrci databázových systémů tak musí zvolit nějaký kompomis. Někdy lze databáze nakonfigurovat, zda má např. preferovat izolaci, nebo propustnost (viz <a href="https://www.postgresql.org/docs/9.5/transaction-iso.html">PostgreSQL Transaction Isolation</a>). Žádná databáze není "nejlepší" a vhodná na všechno. Zrovna co se týče rozdílu mezi "transakční" a "analytickou" databází, tak často pro tyto oblasti jsou vhodné odlišné systémy a přístupy.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Relační databáze</h2>
+<p>Jde o typickou, klasickou, nejčastěji používanou kategorii databázových systémů. Používají se od 70. let, existuje okolo nich široký ekosystém se spoustou nástrojů a také lidí, kteří s nimi umí pracovat.</p>
+<p>Co <a href="https://en.wikipedia.org/wiki/Relational_database">relační databáze</a> obsahuje:</p>
+<ul>
+<li>"databáze" (jeden databázový systém může spravovat několik databází)<ul>
+<li>uživatelé (users)</li>
+<li><strong>tabulky</strong><ul>
+<li><strong>sloupce</strong></li>
+<li>indexy</li>
+<li>constraints</li>
+<li>cizí klíče (foreign keys)</li>
+<li>triggery</li>
+</ul>
+</li>
+<li>pohledy (views)</li>
+<li>procedury</li>
+<li>sekvence</li>
+</ul>
+</li>
+</ul>
+<p>Data se ukládají v podobě řádek a sloupců do jednotlivých tabulek:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">title</th>
+<th style="text-align:left">year</th>
+<th style="text-align:left">director_name</th>
+<th style="text-align:left">director_birthdate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Pelíšky</td>
+<td style="text-align:left">1999</td>
+<td style="text-align:left">Jan Hřebejk</td>
+<td style="text-align:left">1967-06-27</td>
+</tr>
+<tr>
+<td style="text-align:left">Forrest Gump</td>
+<td style="text-align:left">1994</td>
+<td style="text-align:left">Robert Zemeckis</td>
+<td style="text-align:left">1951-05-14</td>
+</tr>
+<tr>
+<td style="text-align:left">Návrat do budoucnosti</td>
+<td style="text-align:left">1985</td>
+<td style="text-align:left">Robert Zemeckis</td>
+<td style="text-align:left">1951-05-14</td>
+</tr>
+</tbody>
+</table>
+<p>Každý řádek je označen svým unikátním identifikátorem, a duplicitní data se <em>normalizují</em>:</p>
+<table>
+<thead><tr>
+<th>movie_id</th>
+<th style="text-align:left">title</th>
+<th style="text-align:left">year</th>
+<th style="text-align:left">director_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">Pelíšky</td>
+<td style="text-align:left">1999</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">Forrest Gump</td>
+<td style="text-align:left">1994</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">Návrat do budoucnosti</td>
+<td style="text-align:left">1985</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead><tr>
+<th>director_id</th>
+<th style="text-align:left">name</th>
+<th>birthdate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">Jan Hřebejk</td>
+<td>1967-06-27</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">Robert Zemeckis</td>
+<td>1951-05-14</td>
+</tr>
+</tbody>
+</table>
+<p>Vztah mezi režiséry a filmy je zde 1:N. Každý jeden režisér je provázán s několika filmy. Každý jeden film je provázán s jedním režisérem (a nebo žádným, pokud jeho director_id není vyplněno).</p>
+<p>Co když chceme vyjádřit možnost, že jeden film může mít více než jednoho režiséra?</p>
+<table>
+<thead><tr>
+<th>movie_id</th>
+<th style="text-align:left">title</th>
+<th style="text-align:left">year</th>
+<th style="text-align:left">director_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">Pelíšky</td>
+<td style="text-align:left">1999</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">Forrest Gump</td>
+<td style="text-align:left">1994</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">Návrat do budoucnosti</td>
+<td style="text-align:left">1985</td>
+<td style="text-align:left">2</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead><tr>
+<th>director_id</th>
+<th style="text-align:left">name</th>
+<th>birthdate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">Jan Hřebejk</td>
+<td>1967-06-27</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">Robert Zemeckis</td>
+<td>1951-05-14</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">Joe Smith</td>
+<td>1950-01-01</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead><tr>
+<th>movie_id</th>
+<th>director_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>SQL</h2>
+<p>SQL je jazyk, kterým komunikujeme s relační databází. Umí vyjádřit různé operace nad tabulkami - výběr sloupců, řádků, vztahy mezi více tabulkami, agregace hodnot z více řádků... (Nepřípomíná vám to něco? Pandas DataFrame? :) )</p>
+<p>Příklad:</p>
+<div class="highlight"><pre><code>SELECT title, year FROM movies;
+
+UPDATE directors SET birthdate = "1950-01-02" WHERE director_id = 3;</code></pre></div><p>Dokonce i jiný software, než jsou relační databáze, rozumí SQL. Často právě analytické nástroje, data lakes, Amazon S3... Pak existuje spousta databází a jazyků, které se jazykem SQL inspirovaly - např. databáze Cassandra a její jazyk CQL.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Instalace a import SQLAlchemy</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Každá databáze se z Pythonu používá trochu jinak - liší se název modulu, který je potřeba importovat, mírně se liší způsob předávání dat použitých v SQL dotazech, liší se forma dat vrácených ve výsledku... Použijeme proto knihovnu <a href="https://www.sqlalchemy.org/">SQLAlchemy</a>, která tyto detaily <em>abstrahuje</em> a poskytuje rozhraní stejné pro všechny databáze (které SQLAlchemy podporuje).</p>
+<p>SQLAlchemy se skládá ze <a href="https://docs.sqlalchemy.org/en/13/">dvou částí</a>:</p>
+<ul>
+<li>Core - to je právě ta zmíněná abstrakce základních operací s databází, tuto část budeme používat<ul>
+<li>engine, connections, transactions</li>
+<li>table metadata</li>
+<li>SQL expression language</li>
+</ul>
+</li>
+<li><a href="https://docs.sqlalchemy.org/en/13/orm/tutorial.html">ORM</a> - umožňuje pracovat s daty v databázi prostřednistvím mapování na objekty<ul>
+<li>zajímavé hlavně při psaní větších aplikací (webových aplikací apod.)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Instalaci knihovny <a href="https://www.sqlalchemy.org/">SQLAlchemy</a> provedeme přes pip (nezapomeňte mít aktivovaný venv, do kterého to chcete instalovat):</p>
+<div class="highlight"><pre><code>pip install sqlalchemy</code></pre></div><p>Případně lze instalaci spustit přímo z Jupyteru:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">sqlalchemy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Requirement already satisfied: sqlalchemy in /opt/local/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages (1.3.13)
+Note: you may need to restart the kernel to use updated packages.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Knihovnu SQLAlchemy naimportujeme:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jako vždy, naimportujeme i <a href="https://pandas.pydata.org/pandas-docs/stable/reference/index.html">Pandas</a>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Stažení filmové databáze</h2>
+<p>Pro ukázku práce s databází použijeme data od Míry Brabence.
+Jde o databázi typu <a href="https://cs.wikipedia.org/wiki/SQLite">SQLite</a> - skládá se z jediného souboru, ve kterém jsou všecha data. To znamená, že není žádný velký server, ke kterému byste se připojovaly jménem a heslem, jako u "klasických" databází (PostgreSQL, Oracle, MS SQL...).
+Databáze v podobě SQLite souboru má výhodu v tom, že když něco rozbijete, tak ten soubor prostě smažete a uděláte si nový :)</p>
+<p>Soubor s databází stáhneme knihovnou <a href="https://requests.readthedocs.io/en/master/">Requests</a>, kterou už máte nainstalovanou (instrukce byly v první hodině)
+a uložíme ho do souboru v pracovním adresáři, tj. tam, odkud jste spustili Jupyter Notebook.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">db_data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://github.com/messa/movie-db-2020/raw/master/movies.sqlite&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+<span class="n">Path</span><span class="p">(</span><span class="s1">&#39;movies.sqlite&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">db_data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1421312</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Otevření databáze, průzkum struktury</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///movies.sqlite&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Objekt <code>engine</code> obsahuje připojení do databáze a skrz něj budeme provádět operace s danou databází.</p>
+<p>Začneme tím, že se podíváme, jaká je struktura té databáze - jaké tabulky obsahuje a co obsahují ty tabulky. Každá databáze na to má jiné finty, jak toto zjistit (někdy funguje SQL příkaz <code>SHOW TABLES</code>, jindy je zase potřeba <code>SELECT</code> z metadat), naštěstí SQLAlchemy nám s tím pomůže.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;actors&#39;, &#39;movie_to_actor&#39;, &#39;movies&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prozkoumat</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="n">inspector</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">schema</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_schema_names</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Schema:&#39;</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Table:&#39;</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">inspector</span><span class="o">.</span><span class="n">get_columns</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;      Column:&#39;</span><span class="p">,</span> <span class="n">column</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">column</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prozkoumat</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Schema: main
+
+  Table: actors
+
+      Column: id           INTEGER
+      Column: csfd_url     VARCHAR
+      Column: name         VARCHAR
+      Column: birth_date   DATE
+
+  Table: movie_to_actor
+
+      Column: id           INTEGER
+      Column: movie_id     INTEGER
+      Column: actor_id     INTEGER
+
+  Table: movies
+
+      Column: id           INTEGER
+      Column: title        VARCHAR
+      Column: csfd_url     VARCHAR
+      Column: year         INTEGER
+      Column: rating       NUMERIC
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Na prozkoumání struktury a obsahu databáze můžete použít nějaký specializovaný program - <a href="https://sqlitebrowser.org/">DB Browser</a>, <a href="https://dbeaver.io/">DBeaver</a>, <a href="https://www.mysql.com/products/workbench/">MySQL Workbench</a>, ... je jich hodně, typicky se specializují na konkrétní druh databáze, některé programy jsou zdarma a některé placené. Existují i webové aplikace, nejznámější asi český <a href="https://www.adminer.org/">Adminer</a>. Zde jsem vám chtěl ukázat, že toho samého se dá dosáhnout i takto z Pythonu.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>SELECT</h2>
+<p>Ukážeme si několik způsobů, jak data z databáze "vytáhnout" do Pythonu.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, name, birth_date FROM actors&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;sqlalchemy.engine.result.ResultProxy at 0x1147d0410&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Výsledkem volání <code>engine.execute(...)</code> je objekt, který umí reprezentuje výsledek SQL dotazu. V případě SELECT se skrz tento objekt dají procházet získané řádky, v případě operací INSERT, UPDATE, DELETE tento objekt obsahuje např. počet změněných řádek.</p>
+<p>Zkusíme si zobrazit jednotlivé řádky. LIMIT slouží k omezení počtu vracených záznamů.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, name, birth_date FROM actors LIMIT 5&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1, &#39;Tim Robbins&#39;, &#39;1958-10-16&#39;)
+(2, &#39;Morgan Freeman&#39;, &#39;1937-06-01&#39;)
+(3, &#39;Bob Gunton&#39;, &#39;1945-11-15&#39;)
+(4, &#39;William Sadler&#39;, &#39;1950-04-13&#39;)
+(5, &#39;Clancy Brown&#39;, &#39;1959-01-05&#39;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Zdálo by se, že procházení <code>result</code> vrací n-tice (tuple), ale není tomu tak.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, name, birth_date FROM actors LIMIT 5&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;sqlalchemy.engine.result.RowProxy&#39;&gt;
+&lt;class &#39;sqlalchemy.engine.result.RowProxy&#39;&gt;
+&lt;class &#39;sqlalchemy.engine.result.RowProxy&#39;&gt;
+&lt;class &#39;sqlalchemy.engine.result.RowProxy&#39;&gt;
+&lt;class &#39;sqlalchemy.engine.result.RowProxy&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jde o SQLAlchemy objekt RowProxy, který umí pár zajímavých věcí:</p>
+<ul>
+<li>vrátit hodnotu daného sloupce podle pořadí </li>
+<li>vrátit hodnotu daného sloupce podle názvu</li>
+<li>vrátit dict s hodnotami</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, name, csfd_url FROM actors LIMIT 5&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 Tim Robbins
+2 Morgan Freeman
+3 Bob Gunton
+4 William Sadler
+5 Clancy Brown
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, name, csfd_url FROM actors LIMIT 5&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 Tim Robbins
+2 Morgan Freeman
+3 Bob Gunton
+4 William Sadler
+5 Clancy Brown
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT id, name, csfd_url FROM actors LIMIT 5&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;id&#39;: 1, &#39;name&#39;: &#39;Tim Robbins&#39;, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/103-tim-robbins/&#39;}
+{&#39;id&#39;: 2, &#39;name&#39;: &#39;Morgan Freeman&#39;, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/92-morgan-freeman/&#39;}
+{&#39;id&#39;: 3, &#39;name&#39;: &#39;Bob Gunton&#39;, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/202-bob-gunton/&#39;}
+{&#39;id&#39;: 4, &#39;name&#39;: &#39;William Sadler&#39;, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/203-william-sadler/&#39;}
+{&#39;id&#39;: 5, &#39;name&#39;: &#39;Clancy Brown&#39;, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/204-clancy-brown/&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pokud chceme získat hodnoty ze všech sloupečků, použijeme hvězdičku.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM actors LIMIT 5&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;id&#39;: 1, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/103-tim-robbins/&#39;, &#39;name&#39;: &#39;Tim Robbins&#39;, &#39;birth_date&#39;: &#39;1958-10-16&#39;}
+{&#39;id&#39;: 2, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/92-morgan-freeman/&#39;, &#39;name&#39;: &#39;Morgan Freeman&#39;, &#39;birth_date&#39;: &#39;1937-06-01&#39;}
+{&#39;id&#39;: 3, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/202-bob-gunton/&#39;, &#39;name&#39;: &#39;Bob Gunton&#39;, &#39;birth_date&#39;: &#39;1945-11-15&#39;}
+{&#39;id&#39;: 4, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/203-william-sadler/&#39;, &#39;name&#39;: &#39;William Sadler&#39;, &#39;birth_date&#39;: &#39;1950-04-13&#39;}
+{&#39;id&#39;: 5, &#39;csfd_url&#39;: &#39;https://www.csfd.cz/tvurce/204-clancy-brown/&#39;, &#39;name&#39;: &#39;Clancy Brown&#39;, &#39;birth_date&#39;: &#39;1959-01-05&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Z dat lze vytvořit i Pandas DataFrame:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT id, name FROM actors LIMIT 5&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[17]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Tim Robbins</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Morgan Freeman</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Bob Gunton</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>William Sadler</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Clancy Brown</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Toto je zkratka pro načtení celé tabulky:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="s1">&#39;actors&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>csfd_url</th>
+      <th>name</th>
+      <th>birth_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>https://www.csfd.cz/tvurce/103-tim-robbins/</td>
+      <td>Tim Robbins</td>
+      <td>1958-10-16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>https://www.csfd.cz/tvurce/92-morgan-freeman/</td>
+      <td>Morgan Freeman</td>
+      <td>1937-06-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>https://www.csfd.cz/tvurce/202-bob-gunton/</td>
+      <td>Bob Gunton</td>
+      <td>1945-11-15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>https://www.csfd.cz/tvurce/203-william-sadler/</td>
+      <td>William Sadler</td>
+      <td>1950-04-13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>https://www.csfd.cz/tvurce/204-clancy-brown/</td>
+      <td>Clancy Brown</td>
+      <td>1959-01-05</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7522</th>
+      <td>7523</td>
+      <td>https://www.csfd.cz/tvurce/147104-jon-kenny/</td>
+      <td>Jon Kenny</td>
+      <td>NaT</td>
+    </tr>
+    <tr>
+      <th>7523</th>
+      <td>7524</td>
+      <td>https://www.csfd.cz/tvurce/147105-lisa-hannigan/</td>
+      <td>Lisa Hannigan</td>
+      <td>1981-02-12</td>
+    </tr>
+    <tr>
+      <th>7524</th>
+      <td>7525</td>
+      <td>https://www.csfd.cz/tvurce/162204-lucy-o-connell/</td>
+      <td>Lucy O'Connell</td>
+      <td>NaT</td>
+    </tr>
+    <tr>
+      <th>7525</th>
+      <td>7526</td>
+      <td>https://www.csfd.cz/tvurce/309228-paul-young/</td>
+      <td>Paul Young</td>
+      <td>NaT</td>
+    </tr>
+    <tr>
+      <th>7526</th>
+      <td>7527</td>
+      <td>https://www.csfd.cz/tvurce/458624-grethe-mogen...</td>
+      <td>Grethe Mogensen</td>
+      <td>1937-05-25</td>
+    </tr>
+  </tbody>
+</table>
+<p>7527 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Průzkum dat ve filmové databázi</h2>
+<p>Data z jednotlivých tabulek si nahrajeme do Pandas DataFramů, se kterými budeme dále pracovat.</p>
+<p>Pro přehlednost si zde vypíšeme ukázku obsahu těch DataFramů, abychom věděli, s čím pracujeme.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sqlalchemy</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span><span class="o">.</span><span class="n">get_table_names</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;actors&#39;, &#39;movie_to_actor&#39;, &#39;movies&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="s1">&#39;actors&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="s1">&#39;movies&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="n">movie_to_actor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_table</span><span class="p">(</span><span class="s1">&#39;movie_to_actor&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actors</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>csfd_url</th>
+      <th>name</th>
+      <th>birth_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>https://www.csfd.cz/tvurce/103-tim-robbins/</td>
+      <td>Tim Robbins</td>
+      <td>1958-10-16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>https://www.csfd.cz/tvurce/92-morgan-freeman/</td>
+      <td>Morgan Freeman</td>
+      <td>1937-06-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>https://www.csfd.cz/tvurce/202-bob-gunton/</td>
+      <td>Bob Gunton</td>
+      <td>1945-11-15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>https://www.csfd.cz/tvurce/203-william-sadler/</td>
+      <td>William Sadler</td>
+      <td>1950-04-13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>https://www.csfd.cz/tvurce/204-clancy-brown/</td>
+      <td>Clancy Brown</td>
+      <td>1959-01-05</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>title</th>
+      <th>csfd_url</th>
+      <th>year</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Vykoupení z věznice Shawshank</td>
+      <td>https://www.csfd.cz/film/2294-vykoupeni-z-vezn...</td>
+      <td>1994</td>
+      <td>95.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Forrest Gump</td>
+      <td>https://www.csfd.cz/film/10135-forrest-gump/</td>
+      <td>1994</td>
+      <td>94.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Zelená míle</td>
+      <td>https://www.csfd.cz/film/2292-zelena-mile/</td>
+      <td>1999</td>
+      <td>92.8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Přelet nad kukaččím hnízdem</td>
+      <td>https://www.csfd.cz/film/2982-prelet-nad-kukac...</td>
+      <td>1975</td>
+      <td>92.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Sedm</td>
+      <td>https://www.csfd.cz/film/2671-sedm/</td>
+      <td>1995</td>
+      <td>92.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">movie_to_actor</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>movie_id</th>
+      <th>actor_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>SELECT ... WHERE ... AND/OR</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM actors WHERE birth_date &gt; &quot;2000-01-01&quot; AND birth_date &lt; &quot;2001-01-01&quot;&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(4849, &#39;https://www.csfd.cz/tvurce/39309-medved-bart-2/&#39;, &#39;medvěd Bart 2&#39;, &#39;2000-01-20&#39;),
+ (5703, &#39;https://www.csfd.cz/tvurce/283519-zaira-wasim/&#39;, &#39;Zaira Wasim&#39;, &#39;2000-10-23&#39;),
+ (6290, &#39;https://www.csfd.cz/tvurce/35296-morgan-lily/&#39;, &#39;Morgan Lily&#39;, &#39;2000-04-11&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actors</span><span class="p">[(</span><span class="n">actors</span><span class="p">[</span><span class="s1">&#39;birth_date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2000-01-01&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">actors</span><span class="p">[</span><span class="s1">&#39;birth_date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s1">&#39;2001-01-01&#39;</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>csfd_url</th>
+      <th>name</th>
+      <th>birth_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4848</th>
+      <td>4849</td>
+      <td>https://www.csfd.cz/tvurce/39309-medved-bart-2/</td>
+      <td>medvěd Bart 2</td>
+      <td>2000-01-20</td>
+    </tr>
+    <tr>
+      <th>5702</th>
+      <td>5703</td>
+      <td>https://www.csfd.cz/tvurce/283519-zaira-wasim/</td>
+      <td>Zaira Wasim</td>
+      <td>2000-10-23</td>
+    </tr>
+    <tr>
+      <th>6289</th>
+      <td>6290</td>
+      <td>https://www.csfd.cz/tvurce/35296-morgan-lily/</td>
+      <td>Morgan Lily</td>
+      <td>2000-04-11</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>SELECT ... ORDER BY</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM actors WHERE birth_date &gt; &quot;2005-01-01&quot; ORDER BY birth_date ASC&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(526, &#39;https://www.csfd.cz/tvurce/239127-noah-jupe/&#39;, &#39;Noah Jupe&#39;, &#39;2005-02-25&#39;),
+ (7051, &#39;https://www.csfd.cz/tvurce/321955-rocco-lerro/&#39;, &#39;Rocco Lerro&#39;, &#39;2005-08-21&#39;),
+ (4979, &#39;https://www.csfd.cz/tvurce/357987-ariana-greenblatt/&#39;, &#39;Ariana Greenblatt&#39;, &#39;2007-08-27&#39;),
+ (1876, &#39;https://www.csfd.cz/tvurce/540779-hailey-hermida/&#39;, &#39;Hailey Hermida&#39;, &#39;2007-09-13&#39;),
+ (1865, &#39;https://www.csfd.cz/tvurce/354371-pierce-pope/&#39;, &#39;Pierce Pope&#39;, &#39;2008-06-02&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">actors</span><span class="p">[(</span><span class="n">actors</span><span class="p">[</span><span class="s1">&#39;birth_date&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s1">&#39;2005-01-01&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;birth_date&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>csfd_url</th>
+      <th>name</th>
+      <th>birth_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>525</th>
+      <td>526</td>
+      <td>https://www.csfd.cz/tvurce/239127-noah-jupe/</td>
+      <td>Noah Jupe</td>
+      <td>2005-02-25</td>
+    </tr>
+    <tr>
+      <th>7050</th>
+      <td>7051</td>
+      <td>https://www.csfd.cz/tvurce/321955-rocco-lerro/</td>
+      <td>Rocco Lerro</td>
+      <td>2005-08-21</td>
+    </tr>
+    <tr>
+      <th>4978</th>
+      <td>4979</td>
+      <td>https://www.csfd.cz/tvurce/357987-ariana-green...</td>
+      <td>Ariana Greenblatt</td>
+      <td>2007-08-27</td>
+    </tr>
+    <tr>
+      <th>1875</th>
+      <td>1876</td>
+      <td>https://www.csfd.cz/tvurce/540779-hailey-hermida/</td>
+      <td>Hailey Hermida</td>
+      <td>2007-09-13</td>
+    </tr>
+    <tr>
+      <th>1864</th>
+      <td>1865</td>
+      <td>https://www.csfd.cz/tvurce/354371-pierce-pope/</td>
+      <td>Pierce Pope</td>
+      <td>2008-06-02</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>SELECT ... GROUP BY</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT year, COUNT(*) FROM movies GROUP BY year HAVING COUNT(*) &gt; 5&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[28]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(1957, 6),
+ (1968, 6),
+ (1973, 6),
+ (1980, 6),
+ (1984, 6),
+ (1986, 7),
+ (1990, 7),
+ (1991, 6),
+ (1993, 11),
+ (1995, 7),
+ (1997, 8),
+ (1998, 6),
+ (1999, 9),
+ (2000, 6),
+ (2001, 8),
+ (2002, 6),
+ (2003, 6),
+ (2004, 9),
+ (2008, 6)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Úkol: který herec účinkoval v největším počtu filmů</h2>
+<p>Najděte v tabulce <code>movie_to_actor</code> id herce, u kterého je v té tabulce nejvíce id filmů.</p>
+<p>Postup:</p>
+<ol>
+<li>Pomocí GROUP BY si vypište vždy actor_id a k tomu počet řádků s tímto actor_id</li>
+<li>Pomocí ORDER BY a LIMIT zjistěte actor_id, u kterého je tento počet nejvyšší</li>
+<li>Bonus: zjistěte jméno tohoto herce</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>JOIN</h2>
+<p>TODO: tady bude ukázka JOIN v SQL vs. merge v DataFrame</p>
+<div><img src="https://naucse.python.cz/2020/pydata-praha-jaro/pydata/pandas_correlations/static/joins.svg"></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>CREATE TABLE</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>INSERT</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>UPDATE</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>DELETE</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Závěr</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2>Odkazy</h2>
+<p><a href="https://naucse.python.cz/2019/brno-podzim-2019-ut/beginners/database/">https://naucse.python.cz/2019/brno-podzim-2019-ut/beginners/database/</a></p>
+</div>
+</div>
+</div>
+ 
+

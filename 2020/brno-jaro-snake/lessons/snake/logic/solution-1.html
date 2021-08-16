@@ -1,0 +1,20 @@
+<div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">old_x</span><span class="p">,</span> <span class="n">old_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">snake</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dir_x</span><span class="p">,</span> <span class="n">dir_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">snake_direction</span>
+        <span class="n">new_x</span> <span class="o">=</span> <span class="n">old_x</span> <span class="o">+</span> <span class="n">dir_x</span>
+        <span class="n">new_y</span> <span class="o">=</span> <span class="n">old_y</span> <span class="o">+</span> <span class="n">dir_y</span>
+
+        <span class="c1"># Kontrola vylezení z hrací plochy</span>
+        <span class="k">if</span> <span class="n">new_x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">exit</span><span class="p">(</span><span class="s1">&#39;GAME OVER&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">exit</span><span class="p">(</span><span class="s1">&#39;GAME OVER&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_x</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">:</span>
+            <span class="n">exit</span><span class="p">(</span><span class="s1">&#39;GAME OVER&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_y</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">:</span>
+            <span class="n">exit</span><span class="p">(</span><span class="s1">&#39;GAME OVER&#39;</span><span class="p">)</span>
+
+        <span class="n">new_head</span> <span class="o">=</span> <span class="n">new_x</span><span class="p">,</span> <span class="n">new_y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">snake</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_head</span><span class="p">)</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>

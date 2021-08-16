@@ -1,0 +1,42 @@
+<h1>Instalace pro Linux</h1>
+<p>Na správně nastaveném počítači stačí zadat:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>picocom -b <span class="m">115200</span> --flow n /dev/ttyUSB0
+</pre></div><p>Pokud příkaz neskončí s chybou, stiskni tlačítko <code>RST</code> na modulu.
+Měly by se nakonec objevit tři zobáčky, <code>&gt;&gt;&gt;</code>.</p>
+<p>Většina počítačů ale na komunikaci s malými zařízeními nastavená není.
+Skončí-li příkaz <code>picocom</code> s chybou,
+oprav ji podle následujícího návodu a zkus to znova.
+(Možná bude potřeba vyřešit víc než jednu chybu.)</p>
+<ul>
+<li>Nemáš-li příkaz <code>picocom</code> nainstalovaný,
+je potřeba ho nainstalovat (např.
+<code>sudo dnf install picocom</code> nebo
+<code>sudo apt-get install picocom</code>).</li>
+<li><p>Pokud <code>picocom</code> skončil s chybou
+<code>No such file or directory</code>, pravděpodobně
+je potřeba k zařízení přistupovat přes jiný soubor.
+Použij příkaz <code>dmesg | tail</code>, který vypíše něco jako:</p>
+<pre>
+$ dmesg | tail
+[703169.886296] ch341 1-1.1:1.0: device disconnected
+[703176.972781] usb 1-1.1: new full-speed USB device number 45 using ehci-pci
+[703177.059448] usb 1-1.1: New USB device found, idVendor=1a86, idProduct=7523
+[703177.059454] usb 1-1.1: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[703177.059457] usb 1-1.1: Product: USB2.0-Serial
+[703177.060474] ch341 1-1.1:1.0: ch341-uart converter detected
+[703177.062781] usb 1-1.1: ch341-uart converter now attached to <strong>ttyUSB0</strong>
+</pre><p>Máš-li místo <code>ttyUSB0</code> něco jiného, v příkazu <code>picocom</code> to použij místo
+<code>ttyUSB0</code>.</p>
+</li>
+<li><p>Pokud <code>picocom</code> skončil s chybou <code>Permission denied</code>, potřebuješ získat
+přístup k souboru zařízení.
+To znamená přidat se do příslušné skupiny:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>sudo usermod -a -G dialout <span class="k">$(</span>whoami<span class="k">)</span>
+</pre></div><p>Poté je potřeba se znovu přihlásit, třeba příkazem:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>su - <span class="k">$(</span>whoami<span class="k">)</span>
+</pre></div><p>Pro ověření spusť příkaz <code>groups</code>; v jeho výstupu by mělo být <code>dialout</code>.
+Například:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>groups
+<span class="go">kristyna lp wheel dialout mock</span>
+</pre></div></li>
+</ul>

@@ -1,0 +1,38 @@
+<h1>Python installation for Windows</h1>
+<p>Go to <a href="https://www.python.org/downloads/">the Python website</a> and 
+download the latest stable version of Python. From version 3.6.0.
+there are some enhancements for Windows so download only version
+ <strong>3.6.0 and above</strong>.</p>
+<p>How to know which installer is the right one?
+If your computer has 64bit Windows then download <em>Windows x86-64 executable installer</em>.
+If your Windows is only 32bit download <em>Windows x86 executable installer</em>.</p>
+<div class="admonition note"><p>If you don't know what Windows version do you have just open <strong>Start</strong>, 
+search <strong>System</strong> and open <strong>System information</strong>.</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_32v64-bit.png"><img src="naucse:static?filename=windows_32v64-bit.png" alt="Windows version"></a></span></p>
+</div><p>Then you can run the installer.
+In the beginning check <strong>Install launcher for all Users</strong>
+and also <strong>Add Python 3.6 to PATH</strong>.
+This will make creating venv much easier.</p>
+<p>(If you don't have admin rights don't check <em>Install launcher for all Users</em>.)</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_add_python_to_path.png"><img src="naucse:static?filename=windows_add_python_to_path.png" alt="Python installation"></a></span></p>
+<p>Then click <strong>Install now</strong> and follow the instructions.</p>
+<p>If you have your command line open, close it and open again.</p>
+<h2>Virtual environment creation</h2>
+<p><!-- Pozn. Tahle sekce je velice podobná pro Linux, Mac i Windows;
+     měníš-li ji, koukni se jestli není změna potřeba i jinde. -->Once the Python will be installed, please create virtuall environment.</p>
+<p>Choose the folder where you want to have files related to the Tieto Python Academy.
+It can be for example <code>C:\naucse-python</code>.</p>
+<p>Open the command line(naucse:page?lesson=beginners/cmdline)
+and using <code>cd</code> switch to it.
+Create virtual environment:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt; </span>py -3 -m venv venv
+</pre></div><p>Directory <code><span class="pythondir">~/naucse-python</span>\venv</code> were created,</p>
+<h2>Virtual environment activation</h2>
+<p>You canenable the virtual environment like this:</p>
+<div class="highlight">
+<pre><code><span class="gp">&gt;</span> <span class="pythondir">~/naucse-python</span>\venv\Scripts\activate
+</code></pre></div><div class="admonition note"><p>Don't forgot to enter <span class="pythondir">~/naucse-python</span>
+your directory</p>
+</div><p>You should see
+(in front of <code>&gt;</code>) you should see word <code>(venv)</code>.
+That mean that venv is <em>active</em>.</p>

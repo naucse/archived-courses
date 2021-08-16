@@ -1,0 +1,80 @@
+<h1>Modules</h1>
+<p>A module is something like a package. We can import it into our code.
+Or we can import functions from the module into our code.
+For example, you can import the function <code>sqrt</code> from the module <code>math</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div><p>You can also import a whole module. You can access a module's
+functions through a period - the same way as you access string methods
+(<code>'Hello'.upper()</code>).</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">turtle</span><span class="o">.</span><span class="n">exitonclick</span><span class="p">()</span>
+</pre></div><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+</pre></div><div class="admonition note"><p class="admonition-title">We don't want asterisks</p>
+<p>In documentation or in another course, you have maybe seen 
+an import with an asterisk (<code>*</code>).
+In this course, we won't use it, we always import the whole module instead.
+When you write more difficult programs in the future, this will make
+your work easier.</p>
+</div><h2>Custom modules</h2>
+<p>You can also create your own module simply by
+creating a Python file. Functions and variables
+that you create there will be available
+in programs where you import this module.</p>
+<p>Try it!
+Create file <code>meadow.py</code> and write:</p>
+<div class="highlight"><pre><span></span><span class="n">meadow_colour</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
+<span class="n">number_of_kitties</span> <span class="o">=</span> <span class="mi">28</span>
+
+<span class="k">def</span> <span class="nf">description</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;The meadow is </span><span class="si">{colour}</span><span class="s1">. There are </span><span class="si">{number}</span><span class="s1"> kitties.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">colour</span><span class="o">=</span><span class="n">meadow_colour</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="n">number_of_kitties</span><span class="p">)</span>
+</pre></div><p>And then write in another file (<code>write.py</code>):</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">meadow</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">meadow</span><span class="o">.</span><span class="n">description</span><span class="p">())</span>
+</pre></div><p>and run:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python write.py
+</pre></div><p>The command <code>import</code> looks for files in the same folder
+of the file where you imported the module - in our
+case <code>write.py</code>. So place both of the files into the 
+same folder.</p>
+<h2>Side effects</h2>
+<p>What exactly does the command <code>import meadow</code> do?</p>
+<p>Python will look for a matching file (<code>meadow.py</code>) and run all the commands
+there from top to bottom, like it was a normal program.
+It will give all the global variables (including defined functions) to the
+program that imported that module.</p>
+<p>When you import the same module a second time, it doesn't
+run everything again - it will just use what it already has.</p>
+<p>Try it - write in the end of <code>meadow.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The meadow is green!&#39;</span><span class="p">)</span>
+</pre></div><p>And then run <code>python</code> in the command line (if you already have an interactive
+Python open, close it, and run again) and enter:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First import:&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">meadow</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Second import:&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">meadow</span>
+</pre></div><p>The print we wrote in the end of the module file
+will appear only once.</p>
+<p>When the module is "doing something" (it prints something, asks the user, 
+writes something into a file) - we say that it has a <em>side effect</em>.
+We try to avoid writing modules that have side effects:
+because the purpose of a module is to give us <em>functions</em>, that we
+will use to do something, not to do it instead of us.
+For example, when we write <code>import turtle</code>, no window opens. It opens
+only when we write <code>turtle.forward()</code>.</p>
+<p>So you better delete <code>print</code> from our module.</p>
+<h2>One directory for every project</h2>
+<p>From now on, we will work on bigger projects that contain
+more files. We recommend that you create a folder for each
+of them.</p>
+<p>You can find more info about <a href="https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#basics-of-the-python-import-and-syspath">import and modules here</a>.</p>

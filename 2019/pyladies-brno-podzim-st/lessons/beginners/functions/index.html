@@ -1,0 +1,312 @@
+<h1>Funkce</h1>
+<p>Známe spoustu matematických operací, které se zapisují symboly – třeba plus
+a minus.
+Python se snaží používat stejné symboly jako matematici:</p>
+<ul>
+<li>3 + 4</li>
+<li><var>a</var> - <var>b</var></li>
+</ul>
+<p>S násobením a dělením už je to složitější,
+matematický zápis se na běžné klávesnici nedá napsat:</p>
+<ul>
+<li>3 · 4</li>
+<li>¾</li>
+</ul>
+<p>V Pythonu si ale pořád vystačíme se symbolem, byť trochu jiným – <code>*</code>, <code>/</code>.</p>
+<p>Matematici ale píšou na papír, a tak si můžou dovolit vymýšlet stále
+zajímavější klikyháky, které se pak na klávesnici píšou dost špatně:</p>
+<ul>
+<li><var>x</var>²</li>
+<li><var>x</var> ≤ <var>y</var></li>
+<li>sin θ</li>
+<li>Γ(<var>x</var>)</li>
+<li>∫<var>x</var></li>
+<li>|<var>s</var>|</li>
+<li>⌊<var>x</var>⌋</li>
+<li><var>a</var> ★ <var>b</var></li>
+<li><var>a</var> ⨁ <var>b</var></li>
+</ul>
+<p>Ne že by neexistovaly programovací jazyky,
+na které je potřeba speciální klávesnice.
+Třeba program v jazyce APL laik jednoduše ani nenapíše, ani nepřečte:</p>
+<p><!--z http://catpad.net/michael/apl/ --></p>
+<div class="highlight"><pre><code>⍎’⎕’,∈Nρ⊂S←’←⎕←(3=T)∨M∧2=T←⊃+/(V⌽”⊂M),(V⊖”⊂M),(V,⌽V)⌽”(V,V←1¯1)⊖”⊂M’</code></pre></div><p>Expert v APL může být vysoce produktivní, ale Python se zaměřuje spíš na to,
+aby se dal snadno naučit.
+A tak používá symboly jen pro ty nejčastější operace.
+Je jich dokonce tak málo, že už jich zhruba půlku znáš!</p>
+<div class="admonition note"><p>Pro zajímavost, tady jsou všechny operátory v Pythonu, které používají
+symboly:</p>
+<div>
+    <code>==</code> <code>!=</code>
+    <code>&lt;</code> <code>&gt;</code>
+    <code>&lt;=</code> <code>&gt;=</code>
+    <code class="text-muted">|</code> <code class="text-muted">^</code>
+    <code class="text-muted">&amp;</code>
+    <code class="text-muted">&lt;&lt;</code> <code class="text-muted">&gt;&gt;</code>
+    <code>+</code> <code>-</code>
+    <code>*</code> <code class="text-muted">@</code> <code>/</code>
+    <code>//</code> <code>%</code>
+    <code class="text-muted">~</code>
+    <code>**</code>
+    <code class="text-muted">[ ]</code> <code class="text-muted">( )</code>
+    <code class="text-muted">{ }</code>
+    <code class="text-muted">.</code>
+</div></div><p>Všechno ostatní vyjádříme slovně.</p>
+<h2>Délka řetězce</h2>
+<p>Jedna operace, na kterou v Pythonu není symbol, je zjištění délky řetězce.</p>
+<p>Matematik by něco takového napsal třeba pomocí svislých čárek
+(s poznámkou, co přesně ty čárky reprezentují):</p>
+<ul>
+<li><var>s</var> = “Ahoj!”</li>
+<li><var>delka</var> = |<var>s</var>|</li>
+</ul>
+<p>V Pythonu má operace „délka řetězce“ místo symolu název.
+Jmenuje se <code>len</code> (z angl. <em>length</em>, délka), a píše se <code>len(s)</code>:</p>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ahoj&#39;</span>
+<span class="n">delka</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>      <span class="c1"># Vypočítání délky</span>
+<span class="k">print</span><span class="p">(</span><span class="n">delka</span><span class="p">)</span>
+</pre></div><p>Ono <code>len(s)</code> výraz – operace, která něco udělá podle hodnoty <code>s</code> a výsledek
+dá k dispozici.
+Funguje podobně jako jiné výrazy – třeba <code>a + b</code>, což je operace, která něco
+udělá podle hodnot <code>a</code> a <code>b</code> a výsledek dá k dispozici.
+V první případě je výsledkem délka; ve druhém součet.</p>
+<p>To <code>len</code> je <em>funkce</em> a zápisu <code>len(s)</code> se říká <em>volání funkce</em>.
+Pojďme se si je popsat trochu zevrubněji.</p>
+<div class="admonition note"><p class="admonition-title">Pro matematičky</p>
+<p>Máš-li ráda matematiku, dej pozor!
+Funkce v Pythonu je něco jiného než funkce v matematice,
+i když se stejně jmenují a podobně zapisují.
+Pythonní funkce může např. dávat pro jeden argument různé hodnoty.</p>
+</div><h2>Volání funkcí</h2>
+<p>Funkci voláme <em>jménem</em>, například <code>len</code>.</p>
+<p>Je to jméno jako u proměnných.
+(Vlastně to je proměnná, jen místo čísla nebo řetězce označuje funkci.)</p>
+<p>Za jméno funkce patří závorky,
+do nichž uzavřeme <em>argument</em> (neboli <em>vstup</em>) funkce.
+To je informace, se kterou bude naše funkce
+pracovat – třeba <code>len</code> ze svého argumentu vypočítá délku.</p>
+<p>Volání funkce je výraz a jeho výsledek, takzvaná <em>návratová</em> hodnota
+(angl. <em>return value</em>) se dá třeba přiřadit do proměnné.</p>
+<div class="highlight"><pre><span></span><span class="c1">#   jméno funkce</span>
+<span class="c1">#       │</span>
+<span class="c1">#      ╭┴╮</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ahoj!&#39;</span><span class="p">)</span>
+<span class="c1">#  ▲       ╰──┬──╯</span>
+<span class="c1">#  │     argument</span>
+<span class="c1">#  │</span>
+<span class="c1">#  ╰── návratová hodnota</span>
+</pre></div><p>Nebo se volání funkce dá použít místo čísla v součtu:</p>
+<div class="highlight"><pre><span></span><span class="n">delka</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ahoj&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+</pre></div><p>Nebo v podmínce ifu:</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ahoj!&#39;</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+</pre></div><p>Nebo dokonce jako argument jiné funkce:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ahoj&#39;</span><span class="p">))</span>
+</pre></div><p>Nebo to zkombinovat dohromady:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ahoj&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div><p>… a podobně.</p>
+<h3>Funkce a procedury</h3>
+<p>Možná sis všimla, že příkaz <code>print(x)</code> vypadá podobně jako volání funkce.
+To není vůbec náhoda – <code>print</code> je totiž taky funkce!
+Stejně jako <code>len</code> dostává v závorkách argument – hodnotu, se kterou pracuje.</p>
+<p>Na rozdíl od <code>len</code> ane <code>print</code> nic nevrací.
+Výsledek volání <code>print('Ahoj')</code> není žádná smysluplná hodnota.
+Místo vypočítání nějaké hodnoty <code>print</code> něco <em>udělá</em> – vypíše text na obrazovku.</p>
+<p>Funkcím, které nic nevrací (jen něco udělají) se občas říká <em>procedury</em>.
+V Pythonu není hranice mezi „normální“ funkcí a procedurou příliš ostrá,
+ale přesto se hodí tento koncept znát.
+Pár příkladů:</p>
+<ul>
+<li>Funkce, která vybere náhodné číslo, je „normální“.
+Svůj výsledek vrátí; program s ním může dál pracovat.</li>
+<li>Funkce, která vykreslí na obrazovku kolečko, je <em>procedura</em>.
+Žádnou zajímavou hodnotu programu nevrací.</li>
+<li>Funkce, která spočítá průměrný věk obyvatelstva podle informací ze sčítání
+lidu je „normální“. Svůj výsledek vrátí a program s ním může dál pracovat.</li>
+<li>Funkce, která přehraje písničku reproduktorem, je <em>procedura</em>.
+Nic zajímavého programu nevrací.</li>
+</ul>
+<div class="admonition note"><p>Na rozdíl od ostatních termínů, které se tu učíš, není
+„procedura“ v Pythonu zavedený pojem.
+Je vypůjčený z jazyka Pascal.
+Kdybys o něm diskutovala s nějakým zkušeným programátorem,
+odkaž ho prosím na tyto materiály.</p>
+</div><h3>Argumenty</h3>
+<p>Argument je to, co funkci „předhodíš“ – dáš k dispozici.
+Chceš-li délku řetězce <code>Ahoj!</code>, použiješ funkci <code>len</code> která umí vypočítat
+délku <em>jakéhokoli</em> řetězce – a jako argument, v závorkách, jí dáš tu svoji
+konkrétní hodnotu: <code>len('Ahoj!')</code>.</p>
+<p>Podobně funkce <code>print</code> umí vypsat jakoukoli hodnotu.
+Tu, kterou má vypsat v tvém konkrétním případě, jí předáš jako argument.</p>
+<p>Některým funkcím můžeš předat i více argumentů.
+Třeba zrovna funkci <code>print</code>, která všechny své argumenty vypíše na řádek.
+Jednotlivé argumenty se oddělují čárkami:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Jedna plus dva je&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div><p>Některé funkce nepotřebují žádný argument.
+Příkladem je zase <code>print</code>.
+Je ale nutné napsat závorky – i když jsou prázdné.
+Hádej, co tohle volání udělá?</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">()</span>
+</pre></div><div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>Funkce <code>print</code> zavolaná bez argumentů napíše prázdný řádek.</p>
+<p>(Je to přesně podle definice – funkce <code>print</code> všechny své argumenty vypíše
+na řádek.)</p>
+    </div>
+</div><h3>Pojmenované argumenty</h3>
+<p>Některé funkce umí pracovat i s <em>pojmenovanými</em> argumenty.
+Píšou se podobně jako přiřazení do proměnné,
+s rovnítkem, ale uvnitř závorek.</p>
+<p>Třeba funkce <code>print</code> normálně ukončí výpis novým řádkem,
+ale pomocí argumentu <code>end</code> se dá vypsat i něco jiného.</p>
+<div class="admonition note"><p>Tenhle příklad je potřeba napsat do souboru; v interaktivní konzoli
+nebude výstup vypadat, jak má.</p>
+</div><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;1 + 2&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>     <span class="c1"># Místo přechodu na nový řádek jen napiš mezeru</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+</pre></div><h3>Funkce je potřeba volat</h3>
+<p>Pozor na to, že když nenapíšeš závorky, funkce se nezavolá!
+Výraz <code>len(s)</code> je <em>volání funkce</em>, ale <code>len</code> bez závorek označuje
+<em>funkci samotnou</em>.</p>
+<p>Výsledek <code>len(s)</code> je číslo; <code>len</code> je funkce.</p>
+<p>Čísla můžeš sečítat, můžeš tedy napsat <code>len(s) + 1</code>.
+Funkce ale sečítat nejde – <code>len + 1</code> nedává smysl.</p>
+<p>Často se ale stane, že závorky prostě zapomeneš.
+Zkus si, co dělají následující příklady, a pozorně si přečti výsledky
+a chybové hlášky, abys pak podobné chyby poznala:</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>     <span class="c1"># Volání funkce (a vypsání výsledku)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>          <span class="c1"># Vypsání samotné funkce</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>      <span class="c1"># Sečtení funkce a čísla</span>
+</pre></div><h2>Užitečné funkce</h2>
+<p>Nakonec si ukážeme pár základních funkcí, které nám Python nabízí.
+Můžeš si stáhnout i
+<a href="https://github.com/encukou/cheatsheets/raw/master/basic-functions/basic-functions-cs.pdf">přehled</a>,
+který se rozdává na srazech.</p>
+<h3>Vstup a výstup</h3>
+<p>Tyhle funkce už známe.
+<code>print</code> vypíše nepojmenované argumenty, oddělené mezerou.
+Pojmenovaný argument <code>end</code> určuje, co se vypíše na konci (místo přechodu
+na nový řádek);
+<code>sep</code> zase, co se vypíše mezi jednotlivými argumenty (místo mezery).</p>
+<div class="admonition note"><p>Příklad opět spusť ze souboru, ne interaktivně:</p>
+</div><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;dvě&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+</pre></div><p>Základní funkce na načtení vstupu, <code>input</code>,
+vypíše otázku, počká na text od uživatele a ten vrátí jako řetězec.</p>
+<div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;zadej vstup: &#39;</span><span class="p">)</span>
+</pre></div><p>Kontrolní otázky:</p>
+<ul>
+<li>Je <code>input</code> „normální“ funkce, nebo procedura?</li>
+<li>Co bere funkce <code>input</code> jako argument?</li>
+<li>Jaká je návratová hodnota funkce <code>input</code>?</li>
+</ul>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>Funkce <code>input</code> vrací hodnotu, se kterou může program dál pracovat.
+Zařadil bych ji tedy mezi „normální“ funkce.</p>
+<p>Jako argument bere <code>input</code> otázku, na kterou se uživatele zeptá.</p>
+<p>Návratová hodnota funkce <code>input</code> je uživatelova odpověď.</p>
+    </div>
+</div><h3>Převádění typů</h3>
+<p>Co ale když nechceme pracovat s řetězcem, ale třeba s číslem?
+Tady nám pomůže skupina funkcí, které umí převádět čísla na řetězce a zpátky.
+Každý ze tří <em>typů</em> (angl. <em>types</em>) proměnných, které zatím známe,
+má funkci, která vezme nějakou hodnotu a vrátí podobnou hodnotu „svého“ typu.
+Na celá čísla je funkce <code>int</code> (z angl. <em>integer</em>), na reálná čísla je <code>float</code>
+(z angl. <em>floating-point</em>), a pro řetězce <code>str</code> (z angl. <em>string</em>).</p>
+<div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># převod na celé číslo</span>
+<span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>            <span class="c1"># převod na reálné číslo</span>
+<span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># převod na řetězec</span>
+</pre></div><p>Příklady:</p>
+<div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.141</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="mf">8.12</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;8.12&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="mf">8.12</span><span class="p">)</span>
+<span class="mf">8.0</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="mf">8.0</span><span class="p">)</span>
+<span class="s1">&#39;3&#39;</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="s1">&#39;3.141&#39;</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="mf">3.141</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="s1">&#39;3.141&#39;</span><span class="p">)</span>
+</pre></div><p>Ne všechny převody jsou možné:</p>
+<div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;blablabla&#39;</span><span class="p">)</span>    <span class="c1"># chyba!</span>
+<span class="nb">float</span><span class="p">(</span><span class="s1">&#39;blablabla&#39;</span><span class="p">)</span>  <span class="c1"># chyba!</span>
+<span class="nb">int</span><span class="p">(</span><span class="s1">&#39;8.9&#39;</span><span class="p">)</span>          <span class="c1"># chyba!</span>
+</pre></div><p>…a jak si poradit s chybou, která nastane,
+když použiješ špatnou hodnotu, si řekneme později.</p>
+<h4>Převádění a <code>input</code></h4>
+<p>Převádění typů se často používá při načítání vstupu, třeba jako:</p>
+<div class="highlight"><pre><span></span><span class="n">cislo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej číslo: &#39;</span><span class="p">))</span>
+</pre></div><p>Jak Python vyhodnotí tento výraz?
+Zadá-li uživatel <kbd>4</kbd><kbd>2</kbd>, funkce <code>input</code> vrátí řetězec<code>'42'</code>.
+Ten pak funkce <code>int</code> vezme jako argument, udělá z něj číslo a to číslo vrátí:</p>
+<div class="highlight"><pre><span></span><span class="n">cislo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Zadej číslo: &#39;</span><span class="p">))</span>
+      <span class="c1">#     ╰─────────┬─────────╯</span>
+<span class="n">cislo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>        <span class="s1">&#39;42&#39;</span>          <span class="p">)</span>
+      <span class="c1"># ╰────────────┬────────────╯</span>
+<span class="n">cislo</span> <span class="o">=</span>              <span class="mi">42</span>
+</pre></div><h3>Matematické funkce</h3>
+<p>Matematika je občas potřeba, takže se pojďme
+podívat, jak v Pythonu pracovat s čísly.</p>
+<p>Jedna zajímavá matematická funkce je k dispozici vždy:</p>
+<div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">cislo</span><span class="p">)</span>    <span class="c1"># zaokrouhlení</span>
+</pre></div><p>Spousta dalších není k dispozici od začátku programu.
+Ne každý má rád matematiku, a ne ve všech druzích programu jsou takové operace
+potřeba.
+Proto musíme předem – typicky na začátku souboru – říct, že je budeme používat.
+To se dělá <em>naimportováním</em> z modulu <code>math</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">tan</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">floor</span><span class="p">,</span> <span class="n">ceil</span>
+</pre></div><p>Naimportované funkce pak můžeš použít:</p>
+<div class="highlight"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="n">uhel</span><span class="p">)</span>       <span class="c1"># sinus</span>
+<span class="n">cos</span><span class="p">(</span><span class="n">uhel</span><span class="p">)</span>       <span class="c1"># kosinus</span>
+<span class="n">tan</span><span class="p">(</span><span class="n">uhel</span><span class="p">)</span>       <span class="c1"># tangens</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="n">cislo</span><span class="p">)</span>     <span class="c1"># druhá odmocnina</span>
+
+<span class="n">floor</span><span class="p">(</span><span class="n">cislo</span><span class="p">)</span>    <span class="c1"># zaokrouhlení dolů</span>
+<span class="n">ceil</span><span class="p">(</span><span class="n">cislo</span><span class="p">)</span>     <span class="c1"># zaokrouhlení nahoru</span>
+</pre></div><div class="admonition warning"><p class="admonition-title">Import a pojmenování souborů</p>
+<p>Při importování je potřeba si dávat pozor na pojmenování souborů:
+importuješ-li <code>from math</code>, nesmí se tvůj program jmenovat <code>math.py</code>.</p>
+<p>Proč? Když Python v adresáři, ze kterého program pouštíš, najde soubor
+<code>math.py</code>, bude se snažit importovat <code>sin</code> z něho místo
+z předpřipravené sady matematických funkcí.</p>
+</div><h3>Náhoda</h3>
+<p>Nakonec si ukážeme dvě funkce, které vrací náhodná čísla:
+<code>randrange</code> a <code>uniform</code>.
+Jsou užitečné třeba pro hry, ve kterých se hází kostkou nebo tahají
+náhodné karty.</p>
+<p>Opět nejsou potřeba tak často a je potřeba je <em>naimportovat</em>.
+Tentokrát z modulu <code>random</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span><span class="p">,</span> <span class="n">uniform</span>
+</pre></div><p>Pak už se dají použít:</p>
+<div class="highlight"><pre><span></span><span class="n">randrange</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># náhodné celé číslo od a do b-1</span>
+<span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>     <span class="c1"># náhodné reálné číslo od a do b</span>
+</pre></div><p>Pozor na to, že <code>randrange(a, b)</code>
+nikdy nevrátí samotné <code>b</code>.
+Pokud potřebujeme náhodně vybrat ze tří možností,
+použij <code>randrange(0, 3)</code>,
+což vrátí <code>0</code>, <code>1</code>, nebo
+<code>2</code>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+
+<span class="n">cislo</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># číslo je od 0, 1, nebo 2</span>
+<span class="k">if</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Kolečko&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">cislo</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Čtvereček&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>  <span class="c1"># 2</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Trojúhelníček&#39;</span><span class="p">)</span>
+</pre></div><div class="admonition note"><p>Pamatuj, když importuješ z modulu <code>random</code>, nesmí se tvůj soubor
+jmenovat <code>random.py</code>.</p>
+</div><h3>A další</h3>
+<p>Python dává k dispozici obrovské množství dalších
+funkcí a modulů, i když ne všem budeš ze začátku
+rozumět.
+Všechny jsou – anglicky – popsány v dokumentaci Pythonu, např.
+<a href="https://docs.python.org/3/library/functions.html">vestavěné funkce</a>,
+<a href="https://docs.python.org/3/library/math.html">matematika</a>.</p>

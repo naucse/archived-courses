@@ -1,0 +1,78 @@
+<p>Toto je složitější úkol, který ti zabere dost času a je potřeba ho pořádně projít.
+Budou tu i pomocné informace, které nejsou zahrnuty v jiných materiálech.
+Tak vzhůru do toho.</p>
+<h1>Césarova šifra</h1>
+<p>Et tu?</p>
+<p>César (ano, ten César) údajně používal k předávání tajných zpráv jednoduchou šifru. Posouval jednotlivé písmenka o několik pozic v abecedě. Například zapisoval A jako B, B jako C, C jako D, atd. až k Z jako A. Takže, kdyby chtěl poslat někomu anglický pozdrav, napsal by HELLO jako IFMMP. Příjemce takové zprávy musel znát "klíč" (v tomto případě číslo, o kolik se mají písmenka posunout), aby zprávu mohl dešifrovat a přečíst.</p>
+<p>Tajemství tohoto systému záviselo na tom, že César a příjemci zprávy znali ono tajné číslo - počet míst v abacedě, o které se musí písmena ve zprávě posunout. Podle moderních standardů to není moc bezpečné, ale v jeho době to pochopitelně bylo terno.</p>
+<p>Nezašifrovaný text se většinou jmenuje <code>plaintext</code>, zašifrovaný text <code>ciphertext</code> a tajné číslo <code>key</code>.</p>
+<p>Aby to bylo opravdu jasné, ještě to znázorníme na příkladu HELLO (key 1) = IFMMP:</p>
+<table>
+<thead><tr>
+<th>plaintext</th>
+<th>H</th>
+<th>E</th>
+<th>L</th>
+<th>L</th>
+<th>O</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+ key</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>ciphertext</td>
+<td>I</td>
+<td>F</td>
+<td>M</td>
+<td>M</td>
+<td>P</td>
+</tr>
+</tbody>
+</table>
+<p>.</p>
+<p>Více formálně, Césarova šifra "rotuje" každé písmeno o <code>k</code> pozic (k je <code>key</code>). Ještě více formálně, pokud <code>p</code> je plaintext (nezašifrovaný text), <code>pi</code> je í-tý znak v <code>p</code> a <code>k</code> je key (nezáporné celé číslo), tak každé písmeno <code>ci</code> v ciphertext <code>c</code> je počítáno jako</p>
+<div class="highlight"><pre><span></span><span class="nv">ci</span> <span class="o">=</span> <span class="o">(</span>pi + k<span class="o">)</span> % <span class="m">26</span>
+</pre></div><p>Zápis % 26 je operátor <code>modulo</code> (vzpomínáš na operátory v Pythonu?) a znamená <strong>zbytek po dělení 26</strong>. Tato rovnice možná udělá ze šifry něco mnohem složitějšího, ale je to opravdu přesného vyjádření našeho algoritmu. (O tom, že vše je algoritmus jsme mluvili.)</p>
+<p>Pojďme na psaní programu, který bude šifrovat jednoduchý text Césarovou šifrou.
+Po spuštěníby se měl program zeptat, jaký klíč použít a jaký text zašifrovat. (Počítej s tím, že klíč má být pozitivní celé číslo)</p>
+<p>Například:</p>
+<div class="highlight"><pre><span></span>$ python caesar.py
+key: <span class="m">1</span>
+plaintext:  HELLO
+ciphertext: IFMMP
+</pre></div><div class="highlight"><pre><span></span>$ python caesar.py
+key: <span class="m">13</span>
+plaintext:  hello, world
+ciphertext: uryyb, jbeyq
+</pre></div><p>Všimni si, že se posunuly pouze písmena a ne mezery a další znaky.</p>
+<p>Pokud uživatel nebude spolupracovat a bude psát věci, které nemá, měl by se ho program zeptat znovu. Například, když jako <code>key</code> zkusí zadat řetězec.</p>
+<h2>Jak začít</h2>
+<p>Podívej se na některé záludnější věci, snad ti to pomůže s implementací.</p>
+<h3>Pseudocode</h3>
+<p>Určitě je dobrá praxe pseudokód psát. Ukazovali jsme si ho na úplně první lekci (když jsme hledali jméno v telefonním seznamu). Je to jen logické uspořádání myšlenek, které pak přepíšeš pomocí Pythonu, aby tomu počítač rozumněl. Krátké věty nebo body jsou uplně dostačující.</p>
+<h3>ASCII</h3>
+<p>Na první lekci jsi taky slyšela, že existuje ASCII tabulka. Je to konvence, kterou někdo dávno vymyslel, aby se znaky daly zapsat jako čísla. Vzpomínáš si na abstrakci?</p>
+<p>Tady je odkaz na <a href="https://cs.wikipedia.org/wiki/ASCII">ASCII</a>. Bude důležité si to pročíst pro základní pochopení a zjištění, který znak má jakou hodnotu.</p>
+<p>A jak se dostat ze znaku k číslu?</p>
+<p>Python na to má fikanou funkci <code>ord</code>. Fungování nejlépe ilustruje příklad.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="mi">97</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+<span class="s1">&#39;a&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="s1">&#39;d&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div><p>Inverzní funkce od <code>ord</code> je <code>chr</code></p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+<span class="s1">&#39;a&#39;</span>
+</pre></div><p>To je vše potřebné. V tomto úkolu neřeš znaky české abecedy (ani žádné jiné), protože by se to moc zkomplikovalo, a udělej jen šifru, která bude fungovat pro ASCII.</p>
+<h3>A teď je řada na tobě</h3>
+<p>Už bylo zmíněno, že tento úkol bude vyžadovat větší úsílí. Nějaké samostudium, hodně práce a přemýšlení. Ale ten pocit, když ho dokončíš bude pozvnášející!
+Kdyby ses přece jen zasekla, napiš koučovi.</p>
