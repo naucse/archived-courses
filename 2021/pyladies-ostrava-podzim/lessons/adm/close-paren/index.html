@@ -1,0 +1,16 @@
+<h1>Zapomenutá závorka</h1>
+<p>Občas se stane, že v interaktivním režimu Pythonu zapomeneš uzavřít závorku:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">quit</span><span class="p">(</span>
+<span class="o">...</span>
+</pre></div><p>Python pak se pomocí <code>...</code> ptá na pokračování příkazu.
+Python totiž umožňuje rozepsat případný obsah závorek na víc řádků
+a dokud závorku neukončíš (nebo nevyvoláš chybu), neukončí.</p>
+<p>Cesta ven je klávesová zkratka <kbd>Ctrl</kbd>+<kbd>C</kbd>,
+která ukončí zadávaný příkaz a nechá tě zadat nový:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">quit</span><span class="p">(</span>
+<span class="o">...</span> <span class="c1"># (Zmáčknu Ctrl+C)</span>
+<span class="ne">KeyboardInterrupt</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div><p>V „grafických“ programech typicky <kbd>Ctrl</kbd>+<kbd>C</kbd>
+znamená <em>kopírovat</em>, ale v příkazové řádce má starší význam: ukončení.
+Python ukončení pomocí klávesové zkratky nazývá <code>KeyboardInterrupt</code>:</p>

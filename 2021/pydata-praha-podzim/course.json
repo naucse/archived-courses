@@ -1,0 +1,941 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "20:00",
+   "start": "18:00"
+  },
+  "description": "\u00davod do z\u00edsk\u00e1v\u00e1n\u00ed, manipulace a anal\u00fdzy dat, z\u00e1klady strojov\u00e9ho u\u010den\u00ed.",
+  "edit_info": {
+   "branch": "praha-podzim2021",
+   "url": "https://github.com/PyDataCZ/naucse.python.cz/"
+  },
+  "etag": "99fdfd1623fbafa4a39f27b7fab240ba73c83cf8",
+  "lessons": {
+   "pydata/classification_metrics": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsali Petra Vidnerov\u00e1 a Roman Diba, ilustrovala Kl\u00e1ra Vidnerov\u00e1, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/classification_metrics/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/classification_metrics/index.ipynb",
+      "title": "Klasifika\u010dn\u00ed metriky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/classification_metrics/info.yml",
+    "static_files": {
+     "f1.png": {
+      "path": "lessons/pydata/classification_metrics/static/f1.png"
+     },
+     "iris_data.png": {
+      "path": "lessons/pydata/classification_metrics/static/iris_data.png"
+     },
+     "iris_pairplot.jpg": {
+      "path": "lessons/pydata/classification_metrics/static/iris_pairplot.jpg"
+     },
+     "iris_pairplot.png": {
+      "path": "lessons/pydata/classification_metrics/static/iris_pairplot.png"
+     },
+     "np.jpg": {
+      "path": "lessons/pydata/classification_metrics/static/np.jpg"
+     },
+     "np.png": {
+      "path": "lessons/pydata/classification_metrics/static/np.png"
+     },
+     "np_small.png": {
+      "path": "lessons/pydata/classification_metrics/static/np_small.png"
+     },
+     "precision.png": {
+      "path": "lessons/pydata/classification_metrics/static/precision.png"
+     },
+     "recall.png": {
+      "path": "lessons/pydata/classification_metrics/static/recall.png"
+     },
+     "roc.png": {
+      "path": "lessons/pydata/classification_metrics/static/roc.png"
+     }
+    },
+    "title": "Klasifika\u010dn\u00ed metriky"
+   },
+   "pydata/classification_resume": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsali Petra Vidnerov\u00e1 a Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/classification_resume/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/classification_resume/index.md",
+      "title": "Klasifikace - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t ..",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/classification_resume/info.yml",
+    "static_files": {},
+    "title": "Klasifikace - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t .."
+   },
+   "pydata/dashboards": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Jakub Urban, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/dashboards/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/dashboards/index.ipynb",
+      "title": "Interaktivn\u00ed vizualizace a aplikace I.",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/dashboards/info.yml",
+    "static_files": {},
+    "title": "Interaktivn\u00ed vizualizace a aplikace I."
+   },
+   "pydata/dashboards-2": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Jakub Urban, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/dashboards-2/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/dashboards-2/index.ipynb",
+      "title": "Pokro\u010dilej\u0161\u00ed mo\u017enosti pro dashboardy",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/dashboards-2/info.yml",
+    "static_files": {},
+    "title": "Pokro\u010dilej\u0161\u00ed mo\u017enosti pro dashboardy"
+   },
+   "pydata/eda-univariate-timeseries": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Jakub Urban, 2019."
+      ],
+      "content": {
+       "path": "lessons/pydata/eda-univariate-timeseries/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/eda-univariate-timeseries/index.ipynb",
+      "title": "Anal\u00fdza jedn\u00e9 prom\u011bnn\u00e9 a \u010dasov\u00fdch \u0159ad",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/eda-univariate-timeseries/info.yml",
+    "static_files": {
+     "thumb_geografie.png": {
+      "path": "lessons/pydata/eda-univariate-timeseries/static/thumb_geografie.png"
+     },
+     "thumb_teplota.png": {
+      "path": "lessons/pydata/eda-univariate-timeseries/static/thumb_teplota.png"
+     }
+    },
+    "title": "Anal\u00fdza jedn\u00e9 prom\u011bnn\u00e9 a \u010dasov\u00fdch \u0159ad"
+   },
+   "pydata/homework_revisited": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Petra Vidnerov\u00e1, Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/homework_revisited/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/homework_revisited/index.ipynb",
+      "title": "Implementace \u00falohy z dom\u00e1c\u00edho \u00fakolu",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/homework_revisited/info.yml",
+    "static_files": {},
+    "title": "Implementace \u00falohy z dom\u00e1c\u00edho \u00fakolu"
+   },
+   "pydata/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Lum\u00edr Balhar, 2019."
+      ],
+      "content": {
+       "path": "lessons/pydata/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/install/index.md",
+      "title": "Instalace knihoven a n\u00e1stroj\u016f",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/install/info.yml",
+    "static_files": {},
+    "title": "Instalace knihoven a n\u00e1stroj\u016f"
+   },
+   "pydata/intro_classification": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Petra Vidnerov\u00e1, Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/intro_classification/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/intro_classification/index.ipynb",
+      "title": "\u00davod klasifikace",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/intro_classification/info.yml",
+    "static_files": {
+     "fish_data.csv": {
+      "path": "lessons/pydata/intro_classification/static/fish_data.csv"
+     },
+     "fish_data_test.csv": {
+      "path": "lessons/pydata/intro_classification/static/fish_data_test.csv"
+     },
+     "ryby.png": {
+      "path": "lessons/pydata/intro_classification/static/ryby.png"
+     }
+    },
+    "title": "\u00davod klasifikace"
+   },
+   "pydata/intro_regression": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsali Petra Vidnerov\u00e1 a  Roman Diba, ilustrovaly Kl\u00e1ra a Kate\u0159ina Vidnerovy, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/intro_regression/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/intro_regression/index.ipynb",
+      "title": "Ilustra\u010dn\u00ed p\u0159\u00edklad (regrese)",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/intro_regression/info.yml",
+    "static_files": {
+     "blackbox.jpeg": {
+      "path": "lessons/pydata/intro_regression/static/blackbox.jpeg"
+     },
+     "blackbox.png": {
+      "path": "lessons/pydata/intro_regression/static/blackbox.png"
+     },
+     "krajina.pdf": {
+      "path": "lessons/pydata/intro_regression/static/krajina.pdf"
+     },
+     "krajina_public.pdf": {
+      "path": "lessons/pydata/intro_regression/static/krajina_public.pdf"
+     },
+     "ml_alternative_small.jpg": {
+      "path": "lessons/pydata/intro_regression/static/ml_alternative_small.jpg"
+     },
+     "ml_small.jpg": {
+      "path": "lessons/pydata/intro_regression/static/ml_small.jpg"
+     },
+     "overfit.png": {
+      "path": "lessons/pydata/intro_regression/static/overfit.png"
+     }
+    },
+    "title": "Ilustra\u010dn\u00ed p\u0159\u00edklad (regrese)"
+   },
+   "pydata/notebook": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Lum\u00edr Balhar, 2019."
+      ],
+      "content": {
+       "path": "lessons/pydata/notebook/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/notebook/index.md",
+      "title": "Z\u00e1klady pr\u00e1ce s Jupyter Notebookem",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/notebook/info.yml",
+    "static_files": {
+     "first_command.png": {
+      "path": "lessons/pydata/notebook/static/first_command.png"
+     },
+     "jupyter_notebook_home.png": {
+      "path": "lessons/pydata/notebook/static/jupyter_notebook_home.png"
+     },
+     "jupyter_notebook_new.png": {
+      "path": "lessons/pydata/notebook/static/jupyter_notebook_new.png"
+     },
+     "latex.png": {
+      "path": "lessons/pydata/notebook/static/latex.png"
+     },
+     "latex_examples.png": {
+      "path": "lessons/pydata/notebook/static/latex_examples.png"
+     },
+     "markdown.png": {
+      "path": "lessons/pydata/notebook/static/markdown.png"
+     },
+     "markdown_source.png": {
+      "path": "lessons/pydata/notebook/static/markdown_source.png"
+     },
+     "outputs.png": {
+      "path": "lessons/pydata/notebook/static/outputs.png"
+     },
+     "python_example.png": {
+      "path": "lessons/pydata/notebook/static/python_example.png"
+     },
+     "python_logo.png": {
+      "path": "lessons/pydata/notebook/static/python_logo.png"
+     },
+     "wrong_order.png": {
+      "path": "lessons/pydata/notebook/static/wrong_order.png"
+     }
+    },
+    "title": "Z\u00e1klady pr\u00e1ce s Jupyter Notebookem"
+   },
+   "pydata/pandas_core": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsali Jan Pipek &amp; Lum\u00edr Balhar, 2019."
+      ],
+      "content": {
+       "path": "lessons/pydata/pandas_core/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/pandas_core/index.ipynb",
+      "title": "Knihovna pandas a z\u00e1kladn\u00ed manipulace s tabulkov\u00fdmi daty",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/pandas_core/info.yml",
+    "static_files": {
+     "df.svg": {
+      "path": "lessons/pydata/pandas_core/static/df.svg"
+     },
+     "pokemon.csv": {
+      "path": "lessons/pydata/pandas_core/static/pokemon.csv"
+     },
+     "series.svg": {
+      "path": "lessons/pydata/pandas_core/static/series.svg"
+     }
+    },
+    "title": "Knihovna pandas a z\u00e1kladn\u00ed manipulace s tabulkov\u00fdmi daty"
+   },
+   "pydata/pandas_correlations": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Jan Pipek, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/pandas_correlations/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/pandas_correlations/index.ipynb",
+      "title": "Pandas - spojov\u00e1n\u00ed tabulek a vztahy mezi v\u00edce prom\u011bnn\u00fdmi",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/pandas_correlations/info.yml",
+    "static_files": {
+     "joins.svg": {
+      "path": "lessons/pydata/pandas_correlations/static/joins.svg"
+     },
+     "korelace.png": {
+      "path": "lessons/pydata/pandas_correlations/static/korelace.png"
+     },
+     "plneni_2d_hist.png": {
+      "path": "lessons/pydata/pandas_correlations/static/plneni_2d_hist.png"
+     }
+    },
+    "title": "Pandas - spojov\u00e1n\u00ed tabulek a vztahy mezi v\u00edce prom\u011bnn\u00fdmi"
+   },
+   "pydata/pandas_groupby": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsali Jakub Urban a Ond\u0159ej Koke\u0161, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/pandas_groupby/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/pandas_groupby/index.ipynb",
+      "title": "Pandas - pr\u00e1ce s indexy a anal\u00fdza dat po skupin\u00e1ch",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/pandas_groupby/info.yml",
+    "static_files": {},
+    "title": "Pandas - pr\u00e1ce s indexy a anal\u00fdza dat po skupin\u00e1ch"
+   },
+   "pydata/pandas_types": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Jan Pipek, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/pandas_types/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/pandas_types/index.ipynb",
+      "title": "Pandas - datov\u00e9 typy a z\u00e1kladn\u00ed operace",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/pandas_types/info.yml",
+    "static_files": {},
+    "title": "Pandas - datov\u00e9 typy a z\u00e1kladn\u00ed operace"
+   },
+   "pydata/pca": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Petr \u0160ime\u010dek, 2021."
+      ],
+      "content": {
+       "path": "lessons/pydata/pca/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/pca/index.ipynb",
+      "title": "Anal\u00fdza hlavn\u00edch komponent (PCA)",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/pca/info.yml",
+    "static_files": {
+     "ML_small.csv": {
+      "path": "lessons/pydata/pca/static/ml_small.csv"
+     },
+     "protein_expr.zip": {
+      "path": "lessons/pydata/pca/static/protein_expr.zip"
+     }
+    },
+    "title": "Anal\u00fdza hlavn\u00edch komponent (PCA)"
+   },
+   "pydata/regression_exercises": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Petra Vidnerov\u00e1, Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/regression_exercises/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/regression_exercises/index.ipynb",
+      "title": "\u00dakoly (regrese)",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/regression_exercises/info.yml",
+    "static_files": {
+     "data_ruzyne.png": {
+      "path": "lessons/pydata/regression_exercises/static/data_ruzyne.png"
+     },
+     "diabetes.png": {
+      "path": "lessons/pydata/regression_exercises/static/diabetes.png"
+     },
+     "excercise.ipynb": {
+      "path": "lessons/pydata/regression_exercises/static/excercise.ipynb"
+     },
+     "population.csv": {
+      "path": "lessons/pydata/regression_exercises/static/population.csv"
+     },
+     "salaries.png": {
+      "path": "lessons/pydata/regression_exercises/static/salaries.png"
+     }
+    },
+    "title": "\u00dakoly (regrese)"
+   },
+   "pydata/regression_metrics": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Petra Vidnerov\u00e1, Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/regression_metrics/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/regression_metrics/index.ipynb",
+      "title": "Regrese - z\u00e1kladn\u00ed metriky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/regression_metrics/info.yml",
+    "static_files": {
+     "mae_large.png": {
+      "path": "lessons/pydata/regression_metrics/static/mae_large.png"
+     },
+     "mse_large.png": {
+      "path": "lessons/pydata/regression_metrics/static/mse_large.png"
+     },
+     "r2.png": {
+      "path": "lessons/pydata/regression_metrics/static/r2.png"
+     },
+     "r2_large.png": {
+      "path": "lessons/pydata/regression_metrics/static/r2_large.png"
+     },
+     "y_hat_list_inline.png": {
+      "path": "lessons/pydata/regression_metrics/static/y_hat_list_inline.png"
+     },
+     "y_list_inline.png": {
+      "path": "lessons/pydata/regression_metrics/static/y_list_inline.png"
+     },
+     "y_y_hat.png": {
+      "path": "lessons/pydata/regression_metrics/static/y_y_hat.png"
+     }
+    },
+    "title": "Regrese - z\u00e1kladn\u00ed metriky"
+   },
+   "pydata/regression_resume": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Petra Vidnerov\u00e1, Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/regression_resume/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/regression_resume/index.ipynb",
+      "title": "Regrese - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t ..",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/regression_resume/info.yml",
+    "static_files": {},
+    "title": "Regrese - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t .."
+   },
+   "pydata/scikitlearn_api": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Petra Vidnerov\u00e1, Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/scikitlearn_api/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/scikitlearn_api/index.ipynb",
+      "title": "Knihovna Scikit-learn",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/scikitlearn_api/info.yml",
+    "static_files": {
+     "salaries.csv": {
+      "path": "lessons/pydata/scikitlearn_api/static/salaries.csv"
+     }
+    },
+    "title": "Knihovna Scikit-learn"
+   },
+   "pydata/scikitlearn_resume": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsali Petra Vidnerov\u00e1 a Roman Diba, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/scikitlearn_resume/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/scikitlearn_resume/index.md",
+      "title": "Scikitlearn - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t ..",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/scikitlearn_resume/info.yml",
+    "static_files": {},
+    "title": "Scikitlearn - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t .."
+   },
+   "pydata/visualization_basics": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyDataCZ napsal Jan Pipek, 2020."
+      ],
+      "content": {
+       "path": "lessons/pydata/visualization_basics/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/pydata/visualization_basics/index.ipynb",
+      "title": "Z\u00e1klady vizualizace - v pandas a pro pandas",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "/naucse/wd/lessons/pydata/visualization_basics/info.yml",
+    "static_files": {},
+    "title": "Z\u00e1klady vizualizace - v pandas a pro pandas"
+   }
+  },
+  "long_description": "<p>Tady najde\u0161 v\u0161echny materi\u00e1ly k pra\u017esk\u00e9 verzi datov\u00e9ho kurzu\nPyLadies - budou p\u0159ib\u00fdvat postupn\u011b, jak budeme proch\u00e1zet kurzem.</p>",
+  "place": "V jedn\u00e1n\u00ed",
+  "sessions": [
+   {
+    "date": "2021-09-23",
+    "materials": [
+     {
+      "lesson_slug": "pydata/install",
+      "title": "Instalace knihoven a n\u00e1stroj\u016f",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/notebook",
+      "title": "Z\u00e1klady pr\u00e1ce s Jupyter Notebookem",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/pandas_core",
+      "title": "Knihovna pandas a z\u00e1kladn\u00ed manipulace s tabulkov\u00fdmi daty",
+      "type": "lesson"
+     }
+    ],
+    "serial": "1",
+    "slug": "eda1",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "P\u0159edstaven\u00ed, Jupyter notebook, z\u00e1klady pandas"
+   },
+   {
+    "date": "2021-09-30",
+    "materials": [
+     {
+      "lesson_slug": "pydata/pandas_types",
+      "title": "Pandas - datov\u00e9 typy a z\u00e1kladn\u00ed operace",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/visualization_basics",
+      "title": "Z\u00e1klady vizualizace - v pandas a pro pandas",
+      "type": "lesson"
+     }
+    ],
+    "serial": "2",
+    "slug": "eda2",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Datov\u00e9 typy a z\u00e1klady vizualizace v pandas"
+   },
+   {
+    "date": "2021-10-07",
+    "materials": [
+     {
+      "lesson_slug": "pydata/eda-univariate-timeseries",
+      "title": "Anal\u00fdza jedn\u00e9 prom\u011bnn\u00e9 a \u010dasov\u00fdch \u0159ad",
+      "type": "lesson"
+     }
+    ],
+    "serial": "3",
+    "slug": "eda3",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Explorativn\u00ed datov\u00e1 anal\u00fdza a statistika jedn\u00e9 prom\u011bnn\u00e9"
+   },
+   {
+    "date": "2021-10-14",
+    "materials": [
+     {
+      "lesson_slug": "pydata/pandas_correlations",
+      "title": "Pandas - spojov\u00e1n\u00ed tabulek a vztahy mezi v\u00edce prom\u011bnn\u00fdmi",
+      "type": "lesson"
+     }
+    ],
+    "serial": "4",
+    "slug": "eda4",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Explorativn\u00ed datov\u00e1 anal\u00fdza a v\u00edce zdroj\u016f / prom\u011bnn\u00fdch"
+   },
+   {
+    "date": "2021-10-21",
+    "materials": [
+     {
+      "lesson_slug": "pydata/pandas_groupby",
+      "title": "Pandas - pr\u00e1ce s indexy a anal\u00fdza dat po skupin\u00e1ch",
+      "type": "lesson"
+     }
+    ],
+    "serial": "5",
+    "slug": "eda5",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Explorativn\u00ed datov\u00e1 anal\u00fdza a pokro\u010dilej\u0161\u00ed manipulace"
+   },
+   {
+    "date": "2021-11-03",
+    "serial": "6",
+    "slug": "opakovani",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Opakovac\u00ed hodina (bez materi\u00e1l\u016f)"
+   },
+   {
+    "date": "2021-11-11",
+    "materials": [
+     {
+      "lesson_slug": "pydata/intro_regression",
+      "title": "Ilustra\u010dn\u00ed p\u0159\u00edklad (regrese)",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/regression_exercises",
+      "title": "\u00dakoly (regrese)",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/regression_metrics",
+      "title": "Regrese - z\u00e1kladn\u00ed metriky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/regression_resume",
+      "title": "Regrese - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t ..",
+      "type": "lesson"
+     }
+    ],
+    "serial": "7",
+    "slug": "ml1",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Strojov\u00e9 u\u010den\u00ed - \u00favod, regrese"
+   },
+   {
+    "date": "2021-11-18",
+    "materials": [
+     {
+      "lesson_slug": "pydata/scikitlearn_api",
+      "title": "Knihovna Scikit-learn",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/homework_revisited",
+      "title": "Implementace \u00falohy z dom\u00e1c\u00edho \u00fakolu",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/scikitlearn_resume",
+      "title": "Scikitlearn - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t ..",
+      "type": "lesson"
+     }
+    ],
+    "serial": "8",
+    "slug": "ml2",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Strojov\u00e9 u\u010den\u00ed - knihovna scikit-learn, celkov\u00e9 workflow"
+   },
+   {
+    "date": "2021-11-25",
+    "materials": [
+     {
+      "lesson_slug": "pydata/intro_classification",
+      "title": "\u00davod klasifikace",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/classification_metrics",
+      "title": "Klasifika\u010dn\u00ed metriky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/classification_resume",
+      "title": "Klasifikace - Co bych m\u011bla po t\u00e9to lekci zn\u00e1t ..",
+      "type": "lesson"
+     }
+    ],
+    "serial": "9",
+    "slug": "ml3",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Strojov\u00e9 u\u010den\u00ed - klasifikace"
+   },
+   {
+    "date": "2021-12-02",
+    "materials": [
+     {
+      "lesson_slug": "pydata/pca",
+      "title": "Anal\u00fdza hlavn\u00edch komponent (PCA)",
+      "type": "lesson"
+     }
+    ],
+    "serial": "10",
+    "slug": "pca",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Anal\u00fdza hlavn\u00edch komponent (PCA)"
+   },
+   {
+    "date": "2021-12-09",
+    "materials": [
+     {
+      "lesson_slug": "pydata/dashboards",
+      "title": "Interaktivn\u00ed vizualizace a aplikace I.",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "pydata/dashboards-2",
+      "title": "Pokro\u010dilej\u0161\u00ed mo\u017enosti pro dashboardy",
+      "type": "lesson"
+     }
+    ],
+    "serial": "11",
+    "slug": "dashboards",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Interaktivn\u00ed vizualizace a aplikace"
+   },
+   {
+    "date": "2021-12-24",
+    "serial": null,
+    "slug": "konec",
+    "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+    "title": "Sv\u00e1tky klidu a konce kurzu"
+   }
+  ],
+  "source_file": "runs/2021/pydata-praha-podzim/info.yml",
+  "subtitle": "Praha - podzim 2021",
+  "time_description": "18:00\u201320:00",
+  "timezone": "Europe/Prague",
+  "title": "Datov\u00fd kurz PyLadies",
+  "vars": {
+   "coach-present": true,
+   "pyladies": true,
+   "user-gender": "f"
+  }
+ }
+}
