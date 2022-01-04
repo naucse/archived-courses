@@ -1,0 +1,1118 @@
+{
+ "api_version": [
+  0,
+  4
+ ],
+ "course": {
+  "default_time": {
+   "end": "20:00",
+   "start": "17:00"
+  },
+  "derives": "pyladies",
+  "description": "Nau\u010dte se Python v\u00e1\u017en\u011b od za\u010d\u00e1tku. \u017d\u00e1dn\u00e9 p\u0159edchoz\u00ed znalosti nejsou pot\u0159eba.",
+  "edit_info": {
+   "branch": "master",
+   "url": "https://github.com/pyvec/naucse.python.cz.git"
+  },
+  "etag": "89d16facc9f396d72a005f941d68cc123d1adbe5",
+  "lessons": {
+   "beginners/and-or": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/and-or/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/and-or/index.md",
+      "title": "Nebo anebo a",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/and-or/info.yml",
+    "static_files": {},
+    "title": "Nebo anebo a"
+   },
+   "beginners/basic-functions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019."
+      ],
+      "content": {
+       "path": "lessons/beginners/basic-functions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/basic-functions/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/basic-functions/index.md",
+      "title": "U\u017eite\u010dn\u00e9 funkce",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/basic-functions/info.yml",
+    "static_files": {},
+    "title": "U\u017eite\u010dn\u00e9 funkce"
+   },
+   "beginners/circular-imports": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/circular-imports/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/circular-imports/index.md",
+      "title": "Cyklick\u00e9 importy",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/circular-imports/info.yml",
+    "static_files": {},
+    "title": "Cyklick\u00e9 importy"
+   },
+   "beginners/cmdline": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+       "Zalo\u017eeno na tutori\u00e1lu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+      ],
+      "content": {
+       "path": "lessons/beginners/cmdline/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/cmdline/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/cmdline/index.md",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/cmdline/info.yml",
+    "static_files": {
+     "windows-cmd-properties.png": {
+      "path": "lessons/beginners/cmdline/static/windows-cmd-properties.png"
+     }
+    },
+    "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky"
+   },
+   "beginners/comparisons": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/comparisons/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/comparisons/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/comparisons/index.md",
+      "title": "Porovn\u00e1v\u00e1n\u00ed",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/comparisons/info.yml",
+    "static_files": {},
+    "title": "Porovn\u00e1v\u00e1n\u00ed"
+   },
+   "beginners/def": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/def/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/def/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/def/index.md",
+      "title": "Definice funkc\u00ed",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/def/info.yml",
+    "static_files": {},
+    "title": "Definice funkc\u00ed"
+   },
+   "beginners/dict": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/dict/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/dict/index.md",
+      "title": "Slovn\u00edky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/dict/info.yml",
+    "static_files": {},
+    "title": "Slovn\u00edky"
+   },
+   "beginners/exceptions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/exceptions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/exceptions/index.md",
+      "title": "V\u00fdjimky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/exceptions/info.yml",
+    "static_files": {},
+    "title": "V\u00fdjimky"
+   },
+   "beginners/files": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/files/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/files/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/files/index.md",
+      "title": "Soubory",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/files/info.yml",
+    "static_files": {},
+    "title": "Soubory"
+   },
+   "beginners/first-steps": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019.",
+       "\u010c\u00e1st t\u00e9to kapitoly je zalo\u017eena na materi\u00e1lech <a href=\"https://djangogirls.org/\">DjangoGirls</a>.",
+       "\u010c\u00e1st t\u00e9to kapitoly je zalo\u017eena na kurzu <a href=\"https://github.com/ggcarrots/django-carrots\">Geek Girls Carrots</a>.",
+       "P\u016fvodn\u00ed DjangoGirls tutori\u00e1l p\u0159elo\u017eila do \u010de\u0161tiny skupina dobrovoln\u00edk\u016f.\nPod\u011bkov\u00e1n\u00ed pat\u0159\u00ed hlavn\u011b: Davidovi (dakf), Krist\u00fdn\u011b Kump\u00e1nov\u00e9,\nVeronice Gabrielov\u00e9, Tom\u00e1\u0161i Ehrlichovi, Ani\u010dce Jaegerov\u00e9,\nMat\u011bjovi Stuchl\u00edkovi, Filipovi Siv\u00e1kovi a Juraji M. Bezru\u010dkovi."
+      ],
+      "content": {
+       "path": "lessons/beginners/first-steps/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/first-steps/index.md",
+      "title": "Prvn\u00ed kr\u016f\u010dky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/first-steps/info.yml",
+    "static_files": {},
+    "title": "Prvn\u00ed kr\u016f\u010dky"
+   },
+   "beginners/functions": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019."
+      ],
+      "content": {
+       "path": "lessons/beginners/functions/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/functions/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/functions/index.md",
+      "title": "Funkce",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/functions/info.yml",
+    "static_files": {
+     "call-anatomy.svg": {
+      "path": "lessons/beginners/functions/static/call-anatomy.svg"
+     }
+    },
+    "title": "Funkce"
+   },
+   "beginners/hello-world": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/hello-world/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/hello-world/index.md",
+      "title": "Prvn\u00ed program",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/hello-world/info.yml",
+    "static_files": {},
+    "title": "Prvn\u00ed program"
+   },
+   "beginners/install": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/index.md",
+      "title": "Instalace Pythonu",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "linux": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/linux.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "linux",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/linux.md",
+      "subtitle": "Linux",
+      "title": "Instalace Pythonu \u2013 Linux",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "macos": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/macos.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "macos",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/macos.md",
+      "subtitle": "macOS",
+      "title": "Instalace Pythonu \u2013 macOS",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "windows": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/install/windows.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "windows",
+      "solutions": [],
+      "source_file": "lessons/beginners/install/windows.md",
+      "subtitle": "Windows",
+      "title": "Instalace Pythonu \u2013 Windows",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/install/info.yml",
+    "static_files": {
+     "windows_32v64-bit.png": {
+      "path": "lessons/beginners/install/static/windows_32v64-bit.png"
+     },
+     "windows_add_python_to_path.png": {
+      "path": "lessons/beginners/install/static/windows_add_python_to_path.png"
+     }
+    },
+    "title": "Instalace Pythonu"
+   },
+   "beginners/install-editor": {
+    "pages": {
+     "atom": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tom\u00e1\u0161 Roj (2019)"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/atom.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "atom",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/atom.md",
+      "subtitle": "Atom",
+      "title": "Instalace Atomu",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "gedit": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tom\u00e1\u0161 Roj (2019)"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/gedit.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "gedit",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/gedit.md",
+      "subtitle": "Gedit",
+      "title": "Instalace Geditu",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tom\u00e1\u0161 Roj (2019)"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/index.md",
+      "title": "Instalace editoru",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "kate": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tom\u00e1\u0161 Roj (2019)"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/kate.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "kate",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/kate.md",
+      "subtitle": "Kate",
+      "title": "Instalace Kate",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "notepad-plus-plus": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tom\u00e1\u0161 Roj (2019)"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/notepad-plus-plus.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "notepad-plus-plus",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/notepad-plus-plus.md",
+      "subtitle": "Notepad++",
+      "title": "Instalace Notepadu++",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "others": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tom\u00e1\u0161 Roj (2019)"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/others.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "others",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/others.md",
+      "subtitle": "Nastaven\u00ed",
+      "title": "Nastaven\u00ed editoru",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     },
+     "vscode": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tom\u00e1\u0161 Roj (2019)"
+      ],
+      "content": {
+       "path": "lessons/beginners/install-editor/vscode.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "vscode",
+      "solutions": [],
+      "source_file": "lessons/beginners/install-editor/vscode.md",
+      "subtitle": "Visual Studio Code",
+      "title": "Instalace Visual Studio Code",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/install-editor/info.yml",
+    "static_files": {
+     "gedit_indent.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_indent.png"
+     },
+     "gedit_linenums.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_linenums.png"
+     },
+     "gedit_prefs.png": {
+      "path": "lessons/beginners/install-editor/static/gedit_prefs.png"
+     }
+    },
+    "title": "Instalace editoru"
+   },
+   "beginners/list": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/list/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/list/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/list/index.md",
+      "title": "Seznamy",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/list/info.yml",
+    "static_files": {},
+    "title": "Seznamy"
+   },
+   "beginners/modules": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/modules/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/modules/index.md",
+      "title": "Moduly",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/modules/info.yml",
+    "static_files": {},
+    "title": "Moduly"
+   },
+   "beginners/print": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/print/index.html"
+      },
+      "css": ".err-lineno {\n    display: inline-block;\n    background-color: #FCC;\n}\n.err-exctype {\n    display: inline-block;\n    background-color: #CFC;\n}\n",
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/print/index.md",
+      "title": "Print a chybov\u00e9 hl\u00e1\u0161ky",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/print/info.yml",
+    "static_files": {},
+    "title": "Print a chybov\u00e9 hl\u00e1\u0161ky"
+   },
+   "beginners/str": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019.",
+       "Jako jeden z\u00a0p\u0159\u00edklad\u016f byl pou\u017eit \u00faryvek z pov\u00eddky \u201eChlap, d\u011bd, vnuk, pes a hrob\u201c Jana Wericha."
+      ],
+      "content": {
+       "path": "lessons/beginners/str/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/str/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/str/index.md",
+      "title": "Z\u00e1pis \u0159et\u011bzc\u016f",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/str/info.yml",
+    "static_files": {
+     "quote-comic.svg": {
+      "path": "lessons/beginners/str/static/quote-comic.svg"
+     }
+    },
+    "title": "Z\u00e1pis \u0159et\u011bzc\u016f"
+   },
+   "beginners/tuple": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/tuple/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/tuple/index.md",
+      "title": "N-tice",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/tuple/info.yml",
+    "static_files": {},
+    "title": "N-tice"
+   },
+   "beginners/variables": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/variables/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/variables/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/beginners/variables/solution-1.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/variables/index.md",
+      "title": "Prom\u011bnn\u00e9",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/variables/info.yml",
+    "static_files": {},
+    "title": "Prom\u011bnn\u00e9"
+   },
+   "beginners/venv-setup": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2018."
+      ],
+      "content": {
+       "path": "lessons/beginners/venv-setup/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/beginners/venv-setup/index.md",
+      "title": "Nastaven\u00ed prost\u0159ed\u00ed",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/venv-setup/info.yml",
+    "static_files": {
+     "dirs.png": {
+      "path": "lessons/beginners/venv-setup/static/dirs.png"
+     }
+    },
+    "title": "Nastaven\u00ed prost\u0159ed\u00ed"
+   },
+   "beginners/while": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/beginners/while/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/beginners/while/solution-0.html"
+        }
+       }
+      ],
+      "source_file": "lessons/beginners/while/index.md",
+      "title": "Cyklus While",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/beginners/while/info.yml",
+    "static_files": {},
+    "title": "Cyklus While"
+   },
+   "intro/json": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/json/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [],
+      "source_file": "lessons/intro/json/index.md",
+      "title": "JSON",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/intro/json/info.yml",
+    "static_files": {},
+    "title": "JSON"
+   },
+   "intro/turtle": {
+    "pages": {
+     "index": {
+      "attribution": [
+       "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+      ],
+      "content": {
+       "path": "lessons/intro/turtle/index.html"
+      },
+      "license": "cc-by-sa-40",
+      "slug": "index",
+      "solutions": [
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-0.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-1.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-2.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-3.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-4.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-5.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-6.html"
+        }
+       },
+       {
+        "content": {
+         "path": "lessons/intro/turtle/solution-7.html"
+        }
+       }
+      ],
+      "source_file": "lessons/intro/turtle/index.md",
+      "title": "\u017delva a cykly",
+      "vars": {
+       "coach-present": true,
+       "pyladies": true,
+       "user-gender": "f"
+      }
+     }
+    },
+    "source_file": "lessons/intro/turtle/info.yml",
+    "static_files": {
+     "turtle-dashed.png": {
+      "path": "lessons/intro/turtle/static/turtle-dashed.png"
+     },
+     "turtle-dashed2.png": {
+      "path": "lessons/intro/turtle/static/turtle-dashed2.png"
+     },
+     "turtle-hexagons.png": {
+      "path": "lessons/intro/turtle/static/turtle-hexagons.png"
+     },
+     "turtle-rect.png": {
+      "path": "lessons/intro/turtle/static/turtle-rect.png"
+     },
+     "turtle-square.png": {
+      "path": "lessons/intro/turtle/static/turtle-square.png"
+     },
+     "turtle-squares.png": {
+      "path": "lessons/intro/turtle/static/turtle-squares.png"
+     },
+     "turtle-stairs.png": {
+      "path": "lessons/intro/turtle/static/turtle-stairs.png"
+     }
+    },
+    "title": "\u017delva a cykly"
+   }
+  },
+  "long_description": "<p>Tento kurz obsahuje podpurn\u00e9 materi\u00e1ly pro p\u0159\u00edpravku Pythonu v r\u00e1mci Digit\u00e1ln\u00ed akademie\nCzechitas v Ostrav\u011b.</p>",
+  "place": "V\u0160B \u2013 TUO, 17. listopadu 15/2172 708 33 Ostrava \u2013 Poruba",
+  "sessions": [
+   {
+    "date": "2018-02-06",
+    "materials": [
+     {
+      "lesson_slug": "beginners/cmdline",
+      "title": "\u00davod do p\u0159\u00edkazov\u00e9 \u0159\u00e1dky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/first-steps",
+      "title": "Prvn\u00ed kr\u016f\u010dky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/hello-world",
+      "title": "Prvn\u00ed program",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/print",
+      "title": "Print a chybov\u00e9 hl\u00e1\u0161ky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/variables",
+      "title": "Prom\u011bnn\u00e9",
+      "type": "lesson"
+     }
+    ],
+    "serial": "1",
+    "slug": "hello-world",
+    "source_file": "runs/2018/czechitas-ostrava-jaro/info.yml",
+    "title": "Prvn\u00ed program"
+   },
+   {
+    "date": "2018-02-08",
+    "materials": [
+     {
+      "lesson_slug": "beginners/comparisons",
+      "title": "Porovn\u00e1v\u00e1n\u00ed",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/and-or",
+      "title": "*Nebo* anebo *a* (bonus)",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/functions",
+      "title": "Funkce",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "intro/turtle",
+      "title": "\u017delva a cykly",
+      "type": "lesson"
+     }
+    ],
+    "serial": "2",
+    "slug": "loops",
+    "source_file": "runs/2018/czechitas-ostrava-jaro/info.yml",
+    "title": "Cykly"
+   },
+   {
+    "date": "2018-02-13",
+    "materials": [
+     {
+      "lesson_slug": "beginners/while",
+      "title": "Cyklus While",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/def",
+      "title": "Definice funkc\u00ed",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/str",
+      "title": "Z\u00e1pis \u0159et\u011bzc\u016f",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/list",
+      "title": "Seznamy",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/tuple",
+      "title": "N-tice",
+      "type": "lesson"
+     }
+    ],
+    "serial": "3",
+    "slug": "def-str-list",
+    "source_file": "runs/2018/czechitas-ostrava-jaro/info.yml",
+    "title": "Funkce, \u0159et\u011bzce, seznamy"
+   },
+   {
+    "date": "2018-02-20",
+    "materials": [
+     {
+      "lesson_slug": "beginners/dict",
+      "title": "Slovn\u00edky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/files",
+      "title": "Soubory",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "intro/json",
+      "title": "JSON",
+      "type": "lesson"
+     }
+    ],
+    "serial": "4",
+    "slug": "dict-files",
+    "source_file": "runs/2018/czechitas-ostrava-jaro/info.yml",
+    "title": "Slovn\u00edky, soubory, JSON"
+   },
+   {
+    "date": "2018-02-22",
+    "materials": [
+     {
+      "lesson_slug": "beginners/exceptions",
+      "title": "V\u00fdjimky",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/modules",
+      "title": "Moduly",
+      "type": "lesson"
+     },
+     {
+      "lesson_slug": "beginners/circular-imports",
+      "title": "Cyklick\u00e9 importy",
+      "type": "lesson"
+     }
+    ],
+    "serial": "5",
+    "slug": "modules",
+    "source_file": "runs/2018/czechitas-ostrava-jaro/info.yml",
+    "title": "Moduly a v\u00fdjimky"
+   }
+  ],
+  "source_file": "runs/2018/czechitas-ostrava-jaro/info.yml",
+  "subtitle": "Ostrava - jaro 2018",
+  "time_description": "17:00\u201320:00",
+  "timezone": "Europe/Prague",
+  "title": "Digit\u00e1ln\u00ed akademie Czechitas - p\u0159\u00edpravka Pythonu",
+  "vars": {
+   "coach-present": true,
+   "pyladies": true,
+   "user-gender": "f"
+  }
+ }
+}
