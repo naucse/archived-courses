@@ -1,0 +1,3 @@
+[submodule "2021/linuxadmin"]
+	path = 2021/linuxadmin
+	url = https://github.com/encukou/linuxadmin
