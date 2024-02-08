@@ -1,0 +1,110 @@
+<h1 id="environment_setup">Environment setup
+<a href="#environment_setup" class="header-link">#</a>
+</h1>
+<p>In this section, you will:</p>
+<ul>
+<li>prepare a directory for this workshop, and</li>
+<li>activate a virtual environment.</li>
+</ul>
+<h2 id="preparing_a_directory">Preparing a directory
+<a href="#preparing_a_directory" class="header-link">#</a>
+</h2>
+<p>Programmers create a lot of files. And they care where those files are stored.</p>
+<p>The procedure below is by no means the only way to organize files,
+but if everyone in the workshop uses it, it'll be easier for us to help you with any problems.</p>
+<h3 id="a_directory_for_the_workshop">A directory for the workshop
+<a href="#a_directory_for_the_workshop" class="header-link">#</a>
+</h3>
+<p>First, create a directory (folder) for the workshop.
+It can be, for example, <code>learn-python</code> in your home directory.
+(You can name it differently, but <code>learn-python</code> is used in the examples below.)</p>
+<p>You must not move this directory after creating it.
+Therefore, I do not recommend creating it on the Desktop.</p>
+<div class="admonition note"><p>If you ever do move the directory to another location, the <em>virtual environment</em> we will create in a moment will stop working.
+In that case you will have to delete the environment and create a new one.</p>
+</div><p>At the workshop, you will need to know where this directory is.
+Note down its full name, which you can then paste into a graphical file browser or into <code>cd</code> in the command line.</p>
+<p>We could use the directory directly, but let's organize things a bit more.
+Create an additional directory inside <code>learn-python</code>, and name it <code>snake-workshop</code>.</p>
+<h3 id="switching_to_the_directory">Switching to the directory
+<a href="#switching_to_the_directory" class="header-link">#</a>
+</h3>
+<p>Then open the command line and use the <code>cd</code> command to switch to the directory <code>learn-python</code> (i.e. not all the way into <code>snake-workshop</code>).
+For example:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>learn-python
+</pre></div><p>Then check that you are in the right place:</p>
+<ul>
+<li>Use the command <code>pwd</code> (on Windows <code>cd</code>) to check that you are really in the newly created directory.</li>
+<li>Use the command <code>ls</code> (on Windows <code>dir</code>) to check that there is a subdirectory <code>snake-workshop</code> in it.</li>
+</ul>
+<p>For example:</p>
+<div class="row side-by-side-commands"><div class="col">
+                <h4>Unix (Linux, macOS)</h4><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">pwd</span>
+<span class="go">/home/helena/learn-python</span>
+
+<span class="gp">$ </span>ls
+<span class="go">snake-workshop</span>
+</pre></div></div><div class="col">
+                <h4>Windows</h4><div class="highlight"><pre><span></span><span class="gp">&gt; </span>cd
+<span class="go">C:\Users\Helena\learn-python</span>
+
+<span class="gp">&gt; </span>dir
+<span class="go"> Directory of C:\Users\Helena\learn-python</span>
+<span class="go">05/08/2014 07:28 PM &lt;DIR&gt;  snake-workshop</span>
+</pre></div></div></div><h2 id="virtual_environment">Virtual environment
+<a href="#virtual_environment" class="header-link">#</a>
+</h2>
+<p>Now you will create a <em>virtual environment</em> for Python.</p>
+<p>A virtual environment is something that ensures that all computers on the workshop will behave roughly the same.
+Once we set it up, we won't need separate instructions for Linux, Windows, and macOS.</p>
+<div class="admonition note"><p>In the future, you will also benefit from the second advantage: each virtual environment is separated from the others, so when you install a library (an extension for Python), it will only affect one virtual environment.
+If something goes wrong while working on one project, it will not endanger other projects on your computer.</p>
+</div><p>How to do it? It's different on every system!</p>
+<h3 id="linux">Linux:
+<a href="#linux" class="header-link">#</a>
+</h3>
+<p>Depending on how you have Python installed, one of the following commands will work.
+It will be faster to try them out than to describe which one is correct, so first try:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+</pre></div><p>And if you get the error <code>No module named venv</code>, try instead:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>-p<span class="w"> </span>python3<span class="w"> </span>venv
+</pre></div><h3 id="macos">macOS:
+<a href="#macos" class="header-link">#</a>
+</h3>
+<div class="highlight"><pre><span></span><span class="gp">   $ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+</pre></div><h3 id="windows">Windows:
+<a href="#windows" class="header-link">#</a>
+</h3>
+<p>Depending on how you have Python installed, one of the following commands will work.
+It will be faster to try them out than to describe which one is correct, so try this first:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt; </span>py -3 -m venv venv
+</pre></div><p>And if you get an error like <code>'py' is not recognized</code>, try instead:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt; </span>python3 -m venv venv
+</pre></div><p>That created a directory called <code>venv</code>, which contains the virtual environment.
+You can look inside, but do not save your files there and never change anything there!</p>
+<p>Check that <code>snake-workshop</code> and <code>venv</code> are nicely next to each other.</p>
+<div class="row side-by-side-commands"><div class="col">
+                <h4>Unix</h4><div class="highlight"><pre><span></span><span class="gp">$ </span>ls
+<span class="go">snake-workshop</span>
+<span class="go">venv</span>
+</pre></div></div><div class="col">
+                <h4>Windows</h4><div class="highlight"><pre><span></span><span class="gp">&gt; </span>dir
+<span class="go"> Directory of C:\Users\Helena\learn-python</span>
+<span class="go">05/08/2014 07:28 PM &lt;DIR&gt;  00</span>
+<span class="go">05/08/2014 07:38 PM &lt;DIR&gt;  venv</span>
+</pre></div></div></div><p>In a graphical file browser, it looks like this, for example:</p>
+<p><span class="figure"><a href="naucse:static?filename=dirs-00.png"><img src="naucse:static?filename=dirs-00.png" alt="(adresáře &#39;00&#39; a &#39;venv&#39; vedle sebe)"></a></span></p>
+<h3 id="activation_of_the_virtual_environment">Activation of the virtual environment
+<a href="#activation_of_the_virtual_environment" class="header-link">#</a>
+</h3>
+<p>Finally, <em>activate</em> the new virtual environment:</p>
+<div class="row side-by-side-commands"><div class="col">
+                <h4>Unix</h4><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</pre></div></div><div class="col">
+                <h4>Windows</h4><div class="highlight"><pre><span></span><span class="gp">&gt; </span>venv\Scripts\activate
+</pre></div><p>If you use the command line in Visual Studio Code, the command for Windows is more complicated:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="p">&amp;</span>powershell -ExecutionPolicy bypass
+<span class="gp">&gt; </span>venv/Scripts/Activate.ps1
+</pre></div></div></div><p>After running this command, the word <code>(venv)</code> should appear at the beginning of the command line prompt (before <code>$</code> or <code>&gt;</code>). This way you will know that the virtual environment is <em>active</em>.</p>
+<p>Write down the activation command.</p>
+<p>When you open the command line at the workshop, you will need to switch to <code>learn-python</code> using <code>cd</code> and enter this activation command.</p>

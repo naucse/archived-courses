@@ -1,0 +1,93 @@
+<div class="admonition warning"><p>This is a machine-generated translation.
+If you're not at the in-person workshop, try the <a href="https://tutorial.djangogirls.org/en/">DjangoGirls tutorial</a> for an intro to Python!</p>
+</div><h1 id="comparing_things">Comparing things
+<a href="#comparing_things" class="header-link">#</a>
+</h1>
+<p>Programmers often compare different values. Let's take a look at how to do it.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">8</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">8</span>
+<span class="go">True</span>
+</pre></div><p>When you ask Python if one number is greater than the other, it will answer either <code>True</code> or <code>False</code>.</p>
+<p>It works even with more complex expressions.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">False</span>
+</pre></div><p>"Greater than" and "less than" are symbols known from mathematics. However, if you want to ask if two numbers are equal, you need to use a slightly different notation:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="kc">True</span>
+</pre></div><p>We use one equals sign <code>=</code> for <em>assignment</em> of a value to a variable. When you want to check if things are <em>equal</em> to each other, always, <strong>always</strong> use two equals signs <code>==</code>.</p>
+<p>The other comparison options are inequality (≠), greater than or equal to (≤), and less than or equal to (≥). Most people do not have these symbols on their keyboard, so Python uses <code>!=</code>, <code>&lt;=</code>, and <code>&gt;=</code>.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">!=</span> <span class="mi">2</span>
+<span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+<span class="kc">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">6</span> <span class="o">&gt;=</span> <span class="mi">12</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="kc">True</span>
+</pre></div><p>Have you ever heard the expression "comparing apples and pears"? Let's try the Python equivalent:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">&gt;</span> <span class="s1">&#39;krajta&#39;</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">&#39;&gt;&#39; not supported between instances of &#39;int&#39; and &#39;str&#39;</span>
+</pre></div><p>Just like you can't compare apples and pears, Python is unable to compare strings (<code>str</code>) and numbers (<code>int</code>). Instead, it displays a <code>TypeError</code> and tells us that these two types cannot be compared.</p>
+<p>What happens when you replace <code>&gt;</code> with <code>==</code> in the previous example?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">==</span> <span class="s1">&#39;krajta&#39;</span>
+<span class="go">False</span>
+</pre></div><p>You can't compare apples and pears, but you can confirm that they are two different things.</p>
+    </div>
+</div><h2 id="logic">Logic
+<a href="#logic" class="header-link">#</a>
+</h2>
+<p>Do you want to try something else? Enter this:</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 6 &gt; 2 and 2 &lt; 3
+True
+&gt;&gt;&gt; 3 &gt; 2 and 2 &lt; 1
+False
+&gt;&gt;&gt; 3 &gt; 2 or 2 &lt; 1
+True
+&gt;&gt;&gt; not 3 &gt; 2
+False</code></pre></div><p>In Python, you can combine several comparisons into one!</p>
+<p>If you use the 'and' operator, both sides must be true for the whole expression to be true. If you use the 'or' operator, it is enough for only one side of the comparison to be true. The 'not' operator 'inverts' the result of the comparison.</p>
+<h2 id="presence">Presence
+<a href="#presence" class="header-link">#</a>
+</h2>
+<p>Wouldn't it be nice to find out if your number won the lottery? If you have a list, you can use the <code>in</code> operator to ask if a given element is in it.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; loterie = [3, 42, 12, 19, 30, 59]
+&gt;&gt;&gt; 18 in loterie
+False
+&gt;&gt;&gt; 42 in loterie
+True</code></pre></div><p>It's not a complete comparison, but you'll get the same kind of result as with <code>&lt;</code> or <code>==</code>.</p>
+<h2 id="truth_values">Truth values
+<a href="#truth_values" class="header-link">#</a>
+</h2>
+<p>You have just learned about a new type of object in Python. We already know types such as string, number, list, or dictionary; we have added to them the <em>truth value</em>, or more commonly in English, <em>boolean</em>.</p>
+<p>The truth values are only two: <code>True</code> (true) or <code>False</code> (false).</p>
+<p>In order for Python to understand that it is this type, it is necessary to pay attention to the capitalization. <code>true</code>, <code>TRUE</code>, <code>tRUE</code> will not work - only <code>True</code> is correct.</p>
+<p>Like any value, you can also save a <em>boolean</em> in a variable.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="kc">True</span>
+</pre></div><p>You can also save the result of the comparison in the same way:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">False</span>
+</pre></div><p>And you can use all of that in logical expressions:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="ow">and</span> <span class="kc">True</span>
+<span class="go">False</span>
+</pre></div><h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>In this section you have learned:</p>
+<p>In Python, you can <strong>compare</strong> using operators <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>&lt;=</code>, <code>&lt;</code>, <code>!=</code>, and <code>in</code>.</p>
+<ul>
+<li>Operators <code>and</code> and <code>or</code> can <strong>combine</strong> two boolean values.</li>
+<li>Operator <code>not</code> can <strong>invert</strong> a boolean value.</li>
+<li><strong>Boolean</strong> is a type that can have one of two values: <code>True</code> (true) or <code>False</code> (false).</li>
+</ul>

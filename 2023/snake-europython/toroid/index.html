@@ -1,0 +1,54 @@
+<div class="admonition warning"><p>This is a machine-generated translation.</p>
+</div><h1 id="infinite_cage">Infinite cage
+<a href="#infinite_cage" class="header-link">#</a>
+</h1>
+<p>Instead of ending the game when hitting the edge of the window, you can let the snake "pass through" and appear on the other side.</p>
+<p>From a game logic standpoint, it's not as complicated as it may sound. It's enough to set the appropriate value for the end of the game in the <code>move</code> function. However, it's necessary to be careful where to use <code>new_x</code> and where to use <code>new_y</code>, where to use <code>width</code> and where to use <code>height</code>, and where to add or subtract one, so that everything fits when numbering from zero. Give it a try!</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span>        <span class="k">if</span> <span class="n">new_x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">new_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">new_y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">new_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">new_x</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">:</span>
+            <span class="n">new_x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">new_y</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">:</span>
+            <span class="n">new_y</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+    </div>
+</div><p>However, if you draw a snake (instead of a caterpillar), you will now encounter a problem with selecting the correct pieces - the edge of the snake game visually divides it into two smaller parts. I leave the solution to this problem to the reader - with the note that it is a very difficult problem.</p>
+<h2 id="residual_solution">Residual solution
+<a href="#residual_solution" class="header-link">#</a>
+</h2>
+<p>Can the logic of climbing out of the window be solved more simply? Yes, it can!
+Mathematicians have come up with an operation called the <em>remainder of division</em>.
+It does exactly what you need - the remainder of division of the new coordinates by the size of the field gives a coordinate that lies within the field.
+When the previous coordinate was one larger than the maximum, the remainder of division will be zero; when it was -1, we get the maximum.</p>
+<p>Python uses the operator <code>%</code> for the remainder after division. Try it out.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; 6 % 10      # Remainder after dividing six by ten
+6
+&gt;&gt;&gt; 10 % 10
+0
+&gt;&gt;&gt; -1 % 10
+9</code></pre></div><p>The entire code for controlling and handling climbing out of the playing area can be replaced by two lines.</p>
+<div class="highlight"><pre><span></span><span class="n">new_x</span> <span class="o">=</span> <span class="n">new_x</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+<span class="n">new_y</span> <span class="o">=</span> <span class="n">new_y</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+</pre></div><p>Similar mathematical 'shortcuts' can often make life easier for programmers. However, coming up with them is not always easy. But don't worry: if you're not interested in studying computer science at school, know that it's possible to do it without 'shortcuts'. It just might be a bit more convoluted at times.</p>
+<div class="admonition note"><p>The fact that there is exactly the operation we need is not entirely a coincidence. The mathematical simplicity is rather the <em>reason</em> why the playing field behaves this way in many old games. &lt;This is called <a href="https://en.wikipedia.org/wiki/Torus#Topology">toroidal topology</a> in professional terms.</p>
+</div><div class="admonition note"><p class="admonition-title">For mathematicians</p>
+<p>Experienced mathematicians may now complain about the need to define the remainder of division of a negative number. Therefore, I will add that Python intentionally <a href="https://docs.python.org/3/reference/expressions.html#binary-arithmetic-operations">defines it appropriately</a> for this purpose; <code>a % b</code> always has the same sign as <code>b</code>.</p>
+</div><h2 id="rendering">Rendering
+<a href="#rendering" class="header-link">#</a>
+</h2>
+<p>In your free time, try to fix the problem. I recommend returning to the 'abstract' function that only prints coordinates and directions:</p>
+<div class="highlight"><pre><code>1 2 tail right
+2 2 left right
+3 2 left top
+3 3 bottom top
+3 4 bottom top
+3 5 bottom right
+4 5 left head</code></pre></div><p>If you follow the instructions, you have this function saved in the file <code>smery.py</code>. First, fix it and then 'transplant' the solution into the game.</p>

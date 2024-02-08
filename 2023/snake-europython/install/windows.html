@@ -1,0 +1,37 @@
+<h1 id="installing_python_for_windows">Installing Python for Windows
+<a href="#installing_python_for_windows" class="header-link">#</a>
+</h1>
+<p>If you have Windows 10 with the latest updates, enter <code>python3</code> in the command line.</p>
+<p>If you don't have Python installed yet, the Microsoft Store page will automatically open for you. Install Python from there.</p>
+<p>If you already have Python installed, something like this will appear in the command line:</p>
+<div class="highlight"><pre><code>&gt; python3
+Python 3.8.1 (...)
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;</code></pre></div><p>On the first line of the output is the version of Python. Check that the version is 3.6 or newer (for example, <code>Python 3.6.10</code>, <code>Python 3.7.4</code> or <code>Python 3.8.1</code>). 
+If it is, you have Python installed!
+End it with the shortcut <kbd>Ctrl</kbd>+<kbd>Z</kbd> and <kbd>Enter</kbd> so that the line where you will write further commands does not start with "three beaks" (<code>&gt;&gt;&gt;</code>).
+<br><!-- instructions in case the window is accidentally closed: -->
+(Or close the window with the command line. When you need it again, you can open a new one.)</p>
+<p>If you did not get the output above, or the versoin is too low, continue with the section below.</p>
+<h2 id="older_windows_or_existing_python">Older Windows or existing Python
+<a href="#older_windows_or_existing_python" class="header-link">#</a>
+</h2>
+<p>If the shortcut <code>python3</code> doesn't work or if you have an older version of Python, go to the <a href="https://www.python.org/downloads/">download page</a> and download the installer for the latest stable version of Python.
+Make sure it is version <strong>3.6.0 or newer</strong> - version 3.6.0 has certain improvements that we will be using in this course.</p>
+<p>How to recognize which installer is the right one?
+If your computer has a 64-bit version of Windows,
+download the <em>Windows x86-64 executable installer</em>.
+If you have an older computer with 32-bit Windows,
+download the <em>Windows x86 executable installer</em>.
+(The difference is in <em>x86-64</em> versus <em>x86</em>.)</p>
+<div class="admonition note"><p>Where can you find out if you have 32-bit or 64-bit Windows?
+Open the <strong>Start</strong> menu, search for "System," and open <strong>System Information</strong>.
+If you have a newer computer, you almost certainly have 64-bit Windows.</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_32v64-bit.png"><img src="naucse:static?filename=windows_32v64-bit.png" alt="Screenshot of system version check"></a></span></p>
+</div><p>Run the downloaded installer. At the beginning of the installation, check <strong>Install launcher for all users</strong> and also <strong>Add Python to PATH</strong>.
+These options will simplify the creation of a virtual environment for you.</p>
+<p>(If you don't have administrator privileges, do not check the option <em>Install launcher for all users</em>.)</p>
+<p><span class="figure"><a href="naucse:static?filename=windows_add_python_to_path.png"><img src="naucse:static?filename=windows_add_python_to_path.png" alt="Screenshot instalace Pythonu"></a></span></p>
+<p>Then press <strong>Install now</strong> and follow the instructions.</p>
+<p>If you have an open command line, close it after installing Python and open a new one.
+The installation changes system settings that need to be reloaded.</p>

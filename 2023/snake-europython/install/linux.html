@@ -1,0 +1,62 @@
+<h1 id="installing_python_on_linux">Installing Python on Linux
+<a href="#installing_python_on_linux" class="header-link">#</a>
+</h1>
+<p>Installing Python on Linux is usually relatively simple.
+However, there are many types of Linux and we have the most experience with it, so these instructions are a bit longer.
+Don't be afraid - you will probably skip most of the sections. :)</p>
+<p>To make sure we're installing the right version of Python, we'll refer to it as <code>python3</code> in all our commands.</p>
+<h2 id="installing_python_3">Installing Python 3
+<a href="#installing_python_3" class="header-link">#</a>
+</h2>
+<p>Python 3 is usually already present on Linux. To check it, run the command in the command line:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>--version
+</pre></div><p>If you see “Python” and a version number (for example <code>Python 3.6.6</code>), and if that version is 3.6 or higher, you have it installed! Proceed to the next section, <a href="#check-tkinter">checking <code>tkinter</code></a>.</p>
+<p>If “Python version 3.5” or lower appears, update your system and try again.
+If that doesn't work, send us an e-mail and we'll try to help.</p>
+<p>If you encounter <code>bash: python3: command not found</code> or a similar error, install Python.
+The specific command depends on the distribution.</p>
+<ul>
+<li><strong>Fedora</strong>:<div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3
+</pre></div></li>
+<li><strong>Ubuntu</strong>:<div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3
+</pre></div></li>
+</ul>
+<p>If you are using a different distribution, maybe you already know how to install programs. If not, ask for help.</p>
+<p><a id="check-tkinter"></a></p>
+<h2 id="checking_tkinter">Checking Tkinter
+<a href="#checking_tkinter" class="header-link">#</a>
+</h2>
+<p>Some Linux distributions only include a part of the overall functionality of Python by default.
+Specifically, the <code>tkinter</code> library (which allows, for example, drawing "turtle graphics") often needs to be installed separately.
+To check if it is already installed, enter the command:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>tkinter
+</pre></div><p>If a window appears, everything is okay.
+Close the window and proceed to <a href="#install-virtualenv">installing <code>virtualenv</code></a>.</p>
+<p>If not, install the <code>tkinter</code> module:</p>
+<ul>
+<li><p><strong>Fedora</strong>:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3-tkinter
+</pre></div></li>
+<li><p><strong>Ubuntu</strong>:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-tk
+</pre></div></li>
+</ul>
+<p>If you are using a different distribution, you can find the correct package name on the Internet. Ask for help if you're not sure.</p>
+<p><a id="install-virtualenv"></a></p>
+<h2 id="installing_venv">Installing venv
+<a href="#installing_venv" class="header-link">#</a>
+</h2>
+<p>Python has a built-in tool called <code>venv</code>, which we will use below.
+However, some Linux distributions don't install it by default.
+Therefore, you need to find out if you have <code>venv</code> and, if necessary, install an alternative.</p>
+<p>Run the command in the command prompt:</p>
+<div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>ensurepip<span class="w"> </span>--version
+</pre></div><p>If you see a listing starting with "pip", you have a functional <code>venv</code> installed. You can skip the rest of this section!</p>
+<p>However, if the message "No module named ensurepip" appears, it is necessary to install an alternative, Virtualenv.</p>
+<!-- This doesn't happen on Fedora. -->
+
+<ul>
+<li><strong>Ubuntu</strong>:<div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-venv
+</pre></div></li>
+</ul>
+<p>If you are using a different distribution, ask for help.</p>

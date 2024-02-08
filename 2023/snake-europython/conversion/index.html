@@ -1,0 +1,49 @@
+<div class="admonition warning"><p>This is a machine-generated translation.
+If you're not at the in-person workshop, try the <a href="https://tutorial.djangogirls.org/en/">DjangoGirls tutorial</a> for an intro to Python!</p>
+</div><h1 id="type_conversion">Type conversion
+<a href="#type_conversion" class="header-link">#</a>
+</h1>
+<p>Let's try something new: find out the length of a number the same way you found out the length of your name.
+Enter <code>len(304023)</code> and press <kbd>Enter</kbd>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="mi">304023</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">object of type &#39;int&#39; has no len()</span>
+</pre></div><p>You have encountered an error!
+ It says that objects of type 'int' (short for 'integer', a whole number) do not have a length.
+ What can you do now? Maybe you can try writing the number as a string? Strings have length, right?</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;304023&quot;</span><span class="p">)</span>
+<span class="go">6</span>
+</pre></div><p>But it can also be done without quotation marks.
+There is also a function that <em>converts</em> a number to a string.
+It's called <code>str</code>.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">304023</span><span class="p">)</span>
+<span class="go">&quot;304023&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">304023</span><span class="p">))</span>
+<span class="go">6</span>
+</pre></div><p>When entering a number directly, it will probably be more pleasant to use quotation marks.
+However, the <code>str</code> function will become more useful when you want to leave the calculation of the number to Python.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">304023</span> <span class="o">*</span> <span class="mi">12345</span> <span class="o">*</span> <span class="mi">83845</span><span class="p">)</span>
+<span class="go">&#39;314684030130075&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">304023</span> <span class="o">*</span> <span class="mi">12345</span> <span class="o">*</span> <span class="mi">83845</span><span class="p">))</span>
+<span class="go">15</span>
+</pre></div><p>Similarly to <code>str</code> converting to strings, the <code>int</code> function converts things to integers.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;304023&quot;</span><span class="p">)</span>
+<span class="go">304023</span>
+</pre></div><p>The number can always be converted to text, but the opposite is not always possible.
+What happens when you try to convert a string without digits - for example, <code>'hello'</code>?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>An error will occur!</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: &#39;hello&#39;</span>
+</pre></div><p>The sentence contains useful information.
+The most important thing is the <code>ValueError</code>, which indicates an error in the value.</p>
+    </div>
+</div>

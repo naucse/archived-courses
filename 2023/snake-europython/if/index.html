@@ -1,0 +1,123 @@
+<div class="admonition warning"><p>This is a machine-generated translation.
+If you're not at the in-person workshop, try the <a href="https://tutorial.djangogirls.org/en/">DjangoGirls tutorial</a> for an intro to Python!</p>
+</div><h1 id="conditions">Conditions
+<a href="#conditions" class="header-link">#</a>
+</h1>
+<p>You will want to perform a lot of things in the code only if certain conditions are met. Python has <em>conditional statements</em> for this purpose.</p>
+<p>We will now try to gradually write a program that verifies a secret password.</p>
+<p>To start, write a program that outputs <code>True</code> when you enter the word <code>čokoláda</code> (chocolate in English). If a different password is entered, it will output <code>False</code>.</p>
+<div class="highlight"><pre><span></span><span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter password: &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">password</span> <span class="o">==</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">)</span>
+</pre></div><h2 id="if_-_then">If - then
+<a href="#if_-_then" class="header-link">#</a>
+</h2>
+<p>Printing <code>True</code> is not very interesting. A better program would do this:</p>
+<ul>
+<li>Asks for a secret password</li>
+<li>If the password is correct:<ul>
+<li>Allows the user inside.</li>
+</ul>
+</li>
+</ul>
+<p>A Python command for this is called <code>if</code>. It is used like this:</p>
+<div class="highlight"><pre><span></span><span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter password: &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correct! Welcome.&#39;</span><span class="p">)</span>
+</pre></div><p>The conditional statement begins with <code>if</code>, continues with a condition (such as a comparison) and ends with a colon.</p>
+<p>After the line with <code>if</code>, there is an <em>indented</em> command - there are 4 spaces at the beginning of the line. Python recognizes that this part of the program should be executed only when the condition is true.</p>
+<p>Save and run:</p>
+<div class="highlight"><pre><code>(venv) $ python python_intro.py
+Enter password: chocolate
+Correct! You may enter.
+(venv) $ python python_intro.py
+Enter password: sesame</code></pre></div><h3 id="indenting">Indenting
+<a href="#indenting" class="header-link">#</a>
+</h3>
+<p>Just because four spaces are needed at the beginning of a line doesn't mean you have to press the spacebar four times. Some editors automatically indent (if you write the line with 'if' correctly). However, in all properly configured editors, you can indent using the <kbd>↹ Tab</kbd> key, and the <kbd>⇧ Shift</kbd>+<kbd>↹ Tab</kbd> combination will return the line back one indentation level.</p>
+<h2 id="else">Else
+<a href="#else" class="header-link">#</a>
+</h2>
+<p>In the previous example, the code was executed only if the condition was met. An even better program would be this one:</p>
+<ul>
+<li>Asks for the secret password</li>
+<li>When the password is correct:<ul>
+<li>Lets the user in</li>
+</ul>
+</li>
+<li>Otherwise <small>(i.e., if the password was incorrect)</small>:<ul>
+<li>Triggers the alarm</li>
+</ul>
+</li>
+</ul>
+<p>Python has the command <code>else</code> for that:</p>
+<div class="highlight"><pre><span></span><span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter password: &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correct! Welcome.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING! WARNING!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;UNAUTHORIZED ACCESS!&#39;</span><span class="p">)</span>
+</pre></div><p>Does it work?</p>
+<div class="highlight"><pre><code>(venv) $ python python_intro.py
+Enter password: chocolate
+Correct! You may enter.
+(venv) $ python python_intro.py
+Enter password: sesame
+WARNING! WARNING!
+UNAUTHORIZED ENTRY!</code></pre></div><h2 id="more_options">More options
+<a href="#more_options" class="header-link">#</a>
+</h2>
+<p>Sometimes it happens that a program needs to decide between multiple options. For this purpose, the <code>elif</code> command is used (short for "else if" in English).</p>
+<p>By using this method, it is possible to comment on the volume of the music.</p>
+<p>Ask about the volume, remember the numerical response.</p>
+<ul>
+<li>When the volume is up to 20:<ul>
+<li>it displays "It's quite quiet."</li>
+</ul>
+</li>
+<li>Otherwise, when the volume is up to 40:<ul>
+<li>it displays "Like good background music."</li>
+</ul>
+</li>
+<li>Otherwise, when the volume is up to 60:<ul>
+<li>it displays "Great, I hear all the details."</li>
+</ul>
+</li>
+<li>Otherwise, when the volume is up to 80:<ul>
+<li>it displays "Good for a party."</li>
+</ul>
+</li>
+<li>Otherwise, when the volume is up to 100:<ul>
+<li>it displays "A bit too loud!"</li>
+</ul>
+</li>
+<li>Otherwise:<ul>
+<li>it displays "My ears are bleeding!"</li>
+</ul>
+</li>
+</ul>
+<p>In Python, it would be written like this:</p>
+<div class="highlight"><pre><span></span><span class="n">volume</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What is the radio volume set to? &#39;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">volume</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s quite quiet.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">volume</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Good background music.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">volume</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Great, I can hear all the details.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">volume</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Good for a party.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">volume</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A bit too loud!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My ears are bleeding!&quot;</span><span class="p">)</span>
+</pre></div><div class="highlight"><pre><code>(venv) $ python python_intro.py
+What is the radio volume set to? 28
+Good as background music.</code></pre></div><p>Notice that only one option is always selected. If you enter <code>28</code>, Python will reach <code>volume &lt; 40</code>, display the appropriate message, and skip all other options.</p>
+<h2 id="summary">Summary.
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>What did you see in this lesson?</p>
+<p>The following is the English translation of the Czech text:</p>
+<p>*The commands <strong>if</strong> (if), <strong>elif</strong> (else, if), and <strong>else</strong> (else) condition other commands.</p>
+<ul>
+<li><strong>Indentation</strong> is used for conditional commands that follow <code>if</code>, etc.</li>
+</ul>

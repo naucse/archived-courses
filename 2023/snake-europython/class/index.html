@@ -1,0 +1,79 @@
+<div class="admonition warning"><p>This is a machine-generated translation, meant to support the in-person workshop.</p>
+</div><h1 id="classes">Classes
+<a href="#classes" class="header-link">#</a>
+</h1>
+<p>You have already familiarized yourself with a lot of <em>classes</em> of objects that you can work with in Python: with numbers that can be added and multiplied, for example; with strings that can be converted to capital letters; with lists that you can sort; with dictionaries that can be searched.
+As you continue studying programming further, you'll discover additional classes of objects: files that can be read; web pages that can be sent to a browser; buttons that can be pressed, and so on.
+There are countless classes.</p>
+<p>And just as you can define a function using <code>def</code>, you can also create a new class himself/herself. This is mainly used when you need a lot of objects in the program that have common behavior. Whole numbers, objects of the <code>int</code> class, have different values but they can all be added. Each list, object of the <code>list</code> class, can have different content, but all lists can be sorted.</p>
+<p>The task for this section is to create a class called <em>kitten</em>, which can have different names, but all of them can meow and eat.</p>
+<p>Start with meowing:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Kitten</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">purr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Meow!&quot;</span><span class="p">)</span>
+</pre></div><p>Just like functions are defined using <code>def</code>, classes have the keyword <code>class</code>, after which you write the name of the class, a colon, and then the indented body of the class. Similar to how <code>def</code> creates a function, the <code>class</code> statement creates a new class and assigns it to a variable with the given name (here <code>Kitten</code>).</p>
+<p>Classes are traditionally named with a capital letter to avoid confusion with 'normal' values.</p>
+<div class="admonition note"><p>Basic classes (<code>str</code>, <code>int</code>, etc.) do not have capital letters, mainly for historical reasons - they were originally functions.</p>
+</div><p>In a class body, you can define methods that look just like functions - except they have a first argument <code>self</code>. But we'll explain that later - first, try purring:</p>
+<div class="highlight"><pre><code># Creating a specific object
+mourek = Kitten()
+
+# Method call
+mourek.purr()</code></pre></div><p>When you define a class (using the <code>class</code> block), it doesn't mean that there is a kitten in your program yet. A class is like a recipe or a manual: when you buy a cookbook, you will theoretically know how to bake a cake, what such a cake will look like, and that it can be eaten. But it still doesn't mean that you have the actual cake!</p>
+<p>You create a specific object by calling a class: you use the class as a function, <code>Kitten()</code>, and the result is a new object of your class that you can now use.</p>
+<p>Meow!</p>
+<h2 id="attributes">Attributes
+<a href="#attributes" class="header-link">#</a>
+</h2>
+<p>In objects created from 'custom' classes, you can set <em>attributes</em> - information that is stored with the given object. Attributes are marked by writing a period between the value and the name of its attribute.</p>
+<div class="highlight"><pre><span></span><span class="n">mourek</span> <span class="o">=</span> <span class="n">Kitten</span><span class="p">()</span>
+<span class="n">mourek</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Mourek&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mourek</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div><p>The string <code>'Mourek'</code> now "belongs" to a specific kitten. When you create another kitten, you can name it differently - set its attribute <code>name</code> to a different string.</p>
+<div class="highlight"><pre><span></span><span class="n">micka</span> <span class="o">=</span> <span class="n">Kitten</span><span class="p">()</span>
+<span class="n">micka</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Micka&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">micka</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mourek</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div><h2 id="parameter_codeselfcode">Parameter <code>self</code>.
+<a href="#parameter_codeselfcode" class="header-link">#</a>
+</h2>
+<p>Now let's briefly return to methods. Specifically, to the <code>self</code> parameter.</p>
+<p>Each method has access to a specific object it works on, precisely through the <code>self</code> argument. Now that you have named the kittens, you can use <code>self</code> in the <code>purr</code> method to access the name of the specific kitten.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Kitten</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">purr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: Meow!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+<span class="n">mourek</span> <span class="o">=</span> <span class="n">Kitten</span><span class="p">()</span>
+<span class="n">mourek</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Mourek&#39;</span>
+
+<span class="n">micka</span> <span class="o">=</span> <span class="n">Kitten</span><span class="p">()</span>
+<span class="n">micka</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Micka&#39;</span>
+
+<span class="n">mourek</span><span class="o">.</span><span class="n">purr</span><span class="p">()</span>
+<span class="n">micka</span><span class="o">.</span><span class="n">purr</span><span class="p">()</span>
+</pre></div><p>What happened? The expression <code>mourek.purr</code> represents a <em>method</em>. When you call it (<code>mourek.purr()</code>), the <code>mourek</code> object is passed to the <code>purr</code> function as the first argument, <code>self</code>.</p>
+<p>Can such a method take more than one argument?
+It can - <code>self</code> will be automatically added as the first argument,
+the rest of the arguments will be taken from the method call.
+For example:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Kitten</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">purr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: Meow!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: Yum yum! I like the </span><span class="si">{}</span><span class="s2">!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">food</span><span class="p">))</span><span class="s2">&quot; </span>
+
+<span class="n">mourek</span> <span class="o">=</span> <span class="n">Kitten</span><span class="p">()</span>
+<span class="n">mourek</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Mourek&#39;</span>
+<span class="n">mourek</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s1">&#39;fish&#39;</span><span class="p">)</span>
+</pre></div><h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>Classes can do much more, but the basics are: all objects of a given class have some common behavior (for example, kittens can meow). And at the same time, each object also has its own information, just for it (for example, a kitten's meowing).</p>
+<p>It is worth writing your own class when you have more objects with similar behavior in the program, or when you just need to have a set of functions (or methods) neatly together.</p>
+<p>And that's it.
+<em>You are absolutely great!</em> 
+This was a difficult lesson, so you should be proud of yourself.
+We are very proud of you for coming this far!</p>
+<p>Take a short break - stretch, take a walk, close your eyes - before you start the next chapter. :)</p>

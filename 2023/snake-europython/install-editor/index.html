@@ -1,0 +1,76 @@
+<h1 id="editor_installation">Editor installation
+<a href="#editor_installation" class="header-link">#</a>
+</h1>
+<p>A <em>text editor</em>, or just <em>editor</em>, is a programmer's most important tool.
+Let's invest a little time into setting one up.</p>
+<p>If you already have a favorite editor, you just need to set it up; if not, we can recommend one for you.
+However, if you're using Notepad in Windows or TextEdit (an editor pre-installed in macOS), it won't be enough.
+Fancy programs like Word or Writer are also not suitable.</p>
+<h2 id="what_a_programmers_text_editor_can_do">What a programmer's text editor can do
+<a href="#what_a_programmers_text_editor_can_do" class="header-link">#</a>
+</h2>
+<p>A good text editor allows you to edit plain text.
+Unlike programs such as Word, Writer or Pages, it does not allow you to <em>format</em> text, that is, to create headings, color, enlarge the font for individual words, insert images, and so on.
+When we give commands to the computer, such formatting would only get in the way – for example, the following commands are exactly the same for someone who has to follow them:</p>
+<ul>
+<li>Draw me a lamb!</li>
+<li><font color="green">Draw <big><big>me</big> <u>a lamb</u>!</big></font></li>
+</ul>
+<p>While our editors do not know formatting, they should know a few tricks to make programming more convenient:</p>
+<dl>
+<dt></dt><dt>Support for multiple files</dt><dd><p>Larger projects consist of multiple files that you can have open in the editor at the same time.</p>
+</dd><dt></dt><dt>Line numbering</dt><dd><p>A number is displayed before each line.
+This will be very useful when Python complains that the error is on line 183.</p>
+</dd><dt></dt><dt>Indentation</dt><dd><p>In Python, indentation – how many spaces a line starts with – is important .
+An editor that's properly set up will help us keep track of this.</p>
+</dd><dt></dt><dt>Syntax highlighting</dt><dd><p>Although we cannot directly set the colour of individual letters,
+the editor can apply formatting to give us a hint about how the computer will understand our instructions.
+But it's just a hint: a programmer with a differently configured editor may have the same file coloured quite differently.</p>
+</dd></dl><div class="admonition note"><p>As an illustration, this is what a piece of code can look like in an editor.</p>
+<div class="highlight"><pre><span></span>   <span class="mi">1</span>  <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/courses/&lt;course:course&gt;/&#39;</span><span class="p">)</span>
+   <span class="mi">2</span>  <span class="k">def</span> <span class="nf">course_page</span><span class="p">(</span><span class="n">course</span><span class="p">):</span>
+   <span class="mi">3</span>      <span class="k">try</span><span class="p">:</span>
+   <span class="mi">4</span>          <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span>
+   <span class="mi">5</span>              <span class="s1">&#39;course.html&#39;</span><span class="p">,</span>
+   <span class="mi">6</span>              <span class="n">course</span><span class="o">=</span><span class="n">course</span><span class="p">,</span>
+   <span class="mi">7</span>              <span class="n">plan</span><span class="o">=</span><span class="n">course</span><span class="o">.</span><span class="n">sessions</span><span class="p">,</span>
+   <span class="mi">8</span>          <span class="p">)</span>
+   <span class="mi">9</span>      <span class="k">except</span> <span class="n">TemplateNotFound</span><span class="p">:</span>
+   <span class="mi">10</span>          <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+</pre></div></div><h2 id="editor_selection_and_settings">Editor selection and settings
+<a href="#editor_selection_and_settings" class="header-link">#</a>
+</h2>
+<p>Choose an editor and click on its name for instructions for downloading and setting it up.
+(You don't have to come back to this page again.)</p>
+<ul>
+<li><p><a href="naucse:page?lesson=beginners/install-editor&amp;page=vscode">Visual Studio Code</a> - recommended editor for Windows and macOS (and suitable for Linux as well).
+This is currently the most popular code editor among programmers.
+It offers many features and is constantly improving.</p>
+<p>Recently, it is capable of more and more - even things that are a bit 
+distracting for a beginner.
+Don't be afraid to adjust or turn off some features.</p>
+</li>
+</ul>
+<p>On Linux, you probably already have Gedit or Kate installed.
+Try looking in the system menu to see if you have one of them (or run them from the command line as <code>gedit</code> or <code>kate</code>).
+If you do, click on the link below and configure the editor.
+If you don't have either, select Visual Studio Code (see above).</p>
+<ul>
+<li><a href="naucse:page?lesson=beginners/install-editor&amp;page=gedit">Gedit</a> - is usually found on systems with the GNOME environment.</li>
+<li><a href="naucse:page?lesson=beginners/install-editor&amp;page=kate">Kate</a> - is usually found on systems with the KDE environment.</li>
+</ul>
+<p>There are also other editors for which we have guides or have recommended in older versions of these materials.
+It's perfectly fine to use one of them.
+And if you already have your favorite editor - Vim, Emacs, Geany, etc., use that one.</p>
+<ul>
+<li><a href="naucse:page?lesson=beginners/install-editor&amp;page=notepad-plus-plus">Notepad++</a> - an undemanding editor for Windows suitable for slower computers</li>
+<li><a href="naucse:page?lesson=beginners/install-editor&amp;page=others">Others</a> - If you have a different editor, make sure it is correctly set up.</li>
+</ul>
+<h3 id="ide">IDE
+<a href="#ide" class="header-link">#</a>
+</h3>
+<p>There are also more complex and powerful editors, so-called IDEs (Integrated Development Environments), such as <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>, <a href="https://eclipse.org/">Eclipse</a> or <a href="https://www.kdevelop.org/">KDevelop</a>.
+They have many advanced features that help programmers: auto-completion, renaming, running programs, managing virtual environments, and more. 
+However, they are not very suitable for beginners.</p>
+<p>If you still want to use such an editor, you should already know it quite well: know what the editor does for you and how to fix it when it does soething wrong.</p>
+<p>Coaches usually only know one editor - the one they use - so they may not be able to quickly help with advanced IDE.</p>

@@ -1,0 +1,1313 @@
+{
+    "api_version": [
+        0,
+        3
+    ],
+    "course": {
+        "default_time": {
+            "end": "16:30",
+            "start": "15:00"
+        },
+        "description": "Naučte se Python vážně od začátku. Žádné předchozí znalosti nejsou potřeba.",
+        "edit_info": {
+            "branch": "main",
+            "url": "https://github.com/zitkat/lite-python-kurz"
+        },
+        "lessons": {
+            "beginners/and-or": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "and-or/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/and-or/index.md",
+                        "title": "Nebo anebo a",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/and-or/info.yml",
+                "static_files": {},
+                "title": "Nebo anebo a"
+            },
+            "beginners/basic-functions": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019."
+                        ],
+                        "content": {
+                            "path": "basic-functions/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Funkce <code>input</code> vrací hodnotu, se kterou může program dál pracovat.\nZařadil bych ji tedy mezi „normální“ funkce.</p>\n<p>Jako argument bere <code>input</code> otázku, na kterou se uživatele zeptá.</p>\n<p>Návratová hodnota funkce <code>input</code> je řetězec s odpovědí uživatele.</p>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/basic-functions/index.md",
+                        "title": "Užitečné funkce",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/basic-functions/info.yml",
+                "static_files": {},
+                "title": "Užitečné funkce"
+            },
+            "beginners/cmdline": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+                            "Založeno na tutoriálu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+                        ],
+                        "content": {
+                            "path": "cmdline/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<div class=\"row side-by-side-commands\"><div class=\"col\">\n                <h4>Unix</h4><div class=\"highlight\"><pre><span></span><span class=\"gp\">$ </span><span class=\"nb\">cd</span> naucse-python\n<span class=\"gp\">$ </span>mkdir <span class=\"nb\">test</span>\n<span class=\"gp\">$ </span>ls\n<span class=\"go\">test</span>\n</pre></div></div><div class=\"col\">\n                <h4>Windows</h4><div class=\"highlight\"><pre><span></span><span class=\"gp\">&gt; </span>cd naucse-python<span class=\"gp\"></span>\n<span class=\"gp\">&gt; </span>mkdir test<span class=\"gp\"></span>\n<span class=\"gp\">&gt; </span>dir\n<span class=\"go\">05/08/2014 07:28 PM &lt;DIR&gt;  test</span>\n</pre></div></div></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/cmdline/index.md",
+                        "title": "Úvod do příkazové řádky",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/cmdline/info.yml",
+                "static_files": {
+                    "linux-file-browser.png": {
+                        "path": "cmdline/linux-file-browser.png"
+                    },
+                    "macos-file-browser.png": {
+                        "path": "cmdline/macos-file-browser.png"
+                    },
+                    "windows-cmd-properties.png": {
+                        "path": "cmdline/windows-cmd-properties.png"
+                    },
+                    "windows-file-browser.png": {
+                        "path": "cmdline/windows-file-browser.png"
+                    }
+                },
+                "title": "Úvod do příkazové řádky"
+            },
+            "beginners/comparisons": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "comparisons/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Taková proměnná se dá nastavit pomocí tohoto kódu:</p>\n<div class=\"highlight\"><pre><span></span><span class=\"n\">strana</span> <span class=\"o\">=</span> <span class=\"nb\">float</span><span class=\"p\">(</span><span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Zadej stranu čtverce v centimetrech: &#39;</span><span class=\"p\">))</span>\n<span class=\"n\">cislo_je_spravne</span> <span class=\"o\">=</span> <span class=\"n\">strana</span> <span class=\"o\">&gt;</span> <span class=\"mi\">0</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/comparisons/index.md",
+                        "title": "Porovnávání",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/comparisons/info.yml",
+                "static_files": {},
+                "title": "Porovnávání"
+            },
+            "beginners/def": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "def/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"k\">def</span> <span class=\"nf\">obsah_obdelnika</span><span class=\"p\">(</span><span class=\"n\">a</span><span class=\"p\">,</span> <span class=\"n\">b</span><span class=\"p\">):</span>\n    <span class=\"k\">return</span> <span class=\"n\">a</span> <span class=\"o\">*</span> <span class=\"n\">b</span>\n\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Obsah obdélníka se stranami 3 cm a 5 cm je&#39;</span><span class=\"p\">,</span> <span class=\"n\">obsah_obdelnika</span><span class=\"p\">(</span><span class=\"mi\">3</span><span class=\"p\">,</span> <span class=\"mi\">5</span><span class=\"p\">),</span> <span class=\"s1\">&#39;cm2&#39;</span><span class=\"p\">)</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/def/index.md",
+                        "title": "Definice funkcí",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/def/info.yml",
+                "static_files": {},
+                "title": "Definice funkcí"
+            },
+            "beginners/dict": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2015-2017."
+                        ],
+                        "content": {
+                            "path": "dict/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/dict/index.md",
+                        "title": "Slovníky",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/dict/info.yml",
+                "static_files": {},
+                "title": "Slovníky"
+            },
+            "beginners/expressions": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2019."
+                        ],
+                        "content": {
+                            "path": "expressions/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/expressions/index.md",
+                        "title": "Vyhodnocování výrazů",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/expressions/info.yml",
+                "static_files": {},
+                "title": "Vyhodnocování výrazů"
+            },
+            "beginners/files": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "files/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Každý řádek končí znakem nového řádku, <code>'\\n'</code>,\nkterý možná znáš ze <a href=\"naucse:page?lesson=beginners/str\">sekce o řetězcích</a>.\nPři procházení souboru Python tento znak nechává na konci řetězce <code>radek</code> ¹.\nFunkce <code>print</code> pak přidá další nový řádek, protože ta na konci\nvýpisu vždycky odřádkovává – pokud nedostane argument <code>end=''</code>.</p>\n<hr>\n<p>¹ Proč to dělá? Kdyby <code>'\\n'</code> na konci řádků nebylo,\nnedalo by se např. dobře rozlišit, jestli poslední řádek\nkončí na <code>'\\n'</code></p>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/files/index.md",
+                        "title": "Soubory",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/files/info.yml",
+                "static_files": {},
+                "title": "Soubory"
+            },
+            "beginners/first-steps": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019.",
+                            "Část této kapitoly je založena na materiálech <a href=\"https://djangogirls.org/\">DjangoGirls</a>.",
+                            "Část této kapitoly je založena na kurzu <a href=\"https://github.com/ggcarrots/django-carrots\">Geek Girls Carrots</a>.",
+                            "Původní DjangoGirls tutoriál přeložila do češtiny skupina dobrovolníků.\nPoděkování patří hlavně: Davidovi (dakf), Kristýně Kumpánové,\nVeronice Gabrielové, Tomáši Ehrlichovi, Aničce Jaegerové,\nMatějovi Stuchlíkovi, Filipovi Sivákovi a Juraji M. Bezručkovi."
+                        ],
+                        "content": {
+                            "path": "first-steps/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/first-steps/index.md",
+                        "title": "První krůčky",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/first-steps/info.yml",
+                "static_files": {},
+                "title": "První krůčky"
+            },
+            "beginners/for": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017. Pro PyLadies Plzen upravil Tomáš Zítka"
+                        ],
+                        "content": {
+                            "path": "for/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Vypíšou se čísla od 0 do 4!\nProgram funguje steně, jako kdybys napsal/a:</p>\n<div class=\"highlight\"><pre><span></span><span class=\"n\">i</span> <span class=\"o\">=</span> <span class=\"mi\">0</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">i</span><span class=\"p\">)</span>\n\n<span class=\"n\">i</span> <span class=\"o\">=</span> <span class=\"mi\">1</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">i</span><span class=\"p\">)</span>\n\n<span class=\"n\">i</span> <span class=\"o\">=</span> <span class=\"mi\">2</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">i</span><span class=\"p\">)</span>\n\n<span class=\"n\">i</span> <span class=\"o\">=</span> <span class=\"mi\">3</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">i</span><span class=\"p\">)</span>\n\n<span class=\"n\">i</span> <span class=\"o\">=</span> <span class=\"mi\">4</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">i</span><span class=\"p\">)</span>\n</pre></div><p>V sekvenci <code>range(5)</code> jsou čísla 0, 1, 2, 3 a 4. Je jich celkem pět.</p>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/for/index.md",
+                        "title": "Cyklus for",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/for/info.yml",
+                "static_files": {},
+                "title": "Cyklus for"
+            },
+            "beginners/fstring": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2018-2019."
+                        ],
+                        "content": {
+                            "path": "fstring/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "license_code": "cc0",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/fstring/index.md",
+                        "title": "Šablony (formátovací řetězce)",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/fstring/info.yml",
+                "static_files": {},
+                "title": "Šablony (formátovací řetězce)"
+            },
+            "beginners/functions": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019."
+                        ],
+                        "content": {
+                            "path": "functions/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Funkce <code>print</code> zavolaná bez argumentů napíše prázdný řádek.</p>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/functions/index.md",
+                        "title": "Funkce",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/functions/info.yml",
+                "static_files": {
+                    "call-anatomy.svg": {
+                        "path": "functions/call-anatomy.svg"
+                    }
+                },
+                "title": "Funkce"
+            },
+            "beginners/hello-world": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "hello-world/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/hello-world/index.md",
+                        "title": "První program",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/hello-world/info.yml",
+                "static_files": {},
+                "title": "První program"
+            },
+            "beginners/install": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "install/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install/index.md",
+                        "title": "Instalace Pythonu",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "linux": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "install/linux.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "linux",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install/linux.md",
+                        "subtitle": "Linux",
+                        "title": "Instalace Pythonu – Linux",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "macos": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "install/macos.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "macos",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install/macos.md",
+                        "subtitle": "macOS",
+                        "title": "Instalace Pythonu – macOS",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "windows": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "install/windows.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "windows",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install/windows.md",
+                        "subtitle": "Windows",
+                        "title": "Instalace Pythonu – Windows",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/install/info.yml",
+                "static_files": {
+                    "windows_32v64-bit.png": {
+                        "path": "install/windows_32v64-bit.png"
+                    },
+                    "windows_add_python_to_path.png": {
+                        "path": "install/windows_add_python_to_path.png"
+                    }
+                },
+                "title": "Instalace Pythonu"
+            },
+            "beginners/install-editor": {
+                "pages": {
+                    "atom": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/atom.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "atom",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/atom.md",
+                        "subtitle": "Atom",
+                        "title": "Instalace Atomu",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "gedit": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/gedit.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "gedit",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/gedit.md",
+                        "subtitle": "Gedit",
+                        "title": "Instalace Geditu",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/index.md",
+                        "title": "Instalace editoru",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "kate": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/kate.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "kate",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/kate.md",
+                        "subtitle": "Kate",
+                        "title": "Instalace Kate",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "mu": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/mu.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "mu",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/mu.md",
+                        "subtitle": "MU",
+                        "title": "Instalace MU",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "notepad-plus-plus": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/notepad-plus-plus.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "notepad-plus-plus",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/notepad-plus-plus.md",
+                        "subtitle": "Notepad++",
+                        "title": "Instalace Notepadu++",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "others": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/others.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "others",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/others.md",
+                        "subtitle": "Nastavení",
+                        "title": "Nastavení editoru",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "thonny": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/thonny.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "thonny",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/thonny.md",
+                        "subtitle": "Thonny",
+                        "title": "Instalace Thonnyho",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    },
+                    "vscode": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017, Tomáš Roj (2019)"
+                        ],
+                        "content": {
+                            "path": "install-editor/vscode.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "vscode",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-editor/vscode.md",
+                        "subtitle": "Visual Studio Code",
+                        "title": "Instalace Visual Studio Code",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/install-editor/info.yml",
+                "static_files": {
+                    "gedit_indent.png": {
+                        "path": "install-editor/gedit_indent.png"
+                    },
+                    "gedit_linenums.png": {
+                        "path": "install-editor/gedit_linenums.png"
+                    },
+                    "gedit_prefs.png": {
+                        "path": "install-editor/gedit_prefs.png"
+                    },
+                    "mu-mode.png": {
+                        "path": "install-editor/mu-mode.png"
+                    },
+                    "mu-run.png": {
+                        "path": "install-editor/mu-run.png"
+                    },
+                    "mu-syntax-check.png": {
+                        "path": "install-editor/mu-syntax-check.png"
+                    },
+                    "thonny-run.png": {
+                        "path": "install-editor/thonny-run.png"
+                    }
+                },
+                "title": "Instalace editoru"
+            },
+            "beginners/install-replit": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro SIT Port Plzen napsal Tomáš Zítka, 2022"
+                        ],
+                        "content": {
+                            "path": "install-replit/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/install-replit/index.md",
+                        "title": "Přihlášní na replit.com",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/install-replit/info.yml",
+                "static_files": {
+                    "repl.png": {
+                        "path": "install-replit/repl.png"
+                    },
+                    "repl_create.png": {
+                        "path": "install-replit/repl_create.png"
+                    },
+                    "repl_create_python.png": {
+                        "path": "install-replit/repl_create_python.png"
+                    }
+                },
+                "title": "Přihlášní na replit.com"
+            },
+            "beginners/list": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "list/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"k\">def</span> <span class=\"nf\">vyber_chybne</span><span class=\"p\">(</span><span class=\"n\">seznam</span><span class=\"p\">):</span>\n    <span class=\"n\">vysledek</span> <span class=\"o\">=</span> <span class=\"p\">[]</span>\n    <span class=\"k\">for</span> <span class=\"n\">zaznam</span> <span class=\"ow\">in</span> <span class=\"n\">seznam</span><span class=\"p\">:</span>\n        <span class=\"n\">jmeno_a_prijmeni</span> <span class=\"o\">=</span> <span class=\"n\">zaznam</span><span class=\"o\">.</span><span class=\"n\">split</span><span class=\"p\">(</span><span class=\"s1\">&#39; &#39;</span><span class=\"p\">)</span>\n        <span class=\"n\">jmeno</span> <span class=\"o\">=</span> <span class=\"n\">jmeno_a_prijmeni</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span>\n        <span class=\"n\">prijmeni</span> <span class=\"o\">=</span> <span class=\"n\">jmeno_a_prijmeni</span><span class=\"p\">[</span><span class=\"mi\">1</span><span class=\"p\">]</span>\n        <span class=\"k\">if</span> <span class=\"n\">jmeno</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span><span class=\"o\">.</span><span class=\"n\">islower</span><span class=\"p\">()</span> <span class=\"ow\">or</span> <span class=\"n\">prijmeni</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span><span class=\"o\">.</span><span class=\"n\">islower</span><span class=\"p\">():</span>\n            <span class=\"n\">vysledek</span><span class=\"o\">.</span><span class=\"n\">append</span><span class=\"p\">(</span><span class=\"n\">zaznam</span><span class=\"p\">)</span>\n    <span class=\"k\">return</span> <span class=\"n\">vysledek</span>\n\n<span class=\"k\">def</span> <span class=\"nf\">vyber_spravne</span><span class=\"p\">(</span><span class=\"n\">seznam</span><span class=\"p\">):</span>\n    <span class=\"n\">vysledek</span> <span class=\"o\">=</span> <span class=\"p\">[]</span>\n    <span class=\"k\">for</span> <span class=\"n\">zaznam</span> <span class=\"ow\">in</span> <span class=\"n\">seznam</span><span class=\"p\">:</span>\n        <span class=\"n\">jmeno_a_prijmeni</span> <span class=\"o\">=</span> <span class=\"n\">zaznam</span><span class=\"o\">.</span><span class=\"n\">split</span><span class=\"p\">(</span><span class=\"s1\">&#39; &#39;</span><span class=\"p\">)</span>\n        <span class=\"n\">jmeno</span> <span class=\"o\">=</span> <span class=\"n\">jmeno_a_prijmeni</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span>\n        <span class=\"n\">prijmeni</span> <span class=\"o\">=</span> <span class=\"n\">jmeno_a_prijmeni</span><span class=\"p\">[</span><span class=\"mi\">1</span><span class=\"p\">]</span>\n        <span class=\"k\">if</span> <span class=\"ow\">not</span> <span class=\"n\">jmeno</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span><span class=\"o\">.</span><span class=\"n\">islower</span><span class=\"p\">()</span> <span class=\"ow\">and</span> <span class=\"ow\">not</span> <span class=\"n\">prijmeni</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span><span class=\"o\">.</span><span class=\"n\">islower</span><span class=\"p\">():</span>\n            <span class=\"n\">vysledek</span><span class=\"o\">.</span><span class=\"n\">append</span><span class=\"p\">(</span><span class=\"n\">zaznam</span><span class=\"p\">)</span>\n    <span class=\"k\">return</span> <span class=\"n\">vysledek</span>\n\n<span class=\"k\">def</span> <span class=\"nf\">oprav_zaznamy</span><span class=\"p\">(</span><span class=\"n\">seznam</span><span class=\"p\">):</span>\n    <span class=\"n\">vysledek</span> <span class=\"o\">=</span> <span class=\"p\">[]</span>\n    <span class=\"k\">for</span> <span class=\"n\">zaznam</span> <span class=\"ow\">in</span> <span class=\"n\">seznam</span><span class=\"p\">:</span>\n        <span class=\"n\">jmeno_a_prijmeni</span> <span class=\"o\">=</span> <span class=\"n\">zaznam</span><span class=\"o\">.</span><span class=\"n\">split</span><span class=\"p\">(</span><span class=\"s1\">&#39; &#39;</span><span class=\"p\">)</span>\n        <span class=\"n\">jmeno</span> <span class=\"o\">=</span> <span class=\"n\">jmeno_a_prijmeni</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span>\n        <span class=\"n\">prijmeni</span> <span class=\"o\">=</span> <span class=\"n\">jmeno_a_prijmeni</span><span class=\"p\">[</span><span class=\"mi\">1</span><span class=\"p\">]</span>\n        <span class=\"n\">vysledek</span><span class=\"o\">.</span><span class=\"n\">append</span><span class=\"p\">(</span><span class=\"n\">jmeno</span><span class=\"o\">.</span><span class=\"n\">capitalize</span><span class=\"p\">()</span> <span class=\"o\">+</span> <span class=\"s1\">&#39; &#39;</span> <span class=\"o\">+</span> <span class=\"n\">prijmeni</span><span class=\"o\">.</span><span class=\"n\">capitalize</span><span class=\"p\">())</span>\n    <span class=\"k\">return</span> <span class=\"n\">vysledek</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/list/index.md",
+                        "title": "Seznamy",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/list/info.yml",
+                "static_files": {
+                    "methods.svg": {
+                        "path": "list/methods.svg"
+                    }
+                },
+                "title": "Seznamy"
+            },
+            "beginners/local-variables": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "local-variables/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<ul>\n<li><code>pi</code> je globální – nepřiřazuje se do ní ve funkci;\nje „vidět“ v celém programu.</li>\n<li>Proměnné <code>obsah</code> jsou v programu dvě – jedna globální,\na jedna je lokální pro funkci <code>obsah_elipsy</code>,\nprotože do ní tahle funkce přiřazuje.</li>\n<li>Proměnné <code>a</code> jsou taky dvě, podobně jako <code>obsah</code>.\nTady byl chyták: příkaz <code>a = a + 3</code> nemá žádný smysl;\ndo <code>a</code> se sice uloží větší číslo, ale vzápětí funkce <code>obsah_elipsy</code> skončí\na její lokální proměnná <code>a</code> přestane existovat.</li>\n<li>Proměnná <code>b</code> je jenom lokální – jako parametr funkce <code>obsah_elipsy</code>.</li>\n<li>Proměnná <code>obsah_elipsy</code> je globální (a je v ní funkce).</li>\n</ul>\n<div class=\"admonition note\"><p class=\"admonition-title\">A pro úplnost</p>\n<ul>\n<li>Klíčová slova <code>from</code>, <code>import</code>, <code>def</code>, <code>return</code> neoznačují proměnné.</li>\n<li>Jméno modulu <code>math</code> taky neoznačuje proměnnou.</li>\n<li>Proměnná <code>print</code> se dá považovat za globální.\n(Ve skutečnosti existuje zvláštní kategorie <em>zabudovaných</em> (angl. <em>builtin</em>)\nproměnných – ty jsou „ještě globálnější“.)</li>\n</ul>\n</div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/local-variables/index.md",
+                        "title": "Lokální proměnné",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/local-variables/info.yml",
+                "static_files": {},
+                "title": "Lokální proměnné"
+            },
+            "beginners/modules": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "modules/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/modules/index.md",
+                        "title": "Moduly",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/modules/info.yml",
+                "static_files": {},
+                "title": "Moduly"
+            },
+            "beginners/nested-traceback": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "nested-traceback/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/nested-traceback/index.md",
+                        "title": "Chybové hlášky ze zanořených funkcí",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/nested-traceback/info.yml",
+                "static_files": {},
+                "title": "Chybové hlášky ze zanořených funkcí"
+            },
+            "beginners/print": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "print/index.html"
+                        },
+                        "css": ".err-lineno {\n    display: inline-block;\n    background-color: #FCC;\n}\n.err-exctype {\n    display: inline-block;\n    background-color: #CFC;\n}\n",
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/print/index.md",
+                        "title": "Print a chybové hlášky",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/print/info.yml",
+                "static_files": {},
+                "title": "Print a chybové hlášky"
+            },
+            "beginners/range": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2019."
+                        ],
+                        "content": {
+                            "path": "range/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/range/index.md",
+                        "title": "Range - sekvence čísel",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/range/info.yml",
+                "static_files": {},
+                "title": "Range - sekvence čísel"
+            },
+            "beginners/str": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019.",
+                            "Jako jeden z příkladů byl použit úryvek z povídky „Chlap, děd, vnuk, pes a hrob“ Jana Wericha."
+                        ],
+                        "content": {
+                            "path": "str/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"gp\">&gt;&gt;&gt; </span><span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s2\">&quot;.</span><span class=\"se\">\\&quot;</span><span class=\"s2\">.&quot;</span><span class=\"p\">)</span>\n<span class=\"go\">.&quot;.</span>\n<span class=\"gp\">&gt;&gt;&gt; </span><span class=\"nb\">len</span><span class=\"p\">(</span><span class=\"s2\">&quot;.</span><span class=\"se\">\\&quot;</span><span class=\"s2\">.&quot;</span><span class=\"p\">)</span>\n<span class=\"go\">3</span>\n<span class=\"gp\">&gt;&gt;&gt; </span><span class=\"s2\">&quot;.</span><span class=\"se\">\\&quot;</span><span class=\"s2\">.&quot;</span>\n<span class=\"go\">&#39;.&quot;.&#39;</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/str/index.md",
+                        "title": "Zápis řetězců",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/str/info.yml",
+                "static_files": {
+                    "quote-comic.svg": {
+                        "path": "str/quote-comic.svg"
+                    }
+                },
+                "title": "Zápis řetězců"
+            },
+            "beginners/str-index-slice": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019."
+                        ],
+                        "content": {
+                            "path": "str-index-slice/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Nedostal/a – dostal/a jsi <em>šesté</em> písmeno.</p>"
+                            },
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Čokoláda&#39;</span><span class=\"p\">[</span><span class=\"o\">-</span><span class=\"mi\">1</span><span class=\"p\">])</span>  <span class=\"c1\"># → a</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Čokoláda&#39;</span><span class=\"p\">[</span><span class=\"o\">-</span><span class=\"mi\">2</span><span class=\"p\">])</span>  <span class=\"c1\"># → d</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Čokoláda&#39;</span><span class=\"p\">[</span><span class=\"o\">-</span><span class=\"mi\">3</span><span class=\"p\">])</span>  <span class=\"c1\"># → á</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Čokoláda&#39;</span><span class=\"p\">[</span><span class=\"o\">-</span><span class=\"mi\">4</span><span class=\"p\">])</span>  <span class=\"c1\"># → l</span>\n</pre></div><p>Záporná čísla vybírají písmenka od konce.</p>\n<div class=\"highlight\"><pre><code>   [0] [1] [2] [3] [4] [5] [6] [7]\n   [-8][-7][-6][-5][-4][-3][-2][-1]\n  ╭───┬───┬───┬───┬───┬───┬───┬───╮\n  │ Č │ o │ k │ o │ l │ á │ d │ a │\n  ╰───┴───┴───┴───┴───┴───┴───┴───╯</code></pre></div>"
+                            },
+                            {
+                                "content": "<p>Zápis <code>retezec[5:]</code> vybere <em>podřetězec</em> od znaku číslo 5 dál.</p>"
+                            },
+                            {
+                                "content": "<p>Zápis <code>retezec[od:do]</code> vybere <em>podřetězec</em> od pozice <code>od</code> do pozice <code>do</code>.\nKdyž jednu z hodnot vynecháš, vybírá se od začádku, resp. do konce.</p>\n<div class=\"highlight\"><pre><span></span><span class=\"n\">retezec</span> <span class=\"o\">=</span> <span class=\"s1\">&#39;čokoláda&#39;</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">retezec</span><span class=\"p\">[:</span><span class=\"mi\">4</span><span class=\"p\">])</span>      <span class=\"c1\"># → čoko</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">retezec</span><span class=\"p\">[</span><span class=\"mi\">2</span><span class=\"p\">:</span><span class=\"mi\">6</span><span class=\"p\">])</span>     <span class=\"c1\"># → kolá</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">retezec</span><span class=\"p\">[</span><span class=\"o\">-</span><span class=\"mi\">3</span><span class=\"p\">:])</span>     <span class=\"c1\"># → áda</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">retezec</span><span class=\"p\">[:])</span>       <span class=\"c1\"># → čokoláda</span>\n</pre></div>"
+                            },
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"n\">slovo</span> <span class=\"o\">=</span> <span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Slovo: &#39;</span><span class=\"p\">)</span>\n<span class=\"n\">pozice</span> <span class=\"o\">=</span> <span class=\"nb\">int</span><span class=\"p\">(</span><span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Které písmeno zaměnit (od nuly)? &#39;</span><span class=\"p\">))</span>\n<span class=\"n\">novy_znak</span> <span class=\"o\">=</span> <span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Nové písmeno: &#39;</span><span class=\"p\">)</span>\n\n<span class=\"n\">zacatek_slova</span> <span class=\"o\">=</span> <span class=\"n\">slovo</span><span class=\"p\">[:</span><span class=\"n\">pozice</span><span class=\"p\">]</span>\n<span class=\"n\">konec_slova</span> <span class=\"o\">=</span> <span class=\"n\">slovo</span><span class=\"p\">[</span><span class=\"n\">pozice</span> <span class=\"o\">+</span> <span class=\"mi\">1</span><span class=\"p\">:]</span>\n<span class=\"n\">nove_slovo</span> <span class=\"o\">=</span> <span class=\"n\">zacatek_slova</span> <span class=\"o\">+</span> <span class=\"n\">novy_znak</span> <span class=\"o\">+</span> <span class=\"n\">konec_slova</span>\n\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"n\">nove_slovo</span><span class=\"p\">)</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/str-index-slice/index.md",
+                        "title": "Výběr z řetězců",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/str-index-slice/info.yml",
+                "static_files": {},
+                "title": "Výběr z řetězců"
+            },
+            "beginners/str-methods": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2019."
+                        ],
+                        "content": {
+                            "path": "str-methods/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"n\">jmeno</span> <span class=\"o\">=</span> <span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Zadej jméno: &#39;</span><span class=\"p\">)</span>\n<span class=\"n\">prijmeni</span> <span class=\"o\">=</span> <span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Zadej příjmení &#39;</span><span class=\"p\">)</span>\n<span class=\"n\">inicialy</span> <span class=\"o\">=</span> <span class=\"n\">jmeno</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span> <span class=\"o\">+</span> <span class=\"n\">prijmeni</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Iniciály:&#39;</span><span class=\"p\">,</span> <span class=\"n\">inicialy</span><span class=\"o\">.</span><span class=\"n\">upper</span><span class=\"p\">())</span>\n</pre></div><p>Způsobů, jak takový program napsat, je více.\nLze například zavolat <code>upper()</code> dvakrát – zvlášť na jméno a zvlášť na příjmení.</p>\n<p>Nebo to jde zapsat i takto –\nmetoda se dá volat na výsledku jakéhokoli výrazu:</p>\n<div class=\"highlight\"><pre><span></span><span class=\"n\">jmeno</span> <span class=\"o\">=</span> <span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Zadej jméno: &#39;</span><span class=\"p\">)</span>\n<span class=\"n\">prijmeni</span> <span class=\"o\">=</span> <span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Zadej příjmení &#39;</span><span class=\"p\">)</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Iniciály:&#39;</span><span class=\"p\">,</span> <span class=\"p\">(</span><span class=\"n\">jmeno</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span> <span class=\"o\">+</span> <span class=\"n\">prijmeni</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">])</span><span class=\"o\">.</span><span class=\"n\">upper</span><span class=\"p\">())</span>\n</pre></div><p>Doporučuji spíš první způsob, ten se smysluplnými názvy proměnných.\nJe sice delší, ale mnohem přehlednější.</p>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/str-methods/index.md",
+                        "title": "Řetězcové funkce a metody",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/str-methods/info.yml",
+                "static_files": {},
+                "title": "Řetězcové funkce a metody"
+            },
+            "beginners/tuple": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "tuple/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/tuple/index.md",
+                        "title": "N-tice",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/tuple/info.yml",
+                "static_files": {},
+                "title": "N-tice"
+            },
+            "beginners/variables": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "variables/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<p>Program, který vypíše správný výsledek, může vypadat třeba takhle:</p>\n<div class=\"highlight\"><pre><span></span><span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Obvod čtverce se stranou 356 cm je&#39;</span><span class=\"p\">,</span> <span class=\"mi\">4</span> <span class=\"o\">*</span> <span class=\"mi\">356</span><span class=\"p\">,</span> <span class=\"s1\">&#39;cm&#39;</span><span class=\"p\">)</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Obsah čtverce se stranou 356 cm je&#39;</span><span class=\"p\">,</span> <span class=\"mi\">356</span> <span class=\"o\">*</span> <span class=\"mi\">356</span><span class=\"p\">,</span> <span class=\"s1\">&#39;cm2&#39;</span><span class=\"p\">)</span>\n</pre></div>"
+                            },
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Obvod čtverce se stranou 123 cm je&#39;</span><span class=\"p\">,</span> <span class=\"mi\">4</span> <span class=\"o\">*</span> <span class=\"mi\">123</span><span class=\"p\">,</span> <span class=\"s1\">&#39;cm&#39;</span><span class=\"p\">)</span>\n<span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Obsah čtverce se stranou 123 cm je&#39;</span><span class=\"p\">,</span> <span class=\"mi\">123</span> <span class=\"o\">*</span> <span class=\"mi\">123</span><span class=\"p\">,</span> <span class=\"s1\">&#39;cm2&#39;</span><span class=\"p\">)</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/variables/index.md",
+                        "title": "Proměnné",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/variables/info.yml",
+                "static_files": {},
+                "title": "Proměnné"
+            },
+            "beginners/while": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017."
+                        ],
+                        "content": {
+                            "path": "while/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "slug": "index",
+                        "solutions": [
+                            {
+                                "content": "<div class=\"highlight\"><pre><span></span><span class=\"kn\">from</span> <span class=\"nn\">random</span> <span class=\"kn\">import</span> <span class=\"n\">randrange</span>\n\n<span class=\"n\">soucet</span> <span class=\"o\">=</span> <span class=\"mi\">0</span>\n<span class=\"k\">while</span> <span class=\"n\">soucet</span> <span class=\"o\">&lt;</span> <span class=\"mi\">21</span><span class=\"p\">:</span>\n    <span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Máš&#39;</span><span class=\"p\">,</span> <span class=\"n\">soucet</span><span class=\"p\">,</span> <span class=\"s1\">&#39;bodů&#39;</span><span class=\"p\">)</span>\n    <span class=\"n\">odpoved</span> <span class=\"o\">=</span> <span class=\"nb\">input</span><span class=\"p\">(</span><span class=\"s1\">&#39;Otočit kartu? &#39;</span><span class=\"p\">)</span>\n    <span class=\"k\">if</span> <span class=\"n\">odpoved</span> <span class=\"o\">==</span> <span class=\"s1\">&#39;ano&#39;</span><span class=\"p\">:</span>\n        <span class=\"n\">karta</span> <span class=\"o\">=</span> <span class=\"n\">randrange</span><span class=\"p\">(</span><span class=\"mi\">2</span><span class=\"p\">,</span> <span class=\"mi\">11</span><span class=\"p\">)</span>\n        <span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Otočil/a jsi&#39;</span><span class=\"p\">,</span> <span class=\"n\">karta</span><span class=\"p\">)</span>\n        <span class=\"n\">soucet</span> <span class=\"o\">=</span> <span class=\"n\">soucet</span> <span class=\"o\">+</span> <span class=\"n\">karta</span>\n    <span class=\"k\">elif</span> <span class=\"n\">odpoved</span> <span class=\"o\">==</span> <span class=\"s1\">&#39;ne&#39;</span><span class=\"p\">:</span>\n        <span class=\"k\">break</span>\n    <span class=\"k\">else</span><span class=\"p\">:</span>\n        <span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Nerozumím! Odpovídej &quot;ano&quot;, nebo &quot;ne&quot;&#39;</span><span class=\"p\">)</span>\n\n<span class=\"k\">if</span> <span class=\"n\">soucet</span> <span class=\"o\">==</span> <span class=\"mi\">21</span><span class=\"p\">:</span>\n    <span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Gratuluji! Vyhrál/a jsi!&#39;</span><span class=\"p\">)</span>\n<span class=\"k\">elif</span> <span class=\"n\">soucet</span> <span class=\"o\">&gt;</span> <span class=\"mi\">21</span><span class=\"p\">:</span>\n    <span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Smůla!&#39;</span><span class=\"p\">,</span> <span class=\"n\">soucet</span><span class=\"p\">,</span> <span class=\"s1\">&#39;bodů je moc!&#39;</span><span class=\"p\">)</span>\n<span class=\"k\">else</span><span class=\"p\">:</span>\n    <span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"s1\">&#39;Chybělo jen&#39;</span><span class=\"p\">,</span> <span class=\"mi\">21</span> <span class=\"o\">-</span> <span class=\"n\">soucet</span><span class=\"p\">,</span> <span class=\"s1\">&#39;bodů!&#39;</span><span class=\"p\">)</span>\n</pre></div>"
+                            }
+                        ],
+                        "source_file": "lessons/beginners/while/index.md",
+                        "title": "Cyklus While",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/while/info.yml",
+                "static_files": {},
+                "title": "Cyklus While"
+            },
+            "other-tech/databases": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro SIT Port napsal Tomáš Zítka, 2022"
+                        ],
+                        "content": {
+                            "path": "databases/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "license_code": "cc0",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/other-tech/databases/index.md",
+                        "title": "Databáze - přehled",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/other-tech/databases/info.yml",
+                "static_files": {},
+                "title": "Databáze - přehled"
+            },
+            "other-tech/overview": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro SIT Port napsal Tomáš Zítka, 2022"
+                        ],
+                        "content": {
+                            "path": "overview/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "license_code": "cc0",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/other-tech/overview/index.md",
+                        "title": "Ostatní technologie",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/other-tech/overview/info.yml",
+                "static_files": {},
+                "title": "Ostatní technologie"
+            },
+            "projects/tic-tac-1d": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro SIT Port napsal Tomáš Zítka, 2022"
+                        ],
+                        "content": {
+                            "path": "tic-tac-1d/index.html"
+                        },
+                        "license": "cc-by-sa-40",
+                        "license_code": "cc0",
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/projects/tic-tac-1d/index.md",
+                        "title": "Piškvorky 1D",
+                        "vars": {
+                            "coach-present": true
+                        }
+                    }
+                },
+                "source_file": "lessons/projects/tic-tac-1d/info.yml",
+                "static_files": {},
+                "title": "Piškvorky 1D"
+            }
+        },
+        "long_description": "<p>Chceš si osvojit programování a nevíš, jak začít? Pak se neváhej zúčastnit série 6 workshopů, na\nkterých tě naučíme základy programování v nejrozšířenějším programovacím jazyce na světě,\nPythonu. Díky praktickým příkladům a cvičením, které si pro vás nachystali naši zkušení lektoři, se\nbudete učit krok za krokem rozvíjet své nové programovací dovednosti.</p>",
+        "place": "SITPort Plzeň",
+        "sessions": [
+            {
+                "date": "2022-11-10",
+                "materials": [
+                    {
+                        "lesson_slug": "beginners/install-replit",
+                        "title": "Přihlášní na replit.com",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/install",
+                        "title": "(Lokální instalace) Python",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/install-editor",
+                        "title": "(Lokální instalace) Editor",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/cmdline",
+                        "title": "(Lokální instalace) Úvod do příkazové řádky",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/first-steps",
+                        "title": "První krůčky",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/hello-world",
+                        "title": "První program",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/print",
+                        "title": "Print a chybové hlášky",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/variables",
+                        "title": "Proměnné",
+                        "type": "lesson"
+                    },
+                    {
+                        "external_url": "https://pyvec.github.io/cheatsheets/keyboard/keyboard-cs.pdf",
+                        "title": "Tahák na klávesnici (PDF)",
+                        "type": "cheatsheet"
+                    },
+                    {
+                        "external_url": "https://replit.com/@zitkat/Lekce-1-Prvni-program",
+                        "title": "Kódy z lekce (repl.it)",
+                        "type": "link"
+                    }
+                ],
+                "serial": "1",
+                "slug": "hello",
+                "source_file": "course.yml",
+                "title": "První program"
+            },
+            {
+                "date": "2022-11-14",
+                "materials": [
+                    {
+                        "lesson_slug": "beginners/comparisons",
+                        "title": "Porovnávání",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/and-or",
+                        "title": "(Bonus) \"Nebo\" anebo \"a\"",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/expressions",
+                        "title": "(Doplnění) Vyhodnocování výrazů",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/for",
+                        "title": "Cyklus for",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/while",
+                        "title": "Cyklus while",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/range",
+                        "title": "(Doplnění) Range - sekvence čísel",
+                        "type": "cheatsheet"
+                    }
+                ],
+                "serial": "2",
+                "slug": "cyk",
+                "source_file": "course.yml",
+                "title": "Řídící struktury"
+            },
+            {
+                "date": "2022-11-24",
+                "materials": [
+                    {
+                        "lesson_slug": "beginners/functions",
+                        "title": "Funkce",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/basic-functions",
+                        "title": "Užitečné funkce",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/def",
+                        "title": "Definice funkcí",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/local-variables",
+                        "title": "Lokální proměnné",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/nested-traceback",
+                        "title": "Chybové hlášky ze zanořených funkcí",
+                        "type": "lesson"
+                    }
+                ],
+                "serial": "3",
+                "slug": "fun",
+                "source_file": "course.yml",
+                "title": "Funkce"
+            },
+            {
+                "date": "2022-12-01",
+                "materials": [
+                    {
+                        "lesson_slug": "beginners/modules",
+                        "title": "Moduly",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/str",
+                        "title": "Zápis řetězců",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/str-index-slice",
+                        "title": "Výběr z řetězců",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/str-methods",
+                        "title": "Řetězcové funkce a metody",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/fstring",
+                        "title": "(Bonus) Šablony - formatovací řetězce",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "projects/tic-tac-1d",
+                        "title": "Piškvorky 1D",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "other-tech/databases",
+                        "title": "Databáze - přehled",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "other-tech/overview",
+                        "title": "Ostatní technologie",
+                        "type": "lesson"
+                    },
+                    {
+                        "external_url": "https://pyvec.github.io/cheatsheets/strings/strings-cs.pdf",
+                        "title": "Řetězcový tahák",
+                        "type": "cheatsheet"
+                    }
+                ],
+                "serial": "4",
+                "slug": "other",
+                "source_file": "course.yml",
+                "title": "Ostatní knihovny a technologie"
+            },
+            {
+                "date": "2022-12-08",
+                "materials": [
+                    {
+                        "lesson_slug": "beginners/files",
+                        "title": "Soubory",
+                        "type": "lesson"
+                    },
+                    {
+                        "external_url": "https://www.gutenberg.org/files/1342/1342-0.txt",
+                        "title": "Odkaz k lekci – Jane Austen: Pride and Prejudice",
+                        "type": "link"
+                    },
+                    {
+                        "lesson_slug": "beginners/list",
+                        "title": "Seznamy",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/tuple",
+                        "title": "N-tice",
+                        "type": "lesson"
+                    },
+                    {
+                        "lesson_slug": "beginners/dict",
+                        "title": "Slovníky",
+                        "type": "lesson"
+                    },
+                    {
+                        "external_url": "https://pyvec.github.io/cheatsheets/lists/lists-cs.pdf",
+                        "title": "Tahák na seznamy",
+                        "type": "cheatsheet"
+                    },
+                    {
+                        "external_url": "https://pyvec.github.io/cheatsheets/dicts/dicts-cs.pdf",
+                        "title": "Slovníkový tahák",
+                        "type": "cheatsheet"
+                    }
+                ],
+                "serial": "5",
+                "slug": "str_fio",
+                "source_file": "course.yml",
+                "title": "Datové struktury a soubory"
+            },
+            {
+                "date": "2022-12-15",
+                "serial": "6",
+                "slug": "project",
+                "source_file": "course.yml",
+                "title": "Projekt - Robomaster"
+            }
+        ],
+        "source_file": "course.yml",
+        "subtitle": "SITPort - podzim 2022 - čtvrtek",
+        "time_description": "15:00 - 16:30",
+        "timezone": "Europe/Prague",
+        "title": "Lite Python Workshop",
+        "vars": {
+            "coach-present": true
+        }
+    }
+}

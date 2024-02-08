@@ -1,0 +1,369 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="zpetna_vazba_k_domacim_projektum">Zpětná vazba k domácím projektům
+<a href="#header-zpetna_vazba_k_domacim_projektum" class="header-link">#</a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="nakresli_5_6_7_8_uhelnik">Nakresli 5, 6, 7, 8 úhelník
+<a href="#header-nakresli_5_6_7_8_uhelnik" class="header-link">#</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="n">forward</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">penup</span><span class="p">,</span> <span class="n">pendown</span><span class="p">,</span> <span class="n">exitonclick</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">a</span><span class="o">=</span> <span class="mi">200</span><span class="o">/</span><span class="n">n</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">(</span><span class="mi">180</span><span class="o">-</span><span class="p">(</span><span class="mi">180</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)))</span>
+
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">6</span>
+<span class="n">a</span><span class="o">=</span> <span class="mi">200</span><span class="o">/</span><span class="n">n</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">(</span><span class="mi">180</span><span class="o">-</span><span class="p">(</span><span class="mi">180</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)))</span>
+    
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">7</span>
+<span class="n">a</span><span class="o">=</span> <span class="mi">200</span><span class="o">/</span><span class="n">n</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">(</span><span class="mi">180</span><span class="o">-</span><span class="p">(</span><span class="mi">180</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)))</span>
+
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">a</span><span class="o">=</span> <span class="mi">200</span><span class="o">/</span><span class="n">n</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">(</span><span class="mi">180</span><span class="o">-</span><span class="p">(</span><span class="mi">180</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">)))</span>
+
+<span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="jine_reseni">Jiné řešení
+<a href="#header-jine_reseni" class="header-link">#</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="n">exitonclick</span><span class="p">,</span> <span class="n">forward</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">penup</span><span class="p">,</span> <span class="n">pendown</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">forward</span><span class="p">(</span><span class="mi">200</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">penup</span><span class="p">()</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="n">forward</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">pendown</span><span class="p">,</span> <span class="n">penup</span><span class="p">,</span> <span class="n">exitonclick</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">forward</span><span class="p">(</span><span class="mi">200</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="n">forward</span><span class="p">(</span><span class="mi">200</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">penup</span><span class="p">()</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+    <span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">exitonclick</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="range_s_1_2_3_argumenty">range s 1, 2, 3 argumenty
+<a href="#header-range_s_1_2_3_argumenty" class="header-link">#</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+1
+2
+3
+4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+6
+7
+8
+9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5
+7
+9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4
+3
+2
+1
+0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="nejmensi_cislo">Nejmenší číslo
+<a href="#header-nejmensi_cislo" class="header-link">#</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zatim_nejmensi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej číslo: &quot;</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">cislo</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">nove_cislo</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej číslo: &quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">nove_cislo</span> <span class="o">&lt;</span> <span class="n">zatim_nejmensi</span><span class="p">:</span>
+        <span class="n">zatim_nejmensi</span> <span class="o">=</span> <span class="n">nove_cislo</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nejmenší číslo je: &quot;</span><span class="p">,</span> <span class="n">zatim_nejmensi</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zadej pět čísel a já ti to nejmenší vypíšu.&quot;</span><span class="p">)</span>
+<span class="n">zatim_nejmensi</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">for</span> <span class="n">cislo</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">cislo</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej libovolné číslo:&quot;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">zatim_nejmensi</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">cislo</span> <span class="o">&lt;</span> <span class="n">zatim_nejmensi</span><span class="p">:</span>
+        <span class="n">zatim_nejmensi</span> <span class="o">=</span> <span class="n">cislo</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nejmenší zadané číslo je:&quot;</span><span class="p">,</span> <span class="n">zatim_nejmensi</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zadej pět čísel a já ti to nejmenší vypíšu.&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">cislo</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Zadej libovolné číslo:&quot;</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">cislo</span> <span class="o">&lt;</span> <span class="n">zatim_nejmensi</span><span class="p">:</span>
+        <span class="n">zatim_nejmensi</span> <span class="o">=</span> <span class="n">cislo</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nejmenší zadané číslo je:&quot;</span><span class="p">,</span> <span class="n">zatim_nejmensi</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="na_zaver">Na závěr
+<a href="#header-na_zaver" class="header-link">#</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Pochvala za úkoly!</li>
+<li>Pochvala za ptaní!</li>
+</ul>
+</div>
+</div>
+</div>
+ 
+

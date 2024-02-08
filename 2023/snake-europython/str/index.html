@@ -1,0 +1,136 @@
+<div class="admonition warning"><p>This is a machine-generated translation.
+If you're not at the in-person workshop, try the <a href="https://tutorial.djangogirls.org/en/">DjangoGirls tutorial</a> for an intro to Python!</p>
+</div><h1 id="strings">Strings
+<a href="#strings" class="header-link">#</a>
+</h1>
+<p>Numbers are very useful for computers (as the word <em>computer</em> suggests), but Python can also work with other types of information.
+For example, with text.</p>
+<p>Try it: enter your name in quotation marks, as you can see below:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Ola&#39;</span>
+<span class="go">&#39;Ola&#39;</span>
+</pre></div><p>You have now created your first <em>string</em>!
+A string is a programming term for <em>text</em> - a sequence of characters (letters) that can be processed by a computer.</p>
+<p>When entering a string, you must always enclose it in quotation marks (apostrophes).
+Otherwise, Python would not recognize what is text to work with and what are instructions to execute.
+This is quite important for a computer - people will understand such things from the context but a computer is just a machine.</p>
+<p><span class="figure"><a href="naucse:static?filename=quote-comic.svg"><img src="naucse:static?filename=quote-comic.svg" alt="(Ilustrační komiks. Člověk říká robotovi: &#34;Řekni Pavlovi, ať mi zavolá!&#34;. Robot odpoví: &#34;PAVLOVI AŤ MI ZAVOLÁ!&#34;)"></a></span></p>
+<p>Strings can be concatenated - "added" - using the <code>+</code> operator. Try this:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;I am &#39;</span> <span class="o">+</span> <span class="s1">&#39;Ola&#39;</span>
+<span class="go">&#39;I am Ola&#39;</span>
+</pre></div><p>Watch out for the space!
+When you enter 'I am' + 'Ola', the two words will be joined together.
+The computer considers the space as a <em>character</em>; it behaves towards it like towards any letter.
+If you don't put the space in quotation marks, it won't be part of the string.</p>
+<p>Spaces between the string and the operator (<code>+</code>) do not matter. All of the following commands do the same thing:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;I am &#39;</span> <span class="o">+</span> <span class="s1">&#39;Ola&#39;</span>
+<span class="go">&#39;I am Ola&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;I am &#39;</span><span class="o">+</span><span class="s1">&#39;Ola&#39;</span>
+<span class="go">&#39;I am Ola&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;I am &#39;</span>                <span class="o">+</span>     <span class="s1">&#39;Ola&#39;</span>
+<span class="go">&#39;I am Ola&#39;</span>
+</pre></div><p>But it is customary to write one space around the operator on each side - just like in these materials. The code is then more readable.</p>
+<p>Try putting the space itself in quotation marks - add up three strings:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;I am&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;Ola&#39;</span>
+<span class="go">&#39;I am Ola&#39;</span>
+</pre></div><p>In addition to "concatenation", you can also repeat strings - multiply by a number.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Ola&#39;</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="go">&#39;OlaOlaOla&#39;</span>
+</pre></div><h2 id="quoting">Quoting
+<a href="#quoting" class="header-link">#</a>
+</h2>
+<p>And what if you want to put an apostrophe inside your string? You can use double quotes around the string.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;I&#39;d say they&#39;re properly crazy!&quot;</span>
+<span class="go">&quot;I&#39;d say they&#39;re properly crazy!&quot;</span>
+</pre></div><p>Python doesn't care which type of quotation marks you use to enter a string.
+The important thing is the letters inside.
+When Python prints a string, it can choose a different type of quotation marks than the ones you used.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Ola&quot;</span>
+<span class="go">&#39;Ola&#39;</span>
+</pre></div><h2 id="functions_and_methods">Functions and methods
+<a href="#functions_and_methods" class="header-link">#</a>
+</h2>
+<p>You already know how to 'add' strings ('Hello ' + 'Ola!') and 'multiply' them ('Ola' <em> 3).
+For all other things that can be done with text, there are not enough symbols on the keyboard.
+Therefore, some operations are named verbally - for example, so-called </em>functions*.</p>
+<p>If you want to know the number of letters in your name, call the function 'len'.
+Write 'len' (without quotes), then parentheses, and inside those parentheses, your name as a string (in quotes).
+This way you will <em>call</em> the function 'len' on the string with your name.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div><p>There is a function called <code>type</code> which determines whether something is a number or a string.
+How would you call it on the number <code>123</code> or the string <code>'abc'</code>?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+</pre></div>
+    </div>
+</div><p>In addition to functions, there are <em>methods</em>, which are written a little differently.</p>
+<p>If you want to see your name in capital letters, call the <code>upper</code> method.
+Write a string, then a dot, the method name <code>upper</code> (without quotes), and empty parentheses.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Ola&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;OLA&#39;</span>
+</pre></div><p>Strings also have a method called <code>lower</code>.
+Try calling it on your name.</p>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Ola&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;ola&#39;</span>
+</pre></div>
+    </div>
+</div><p>What is a method (which you call with a dot, like <code>'Ola'.upper()</code>) and what is a function (where you insert information in parentheses like <code>len('Ola')</code>), you will have to remember or look up for each new function/method.</p>
+<h2 id="expression_evaluation">Expression evaluation
+<a href="#expression_evaluation" class="header-link">#</a>
+</h2>
+<p>You can use calling a function or method as another value.</p>
+<p>Let Python calculate the mathematical expression <code>(1 + 3) / 2</code>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div><p>Python first adds <code>1 + 3</code> and the result is 4.
+It replaces the sum with 4 in the original equation and gets <code>8 / 4</code>.
+Then it divides and gets <code>2.0</code>.</p>
+<p>Try to think about how Python will process these expressions:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">4</span>
+</pre></div><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;I am &#39;</span> <span class="o">+</span> <span class="s1">&#39;Ola&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;I am OLA&#39;</span>
+<span class="go">`</span>
+</pre></div><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">9</span>
+</pre></div><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="go">3</span>
+</pre></div><div class="solution" id="solution-2">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=2"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p><code>len('Ola') + 1</code> → <code>3 + 1</code> → <code>4</code></p>
+<p><code>'I am ' + 'Ola'.upper()</code> → <code>'I am ' + 'OLA'</code> → <code>'I am OLA'</code></p>
+<p><code>len('Ola' * 3)</code> → <code>len('OlaOlaOla')</code> → <code>9</code></p>
+<p><code>len('Ola'.upper())</code> →<code>len('OLA')</code> → <code>3</code></p>
+    </div>
+</div><p>Similar composition is very common in programming.
+Most of the basic building blocks can be learned by beginners in a few weeks or months - and then throughout their programming career they discover new ways to assemble them into more and more complex structures.</p>
+<h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>OK, enough of the strings. What have you learned so far?</p>
+<ul>
+<li><strong>Strings</strong> are used for working with text.</li>
+<li><strong>Operators</strong> <code>+</code> and <code>*</code> are used for concatenating and repeating strings.</li>
+<li><strong>Functions</strong> and <strong>methods</strong> like <code>len()</code> and <code>upper()</code> perform some actions on strings.</li>
+<li><strong>Expressions</strong> can be composed together.</li>
+</ul>
+<p>Numbers, strings, operators, and functions are the basics of most programming languages.</p>
+<p>Ready for something new? We bet you are!</p>

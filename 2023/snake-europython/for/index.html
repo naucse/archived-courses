@@ -1,0 +1,58 @@
+<div class="admonition warning"><p>This is a machine-generated translation.
+If you're not at the in-person workshop, try the <a href="https://tutorial.djangogirls.org/en/">DjangoGirls tutorial</a> for an intro to Python!</p>
+</div><h1 id="cycles">Cycles
+<a href="#cycles" class="header-link">#</a>
+</h1>
+<p>Programmers don't like to repeat themselves. Programming is about automation: we won't greet every person separately, let's take a list of fifty people and greet them all at once!</p>
+<p>No, some programmers are probably not very socially gifted. But automation really comes in handy elsewhere!</p>
+<p>Do you still remember lists? Make a list of names.</p>
+<div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Rachel&#39;</span><span class="p">,</span> <span class="s1">&#39;Monica&#39;</span><span class="p">,</span> <span class="s1">&#39;Phoebe&#39;</span><span class="p">,</span> <span class="s1">&#39;Ola&#39;</span><span class="p">,</span> <span class="s1">&#39;Ty&#39;</span><span class="p">]</span>
+</pre></div><p>With the list, you will want to do this:</p>
+<ul>
+<li>For each name from the list of names:</li>
+<li>greet by the given name.</li>
+</ul>
+<p>In Python, such a <em>loop</em> - repetition "for each element of the list" - is written using the <code>for</code> command.</p>
+<div class="highlight"><pre><code>for name in names:
+    greet(name)</code></pre></div><p>The entire program will therefore look like this:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome,&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Rachel&#39;</span><span class="p">,</span> <span class="s1">&#39;Monica&#39;</span><span class="p">,</span> <span class="s1">&#39;Phoebe&#39;</span><span class="p">,</span> <span class="s1">&#39;Ola&#39;</span><span class="p">,</span> <span class="s1">&#39;Ty&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div><p>And when we execute it:</p>
+<div class="highlight"><pre><code>$ python3 python_intro.py
+Welcome, Rachel
+Welcome, Monica
+Welcome, Phoebe
+Welcome, Ola
+Welcome, You</code></pre></div><p>As you can see, everything you have indented inside the <code>for</code> loop will be repeated for each element of the <code>names</code> list.</p>
+<h2 id="repeat_varnvar_times">Repeat <var>n</var> times
+<a href="#repeat_varnvar_times" class="header-link">#</a>
+</h2>
+<p>You can use the <code>for</code> loop with values other than lists.</p>
+<p>It is often used with the <code>range()</code> function. When you want to repeat something 200 times, write:</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I will never throw a plastic bag into a campfire again!&quot;</span><span class="p">)</span>
+</pre></div><p>How does it work
+<code>for i in range(X)</code> can be translated as "for every number from zero to <var>X</var>".
+The function <code>range</code> creates that sequence of numbers from zero to <var>X</var>.
+Python stores each number in the variable <code>i</code> as it iterates through the loop.</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div><div class="highlight"><pre><code>0
+1
+2
+3
+4</code></pre></div><p>Notice that the number <code>5</code> itself is not included in the result:
+<code>range(5)</code> counts from 0 to 4.
+When you start counting from zero and want to have five numbers, you end up with four.</p>
+<h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>You learned:</p>
+<ul>
+<li>"Cycle" means a way to repeat a certain procedure multiple times in a row.</li>
+<li>"Range" helps when you need a specific number of repetitions.</li>
+</ul>

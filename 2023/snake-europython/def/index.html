@@ -1,0 +1,191 @@
+<div class="admonition warning"><p>This is a machine-generated translation.
+If you're not at the in-person workshop, try the <a href="https://tutorial.djangogirls.org/en/">DjangoGirls tutorial</a> for an intro to Python!</p>
+</div><h1 id="own_function">Own function
+<a href="#own_function" class="header-link">#</a>
+</h1>
+<p>Do you remember functions like <code>len()</code>, <code>print()</code>, or <code>randrange()</code> from the <code>random</code> module?
+They are like magical spells from a leather-bound book: if you know their names and can write them correctly, they will do something for you.</p>
+<p>Now we will move on to the next level: we will come up with our own spells! How? We will combine commands that we already know.</p>
+<p>Perhaps a function that greets you could:</p>
+<ul>
+<li>Write "hello!"</li>
+<li>Write "how are you?"</li>
+</ul>
+<p>The definition of a function in Python starts with the keyword 'def', followed by the name and parentheses (currently empty). Then, like with 'if', there is a colon and indented commands - this time the commands that the function should execute.</p>
+<div class="highlight"><pre><code>def function_name():
+    # commands to be executed by the function</code></pre></div><p>Write in your program:</p>
+<div class="highlight"><pre><code>def greeting():
+    print('Hello!')
+    print('How are you?')</code></pre></div><p>Your first function is ready!</p>
+<p>When you run this program, it won't do anything. That's because this is just a <em>definition</em> of a function. Python now knows how to say hello - but it wasn't told to actually do it!</p>
+<p>At the end of the program, add a call. This is no longer part of the function, but a continuation of the program itself. Therefore, it must not be indented.</p>
+<div class="highlight"><pre><code>def greeting():
+    print('Hello!')
+    print('How are you?')
+
+greeting()</code></pre></div><p>What happens when you call the function several times in a row?</p>
+<div class="highlight"><pre><code>def greeting():
+    print('Hello!')
+    print('How are you?')
+
+greeting()
+greeting()
+greeting()</code></pre></div><div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>Each call triggers the body of the function again.</p>
+<div class="highlight"><pre><code>(venv) $ python python_intro.py
+Hello!
+How are you?
+Hello!
+How are you?
+Hello!
+How are you?</code></pre></div>
+    </div>
+</div><p>What happens when you place a function call <em>above</em> the function definition, instead of at the end of the program?</p>
+<div class="highlight"><pre><code>greeting()
+
+def greeting():
+    print('Hello!')
+    print('How are you?')</code></pre></div><div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;pozdrav&#39; is not defined</span>
+</pre></div><p>Python complains about <code>NameError</code> - it doesn't recognize anything called <code>pozdrav</code>.</p>
+<p>Python reads the program from top to bottom. It "learns" how to greet with the <code>def</code> command. Before it reaches the <code>def</code> command, the function does not exist.</p>
+    </div>
+</div><h2 id="parameters">Parameters
+<a href="#parameters" class="header-link">#</a>
+</h2>
+<p>Your function can only be called as <code>greeting()</code>. However, functions like <code>len('word')</code> and <code>print(1 + 2)</code> can also work with values.</p>
+<p>Let's now write a function that will greet you by name.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome,&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Soňa&#39;</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hubert&#39;</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Anička&#39;</span><span class="p">)</span>
+</pre></div><p>How does it work? In the function definition, you specify a <em>parameter</em> in parentheses - the name of the variable that the function will work with. You then enter a value for this parameter when calling the function.</p>
+<p>Can you write a program that asks for a name and then greets you?</p>
+<div class="solution" id="solution-2">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=2"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello,&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What&#39;</span><span class="n">s</span> <span class="n">your</span> <span class="n">name</span><span class="err">?</span><span class="s1">&#39;))</span>
+</pre></div>
+    </div>
+</div><p>What happens when you call a function without a value for the parameter?</p>
+<div class="solution" id="solution-3">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=3"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome,&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="n">greeting</span><span class="p">()</span>
+</pre></div><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">9</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">greeting() missing 1 required positional argument: &#39;name&#39;</span>
+</pre></div><p>Python complains about <code>TypeError</code> - the function <code>pozdrav</code> did not receive the mandatory argument <code>name</code>.</p>
+    </div>
+</div><p>The function can contain any code. For example, a conditional statement, 'if'. Commands after 'if' then need to be indented by <em>an additional</em> four spaces:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello,&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Ola&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You know how to program!&#39;</span><span class="p">)</span> 
+
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hubert&#39;</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Soňa&#39;</span><span class="p">)</span>
+</pre></div><h2 id="returning">Returning
+<a href="#returning" class="header-link">#</a>
+</h2>
+<p>The next thing that functions like <code>len</code> can do is <em>return</em> the result.</p>
+<div class="highlight"><pre><span></span><span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>        <span class="c1"># writes: 3</span>
+</pre></div><p>How to do it if you wanted to write such a function? 
+In the function definition, you can use the <code>return</code> command. 
+It immediately terminates the function and returns the given value.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">double</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+</pre></div><p>Try to think about how to write a function that returns the fifth case of a noun. For example:</p>
+<ul>
+<li><code>paty_pad('Ola')</code> → 'Olo'</li>
+<li><code>paty_pad('Soňa')</code> → 'Soňo'</li>
+<li><code>paty_pad('Hubert')</code> → 'Huberte'</li>
+</ul>
+<p>These are examples of a function called "paty_pad" being applied to names in Czech. The function is changing the last letter of the name to match its grammatical case.</p>
+<p>This is a very complicated task, so let's simplify it a bit. The function should do this:</p>
+<p>If the name is "Hubert":</p>
+<ul>
+<li>it will return "Huberte"
+If the name ends with "a":</li>
+<li>it will return the name with "o" instead of the last letter
+Otherwise:</li>
+<li>it will return the original name. (The user probably won't notice.)</li>
+</ul>
+<p>This is a Python code that defines a function named "paty_pad" which takes a name as an input argument and returns the name in a modified form. Here is the translation of the code comments and function:</p>
+<div class="highlight"><pre><span></span><span class="c1"># This function modifies the name based on certain conditions</span>
+<span class="k">def</span> <span class="nf">paty_pad</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="c1"># If the name is &#39;Hubert&#39;, return &#39;Huberte&#39;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Hubert&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Huberte&#39;</span>
+    <span class="c1"># If the last letter of the name is &#39;a&#39;, replace it with &#39;o&#39;</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;o&#39;</span>
+    <span class="c1"># Otherwise, return the name as is</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span>
+</pre></div><p>So, if you call this function with the input argument 'Jana', it will return 'Jano'. If you call it with 'Petr', it will return 'Petr'. If you call it with 'Hubert', it will return 'Huberte'.</p>
+<p>Can you change the function <code>greeting</code> to greet in Czech? You can use the function <code>paty_pad</code>.</p>
+<div class="solution" id="solution-4">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=4"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">paty_pad</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Hubert&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Huberte&#39;</span>
+    <span class="k">elif</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;o&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name</span>
+
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome,&#39;</span><span class="p">,</span> <span class="n">paty_pad</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Hubert&#39;</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Ola&#39;</span><span class="p">)</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s1">&#39;Soňa&#39;</span><span class="p">)</span>
+</pre></div>
+    </div>
+</div><h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>What was new this time?</p>
+<ul>
+<li><strong>Function</strong> allows you to name several commands and then call them all at once.</li>
+<li><strong>Parameters</strong> of the function, the values with which the function works,
+are entered in parentheses.</li>
+<li><code>return</code> terminates the function and returns a value.</li>
+<li></li>
+</ul>

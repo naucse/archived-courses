@@ -1,0 +1,44 @@
+<div class="admonition warning"><p>This is a machine-generated translation, meant to support the in-person workshop.</p>
+</div><h1 id="randomness">Randomness
+<a href="#randomness" class="header-link">#</a>
+</h1>
+<p>Sometimes it is necessary to select a random value. There is no function available directly in Python for this, but it can be accessed using the <code>import</code> command.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div><p>Which means:</p>
+<ul>
+<li>From the <code>random</code> module (which contains functions related to random values), import the <code>randrange</code> function (which can select random numbers).</li>
+<li>Select a random number from six possibilities.</li>
+</ul>
+<p>Call the <code>randrange</code> function multiple times. What numbers can you get?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <p>Numbers from 0 to 5 - not including 6.
+Programmers count from zero, and when you count six numbers from zero,
+you only get to five.</p>
+<p>When you want to 'roll the dice' - select numbers from 1 to 6 - you can write:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randrange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">4</span>
+</pre></div>
+    </div>
+</div><p>There are many modules like <code>random</code> from which useful extensions can be imported, for working with text, drawing images, working with files or days on the calendar, compressing data, sending emails, downloading from the internet... You just need to know (or be able to find) the name of the right module and function. And if what Python has built-in is not enough, additional extension modules can be installed.</p>
+<h2 id="random_selection">Random selection
+<a href="#random_selection" class="header-link">#</a>
+</h2>
+<p>When we're talking about chance, let's try to draw a random number in the lottery. From the list, we have the <code>random</code> module with the <code>choice</code> function to choose from.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lotery</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">59</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">choice</span><span class="p">(</span><span class="n">lotery</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div><p>Similarly, you can choose a random card from your hand, a random participant in a course, a random color - anything you can put on a list.</p>
+<h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>The command <strong>import</strong> provides you with functionality that is not directly available in Python.
+The <strong>random</strong> module contains the <strong>randrange</strong> function (random number) and <strong>choice</strong> function (random element from a list).</p>

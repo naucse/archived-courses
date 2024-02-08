@@ -1,0 +1,61 @@
+<div class="admonition warning"><p>This is a machine-generated translation, meant to support the in-person workshop.</p>
+</div><h1 id="varnvar-tuple"><var>N</var>-tuple
+<a href="#varnvar-tuple" class="header-link">#</a>
+</h1>
+<p>Do you already know that you can return a value from a function using the <code>return</code> statement?</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div><p>But how to write a function that returns two values? For example, I want to write a function that calculates the quotient and remainder after division.</p>
+<p>Two values can be returned as a list.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quotient_and_remainder</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">quotient</span> <span class="o">=</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">quotient_and_remainder</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div><p>But it's better to return a <em>pair</em> of numbers - two numbers separated by a comma.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quotient_and_remainder</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">quotient</span> <span class="o">=</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+
+    <span class="k">return</span> <span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">quotient_and_remainder</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div><p>This is called a pair - and similarly, a trio, quartet, quintet, sextet, simply an <var>n</var>-tuple of values is formed.
+It works similarly to a list, but it cannot be changed - for example, additional elements cannot be added to it using <code>append</code>.
+When I have a trio, it always remains as a trio.</p>
+<p>When you have an <var>n</var>-tuple, you can <em>unpack</em> it by assigning it to several variables.</p>
+<div class="highlight"><pre><code>quotient, remainder = quotient_and_remainder(5, 2)
+
+print(quotient)
+print(remainder)</code></pre></div><p>N-tuples have many uses, for example:</p>
+<ul>
+<li>A point in space has 3 coordinates - a triple of numbers!</li>
+<li>A playing card has a color and a value - a pair of numbers and strings, for example <code>(2, 'spades')</code>.</li>
+</ul>
+<p>Sometimes it is necessary to add an <var>n</var>-tuple to a list, for example, to save information about a whole pack of playing cards. In similar cases, it is necessary to enclose each <var>n</var>-tuple in parentheses to make it clear where it begins and ends. Here is a list of pairs:</p>
+<div class="highlight"><pre><span></span><span class="n">hand</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;spades&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;clubs&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;diamonds&#39;</span><span class="p">)]</span>
+</pre></div><p>When you have such a list, you can go through it in a <code>for</code> loop using unpacking.</p>
+<div class="highlight"><pre><code>for value, color in hand:
+    print('I am playing', value, 'and they are', color)</code></pre></div><h2 id="zip">Zip
+<a href="#zip" class="header-link">#</a>
+</h2>
+<p>The function <code>zip</code> returns an <var>N</var>-tuple or a sequence of <var>n</var>-tuples, which allows you to iterate through multiple lists simultaneously, where the elements correspond to each other.</p>
+<div class="highlight"><pre><span></span><span class="n">Items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;grass&#39;</span><span class="p">,</span> <span class="s1">&#39;sun&#39;</span><span class="p">,</span> <span class="s1">&#39;carrot&#39;</span><span class="p">,</span> <span class="s1">&#39;river&#39;</span><span class="p">]</span>
+<span class="n">Colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="n">Places</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;on the ground&#39;</span><span class="p">,</span> <span class="s1">&#39;up high&#39;</span><span class="p">,</span> <span class="s1">&#39;on the plate&#39;</span><span class="p">,</span> <span class="s1">&#39;behind the wall&#39;</span><span class="p">]</span>
+
+
+<span class="k">for</span> <span class="n">item</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">place</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">places</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">place</span><span class="p">)</span>
+</pre></div><p>In this cycle, you will first receive a trio of the first elements from all three lists, then a trio of all second elements, then third, and so on.</p>
+<h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<p>What did you learn this time?</p>
+<ul>
+<li>Using a <em><var>n</var>-tuple</em>, several values can be combined into one.</li>
+<li><em><var>N</var>-tuples</em> can be unpacked into several variables.</li>
+<li>The <code>zip</code> function returns a sequence of <em><var>n</var>-tuples</em>, in which the elements come from several lists.</li>
+</ul>

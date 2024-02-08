@@ -1,0 +1,106 @@
+<h1 id="visual_studio_code_amp_python">Visual Studio Code &amp; Python
+<a href="#header-visual_studio_code_amp_python" class="header-link">#</a>
+</h1>
+<p>Visual Studio Code (také VSCode) je editor zdrojového kódu vyvíjený společností Microsoft pro operační systémy Windows, Linux a macOS. (viz oficiální web: <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> )</p>
+<h2 id="nastaveni_vscode">Nastavení VSCode
+<a href="#header-nastaveni_vscode" class="header-link">#</a>
+</h2>
+<p>VSCode umožňuje nastavit spoustu věcí a jelikož pracuji na Windows, budu se bavit hlavně o Windows, ale postupy by měly být totožné i v jiných operačních systémech.</p>
+<p>Jedním ze základním příkazů ve VSCode je otevření příkazové řádky (pozor, jedná se o příkazovou řádku ve VSCode, neplést s příkazovou řádkou ve Winsows). Tato příkazová řádka umožňuje vykonávat různé operace, které jdou vyvolat i jinými způsoby (např. z menu), ale je snazší ji používat, protože umožňuje i textové vyhledávání. Vyvoláme ji jednám z následujících způsobů:</p>
+<ul>
+<li>z horního menu: <code>View &gt; Command Pallete...</code></li>
+<li>klávesová zkr.: <code>F1</code></li>
+<li>klávesová zkr.: <code>CTRL+SHIFT+P</code> (na Macu <code>CMD+SHIFT+P</code>)</li>
+</ul>
+<p>a po otevření vypadá následovně</p>
+<p><img src="naucse:static?filename=cmd-pallete.png" alt="Příkazová řádka"></p>
+<h3 id="nastaveni_terminalu">Nastavení terminálu
+<a href="#header-nastaveni_terminalu" class="header-link">#</a>
+</h3>
+<p>VSCode umožňuje nastavit terminál v jakém budeme pracovat, nastavíme jej následovně:</p>
+<ol>
+<li>Otevřeme VSCode příkazový řádek</li>
+<li><p>Napíšeme <code>&gt;Terminal: Select Default Profile</code>
+(nebo jen část. Pozor, znak <code>&gt;</code> na začátku je důležitý - nemazat)</p>
+<p><img src="naucse:static?filename=cmd-terminal.png" alt="Select default terminal"></p>
+</li>
+<li><p>A vybereme preferovaný terminál - na Windows doporučuju <code>Command Prompt</code>, pro jednoduchost a kompatibilitu s kurzy.</p>
+<p><img src="naucse:static?filename=cmd-cmd.png" alt="CMD"></p>
+</li>
+</ol>
+<h3 id="instalace_rozsireni">Instalace rozšíření
+<a href="#header-instalace_rozsireni" class="header-link">#</a>
+</h3>
+<p>VSCode umožňuje instalovat spoustuužitečných rozšíření a vytvořit tak z jednoduchého textového editoru velmi mocný nástroj.</p>
+<p>Pro naši potřebu budeme potřebovat rozšíření <code>Python</code> (od Microsoftu), které nainstalujeme tak, že z levého panelu vybereme ikonu s čtverečky, vyhledávacího pole zadáme <code>Python</code> a klikneme na tlačítko <code>Install</code>.</p>
+<p><img src="naucse:static?filename=extension.png" alt="rozšíření Python"></p>
+<p><strong>Doporučení:</strong> Pokud používáte svůj počítač, máte nainstalováno více rozšíření a víte, že jste je neinstalovali, je dobré je buď zakázat nebo rovnou odstranit - můžou způsobovat nepříjemnosti a zpomalovat celý VSCode.</p>
+<h2 id="prace_s_pythonem_ve_vscode">Práce s Pythonem ve VSCode
+<a href="#header-prace_s_pythonem_ve_vscode" class="header-link">#</a>
+</h2>
+<h3 id="vytvoreni_virtualniho_prostredi">Vytvoření virtuálního prostředí
+<a href="#header-vytvoreni_virtualniho_prostredi" class="header-link">#</a>
+</h3>
+<ol>
+<li>Otevřete ve VSCode prázdnou složku (nebo složku bez virtuálního prostředí) - složka ve VSCode představuje něco jako projekt, obsahuje zdrojové soubory, ale ukládají se zde i různá nastavení, ...</li>
+<li><p>Otevřete <code>Příkazovou řádku</code> ve VSCode (kláv. zkr: <code>F1</code>) a vyberte příkaz <code>&gt;Python: Create Environment</code> (stačí napsat kousek, viz obrázek) a spustí se drobný průvodce, který vám usnadní vytvořit prostředí (viz jednotlivé kroky níže)</p>
+<p><img src="naucse:static?filename=create-venv.png" alt="Vytvoření prostředí"></p>
+<ul>
+<li><p>Výběr virtuálního prostředí (v kurzech používáme <code>Venv</code>)</p>
+<p><img src="naucse:static?filename=venv-type.png" alt="Výběr typu prostředí"></p>
+</li>
+<li><p>výběr verze Pythonu (stačí vybrat doporučenou verzi)</p>
+<p><img src="naucse:static?filename=venv-python.png" alt="Vytvoření prostředí"></p>
+<p>V mé prázdné složce (<code>vscode_test</code>) se vytvoří virtuální prostředí (ve složce <code>.venv</code>)</p>
+<p><img src="naucse:static?filename=new_venv.png" alt="Nové virtuální prostředí"></p>
+</li>
+</ul>
+</li>
+<li><p>Koukneme, jestli se prostředí i aktivovalo...</p>
+<ul>
+<li><p>otevřeme si terminál</p>
+<ul>
+<li>pomocí klávesové zkratky <code>CTRL+;</code> (na Macu <code>CMD+;</code>) - pomocí této zkratky jde i skrývat a znovu zobrazovat</li>
+<li><p>z menu <code>View &gt; Terminal</code></p>
+<p>Otevře se nový terminál s aktivovaným prostředím</p>
+<p><img src="naucse:static?filename=terminal.png" alt="Nový terminál"></p>
+<p>Pokud chceme terminál odstranit, použijme ikonu koše (okno Terminálu v pravo nahoře) - ikona křížku terminál pouze schová.</p>
+<p><img src="naucse:static?filename=terminal-kill.png" alt="Odstranění terminálu"></p>
+</li>
+</ul>
+</li>
+<li><p>ověřit aktivní prostředí jde i ve spodním panelu, kde se ukáže, jakou verzi pythonu používáme, a že je opravdu z naší složky <code>.venv</code></p>
+<p><img src="naucse:static?filename=venv-panel.png" alt="Ověření prostředí"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="pytest">Pytest
+<a href="#header-pytest" class="header-link">#</a>
+</h3>
+<p>Python rozšíření taky celkem dobře integruje testování do VSCode. Zprovozníme jej následovně:</p>
+<ol>
+<li><p>Otevřeme <code>VSCode příkazovou řádku</code> (<code>F1</code>) a zadáme příkaz <code>&gt;Python: Configure Tests</code> (stčí napsat část, viz obr)</p>
+<p><img src="naucse:static?filename=tests-config.png" alt="Nastavení Testů"></p>
+</li>
+<li><p>Vybereme testovací framework, který chceme použít (v našem případě <code>pytest</code>)</p>
+<p><img src="naucse:static?filename=pytest.png" alt="Pytest"></p>
+</li>
+<li><p>Vybert složku, kde jsou (či budou) umístěny testy (v našem případě <code>.</code> - hlavní složka projektu). Pytest bude testy hledat pouze v této složce a jejich potomcích.</p>
+<p><img src="naucse:static?filename=tests-folder.png" alt="Nastavení složky s testy"></p>
+</li>
+</ol>
+<p>To je vše - Pytest je nainstalován, nastaven a připraven k použití. VSCode si taky uložilo nějaké nastavení (které jsme mu před chvílí zadali) v naší složce (projektu), které se znova načte při otevření této složky.</p>
+<p><img src="naucse:static?filename=tests-settings.png" alt="Testy: vytvořené testy"></p>
+<p>Jak Testy spustit? Jednouše, mámě několik možností</p>
+<ul>
+<li><p>přímo z editoru</p>
+<p><img src="naucse:static?filename=pytest-1.png" alt="Testy ve VSCode"></p>
+</li>
+<li><p>ze speciálního panelu pro testy</p>
+<p><img src="naucse:static?filename=pytest-2.png" alt="Testy ve VSCode: Ukázka"></p>
+</li>
+</ul>
+<p>Ukázka chyby</p>
+<p><img src="naucse:static?filename=pytest-error.png" alt="Testy ve VSCode: Ukázka"></p>
+<p>Poznámka: Samozřejmě můžeme testy pustit i z Terminálu ;-).</p>

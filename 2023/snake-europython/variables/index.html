@@ -1,0 +1,100 @@
+<div class="admonition warning"><p>This is a machine-generated translation.
+If you're not at the in-person workshop, try the <a href="https://tutorial.djangogirls.org/en/">DjangoGirls tutorial</a> for an intro to Python!</p>
+</div><h1 id="variables">Variables
+<a href="#variables" class="header-link">#</a>
+</h1>
+<p>An important concept in programming are <em>variables</em>.
+A variable is nothing but a <em>naming</em> of something that we will want to use later.
+Programmers use variables to store data so that their code is more readable and they don't have to remember specific values.</p>
+<p>Let's say you want to name a string with your name as <code>name</code>. It would be written like this:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Ola&#39;</span>
+</pre></div><p>The variable <code>name</code> will now have the value  <code>'Ola'</code>.</p>
+<p>As you may have noticed, this command did not return anything - Python did not output any result.
+How do you then find out if the variable really exists?</p>
+<p>Enter the variable name alone (i.e. <code>name</code>, without quotation marks) and press <kbd>Enter</kbd>:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jmeno</span>
+<span class="go">&#39;Ola&#39;</span>
+</pre></div><p>Try to set a different variable - for example, your favorite color.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">color</span>
+<span class="go">&#39;blue&#39;</span>
+</pre></div><p>You can assign a value to a variable anytime again and thus change what is hidden under the given name:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span>
+<span class="go">&#39;Ola&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Soňa&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span>
+<span class="go">&#39;Soňa&#39;</span>
+</pre></div><p>You can also pass it to a function or use it in an expression.
+Python will substitute the current value for the variable name.</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="go">&#39;SoňaSoňaSoňaSoňa&#39;</span>
+</pre></div><p>Great, isn't it?
+The variable can contain anything, for example numbers. Try this:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">length</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">width</span> <span class="o">*</span> <span class="n">length</span>
+<span class="go">24</span>
+</pre></div><p>But what if you use the wrong name? Can you guess what will happen?</p>
+<div class="solution" id="solution-0">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=0"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">city</span> <span class="o">=</span> <span class="s2">&quot;Tokyo&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ccity</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;ccity&#39; is not defined</span>
+</pre></div>
+    </div>
+</div><p>Error!</p>
+<p>Python has various types of errors.
+This one is called <code>NameError</code>.
+Python will return this error if you try to use a variable that has not been set yet.
+It is often a typo.
+So when you see <code>NameError</code>, check if you made a typo when you were setting or using the variable.</p>
+<h2 id="variable_names">Variable names
+<a href="#variable_names" class="header-link">#</a>
+</h2>
+<p>Professional programmers name variables in English so that as many colleagues around the world as possible can understand them.</p>
+<p>In any case, it is good not to use diacritics and avoid capital letters:
+use <code>name</code> instead of <code><strong>N</strong>ame</code>.</p>
+<p>Try it out: Which of these names will Python allow you to use as a variable?</p>
+<ul>
+<li><code>button5</code></li>
+<li><code>5button</code></li>
+<li><code>button</code> </li>
+<li><code>favorite color</code></li>
+<li><code>favorite-color</code></li>
+<li><code>favoriteColor</code></li>
+</ul>
+<div class="solution" id="solution-1">
+    <h3>Řešení</h3>
+    <div class="solution-cover">
+        <a href="naucse:solution?solution=1"><span class="link-text">Ukázat řešení</span></a>
+    </div>
+    <div class="solution-body" aria-hidden="true">
+        <ul>
+<li><code>button5</code> yes</li>
+<li><code>5button</code> no: names must start with a letter</li>
+<li><code>button</code> yes</li>
+<li><code>favorite color</code> no: that's not one name, but two!</li>
+<li><code>favorite-color</code> also no: Python interprets it as substracting two variables (<code>favourite</code> minut <code>color</code>)</li>
+<li><code>favoriteColor</code>yes: but it's better to avoid capital letters</li>
+</ul>
+    </div>
+</div><p>In more complex variable names, an underscore is used. For example, <code>favorite_color</code> will be considered as one word, the name of one variable, by Python, but a person sees two words.</p>
+<div class="highlight"><pre><code>&gt;&gt;&gt; favourite_color = 'blue'
+&gt;&gt;&gt; favourite_color.upper()
+'BLUE'</code></pre></div><h2 id="summary">Summary
+<a href="#summary" class="header-link">#</a>
+</h2>
+<ul>
+<li><strong>Variables</strong> are names for values.</li>
+<li>By using the assignment operator (<code>=</code>), you can set a variable to any value.</li>
+<li>Variables are named using <strong>lowercase letters</strong> without diacritics.</li>
+<li>We can use an <strong>underscore</strong> to separate words within a variable name.</li>
+</ul>
